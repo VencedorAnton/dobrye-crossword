@@ -4,7 +4,7 @@
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width,initial-scale=1,maximum-scale=1,user-scalable=no,viewport-fit=cover">
 <meta name="theme-color" content="#f7f2e8">
-<title>Добрые Кроссворды — прототип v0.5</title>
+<title>Добрые Кроссворды — прототип v0.6</title>
 <style>
 :root{
   --bg:#f6f0e5; --paper:#fffdf8; --ink:#202a36; --muted:#68717d;
@@ -252,7 +252,7 @@ function renderRight(){
    const key=cellKey(r,c),b=document.createElement('button');
    b.className='answer-box'+(i===selectedCellIndex?' active':'')+(ls.hinted[key]?' hinted':'');
    b.textContent=ls.letters[key]||'';
-   b.onclick=()=>{selectedCellIndex=i;renderGame()};
+   b.onclick=()=>{selectedCellIndex=i;renderGame();setTimeout(scrollPlayControlsIntoView,60)};
    strip.appendChild(b)
  });
 
