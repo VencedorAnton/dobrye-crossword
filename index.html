@@ -4,7 +4,7 @@
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width,initial-scale=1,maximum-scale=1,user-scalable=no,viewport-fit=cover">
 <meta name="theme-color" content="#f7f2e8">
-<title>Добрые Кроссворды — прототип v0.8</title>
+<title>Добрые Кроссворды — прототип v0.9</title>
 <style>
 :root{
   --bg:#f6f0e5; --paper:#fffdf8; --ink:#202a36; --muted:#68717d;
@@ -145,6 +145,9 @@ body.no-numbers .cell .num{display:none}
     <div class="settings-card"><h3>Карточки новых слов</h3><div class="choice" id="cardChoice">
       <button data-card-value="auto">Показывать автоматически</button><button data-card-value="click">Только по нажатию</button><button data-card-value="off">Выключить</button>
     </div></div>
+    <div class="settings-card"><h3>Раскладка клавиатуры</h3><div class="choice" id="keyboardChoice">
+      <button data-keyboard-value="alpha">Алфавитная (А–Я)</button><button data-keyboard-value="qwerty">Обычная (ЙЦУКЕН)</button>
+    </div></div>
     <div class="settings-card"><div class="toggle-row"><span>Показывать номера клеток</span><button id="numbersToggle" class="toggle on" aria-label="Показывать номера клеток"></button></div></div>
     <div class="settings-card"><p style="margin:0;color:#68717d;line-height:1.45">Все настройки сохраняются на этом устройстве. Номера клеток включены по умолчанию.</p></div>
   </section>
@@ -184,9 +187,9 @@ let currentPuzzle=null, selectedWord=0, selectedCellIndex=0, justCompletedWord=n
 function defaults(){return {completed:{},levels:{},activeLevel:null}}
 function loadState(){try{return {...defaults(),...JSON.parse(localStorage.getItem(STORAGE)||'{}')}}catch(e){return defaults()}}
 function saveState(){try{localStorage.setItem(STORAGE,JSON.stringify(state))}catch(e){}refreshHome()}
-function loadSettings(){let d={scale:'large',cards:'auto',numbers:true};try{return {...d,...JSON.parse(localStorage.getItem(SETTINGS)||'{}')}}catch(e){return d}}
+function loadSettings(){let d={scale:'large',cards:'auto',numbers:true,keyboard:'alpha'};try{return {...d,...JSON.parse(localStorage.getItem(SETTINGS)||'{}')}}catch(e){return d}}
 function saveSettings(){try{localStorage.setItem(SETTINGS,JSON.stringify(settings))}catch(e){}applySettings()}
-function applySettings(){document.body.dataset.scale=settings.scale;document.body.classList.toggle('no-numbers',!settings.numbers);document.querySelectorAll('[data-scale-value]').forEach(b=>b.classList.toggle('selected',b.dataset.scaleValue===settings.scale));document.querySelectorAll('[data-card-value]').forEach(b=>b.classList.toggle('selected',b.dataset.cardValue===settings.cards));document.getElementById('numbersToggle').classList.toggle('on',settings.numbers)}
+function applySettings(){document.body.dataset.scale=settings.scale;document.body.classList.toggle('no-numbers',!settings.numbers);document.querySelectorAll('[data-scale-value]').forEach(b=>b.classList.toggle('selected',b.dataset.scaleValue===settings.scale));document.querySelectorAll('[data-card-value]').forEach(b=>b.classList.toggle('selected',b.dataset.cardValue===settings.cards));document.querySelectorAll('[data-keyboard-value]').forEach(b=>b.classList.toggle('selected',b.dataset.keyboardValue===settings.keyboard));document.getElementById('numbersToggle').classList.toggle('on',settings.numbers);if(document.getElementById('keyboard'))buildKeyboard()}
 function showScreen(id){document.querySelectorAll('.screen').forEach(s=>s.classList.remove('active'));document.getElementById(id).classList.add('active');window.scrollTo(0,0)}
 function getLevelState(i){if(!state.levels[i]) state.levels[i]={letters:{},hinted:{},completedWords:{}};return state.levels[i]}
 function refreshHome(){const btn=document.getElementById('resumeBtn');if(state.activeLevel!==null && !state.completed[state.activeLevel]){btn.classList.add('show');document.getElementById('resumeSub').textContent=`Кроссворд ${state.activeLevel+1}`}else btn.classList.remove('show');const done=Object.keys(state.completed).filter(k=>state.completed[k]).length;document.getElementById('homeStatus').textContent=`Пройдено: ${done} из ${PUZZLES.length}`}
@@ -309,7 +312,33 @@ function inputLetter(ch){
   saveState();
   renderGame();
 }
-function deleteLetter(){const pl=currentPuzzle.placements[selectedWord],cells=placementCells(pl),ls=getLevelState(state.activeLevel);let idx=selectedCellIndex;let [r,c]=cells[idx],key=cellKey(r,c);if(ls.letters[key]){delete ls.letters[key]}else if(idx>0){idx--;selectedCellIndex=idx;[r,c]=cells[idx];key=cellKey(r,c);delete ls.letters[key]}saveState();renderGame()}
+function cellIsProtected(r,c){
+  return wordsAt(r,c).some(wordIdx=>isWordCorrect(wordIdx));
+}
+function deleteLetter(){
+  const pl=currentPuzzle.placements[selectedWord],cells=placementCells(pl),ls=getLevelState(state.activeLevel);
+  let idx=selectedCellIndex;
+  let [r,c]=cells[idx],key=cellKey(r,c);
+
+  // A letter that belongs to any correctly solved word is locked.
+  if(ls.letters[key]){
+    if(cellIsProtected(r,c)){toast('Буква уже закреплена разгаданным словом');return}
+    delete ls.letters[key];
+  }else{
+    // Backspace searches backward for the nearest editable filled cell,
+    // skipping letters protected by already solved crossing words.
+    let found=-1;
+    for(let i=idx-1;i>=0;i--){
+      const [rr,cc]=cells[i],kk=cellKey(rr,cc);
+      if(ls.letters[kk]&&!cellIsProtected(rr,cc)){found=i;break}
+    }
+    if(found<0)return;
+    idx=found;selectedCellIndex=idx;
+    [r,c]=cells[idx];key=cellKey(r,c);
+    delete ls.letters[key];
+  }
+  saveState();renderGame();
+}
 function isWordCorrect(idx){const pl=currentPuzzle.placements[idx],ls=getLevelState(state.activeLevel);return placementCells(pl).every(([r,c],i)=>ls.letters[cellKey(r,c)]===pl.word[i])}
 function countCompleted(){let n=0;currentPuzzle.placements.forEach((_,i)=>{if(isWordCorrect(i))n++});return n}
 function findNextUnsolved(startIdx){
@@ -369,7 +398,15 @@ function afterEdit(wordIdx){
     setTimeout(()=>openCard(wordIdx),350);
   }
 }
-function buildKeyboard(){const k=document.getElementById('keyboard');k.innerHTML='';DATA.alphabet.forEach(ch=>{const b=document.createElement('button');b.className='key';b.textContent=ch;b.onclick=()=>inputLetter(ch);k.appendChild(b)});const del=document.createElement('button');del.className='key delete';del.textContent='⌫ Удалить';del.onclick=deleteLetter;k.appendChild(del);const h=document.createElement('button');h.className='key hint';h.textContent='💡 Подсказка';h.onclick=()=>openHint();k.appendChild(h);const card=document.createElement('button');card.id='cardBtn';card.className='key cardkey';card.textContent='🖼 Посмотреть карточку';card.disabled=true;card.style.visibility='hidden';card.onclick=()=>openCard();k.appendChild(card)}
+const RU_QWERTY=['Ё','Й','Ц','У','К','Е','Н','Г','Ш','Щ','З','Х','Ъ','Ф','Ы','В','А','П','Р','О','Л','Д','Ж','Э','Я','Ч','С','М','И','Т','Ь','Б','Ю'];
+function buildKeyboard(){
+  const k=document.getElementById('keyboard');k.innerHTML='';
+  const letters=settings.keyboard==='qwerty'?RU_QWERTY:DATA.alphabet;
+  letters.forEach(ch=>{const b=document.createElement('button');b.className='key';b.textContent=ch;b.onclick=()=>inputLetter(ch);k.appendChild(b)});
+  const del=document.createElement('button');del.className='key delete';del.textContent='⌫ Удалить';del.onclick=deleteLetter;k.appendChild(del);
+  const h=document.createElement('button');h.className='key hint';h.textContent='💡 Подсказка';h.onclick=()=>openHint();k.appendChild(h);
+  const card=document.createElement('button');card.id='cardBtn';card.className='key cardkey';card.textContent='🖼 Посмотреть карточку';card.disabled=true;card.style.visibility='hidden';card.onclick=()=>openCard();k.appendChild(card)
+}
 function openHint(){document.getElementById('hintModal').classList.add('show')}
 function closeModals(){document.querySelectorAll('.modal-wrap').forEach(m=>m.classList.remove('show'))}
 function closeCard(){
@@ -468,7 +505,7 @@ document.querySelectorAll('[data-home]').forEach(b=>b.onclick=goHome);
 document.getElementById('gameHome').onclick=goHome;document.getElementById('gameSettings').onclick=()=>showScreen('settings');
 document.getElementById('prevWord').onclick=()=>moveWord(-1);document.getElementById('nextWord').onclick=()=>moveWord(1);document.getElementById('overviewBtn').onclick=overview;document.getElementById('cardBtn').onclick=()=>openCard();document.getElementById('speakBtn').onclick=speak;
 document.getElementById('hintLetter').onclick=hintLetter;document.getElementById('hintWord').onclick=hintWord;document.querySelectorAll('[data-close-modal]').forEach(b=>b.onclick=closeModals);document.getElementById('cardContinueBtn').onclick=closeCard;document.getElementById('nextLevelBtn').onclick=nextAfterComplete;document.getElementById('completeHome').onclick=goHome;
-document.querySelectorAll('[data-scale-value]').forEach(b=>b.onclick=()=>{settings.scale=b.dataset.scaleValue;saveSettings()});document.querySelectorAll('[data-card-value]').forEach(b=>b.onclick=()=>{settings.cards=b.dataset.cardValue;saveSettings()});document.getElementById('numbersToggle').onclick=()=>{settings.numbers=!settings.numbers;saveSettings()};
+document.querySelectorAll('[data-scale-value]').forEach(b=>b.onclick=()=>{settings.scale=b.dataset.scaleValue;saveSettings()});document.querySelectorAll('[data-card-value]').forEach(b=>b.onclick=()=>{settings.cards=b.dataset.cardValue;saveSettings()});document.querySelectorAll('[data-keyboard-value]').forEach(b=>b.onclick=()=>{settings.keyboard=b.dataset.keyboardValue;saveSettings()});document.getElementById('numbersToggle').onclick=()=>{settings.numbers=!settings.numbers;saveSettings()};
 document.addEventListener('keydown',e=>{if(!document.getElementById('game').classList.contains('active'))return;let ch=e.key.toUpperCase();if(DATA.alphabet.includes(ch)){e.preventDefault();inputLetter(ch)}else if(e.key==='Backspace'){e.preventDefault();deleteLetter()}else if(e.key==='ArrowRight'){e.preventDefault();moveWord(1)}else if(e.key==='ArrowLeft'){e.preventDefault();moveWord(-1)}});
 // Close modal by tapping dark area only
 for(const m of document.querySelectorAll('.modal-wrap'))m.addEventListener('click',e=>{
