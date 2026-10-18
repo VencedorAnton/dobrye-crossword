@@ -4,7 +4,7 @@
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width,initial-scale=1,maximum-scale=1,user-scalable=no,viewport-fit=cover">
 <meta name="theme-color" content="#f7f2e8">
-<title>Добрые Кроссворды — прототип v0.9</title>
+<title>Добрые Кроссворды — прототип v0.10</title>
 <style>
 :root{
   --bg:#f6f0e5; --paper:#fffdf8; --ink:#202a36; --muted:#68717d;
@@ -85,6 +85,27 @@ body.no-numbers .cell .num{display:none}
 .key:active{transform:translateY(1px);box-shadow:none}
 .key.delete{grid-column:span 3;background:#f3e9e5;color:#7f3d32;font-size:18px}
 .key.hint{grid-column:span 3;background:#fff0c9;color:#71530b;font-size:18px}
+
+/* Phone-like ЙЦУКЕН layout */
+.keyboard.qwerty{display:block;margin-top:8px}
+.keyboard.qwerty .kb-row{display:flex;gap:4px;margin-bottom:6px;justify-content:center}
+.keyboard.qwerty .kb-row.middle{padding:0 3.5%}
+.keyboard.qwerty .kb-row.bottom{padding:0 1.5%}
+.keyboard.qwerty .key.letter{
+  flex:1 1 0;min-width:0;min-height:58px;padding:0 2px;
+  font-size:clamp(18px,5.2vw,26px);border-radius:10px
+}
+.keyboard.qwerty .key.delete-phone{
+  flex:1.15 1 0;min-width:0;min-height:58px;padding:0 4px;
+  background:#f3e9e5;color:#7f3d32;font-size:25px;border-radius:10px
+}
+.keyboard.qwerty .kb-actions{
+  display:grid;grid-template-columns:1fr 1fr;gap:6px;margin-top:4px
+}
+.keyboard.qwerty .kb-actions .key{min-height:var(--tap)}
+.keyboard.qwerty .kb-actions .hint,
+.keyboard.qwerty .kb-actions .cardkey{grid-column:auto}
+
 .smallnote{text-align:center;color:#6a7380;font-size:12px;margin-top:8px}
 .list-head{display:flex;align-items:center;gap:10px;margin-bottom:14px}
 .list-head h2{margin:0;font-size:28px}
@@ -398,14 +419,86 @@ function afterEdit(wordIdx){
     setTimeout(()=>openCard(wordIdx),350);
   }
 }
-const RU_QWERTY=['Ё','Й','Ц','У','К','Е','Н','Г','Ш','Щ','З','Х','Ъ','Ф','Ы','В','А','П','Р','О','Л','Д','Ж','Э','Я','Ч','С','М','И','Т','Ь','Б','Ю'];
+const RU_QWERTY_ROWS=[
+  ['Й','Ц','У','К','Е','Н','Г','Ш','Щ','З','Х'],
+  ['Ф','Ы','В','А','П','Р','О','Л','Д','Ж','Э'],
+  ['Ё','Я','Ч','С','М','И','Т','Ь','Б','Ю']
+];
+
+function makeLetterKey(ch){
+  const b=document.createElement('button');
+  b.className='key letter';
+  b.textContent=ch;
+  b.onclick=()=>inputLetter(ch);
+  return b;
+}
+
+function appendKeyboardActions(container,isQwerty){
+  const actions=document.createElement('div');
+  if(isQwerty)actions.className='kb-actions';
+
+  const h=document.createElement('button');
+  h.className='key hint';
+  h.textContent='💡 Подсказка';
+  h.onclick=()=>openHint();
+
+  const card=document.createElement('button');
+  card.id='cardBtn';
+  card.className='key cardkey';
+  card.textContent='🖼 Посмотреть карточку';
+  card.disabled=true;
+  card.style.visibility='hidden';
+  card.onclick=()=>openCard();
+
+  actions.appendChild(h);
+  actions.appendChild(card);
+  container.appendChild(actions);
+}
+
 function buildKeyboard(){
-  const k=document.getElementById('keyboard');k.innerHTML='';
-  const letters=settings.keyboard==='qwerty'?RU_QWERTY:DATA.alphabet;
-  letters.forEach(ch=>{const b=document.createElement('button');b.className='key';b.textContent=ch;b.onclick=()=>inputLetter(ch);k.appendChild(b)});
-  const del=document.createElement('button');del.className='key delete';del.textContent='⌫ Удалить';del.onclick=deleteLetter;k.appendChild(del);
-  const h=document.createElement('button');h.className='key hint';h.textContent='💡 Подсказка';h.onclick=()=>openHint();k.appendChild(h);
-  const card=document.createElement('button');card.id='cardBtn';card.className='key cardkey';card.textContent='🖼 Посмотреть карточку';card.disabled=true;card.style.visibility='hidden';card.onclick=()=>openCard();k.appendChild(card)
+  const k=document.getElementById('keyboard');
+  k.innerHTML='';
+
+  if(settings.keyboard==='qwerty'){
+    k.className='keyboard qwerty';
+
+    RU_QWERTY_ROWS.forEach((rowLetters,rowIndex)=>{
+      const row=document.createElement('div');
+      row.className='kb-row'+(rowIndex===1?' middle':'')+(rowIndex===2?' bottom':'');
+      rowLetters.forEach(ch=>row.appendChild(makeLetterKey(ch)));
+
+      if(rowIndex===2){
+        const del=document.createElement('button');
+        del.className='key delete-phone';
+        del.textContent='⌫';
+        del.setAttribute('aria-label','Удалить');
+        del.title='Удалить';
+        del.onclick=deleteLetter;
+        row.appendChild(del);
+      }
+      k.appendChild(row);
+    });
+
+    appendKeyboardActions(k,true);
+    return;
+  }
+
+  k.className='keyboard';
+  DATA.alphabet.forEach(ch=>{
+    const b=document.createElement('button');
+    b.className='key';
+    b.textContent=ch;
+    b.onclick=()=>inputLetter(ch);
+    k.appendChild(b)
+  });
+
+  const del=document.createElement('button');
+  del.className='key delete';
+  del.textContent='⌫ Удалить';
+  del.onclick=deleteLetter;
+  k.appendChild(del);
+
+  appendKeyboardActions(k,false);
 }
 function openHint(){document.getElementById('hintModal').classList.add('show')}
 function closeModals(){document.querySelectorAll('.modal-wrap').forEach(m=>m.classList.remove('show'))}
