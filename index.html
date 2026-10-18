@@ -4,7 +4,7 @@
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width,initial-scale=1,maximum-scale=1,user-scalable=no,viewport-fit=cover">
 <meta name="theme-color" content="#f7f2e8">
-<title>Добрые Кроссворды — прототип v0.11</title>
+<title>Добрые Кроссворды — прототип v0.12</title>
 <style>
 :root{
   --bg:#f6f0e5; --paper:#fffdf8; --ink:#202a36; --muted:#68717d;
@@ -85,6 +85,17 @@ body.no-numbers .cell .num{display:none}
 .key:active{transform:translateY(1px);box-shadow:none}
 .key.delete{grid-column:span 3;background:#f3e9e5;color:#7f3d32;font-size:18px}
 .key.hint{grid-column:span 3;background:#fff0c9;color:#71530b;font-size:18px}
+.keyboard > .kb-actions{
+  grid-column:1/-1;
+  display:grid;
+  grid-template-columns:1fr 1fr;
+  gap:6px;
+  margin-top:4px
+}
+.keyboard > .kb-actions .hint,
+.keyboard > .kb-actions .cardkey{
+  grid-column:auto
+}
 
 /* Phone-like ЙЦУКЕН layout */
 .keyboard.qwerty{display:block;margin-top:8px}
@@ -458,7 +469,7 @@ function makeLetterKey(ch){
 
 function appendKeyboardActions(container,isQwerty){
   const actions=document.createElement('div');
-  if(isQwerty)actions.className='kb-actions';
+  actions.className='kb-actions';
 
   const h=document.createElement('button');
   h.className='key hint';
