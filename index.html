@@ -1,0 +1,458 @@
+<!doctype html>
+<html lang="ru">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1,maximum-scale=1,user-scalable=no,viewport-fit=cover">
+<meta name="theme-color" content="#f7f2e8">
+<title>Добрые Кроссворды — прототип v0.5</title>
+<style>
+:root{
+  --bg:#f6f0e5; --paper:#fffdf8; --ink:#202a36; --muted:#68717d;
+  --blue:#2267b8; --blue2:#e7f0fb; --green:#4b8d63; --green2:#e8f4ea;
+  --gold:#d39a2c; --red:#b94545; --line:#ccd3da; --shadow:0 8px 30px rgba(34,48,67,.12);
+  --radius:18px; --tap:56px; --clue:24px; --answer:30px; --cell:38px;
+}
+body[data-scale="normal"]{--tap:52px;--clue:20px;--answer:27px;--cell:34px}
+body[data-scale="large"]{--tap:58px;--clue:24px;--answer:31px;--cell:40px}
+body[data-scale="xlarge"]{--tap:64px;--clue:29px;--answer:38px;--cell:48px}
+*{box-sizing:border-box}
+html,body{margin:0;min-height:100%;background:var(--bg);color:var(--ink);font-family:system-ui,-apple-system,"Segoe UI",Arial,sans-serif}
+button{font:inherit;color:inherit}
+button:focus-visible{outline:4px solid #f1b93f;outline-offset:2px}
+.app{max-width:820px;margin:0 auto;min-height:100dvh;background:var(--paper);box-shadow:0 0 50px rgba(0,0,0,.08)}
+.screen{display:none;min-height:100dvh;padding:18px 16px 28px}
+.screen.active{display:block}
+.home{background:linear-gradient(#dfefff 0 28%,#f7f2e8 58%);position:relative;overflow:hidden}
+.home:before{content:"";position:absolute;inset:18% -20% auto -20%;height:210px;background:radial-gradient(ellipse at center,#b8d8b2 0 48%,transparent 50%);opacity:.55}
+.brand{position:relative;text-align:center;padding:40px 8px 18px}
+.brand h1{margin:0;color:#285f99;font-size:clamp(34px,9vw,58px);line-height:.96;letter-spacing:.5px}
+.brand p{margin:13px 0 0;font-size:19px;color:#4f6073;font-weight:650}
+.home-panel{position:relative;margin:22px auto 0;max-width:560px;background:rgba(255,253,248,.92);padding:18px;border-radius:26px;box-shadow:var(--shadow);backdrop-filter:blur(8px)}
+.bigbtn,.menubtn,.actionbtn{width:100%;min-height:var(--tap);border:none;border-radius:16px;font-weight:800;cursor:pointer;padding:12px 16px;margin:7px 0}
+.bigbtn{background:var(--blue);color:white;font-size:22px;box-shadow:0 5px 0 #184c88}
+.bigbtn.secondary{background:#edf3fb;color:#1f4f83;box-shadow:none;border:2px solid #b9cde4}
+.bigbtn.green{background:var(--green);box-shadow:0 5px 0 #326644}
+.bigbtn .sub{display:block;font-size:13px;font-weight:600;opacity:.85;margin-top:2px}
+.resume{display:none}
+.resume.show{display:block}
+.statusline{text-align:center;color:var(--muted);font-weight:650;margin-top:12px;min-height:24px}
+.topbar{display:grid;grid-template-columns:auto 1fr auto;align-items:center;gap:8px;margin-bottom:10px}
+.iconbtn{min-width:var(--tap);height:var(--tap);border:2px solid #c8d0d8;background:#fff;border-radius:14px;font-size:24px;font-weight:800;cursor:pointer}
+.top-title{text-align:center}
+.top-title strong{font-size:20px;display:block}
+.top-title span{color:var(--muted);font-size:14px;font-weight:650}
+.progressbar{height:8px;border-radius:10px;background:#e2e6ea;overflow:hidden;margin:8px 0 12px}
+.progressbar>div{height:100%;background:var(--green);width:0;transition:width .2s}
+.grid-shell{background:#e7edf3;border-radius:18px;padding:8px;overflow:hidden;position:relative}
+.grid-scroll{overflow:auto;max-height:42dvh;min-height:220px;display:flex;align-items:flex-start;justify-content:flex-start;scroll-behavior:smooth}
+.grid-scroll.overview{overflow:hidden;align-items:center;justify-content:center}
+.crossword{display:grid;gap:1px;background:#65707c;padding:2px;border:2px solid #65707c;box-shadow:0 3px 12px rgba(0,0,0,.08);margin:auto;flex:none}
+.cell{width:var(--cell);height:var(--cell);background:#fff;position:relative;border:0;display:flex;align-items:center;justify-content:center;font-size:calc(var(--cell)*.56);font-weight:800;cursor:pointer;padding:0;color:#1e2834}
+.cell.block{visibility:hidden;pointer-events:none}
+.cell.word{background:#eaf3fd}
+.cell.active{background:#fff3be;outline:4px solid #175ea8;z-index:3}
+.cell.correct{color:#1e2834}
+.cell.solved{background:#dff2e4;color:#1d5734}
+.cell.solved.word{background:#d5eddd}
+.cell.solved.active{background:#c8e9d2;outline-color:#3f8f5b}
+.cell.hinted:after{content:"•";position:absolute;right:3px;bottom:-3px;color:#b07308;font-size:18px}
+.cell .num{position:absolute;left:2px;top:0;font-size:10px;line-height:1;color:#48515b;font-weight:800}
+body.no-numbers .cell .num{display:none}
+.zoom-note{text-align:center;font-size:13px;color:#697480;margin:7px 0 0}
+.clue-card{margin:12px 0 8px;background:#edf4fb;border:2px solid #c9daee;border-radius:16px;padding:12px 14px;position:relative}
+.clue-card.solved{background:#e8f5eb;border-color:#9bcbaa}
+.clue-label{font-size:14px;color:#52708f;font-weight:800;margin-bottom:3px}
+.clue-text{font-size:var(--clue);line-height:1.22;font-weight:800;padding-right:46px}
+.speakbtn{position:absolute;right:8px;top:8px;width:44px;height:44px;border:0;border-radius:12px;background:white;font-size:22px;cursor:pointer}
+.answer-strip{display:grid;gap:4px;overflow:hidden;padding:4px 2px 8px;width:100%}
+.answer-box{width:100%;min-width:0;height:clamp(42px,11vw,60px);border:2px solid #73808d;border-radius:8px;background:white;display:flex;align-items:center;justify-content:center;font-size:var(--answer);font-weight:850;cursor:pointer;padding:0}
+.answer-strip.long .answer-box{font-size:24px}
+.answer-strip.very-long .answer-box{font-size:21px}
+.answer-strip.solved .answer-box{background:#dff2e4;border-color:#69a87b;color:#1d5734}
+.answer-strip.solved .answer-box.active{background:#c8e9d2;border-color:#3f8f5b}
+.answer-box.active{border:4px solid var(--blue);background:#fff3be}
+.answer-box.hinted{box-shadow:inset 0 -5px #e1ac43}
+.word-nav{display:grid;grid-template-columns:1fr 1fr;gap:8px;margin:0 0 7px}
+.actionbtn{margin:0;background:#edf0f3;border:2px solid #c9d0d7;font-size:16px}
+.quick-actions{display:grid;grid-template-columns:1fr 1fr;gap:8px;margin:7px 0}
+.quick-actions .actionbtn.primary{background:#dcecff;border-color:#aac8e7;color:#164f89}
+.quick-actions .actionbtn.card-open{background:#e5f2e8;border-color:#acd0b5;color:#2d6a43}
+.keyboard{display:grid;grid-template-columns:repeat(6,minmax(0,1fr));gap:6px;margin-top:8px}
+.key{min-height:var(--tap);border:2px solid #c4cbd2;border-radius:12px;background:white;font-size:clamp(20px,6vw,29px);font-weight:850;cursor:pointer;box-shadow:0 2px 0 #b7c0c8}
+.key:active{transform:translateY(1px);box-shadow:none}
+.key.delete{grid-column:span 3;background:#f3e9e5;color:#7f3d32;font-size:18px}
+.key.hint{grid-column:span 3;background:#fff0c9;color:#71530b;font-size:18px}
+.smallnote{text-align:center;color:#6a7380;font-size:12px;margin-top:8px}
+.list-head{display:flex;align-items:center;gap:10px;margin-bottom:14px}
+.list-head h2{margin:0;font-size:28px}
+.level-list{display:grid;gap:10px}
+.level{display:grid;grid-template-columns:64px 1fr auto;align-items:center;gap:10px;width:100%;border:2px solid #cbd3db;border-radius:16px;background:white;padding:10px;cursor:pointer;text-align:left}
+.level .badge{width:54px;height:54px;border-radius:14px;background:#eaf1f8;display:flex;align-items:center;justify-content:center;font-size:24px;font-weight:850;color:#245b91}
+.level strong{font-size:19px}.level span{color:#6d7680;font-size:14px}.level .state{font-size:22px}
+.settings-card{background:white;border:2px solid #d4d9df;border-radius:18px;padding:15px;margin:10px 0}
+.settings-card h3{margin:0 0 10px;font-size:20px}.choice{display:grid;gap:8px}
+.choice button{min-height:52px;border:2px solid #c6cdd4;background:#fff;border-radius:13px;font-weight:750;cursor:pointer}
+.choice button.selected{border-color:#2b6fb8;background:#e7f1fc;color:#1d568f;box-shadow:inset 0 0 0 1px #2b6fb8}
+.toggle-row{display:flex;align-items:center;justify-content:space-between;gap:12px;font-size:18px;font-weight:750}
+.toggle{width:66px;height:38px;border-radius:22px;background:#c6ccd2;border:0;position:relative;cursor:pointer}
+.toggle:after{content:"";position:absolute;width:30px;height:30px;left:4px;top:4px;border-radius:50%;background:white;transition:.15s;box-shadow:0 1px 4px #778}
+.toggle.on{background:#4f8d62}.toggle.on:after{left:32px}
+.modal-wrap{display:none;position:fixed;z-index:50;inset:0;background:rgba(25,34,44,.48);padding:18px;align-items:flex-end;justify-content:center}
+.modal-wrap.show{display:flex}
+.modal{width:min(560px,100%);max-height:90dvh;overflow:auto;background:#fffdf8;border-radius:24px;padding:18px;box-shadow:0 18px 70px rgba(0,0,0,.3)}
+.modal h2{font-size:28px;margin:2px 0 10px}.modal p{font-size:18px;line-height:1.4}
+.modal-actions{display:grid;gap:8px;margin-top:14px}
+.modal-actions button{min-height:58px;border-radius:14px;border:2px solid #c6cdd4;background:white;font-weight:800;font-size:18px;cursor:pointer}
+.modal-actions button.primary{background:var(--blue);color:white;border-color:var(--blue)}
+.card-visual{height:180px;border-radius:18px;background:linear-gradient(145deg,#dff0ff,#dcead6);display:flex;align-items:center;justify-content:center;font-size:92px;border:2px solid #bfd0dd;margin:6px 0 14px;position:relative;overflow:hidden}
+.card-visual small{position:absolute;left:10px;bottom:8px;background:rgba(255,255,255,.8);padding:4px 7px;border-radius:8px;font-size:12px;color:#556}
+.card-title{text-align:center;color:#2b6398;font-size:32px!important;font-weight:900;margin:0 0 8px!important}
+.fact{background:#edf5eb;border-left:6px solid var(--green);padding:10px 12px;border-radius:10px;font-size:17px!important}
+.card-placeholder-note{font-size:12px!important;color:#69727e;text-align:center}
+.toast{position:fixed;z-index:70;left:50%;bottom:18px;transform:translateX(-50%) translateY(20px);background:#263341;color:white;padding:11px 16px;border-radius:13px;font-weight:750;opacity:0;pointer-events:none;transition:.2s;max-width:90%;text-align:center}
+.toast.show{opacity:1;transform:translateX(-50%) translateY(0)}
+@media (min-width:700px) and (orientation:landscape){
+  .app{max-width:1100px}.game-layout{display:grid;grid-template-columns:minmax(390px,1.1fr) minmax(360px,.9fr);gap:14px}.grid-scroll{max-height:76dvh}.right-play{align-self:start}.screen{padding:16px 20px}
+}
+</style>
+</head>
+<body data-scale="large">
+<div class="app">
+  <section id="home" class="screen home active">
+    <div class="brand"><h1>Добрые<br>Кроссворды</h1><p>Большие буквы · Без спешки</p></div>
+    <div class="home-panel">
+      <button id="resumeBtn" class="bigbtn green resume">▶ Продолжить<span class="sub" id="resumeSub"></span></button>
+      <button id="newBtn" class="bigbtn">＋ Новый кроссворд<span class="sub">Следующий незавершённый</span></button>
+      <button id="levelsBtn" class="bigbtn secondary">▦ Выбрать уровень</button>
+      <button id="settingsBtn" class="bigbtn secondary">⚙ Настройки</button>
+      <div id="homeStatus" class="statusline"></div>
+    </div>
+  </section>
+
+  <section id="levels" class="screen">
+    <div class="list-head"><button class="iconbtn" data-home>←</button><h2>Выберите кроссворд</h2></div>
+    <div id="levelList" class="level-list"></div>
+  </section>
+
+  <section id="settings" class="screen">
+    <div class="list-head"><button class="iconbtn" data-home>←</button><h2>Настройки</h2></div>
+    <div class="settings-card"><h3>Размер интерфейса</h3><div class="choice" id="scaleChoice">
+      <button data-scale-value="normal">Обычный</button><button data-scale-value="large">Крупный — рекомендуется</button><button data-scale-value="xlarge">Очень крупный</button>
+    </div></div>
+    <div class="settings-card"><h3>Карточки новых слов</h3><div class="choice" id="cardChoice">
+      <button data-card-value="auto">Показывать автоматически</button><button data-card-value="click">Только по нажатию</button><button data-card-value="off">Выключить</button>
+    </div></div>
+    <div class="settings-card"><div class="toggle-row"><span>Показывать номера клеток</span><button id="numbersToggle" class="toggle on" aria-label="Показывать номера клеток"></button></div></div>
+    <div class="settings-card"><p style="margin:0;color:#68717d;line-height:1.45">Все настройки сохраняются на этом устройстве. Номера клеток включены по умолчанию.</p></div>
+  </section>
+
+  <section id="game" class="screen">
+    <div class="topbar"><button id="gameHome" class="iconbtn">←</button><div class="top-title"><strong id="gameTitle">Кроссворд 1</strong><span id="gameProgressText">0 из 18 слов</span></div><button id="gameSettings" class="iconbtn">⚙</button></div>
+    <div class="progressbar"><div id="progressFill"></div></div>
+    <div class="game-layout">
+      <div><div class="grid-shell"><div id="gridScroll" class="grid-scroll"><div id="crossword" class="crossword"></div></div><div class="zoom-note">Нажмите на клетку — игра покажет слово и клавиатуру ниже</div></div></div>
+      <div class="right-play">
+        <div class="clue-card"><div id="clueLabel" class="clue-label"></div><div id="clueText" class="clue-text"></div><button id="speakBtn" class="speakbtn" title="Прочитать определение">🔊</button></div>
+        <div id="answerStrip" class="answer-strip"></div>
+        <div class="word-nav"><button id="prevWord" class="actionbtn">← Предыдущее</button><button id="nextWord" class="actionbtn">Следующее →</button></div>
+        <div class="quick-actions"><button id="cardBtn" class="actionbtn card-open" style="display:none">🖼 Посмотреть карточку</button><button id="overviewBtn" class="actionbtn primary">▦ Весь кроссворд</button></div>
+        <div id="keyboard" class="keyboard"></div>
+        <div class="smallnote">⌫ удаляет выбранную букву; если клетка пустая — предыдущую букву текущего слова.</div>
+      </div>
+    </div>
+  </section>
+</div>
+
+<div id="hintModal" class="modal-wrap"><div class="modal"><h2>Подсказка</h2><p>Что открыть?</p><div class="modal-actions"><button id="hintLetter" class="primary">Открыть одну букву</button><button id="hintWord">Открыть всё слово</button><button data-close-modal>Закрыть</button></div></div></div>
+<div id="cardModal" class="modal-wrap"><div class="modal"><h2 id="cardTitle" class="card-title"></h2><div id="cardVisual" class="card-visual"></div><p id="cardExplanation"></p><p id="cardFact" class="fact"></p><p class="card-placeholder-note">В прототипе используется условная иллюстрация. В финальной базе здесь будет лицензированная фотография или качественная иллюстрация.</p><div class="modal-actions"><button id="cardContinueBtn" class="primary">Продолжить</button></div></div></div>
+<div id="completeModal" class="modal-wrap"><div class="modal"><h2>🎉 Кроссворд готов!</h2><p id="completeText">Все слова разгаданы.</p><div class="modal-actions"><button id="nextLevelBtn" class="primary">Следующий кроссворд</button><button id="completeHome">Главное меню</button></div></div></div>
+<div id="toast" class="toast"></div>
+<script>
+const DATA={"puzzles": [{"id": "prototype_01", "size": 15, "placed_words": 18, "crossings": 23, "bounding_area": 130, "placements": [{"id": "ru_040", "word": "АЙСБЕРГ", "clue": "Большая масса льда, плавающая в море.", "row": 7, "col": 4, "direction": "across", "number": 8, "card_enabled": true, "card_explanation": "Крупная глыба пресного льда, плавающая в море.", "card_fact": "Большая часть айсберга обычно скрыта под водой.", "category": "природа", "difficulty": "easy", "card_image_key": "iceberg"}, {"id": "ru_003", "word": "ЛЕС", "clue": "Большая территория, покрытая деревьями.", "row": 6, "col": 8, "direction": "down", "number": 6, "card_enabled": false, "card_explanation": "", "card_fact": "", "category": "природа", "difficulty": "easy", "card_image_key": ""}, {"id": "ru_098", "word": "ТЕЛЕСКОП", "clue": "Прибор для наблюдения далёких объектов, особенно небесных тел.", "row": 4, "col": 8, "direction": "down", "number": 2, "card_enabled": true, "card_explanation": "Прибор для наблюдения далёких объектов.", "card_fact": "Телескопы помогают видеть очень далёкие или тусклые объекты.", "category": "наука", "difficulty": "easy", "card_image_key": "telescope"}, {"id": "ru_006", "word": "ГОРА", "clue": "Высокая форма рельефа.", "row": 4, "col": 4, "direction": "down", "number": 1, "card_enabled": false, "card_explanation": "", "card_fact": "", "category": "природа", "difficulty": "easy", "card_image_key": ""}, {"id": "ru_013", "word": "СОЛНЦЕ", "clue": "Звезда, вокруг которой обращается Земля.", "row": 5, "col": 3, "direction": "across", "number": 5, "card_enabled": false, "card_explanation": "", "card_fact": "", "category": "космос", "difficulty": "easy", "card_image_key": ""}, {"id": "ru_005", "word": "РЕКА", "clue": "Водный поток, текущий по руслу.", "row": 9, "col": 6, "direction": "across", "number": 12, "card_enabled": false, "card_explanation": "", "card_fact": "", "category": "природа", "difficulty": "easy", "card_image_key": ""}, {"id": "ru_022", "word": "СКРИПКА", "clue": "Струнный смычковый музыкальный инструмент.", "row": 7, "col": 6, "direction": "down", "number": 9, "card_enabled": true, "card_explanation": "Струнный инструмент, на котором играют смычком.", "card_fact": "У скрипки четыре струны.", "category": "музыка", "difficulty": "easy", "card_image_key": "skrypka"}, {"id": "ru_042", "word": "БАОБАБ", "clue": "Тропическое дерево с очень толстым стволом.", "row": 13, "col": 5, "direction": "across", "number": 17, "card_enabled": true, "card_explanation": "Дерево с необычно толстым стволом, способным запасать воду.", "card_fact": "Некоторые баобабы живут очень долго.", "category": "растения", "difficulty": "medium", "card_image_key": "baobab"}, {"id": "ru_017", "word": "КНИГА", "clue": "Печатное или электронное произведение для чтения.", "row": 4, "col": 10, "direction": "down", "number": 3, "card_enabled": false, "card_explanation": "", "card_fact": "", "category": "культура", "difficulty": "easy", "card_image_key": ""}, {"id": "ru_058", "word": "ОКАПИ", "clue": "Африканское животное, родственник жирафа, с полосатыми ногами.", "row": 10, "col": 2, "direction": "across", "number": 13, "card_enabled": true, "card_explanation": "Лесное африканское животное с тёмным телом и полосатыми ногами.", "card_fact": "Ближайший современный родственник окапи — жираф.", "category": "животные", "difficulty": "hard", "card_image_key": "okapi"}, {"id": "ru_055", "word": "ТУКАН", "clue": "Тропическая птица с очень крупным ярким клювом.", "row": 4, "col": 8, "direction": "across", "number": 2, "card_enabled": true, "card_explanation": "Тропическая птица с очень большим ярким клювом.", "card_fact": "Несмотря на размер, клюв тукана сравнительно лёгкий.", "category": "животные", "difficulty": "medium", "card_image_key": "toucan"}, {"id": "ru_037", "word": "ПАГОДА", "clue": "Многоярусное башнеобразное сооружение Восточной Азии.", "row": 7, "col": 2, "direction": "down", "number": 7, "card_enabled": true, "card_explanation": "Многоярусная башня Восточной и Юго-Восточной Азии.", "card_fact": "Пагоды часто входят в буддийские храмовые комплексы.", "category": "архитектура", "difficulty": "medium", "card_image_key": "pagoda"}, {"id": "ru_029", "word": "ЧАСЫ", "clue": "Прибор для измерения времени.", "row": 9, "col": 4, "direction": "down", "number": 11, "card_enabled": false, "card_explanation": "", "card_fact": "", "category": "быт", "difficulty": "easy", "card_image_key": ""}, {"id": "ru_082", "word": "ЛАТЫ", "clue": "Металлические доспехи, защищавшие тело воина.", "row": 12, "col": 1, "direction": "across", "number": 16, "card_enabled": true, "card_explanation": "Комплект металлических защитных частей доспеха.", "card_fact": "Полный латный доспех состоял из множества подвижных деталей.", "category": "история", "difficulty": "medium", "card_image_key": "armor"}, {"id": "ru_054", "word": "НАРВАЛ", "clue": "Арктический кит с длинным спиральным бивнем у многих самцов.", "row": 4, "col": 12, "direction": "down", "number": 4, "card_enabled": true, "card_explanation": "Арктический кит, известный длинным спиральным бивнем.", "card_fact": "Бивень нарвала — сильно удлинённый зуб.", "category": "животные", "difficulty": "hard", "card_image_key": "narwhal"}, {"id": "ru_077", "word": "АГАТ", "clue": "Полосчатая разновидность халцедона, используемая как поделочный камень.", "row": 8, "col": 10, "direction": "across", "number": 10, "card_enabled": true, "card_explanation": "Декоративный камень, часто имеющий красивые полосы и слои.", "card_fact": "Агат является разновидностью халцедона.", "category": "минералы", "difficulty": "medium", "card_image_key": "agate"}, {"id": "ru_050", "word": "ПЕКАРИ", "clue": "Американское млекопитающее, внешне похожее на свинью.", "row": 11, "col": 8, "direction": "across", "number": 15, "card_enabled": true, "card_explanation": "Небольшое копытное животное, похожее на свинью и живущее в Америке.", "card_fact": "Пекари похожи на свиней, но относятся к отдельному семейству.", "category": "животные", "difficulty": "hard", "card_image_key": "pekari"}, {"id": "ru_020", "word": "КИНО", "clue": "Искусство создания и показа фильмов.", "row": 10, "col": 13, "direction": "down", "number": 14, "card_enabled": false, "card_explanation": "", "card_fact": "", "category": "культура", "difficulty": "easy", "card_image_key": ""}]}, {"id": "prototype_02", "size": 15, "placed_words": 18, "crossings": 23, "bounding_area": 144, "placements": [{"id": "ru_091", "word": "КРОССВОРД", "clue": "Головоломка, в которой слова вписывают в пересекающиеся клетки.", "row": 7, "col": 3, "direction": "across", "number": 8, "card_enabled": false, "card_explanation": "", "card_fact": "", "category": "игры", "difficulty": "easy", "card_image_key": ""}, {"id": "ru_001", "word": "ДОМ", "clue": "Жилое здание.", "row": 6, "col": 9, "direction": "down", "number": 7, "card_enabled": false, "card_explanation": "", "card_fact": "", "category": "быт", "difficulty": "easy", "card_image_key": ""}, {"id": "ru_090", "word": "ДОМИНО", "clue": "Игра с прямоугольными костяшками, разделёнными на две половины.", "row": 6, "col": 9, "direction": "down", "number": 7, "card_enabled": false, "card_explanation": "", "card_fact": "", "category": "игры", "difficulty": "easy", "card_image_key": ""}, {"id": "ru_048", "word": "РЯБИНА", "clue": "Дерево или кустарник с гроздьями ярких ягод.", "row": 9, "col": 6, "direction": "across", "number": 12, "card_enabled": false, "card_explanation": "", "card_fact": "", "category": "растения", "difficulty": "easy", "card_image_key": ""}, {"id": "ru_005", "word": "РЕКА", "clue": "Водный поток, текущий по руслу.", "row": 7, "col": 4, "direction": "down", "number": 9, "card_enabled": false, "card_explanation": "", "card_fact": "", "category": "природа", "difficulty": "easy", "card_image_key": ""}, {"id": "ru_022", "word": "СКРИПКА", "clue": "Струнный смычковый музыкальный инструмент.", "row": 7, "col": 6, "direction": "down", "number": 10, "card_enabled": true, "card_explanation": "Струнный инструмент, на котором играют смычком.", "card_fact": "У скрипки четыре струны.", "category": "музыка", "difficulty": "easy", "card_image_key": "skrypka"}, {"id": "ru_058", "word": "ОКАПИ", "clue": "Африканское животное, родственник жирафа, с полосатыми ногами.", "row": 10, "col": 2, "direction": "across", "number": 14, "card_enabled": true, "card_explanation": "Лесное африканское животное с тёмным телом и полосатыми ногами.", "card_fact": "Ближайший современный родственник окапи — жираф.", "category": "животные", "difficulty": "hard", "card_image_key": "okapi"}, {"id": "ru_042", "word": "БАОБАБ", "clue": "Тропическое дерево с очень толстым стволом.", "row": 13, "col": 2, "direction": "across", "number": 17, "card_enabled": true, "card_explanation": "Дерево с необычно толстым стволом, способным запасать воду.", "card_fact": "Некоторые баобабы живут очень долго.", "category": "растения", "difficulty": "medium", "card_image_key": "baobab"}, {"id": "ru_037", "word": "ПАГОДА", "clue": "Многоярусное башнеобразное сооружение Восточной Азии.", "row": 11, "col": 6, "direction": "across", "number": 16, "card_enabled": true, "card_explanation": "Многоярусная башня Восточной и Юго-Восточной Азии.", "card_fact": "Пагоды часто входят в буддийские храмовые комплексы.", "category": "архитектура", "difficulty": "medium", "card_image_key": "pagoda"}, {"id": "ru_077", "word": "АГАТ", "clue": "Полосчатая разновидность халцедона, используемая как поделочный камень.", "row": 9, "col": 11, "direction": "down", "number": 13, "card_enabled": true, "card_explanation": "Декоративный камень, часто имеющий красивые полосы и слои.", "card_fact": "Агат является разновидностью халцедона.", "category": "минералы", "difficulty": "medium", "card_image_key": "agate"}, {"id": "ru_002", "word": "КОТ", "clue": "Домашнее животное, которое мяукает.", "row": 9, "col": 2, "direction": "down", "number": 11, "card_enabled": false, "card_explanation": "", "card_fact": "", "category": "животные", "difficulty": "easy", "card_image_key": ""}, {"id": "ru_003", "word": "ЛЕС", "clue": "Большая территория, покрытая деревьями.", "row": 5, "col": 7, "direction": "down", "number": 6, "card_enabled": false, "card_explanation": "", "card_fact": "", "category": "природа", "difficulty": "easy", "card_image_key": ""}, {"id": "ru_071", "word": "КОАЛА", "clue": "Австралийское сумчатое животное, питающееся листьями эвкалипта.", "row": 5, "col": 4, "direction": "across", "number": 5, "card_enabled": false, "card_explanation": "", "card_fact": "", "category": "животные", "difficulty": "easy", "card_image_key": ""}, {"id": "ru_083", "word": "ЩИТ", "clue": "Предмет вооружения для защиты от ударов.", "row": 11, "col": 0, "direction": "across", "number": 15, "card_enabled": false, "card_explanation": "", "card_fact": "", "category": "история", "difficulty": "easy", "card_image_key": ""}, {"id": "ru_038", "word": "ФЬОРД", "clue": "Узкий морской залив с высокими скалистыми берегами.", "row": 3, "col": 11, "direction": "down", "number": 4, "card_enabled": true, "card_explanation": "Глубокий узкий залив, окружённый крутыми склонами.", "card_fact": "Многие фьорды образованы древними ледниками.", "category": "география", "difficulty": "medium", "card_image_key": "fjord"}, {"id": "ru_068", "word": "ЖИРАФ", "clue": "Самое высокое современное наземное животное.", "row": 3, "col": 7, "direction": "across", "number": 3, "card_enabled": false, "card_explanation": "", "card_fact": "", "category": "животные", "difficulty": "easy", "card_image_key": ""}, {"id": "ru_067", "word": "ЛИСА", "clue": "Хищное млекопитающее с пушистым хвостом.", "row": 2, "col": 8, "direction": "down", "number": 2, "card_enabled": false, "card_explanation": "", "card_fact": "", "category": "животные", "difficulty": "easy", "card_image_key": ""}, {"id": "ru_020", "word": "КИНО", "clue": "Искусство создания и показа фильмов.", "row": 2, "col": 5, "direction": "down", "number": 1, "card_enabled": false, "card_explanation": "", "card_fact": "", "category": "культура", "difficulty": "easy", "card_image_key": ""}]}, {"id": "prototype_03", "size": 15, "placed_words": 18, "crossings": 22, "bounding_area": 132, "placements": [{"id": "ru_030", "word": "ЗЕРКАЛО", "clue": "Гладкая поверхность, отражающая изображение.", "row": 7, "col": 4, "direction": "across", "number": 7, "card_enabled": false, "card_explanation": "", "card_fact": "", "category": "быт", "difficulty": "easy", "card_image_key": ""}, {"id": "ru_001", "word": "ДОМ", "clue": "Жилое здание.", "row": 6, "col": 10, "direction": "down", "number": 4, "card_enabled": false, "card_explanation": "", "card_fact": "", "category": "быт", "difficulty": "easy", "card_image_key": ""}, {"id": "ru_090", "word": "ДОМИНО", "clue": "Игра с прямоугольными костяшками, разделёнными на две половины.", "row": 6, "col": 10, "direction": "down", "number": 4, "card_enabled": false, "card_explanation": "", "card_fact": "", "category": "игры", "difficulty": "easy", "card_image_key": ""}, {"id": "ru_053", "word": "ЛЕМУР", "clue": "Примат, обитающий главным образом на Мадагаскаре.", "row": 6, "col": 5, "direction": "down", "number": 3, "card_enabled": true, "card_explanation": "Примат с выразительными глазами; большинство видов живёт на Мадагаскаре.", "card_fact": "Мадагаскар — главный естественный дом лемуров.", "category": "животные", "difficulty": "medium", "card_image_key": "lemur"}, {"id": "ru_024", "word": "АРФА", "clue": "Струнный музыкальный инструмент с рамой и множеством струн.", "row": 10, "col": 4, "direction": "across", "number": 10, "card_enabled": true, "card_explanation": "Большой струнный инструмент, на котором играют пальцами.", "card_fact": "У концертной арфы десятки струн.", "category": "музыка", "difficulty": "easy", "card_image_key": "arfa"}, {"id": "ru_075", "word": "КОРАЛЛ", "clue": "Морской организм, многие виды которого образуют рифы.", "row": 7, "col": 7, "direction": "down", "number": 8, "card_enabled": true, "card_explanation": "Морской организм; колонии некоторых кораллов формируют рифы.", "card_fact": "Коралловые рифы служат домом множеству морских видов.", "category": "природа", "difficulty": "medium", "card_image_key": "coral"}, {"id": "ru_043", "word": "ЛОТОС", "clue": "Водное растение с крупными цветками.", "row": 11, "col": 7, "direction": "across", "number": 11, "card_enabled": true, "card_explanation": "Водное растение с крупными цветами.", "card_fact": "Листья некоторых лотосов сильно отталкивают воду.", "category": "растения", "difficulty": "easy", "card_image_key": "lotos"}, {"id": "ru_048", "word": "РЯБИНА", "clue": "Дерево или кустарник с гроздьями ярких ягод.", "row": 9, "col": 7, "direction": "across", "number": 9, "card_enabled": false, "card_explanation": "", "card_fact": "", "category": "растения", "difficulty": "easy", "card_image_key": ""}, {"id": "ru_067", "word": "ЛИСА", "clue": "Хищное млекопитающее с пушистым хвостом.", "row": 6, "col": 12, "direction": "down", "number": 5, "card_enabled": false, "card_explanation": "", "card_fact": "", "category": "животные", "difficulty": "easy", "card_image_key": ""}, {"id": "ru_051", "word": "МАНУЛ", "clue": "Дикий кот с очень густой шерстью, живущий в Азии.", "row": 12, "col": 3, "direction": "across", "number": 13, "card_enabled": true, "card_explanation": "Небольшой дикий кот с густой шерстью и округлыми ушами.", "card_fact": "Манул приспособлен к холодному климату степей и гор Центральной Азии.", "category": "животные", "difficulty": "hard", "card_image_key": "manul"}, {"id": "ru_077", "word": "АГАТ", "clue": "Полосчатая разновидность халцедона, используемая как поделочный камень.", "row": 10, "col": 4, "direction": "down", "number": 10, "card_enabled": true, "card_explanation": "Декоративный камень, часто имеющий красивые полосы и слои.", "card_fact": "Агат является разновидностью халцедона.", "category": "минералы", "difficulty": "medium", "card_image_key": "agate"}, {"id": "ru_011", "word": "СНЕГ", "clue": "Осадки в виде ледяных кристаллов.", "row": 11, "col": 11, "direction": "down", "number": 12, "card_enabled": false, "card_explanation": "", "card_fact": "", "category": "природа", "difficulty": "easy", "card_image_key": ""}, {"id": "ru_004", "word": "МОРЕ", "clue": "Большой водоём с солёной водой.", "row": 13, "col": 8, "direction": "across", "number": 14, "card_enabled": false, "card_explanation": "", "card_fact": "", "category": "природа", "difficulty": "easy", "card_image_key": ""}, {"id": "ru_003", "word": "ЛЕС", "clue": "Большая территория, покрытая деревьями.", "row": 6, "col": 12, "direction": "across", "number": 5, "card_enabled": false, "card_explanation": "", "card_fact": "", "category": "природа", "difficulty": "easy", "card_image_key": ""}, {"id": "ru_022", "word": "СКРИПКА", "clue": "Струнный смычковый музыкальный инструмент.", "row": 6, "col": 14, "direction": "down", "number": 6, "card_enabled": true, "card_explanation": "Струнный инструмент, на котором играют смычком.", "card_fact": "У скрипки четыре струны.", "category": "музыка", "difficulty": "easy", "card_image_key": "skrypka"}, {"id": "ru_006", "word": "ГОРА", "clue": "Высокая форма рельефа.", "row": 14, "col": 11, "direction": "across", "number": 15, "card_enabled": false, "card_explanation": "", "card_fact": "", "category": "природа", "difficulty": "easy", "card_image_key": ""}, {"id": "ru_014", "word": "ЛУНА", "clue": "Естественный спутник Земли.", "row": 4, "col": 8, "direction": "down", "number": 2, "card_enabled": false, "card_explanation": "", "card_fact": "", "category": "космос", "difficulty": "easy", "card_image_key": ""}, {"id": "ru_041", "word": "ВУЛКАН", "clue": "Геологическое образование, через которое из недр выходит магма.", "row": 4, "col": 6, "direction": "across", "number": 1, "card_enabled": true, "card_explanation": "Место, через которое на поверхность могут выходить лава, пепел и газы.", "card_fact": "Магма, достигшая поверхности, называется лавой.", "category": "природа", "difficulty": "easy", "card_image_key": "vulkan"}]}, {"id": "prototype_04", "size": 15, "placed_words": 18, "crossings": 23, "bounding_area": 140, "placements": [{"id": "ru_061", "word": "ФЛАМИНГО", "clue": "Крупная птица с длинными ногами и часто розовым оперением.", "row": 7, "col": 3, "direction": "across", "number": 10, "card_enabled": true, "card_explanation": "Длинноногая водная птица, известная розовым оперением.", "card_fact": "Розовый цвет связан с пигментами из пищи.", "category": "животные", "difficulty": "easy", "card_image_key": "flamingo"}, {"id": "ru_001", "word": "ДОМ", "clue": "Жилое здание.", "row": 6, "col": 10, "direction": "down", "number": 9, "card_enabled": false, "card_explanation": "", "card_fact": "", "category": "быт", "difficulty": "easy", "card_image_key": ""}, {"id": "ru_090", "word": "ДОМИНО", "clue": "Игра с прямоугольными костяшками, разделёнными на две половины.", "row": 6, "col": 10, "direction": "down", "number": 9, "card_enabled": false, "card_explanation": "", "card_fact": "", "category": "игры", "difficulty": "easy", "card_image_key": ""}, {"id": "ru_064", "word": "БАРСУК", "clue": "Млекопитающее семейства куньих, живущее в норах.", "row": 6, "col": 5, "direction": "down", "number": 7, "card_enabled": false, "card_explanation": "", "card_fact": "", "category": "животные", "difficulty": "easy", "card_image_key": ""}, {"id": "ru_014", "word": "ЛУНА", "clue": "Естественный спутник Земли.", "row": 10, "col": 4, "direction": "across", "number": 13, "card_enabled": false, "card_explanation": "", "card_fact": "", "category": "космос", "difficulty": "easy", "card_image_key": ""}, {"id": "ru_093", "word": "ВИТРАЖ", "clue": "Декоративное изображение из цветного стекла.", "row": 6, "col": 7, "direction": "down", "number": 8, "card_enabled": true, "card_explanation": "Композиция из цветного стекла, часто установленная в окне.", "card_fact": "Особенно известны витражи средневековых соборов.", "category": "искусство", "difficulty": "medium", "card_image_key": "stained_glass"}, {"id": "ru_048", "word": "РЯБИНА", "clue": "Дерево или кустарник с гроздьями ярких ягод.", "row": 9, "col": 7, "direction": "across", "number": 12, "card_enabled": false, "card_explanation": "", "card_fact": "", "category": "растения", "difficulty": "easy", "card_image_key": ""}, {"id": "ru_006", "word": "ГОРА", "clue": "Высокая форма рельефа.", "row": 11, "col": 9, "direction": "across", "number": 15, "card_enabled": false, "card_explanation": "", "card_fact": "", "category": "природа", "difficulty": "easy", "card_image_key": ""}, {"id": "ru_071", "word": "КОАЛА", "clue": "Австралийское сумчатое животное, питающееся листьями эвкалипта.", "row": 7, "col": 12, "direction": "down", "number": 11, "card_enabled": false, "card_explanation": "", "card_fact": "", "category": "животные", "difficulty": "easy", "card_image_key": ""}, {"id": "ru_024", "word": "АРФА", "clue": "Струнный музыкальный инструмент с рамой и множеством струн.", "row": 5, "col": 3, "direction": "down", "number": 6, "card_enabled": true, "card_explanation": "Большой струнный инструмент, на котором играют пальцами.", "card_fact": "У концертной арфы десятки струн.", "category": "музыка", "difficulty": "easy", "card_image_key": "arfa"}, {"id": "ru_003", "word": "ЛЕС", "clue": "Большая территория, покрытая деревьями.", "row": 10, "col": 12, "direction": "across", "number": 14, "card_enabled": false, "card_explanation": "", "card_fact": "", "category": "природа", "difficulty": "easy", "card_image_key": ""}, {"id": "ru_002", "word": "КОТ", "clue": "Домашнее животное, которое мяукает.", "row": 7, "col": 12, "direction": "across", "number": 11, "card_enabled": false, "card_explanation": "", "card_fact": "", "category": "животные", "difficulty": "easy", "card_image_key": ""}, {"id": "ru_073", "word": "АЛЬБАТРОС", "clue": "Крупная морская птица с очень длинными крыльями.", "row": 2, "col": 14, "direction": "down", "number": 3, "card_enabled": true, "card_explanation": "Крупная океаническая птица, способная долго парить над морем.", "card_fact": "У некоторых альбатросов размах крыльев превышает три метра.", "category": "животные", "difficulty": "medium", "card_image_key": "albatross"}, {"id": "ru_028", "word": "ФОНАРЬ", "clue": "Переносной или уличный источник света.", "row": 4, "col": 9, "direction": "across", "number": 4, "card_enabled": false, "card_explanation": "", "card_fact": "", "category": "быт", "difficulty": "easy", "card_image_key": ""}, {"id": "ru_036", "word": "АМФОРА", "clue": "Древний сосуд с двумя ручками и узким горлом.", "row": 2, "col": 9, "direction": "across", "number": 1, "card_enabled": true, "card_explanation": "Античный сосуд с двумя ручками, часто для вина или масла.", "card_fact": "Амфоры использовали для хранения и перевозки продуктов.", "category": "история", "difficulty": "medium", "card_image_key": "amfora"}, {"id": "ru_074", "word": "ОМАР", "clue": "Крупное морское ракообразное с мощными клешнями.", "row": 2, "col": 12, "direction": "down", "number": 2, "card_enabled": true, "card_explanation": "Морское ракообразное с твёрдым панцирем и крупными клешнями.", "card_fact": "Омары линяют, чтобы расти.", "category": "животные", "difficulty": "medium", "card_image_key": "lobster"}, {"id": "ru_077", "word": "АГАТ", "clue": "Полосчатая разновидность халцедона, используемая как поделочный камень.", "row": 5, "col": 1, "direction": "across", "number": 5, "card_enabled": true, "card_explanation": "Декоративный камень, часто имеющий красивые полосы и слои.", "card_fact": "Агат является разновидностью халцедона.", "category": "минералы", "difficulty": "medium", "card_image_key": "agate"}, {"id": "ru_040", "word": "АЙСБЕРГ", "clue": "Большая масса льда, плавающая в море.", "row": 5, "col": 1, "direction": "down", "number": 5, "card_enabled": true, "card_explanation": "Крупная глыба пресного льда, плавающая в море.", "card_fact": "Большая часть айсберга обычно скрыта под водой.", "category": "природа", "difficulty": "easy", "card_image_key": "iceberg"}]}, {"id": "prototype_05", "size": 15, "placed_words": 18, "crossings": 22, "bounding_area": 108, "placements": [{"id": "ru_033", "word": "КАРАНДАШ", "clue": "Предмет для письма и рисования с графитовым стержнем.", "row": 7, "col": 3, "direction": "across", "number": 9, "card_enabled": false, "card_explanation": "", "card_fact": "", "category": "быт", "difficulty": "easy", "card_image_key": ""}, {"id": "ru_001", "word": "ДОМ", "clue": "Жилое здание.", "row": 7, "col": 8, "direction": "down", "number": 10, "card_enabled": false, "card_explanation": "", "card_fact": "", "category": "быт", "difficulty": "easy", "card_image_key": ""}, {"id": "ru_090", "word": "ДОМИНО", "clue": "Игра с прямоугольными костяшками, разделёнными на две половины.", "row": 7, "col": 8, "direction": "down", "number": 10, "card_enabled": false, "card_explanation": "", "card_fact": "", "category": "игры", "difficulty": "easy", "card_image_key": ""}, {"id": "ru_044", "word": "КАКТУС", "clue": "Растение, многие виды которого имеют колючки.", "row": 7, "col": 3, "direction": "down", "number": 9, "card_enabled": false, "card_explanation": "", "card_fact": "", "category": "растения", "difficulty": "easy", "card_image_key": ""}, {"id": "ru_006", "word": "ГОРА", "clue": "Высокая форма рельефа.", "row": 12, "col": 7, "direction": "across", "number": 15, "card_enabled": false, "card_explanation": "", "card_fact": "", "category": "природа", "difficulty": "easy", "card_image_key": ""}, {"id": "ru_046", "word": "КЕДР", "clue": "Хвойное дерево.", "row": 9, "col": 3, "direction": "across", "number": 11, "card_enabled": false, "card_explanation": "", "card_fact": "", "category": "растения", "difficulty": "easy", "card_image_key": ""}, {"id": "ru_018", "word": "ТЕАТР", "clue": "Место, где показывают спектакли.", "row": 5, "col": 6, "direction": "down", "number": 8, "card_enabled": false, "card_explanation": "", "card_fact": "", "category": "культура", "difficulty": "easy", "card_image_key": ""}, {"id": "ru_052", "word": "ТАПИР", "clue": "Крупное травоядное млекопитающее с коротким хоботком.", "row": 5, "col": 6, "direction": "across", "number": 8, "card_enabled": true, "card_explanation": "Крупное лесное животное с коротким подвижным хоботком.", "card_fact": "Тапиры живут в Америке и Юго-Восточной Азии.", "category": "животные", "difficulty": "medium", "card_image_key": "tapir"}, {"id": "ru_067", "word": "ЛИСА", "clue": "Хищное млекопитающее с пушистым хвостом.", "row": 4, "col": 9, "direction": "down", "number": 7, "card_enabled": false, "card_explanation": "", "card_fact": "", "category": "животные", "difficulty": "easy", "card_image_key": ""}, {"id": "ru_020", "word": "КИНО", "clue": "Искусство создания и показа фильмов.", "row": 10, "col": 7, "direction": "across", "number": 13, "card_enabled": false, "card_explanation": "", "card_fact": "", "category": "культура", "difficulty": "easy", "card_image_key": ""}, {"id": "ru_074", "word": "ОМАР", "clue": "Крупное морское ракообразное с мощными клешнями.", "row": 10, "col": 10, "direction": "down", "number": 14, "card_enabled": true, "card_explanation": "Морское ракообразное с твёрдым панцирем и крупными клешнями.", "card_fact": "Омары линяют, чтобы расти.", "category": "животные", "difficulty": "medium", "card_image_key": "lobster"}, {"id": "ru_024", "word": "АРФА", "clue": "Струнный музыкальный инструмент с рамой и множеством струн.", "row": 4, "col": 4, "direction": "down", "number": 6, "card_enabled": true, "card_explanation": "Большой струнный инструмент, на котором играют пальцами.", "card_fact": "У концертной арфы десятки струн.", "category": "музыка", "difficulty": "easy", "card_image_key": "arfa"}, {"id": "ru_010", "word": "ДОЖДЬ", "clue": "Осадки в виде капель воды.", "row": 9, "col": 5, "direction": "down", "number": 12, "card_enabled": false, "card_explanation": "", "card_fact": "", "category": "природа", "difficulty": "easy", "card_image_key": ""}, {"id": "ru_005", "word": "РЕКА", "clue": "Водный поток, текущий по руслу.", "row": 2, "col": 7, "direction": "down", "number": 3, "card_enabled": false, "card_explanation": "", "card_fact": "", "category": "природа", "difficulty": "easy", "card_image_key": ""}, {"id": "ru_050", "word": "ПЕКАРИ", "clue": "Американское млекопитающее, внешне похожее на свинью.", "row": 2, "col": 3, "direction": "across", "number": 1, "card_enabled": true, "card_explanation": "Небольшое копытное животное, похожее на свинью и живущее в Америке.", "card_fact": "Пекари похожи на свиней, но относятся к отдельному семейству.", "category": "животные", "difficulty": "hard", "card_image_key": "pekari"}, {"id": "ru_077", "word": "АГАТ", "clue": "Полосчатая разновидность халцедона, используемая как поделочный камень.", "row": 4, "col": 2, "direction": "across", "number": 5, "card_enabled": true, "card_explanation": "Декоративный камень, часто имеющий красивые полосы и слои.", "card_fact": "Агат является разновидностью халцедона.", "category": "минералы", "difficulty": "medium", "card_image_key": "agate"}, {"id": "ru_002", "word": "КОТ", "clue": "Домашнее животное, которое мяукает.", "row": 2, "col": 5, "direction": "down", "number": 2, "card_enabled": false, "card_explanation": "", "card_fact": "", "category": "животные", "difficulty": "easy", "card_image_key": ""}, {"id": "ru_082", "word": "ЛАТЫ", "clue": "Металлические доспехи, защищавшие тело воина.", "row": 3, "col": 2, "direction": "down", "number": 4, "card_enabled": true, "card_explanation": "Комплект металлических защитных частей доспеха.", "card_fact": "Полный латный доспех состоял из множества подвижных деталей.", "category": "история", "difficulty": "medium", "card_image_key": "armor"}]}], "alphabet": ["А", "Б", "В", "Г", "Д", "Е", "Ё", "Ж", "З", "И", "Й", "К", "Л", "М", "Н", "О", "П", "Р", "С", "Т", "У", "Ф", "Х", "Ц", "Ч", "Ш", "Щ", "Ъ", "Ы", "Ь", "Э", "Ю", "Я"]};
+const PUZZLES=DATA.puzzles;
+const STORAGE='zabastron_crossword_proto_v02';
+const SETTINGS='zabastron_crossword_settings_v02';
+const cardEmoji={
+  'животные':'🐾','растения':'🌿','природа':'🏞️','география':'🗺️','история':'🏺','архитектура':'🏯','музыка':'🎵','искусство':'🎨','культура':'📚','минералы':'💎','наука':'🔬','космос':'🌌','техника':'⚓','быт':'🏠','мифология':'🗿'
+};
+let settings=loadSettings();
+let state=loadState();
+let currentPuzzle=null, selectedWord=0, selectedCellIndex=0, justCompletedWord=null, overviewMode=false, pendingCompletionAfterCard=false;
+function defaults(){return {completed:{},levels:{},activeLevel:null}}
+function loadState(){try{return {...defaults(),...JSON.parse(localStorage.getItem(STORAGE)||'{}')}}catch(e){return defaults()}}
+function saveState(){try{localStorage.setItem(STORAGE,JSON.stringify(state))}catch(e){}refreshHome()}
+function loadSettings(){let d={scale:'large',cards:'auto',numbers:true};try{return {...d,...JSON.parse(localStorage.getItem(SETTINGS)||'{}')}}catch(e){return d}}
+function saveSettings(){try{localStorage.setItem(SETTINGS,JSON.stringify(settings))}catch(e){}applySettings()}
+function applySettings(){document.body.dataset.scale=settings.scale;document.body.classList.toggle('no-numbers',!settings.numbers);document.querySelectorAll('[data-scale-value]').forEach(b=>b.classList.toggle('selected',b.dataset.scaleValue===settings.scale));document.querySelectorAll('[data-card-value]').forEach(b=>b.classList.toggle('selected',b.dataset.cardValue===settings.cards));document.getElementById('numbersToggle').classList.toggle('on',settings.numbers)}
+function showScreen(id){document.querySelectorAll('.screen').forEach(s=>s.classList.remove('active'));document.getElementById(id).classList.add('active');window.scrollTo(0,0)}
+function getLevelState(i){if(!state.levels[i]) state.levels[i]={letters:{},hinted:{},completedWords:{}};return state.levels[i]}
+function refreshHome(){const btn=document.getElementById('resumeBtn');if(state.activeLevel!==null && !state.completed[state.activeLevel]){btn.classList.add('show');document.getElementById('resumeSub').textContent=`Кроссворд ${state.activeLevel+1}`}else btn.classList.remove('show');const done=Object.keys(state.completed).filter(k=>state.completed[k]).length;document.getElementById('homeStatus').textContent=`Пройдено: ${done} из ${PUZZLES.length}`}
+function nextUnfinished(preferUnstarted=false){for(let i=0;i<PUZZLES.length;i++){if(!state.completed[i] && (!preferUnstarted || !state.levels[i])) return i}for(let i=0;i<PUZZLES.length;i++) if(!state.completed[i]) return i;return 0}
+function buildLevelList(){const list=document.getElementById('levelList');list.innerHTML='';PUZZLES.forEach((p,i)=>{const done=!!state.completed[i];const started=!!state.levels[i]&&!done;const b=document.createElement('button');b.className='level';b.innerHTML=`<div class="badge">${i+1}</div><div><strong>Кроссворд ${i+1}</strong><br><span>${p.placed_words} слов · ${started?'Начат':done?'Завершён':'Новый'}</span></div><div class="state">${done?'✓':started?'▶':'›'}</div>`;b.onclick=()=>startLevel(i);list.appendChild(b)})}
+function startLevel(i){pendingCompletionAfterCard=false;currentPuzzle=PUZZLES[i];state.activeLevel=i;getLevelState(i);selectedWord=0;selectedCellIndex=0;overviewMode=false;saveState();renderGame();showScreen('game')}
+function placementCells(pl){const arr=[];for(let i=0;i<pl.word.length;i++){arr.push([pl.row+(pl.direction==='down'?i:0),pl.col+(pl.direction==='across'?i:0)])}return arr}
+function cellKey(r,c){return r+','+c}
+function solutionAt(r,c){for(const pl of currentPuzzle.placements){const cells=placementCells(pl);for(let i=0;i<cells.length;i++) if(cells[i][0]===r&&cells[i][1]===c) return pl.word[i]}return ''}
+function wordsAt(r,c){const out=[];currentPuzzle.placements.forEach((pl,idx)=>{if(placementCells(pl).some(x=>x[0]===r&&x[1]===c))out.push(idx)});return out}
+function renderGame(){if(!currentPuzzle)return;const level=state.activeLevel,ls=getLevelState(level);document.getElementById('gameTitle').textContent=`Кроссворд ${level+1}`;
+  const allCells=new Set();let minR=99,maxR=0,minC=99,maxC=0;currentPuzzle.placements.forEach(pl=>placementCells(pl).forEach(([r,c])=>{allCells.add(cellKey(r,c));minR=Math.min(minR,r);maxR=Math.max(maxR,r);minC=Math.min(minC,c);maxC=Math.max(maxC,c)}));
+  const numByStart={};currentPuzzle.placements.forEach(pl=>numByStart[cellKey(pl.row,pl.col)]=pl.number);
+  const grid=document.getElementById('crossword');
+  const cols=maxC-minC+1, rows=maxR-minR+1;
+  grid.dataset.cols=cols;grid.dataset.rows=rows;
+  if(!overviewMode) grid.style.removeProperty('--cell');
+  grid.style.gridTemplateColumns=`repeat(${cols},var(--cell))`;grid.innerHTML='';
+
+  const activeCells=new Set(placementCells(currentPuzzle.placements[selectedWord]).map(x=>cellKey(x[0],x[1])));
+  const solvedCells=new Set();
+  currentPuzzle.placements.forEach((pl,idx)=>{if(isWordCorrect(idx))placementCells(pl).forEach(([r,c])=>solvedCells.add(cellKey(r,c)))});
+  const activePos=placementCells(currentPuzzle.placements[selectedWord])[selectedCellIndex];
+
+  for(let r=minR;r<=maxR;r++)for(let c=minC;c<=maxC;c++){
+    const key=cellKey(r,c);const b=document.createElement('button');b.className='cell';b.dataset.r=r;b.dataset.c=c;
+    if(!allCells.has(key)){b.classList.add('block');b.tabIndex=-1}else{
+      if(solvedCells.has(key))b.classList.add('solved');
+      if(activeCells.has(key))b.classList.add('word');
+      if(activePos&&activePos[0]===r&&activePos[1]===c)b.classList.add('active');
+      if(ls.hinted[key])b.classList.add('hinted');
+      const num=numByStart[key];b.innerHTML=(num?`<span class="num">${num}</span>`:'')+(ls.letters[key]||'');
+      b.onclick=()=>selectCell(r,c);
+    }grid.appendChild(b)
+  }
+  renderRight();
+  setTimeout(()=>overviewMode?fitOverview():scrollActiveIntoView(),20)
+}
+function selectCell(r,c){
+  const hits=wordsAt(r,c);if(!hits.length)return;
+  let next=hits[0];
+  if(hits.includes(selectedWord)&&hits.length>1) next=hits[(hits.indexOf(selectedWord)+1)%hits.length];
+  else if(hits.includes(selectedWord)) next=selectedWord;
+  selectedWord=next;
+  const cells=placementCells(currentPuzzle.placements[selectedWord]);
+  selectedCellIndex=Math.max(0,cells.findIndex(x=>x[0]===r&&x[1]===c));
+  overviewMode=false;
+  clearOverview();
+  renderGame();
+  setTimeout(scrollPlayControlsIntoView,70);
+}
+function renderRight(){
+ const pl=currentPuzzle.placements[selectedWord],ls=getLevelState(state.activeLevel),cells=placementCells(pl),solved=isWordCorrect(selectedWord);
+ const clueCard=document.querySelector('.clue-card');
+ clueCard.classList.toggle('solved',solved);
+ document.getElementById('clueLabel').textContent=(solved?'✓ Слово разгадано · ':'')+`${pl.number} ${pl.direction==='across'?'по горизонтали':'по вертикали'} · ${pl.word.length} букв`;
+ document.getElementById('clueText').textContent=pl.clue;
+
+ const strip=document.getElementById('answerStrip');
+ strip.innerHTML='';
+ strip.style.gridTemplateColumns=`repeat(${pl.word.length},minmax(0,1fr))`;
+ strip.classList.toggle('long',pl.word.length>=8);
+ strip.classList.toggle('very-long',pl.word.length>=10);
+ strip.classList.toggle('solved',solved);
+ cells.forEach(([r,c],i)=>{
+   const key=cellKey(r,c),b=document.createElement('button');
+   b.className='answer-box'+(i===selectedCellIndex?' active':'')+(ls.hinted[key]?' hinted':'');
+   b.textContent=ls.letters[key]||'';
+   b.onclick=()=>{selectedCellIndex=i;renderGame()};
+   strip.appendChild(b)
+ });
+
+ const completed=countCompleted();
+ document.getElementById('gameProgressText').textContent=`${completed} из ${currentPuzzle.placements.length} слов`;
+ document.getElementById('progressFill').style.width=(completed/currentPuzzle.placements.length*100)+'%';
+ const card=document.getElementById('cardBtn');
+ card.style.display=(settings.cards!=='off'&&pl.card_enabled&&solved)?'block':'none';
+ document.getElementById('overviewBtn').textContent=overviewMode?'↩ К выбранному слову':'▦ Весь кроссворд';
+}
+function nextEmptyIndexInWord(wordIdx,startAt){
+  const pl=currentPuzzle.placements[wordIdx],cells=placementCells(pl),ls=getLevelState(state.activeLevel);
+  for(let i=Math.max(0,startAt);i<cells.length;i++){
+    const [r,c]=cells[i];
+    if(!ls.letters[cellKey(r,c)]) return i;
+  }
+  return -1;
+}
+function inputLetter(ch){
+  const pl=currentPuzzle.placements[selectedWord],cells=placementCells(pl),ls=getLevelState(state.activeLevel);
+  let idx=selectedCellIndex;
+  if(idx<0)idx=0;
+
+  // Если активная клетка уже заполнена пересечением, сразу ищем следующую пустую.
+  if(ls.letters[cellKey(cells[idx][0],cells[idx][1])]){
+    const empty=nextEmptyIndexInWord(selectedWord,idx);
+    if(empty>=0) idx=empty;
+  }
+
+  const [r,c]=cells[idx],key=cellKey(r,c);
+  ls.letters[key]=ch;
+
+  // После ввода переходим именно к следующей ПУСТОЙ клетке,
+  // пропуская буквы, уже появившиеся из пересекающихся слов.
+  const next=nextEmptyIndexInWord(selectedWord,idx+1);
+  selectedCellIndex=next>=0?next:idx;
+
+  afterEdit(selectedWord);
+  saveState();
+  renderGame();
+}
+function deleteLetter(){const pl=currentPuzzle.placements[selectedWord],cells=placementCells(pl),ls=getLevelState(state.activeLevel);let idx=selectedCellIndex;let [r,c]=cells[idx],key=cellKey(r,c);if(ls.letters[key]){delete ls.letters[key]}else if(idx>0){idx--;selectedCellIndex=idx;[r,c]=cells[idx];key=cellKey(r,c);delete ls.letters[key]}saveState();renderGame()}
+function isWordCorrect(idx){const pl=currentPuzzle.placements[idx],ls=getLevelState(state.activeLevel);return placementCells(pl).every(([r,c],i)=>ls.letters[cellKey(r,c)]===pl.word[i])}
+function countCompleted(){let n=0;currentPuzzle.placements.forEach((_,i)=>{if(isWordCorrect(i))n++});return n}
+function findNextUnsolved(startIdx){
+  const total=currentPuzzle.placements.length;
+  for(let step=1;step<=total;step++){
+    const idx=(startIdx+step)%total;
+    if(!isWordCorrect(idx)) return idx;
+  }
+  return -1;
+}
+function findUnsolvedInDirection(startIdx,delta){
+  const total=currentPuzzle.placements.length;
+  const dir=delta>=0?1:-1;
+  for(let step=1;step<=total;step++){
+    const idx=(startIdx+dir*step+total*2)%total;
+    if(!isWordCorrect(idx)) return idx;
+  }
+  return -1;
+}
+function showCompletionModal(){
+  pendingCompletionAfterCard=false;
+  document.getElementById('completeModal').classList.add('show');
+}
+function afterEdit(wordIdx){
+  const ls=getLevelState(state.activeLevel);
+  let newlyCompleted=false;
+  let completedPlacement=null;
+
+  if(isWordCorrect(wordIdx)&&!ls.completedWords[wordIdx]){
+    ls.completedWords[wordIdx]=true;
+    justCompletedWord=wordIdx;
+    newlyCompleted=true;
+    completedPlacement=currentPuzzle.placements[wordIdx];
+    toast('Слово разгадано ✓');
+  }
+
+  const puzzleFinished=countCompleted()===currentPuzzle.placements.length;
+
+  if(puzzleFinished){
+    state.completed[state.activeLevel]=true;
+    saveState();
+
+    // Если у последнего слова есть автокарточка — сначала показываем её.
+    // Экран завершения появится только после закрытия карточки.
+    if(newlyCompleted && completedPlacement && completedPlacement.card_enabled && settings.cards==='auto'){
+      pendingCompletionAfterCard=true;
+      setTimeout(()=>openCard(wordIdx),350);
+    }else{
+      setTimeout(showCompletionModal,450);
+    }
+    return;
+  }
+
+  // Обычное разгаданное слово: карточка может открыться автоматически,
+  // но никакого экрана завершения ещё нет.
+  if(newlyCompleted && completedPlacement && completedPlacement.card_enabled && settings.cards==='auto'){
+    setTimeout(()=>openCard(wordIdx),350);
+  }
+}
+function buildKeyboard(){const k=document.getElementById('keyboard');k.innerHTML='';DATA.alphabet.forEach(ch=>{const b=document.createElement('button');b.className='key';b.textContent=ch;b.onclick=()=>inputLetter(ch);k.appendChild(b)});const del=document.createElement('button');del.className='key delete';del.textContent='⌫ Удалить';del.onclick=deleteLetter;k.appendChild(del);const h=document.createElement('button');h.className='key hint';h.textContent='💡 Подсказка';h.onclick=()=>openHint();k.appendChild(h)}
+function openHint(){document.getElementById('hintModal').classList.add('show')}
+function closeModals(){document.querySelectorAll('.modal-wrap').forEach(m=>m.classList.remove('show'))}
+function closeCard(){
+  document.getElementById('cardModal').classList.remove('show');
+  if(pendingCompletionAfterCard){
+    setTimeout(showCompletionModal,180);
+  }
+}
+function hintLetter(){const pl=currentPuzzle.placements[selectedWord],cells=placementCells(pl),ls=getLevelState(state.activeLevel);let candidates=[];cells.forEach(([r,c],i)=>{const key=cellKey(r,c);if(ls.letters[key]!==pl.word[i])candidates.push([r,c,i])});if(!candidates.length){toast('Это слово уже разгадано');closeModals();return}let chosen=candidates.find(x=>x[2]>=selectedCellIndex)||candidates[0];const [r,c,i]=chosen,key=cellKey(r,c);ls.letters[key]=pl.word[i];ls.hinted[key]=true;const next=nextEmptyIndexInWord(selectedWord,i+1);selectedCellIndex=next>=0?next:i;closeModals();afterEdit(selectedWord);saveState();renderGame()}
+function hintWord(){const pl=currentPuzzle.placements[selectedWord],ls=getLevelState(state.activeLevel);placementCells(pl).forEach(([r,c],i)=>{const key=cellKey(r,c);ls.letters[key]=pl.word[i];ls.hinted[key]=true});closeModals();afterEdit(selectedWord);saveState();renderGame()}
+function openCard(idx=selectedWord){const pl=currentPuzzle.placements[idx];if(!pl.card_enabled)return;document.getElementById('cardTitle').textContent=pl.word;document.getElementById('cardExplanation').textContent=pl.card_explanation||pl.clue;document.getElementById('cardFact').textContent=pl.card_fact?`Интересный факт: ${pl.card_fact}`:'';document.getElementById('cardVisual').innerHTML=`<span>${cardEmoji[pl.category]||'🖼️'}</span><small>${pl.category||'новое слово'}</small>`;document.getElementById('cardModal').classList.add('show')}
+function scrollActiveIntoView(){
+  const wrap=document.getElementById('gridScroll');
+  const el=document.querySelector('.cell.active');
+  if(!wrap||!el)return;
+
+  // Прокручиваем ТОЛЬКО внутреннее окно сетки.
+  // scrollIntoView здесь не используется, потому что на мобильном он
+  // также прокручивал всю страницу вверх после каждой введённой буквы.
+  const targetLeft=el.offsetLeft-(wrap.clientWidth-el.offsetWidth)/2;
+  const targetTop=el.offsetTop-(wrap.clientHeight-el.offsetHeight)/2;
+  wrap.scrollTo({
+    left:Math.max(0,targetLeft),
+    top:Math.max(0,targetTop),
+    behavior:'smooth'
+  });
+}
+function clearOverview(){
+  const wrap=document.getElementById('gridScroll'),grid=document.getElementById('crossword');
+  wrap.classList.remove('overview');
+  wrap.style.removeProperty('height');
+  wrap.style.removeProperty('max-height');
+  grid.style.removeProperty('--cell');
+}
+function fitOverview(){
+  const wrap=document.getElementById('gridScroll'),grid=document.getElementById('crossword');
+  const cols=Number(grid.dataset.cols||1),rows=Number(grid.dataset.rows||1);
+  const normalCell=parseFloat(getComputedStyle(document.body).getPropertyValue('--cell'))||40;
+  const targetH=Math.max(220,Math.min(window.innerHeight*0.48,430));
+  wrap.classList.add('overview');
+  wrap.style.height=targetH+'px';
+  wrap.style.maxHeight='none';
+  const availableW=Math.max(160,wrap.clientWidth-10);
+  const availableH=Math.max(180,targetH-10);
+  const fitW=(availableW-(cols-1)-6)/cols;
+  const fitH=(availableH-(rows-1)-6)/rows;
+  const size=Math.max(17,Math.min(normalCell,Math.floor(Math.min(fitW,fitH))));
+  grid.style.setProperty('--cell',size+'px');
+  wrap.scrollTo({left:0,top:0,behavior:'auto'});
+}
+function overview(){
+  overviewMode=!overviewMode;
+  if(!overviewMode)clearOverview();
+  renderGame();
+  if(overviewMode)toast('Весь кроссворд показан целиком');
+}
+function scrollPlayControlsIntoView(){
+  if(window.matchMedia('(min-width:860px)').matches)return;
+  const strip=document.getElementById('answerStrip');
+  if(!strip)return;
+  const top=strip.getBoundingClientRect().top+window.scrollY-12;
+  window.scrollTo({top:Math.max(0,top),behavior:'smooth'});
+}
+function moveWord(delta){
+  overviewMode=false;clearOverview();
+  const next=findUnsolvedInDirection(selectedWord,delta);
+  if(next<0){
+    toast('Все слова уже разгаданы');
+    return;
+  }
+  selectedWord=next;
+  selectedCellIndex=firstBlankIndex(selectedWord);
+  renderGame();
+  setTimeout(scrollPlayControlsIntoView,60);
+}
+function firstBlankIndex(idx){const pl=currentPuzzle.placements[idx],ls=getLevelState(state.activeLevel),cells=placementCells(pl);const x=cells.findIndex(([r,c],i)=>ls.letters[cellKey(r,c)]!==pl.word[i]);return x<0?0:x}
+function speak(){const t=document.getElementById('clueText').textContent;if('speechSynthesis'in window){speechSynthesis.cancel();const u=new SpeechSynthesisUtterance(t);u.lang='ru-RU';u.rate=.88;speechSynthesis.speak(u)}else toast('Озвучивание недоступно на этом устройстве')}
+function toast(msg){const t=document.getElementById('toast');t.textContent=msg;t.classList.add('show');clearTimeout(toast._t);toast._t=setTimeout(()=>t.classList.remove('show'),1900)}
+function goHome(){pendingCompletionAfterCard=false;closeModals();showScreen('home');refreshHome()}
+function nextAfterComplete(){closeModals();let i=nextUnfinished(true);if(Object.values(state.completed).filter(Boolean).length===PUZZLES.length){toast('Все тестовые кроссворды пройдены');goHome()}else startLevel(i)}
+
+// bindings
+buildKeyboard();applySettings();refreshHome();
+document.getElementById('resumeBtn').onclick=()=>startLevel(state.activeLevel);
+document.getElementById('newBtn').onclick=()=>startLevel(nextUnfinished(true));
+document.getElementById('levelsBtn').onclick=()=>{buildLevelList();showScreen('levels')};
+document.getElementById('settingsBtn').onclick=()=>showScreen('settings');
+document.querySelectorAll('[data-home]').forEach(b=>b.onclick=goHome);
+document.getElementById('gameHome').onclick=goHome;document.getElementById('gameSettings').onclick=()=>showScreen('settings');
+document.getElementById('prevWord').onclick=()=>moveWord(-1);document.getElementById('nextWord').onclick=()=>moveWord(1);document.getElementById('overviewBtn').onclick=overview;document.getElementById('cardBtn').onclick=()=>openCard();document.getElementById('speakBtn').onclick=speak;
+document.getElementById('hintLetter').onclick=hintLetter;document.getElementById('hintWord').onclick=hintWord;document.querySelectorAll('[data-close-modal]').forEach(b=>b.onclick=closeModals);document.getElementById('cardContinueBtn').onclick=closeCard;document.getElementById('nextLevelBtn').onclick=nextAfterComplete;document.getElementById('completeHome').onclick=goHome;
+document.querySelectorAll('[data-scale-value]').forEach(b=>b.onclick=()=>{settings.scale=b.dataset.scaleValue;saveSettings()});document.querySelectorAll('[data-card-value]').forEach(b=>b.onclick=()=>{settings.cards=b.dataset.cardValue;saveSettings()});document.getElementById('numbersToggle').onclick=()=>{settings.numbers=!settings.numbers;saveSettings()};
+document.addEventListener('keydown',e=>{if(!document.getElementById('game').classList.contains('active'))return;let ch=e.key.toUpperCase();if(DATA.alphabet.includes(ch)){e.preventDefault();inputLetter(ch)}else if(e.key==='Backspace'){e.preventDefault();deleteLetter()}else if(e.key==='ArrowRight'){e.preventDefault();moveWord(1)}else if(e.key==='ArrowLeft'){e.preventDefault();moveWord(-1)}});
+// Close modal by tapping dark area only
+for(const m of document.querySelectorAll('.modal-wrap'))m.addEventListener('click',e=>{
+  if(e.target!==m)return;
+  if(m.id==='cardModal') closeCard();
+  else m.classList.remove('show');
+});
+</script>
+</body></html>
