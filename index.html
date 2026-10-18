@@ -4,7 +4,7 @@
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width,initial-scale=1,maximum-scale=1,user-scalable=no,viewport-fit=cover">
 <meta name="theme-color" content="#f7f2e8">
-<title>Добрые Кроссворды — прототип v0.10</title>
+<title>Добрые Кроссворды — прототип v0.11</title>
 <style>
 :root{
   --bg:#f6f0e5; --paper:#fffdf8; --ink:#202a36; --muted:#68717d;
@@ -135,8 +135,13 @@ body.no-numbers .cell .num{display:none}
 .card-placeholder-note{font-size:12px!important;color:#69727e;text-align:center}
 .toast{position:fixed;z-index:70;left:50%;bottom:18px;transform:translateX(-50%) translateY(20px);background:#263341;color:white;padding:11px 16px;border-radius:13px;font-weight:750;opacity:0;pointer-events:none;transition:.2s;max-width:90%;text-align:center}
 .toast.show{opacity:1;transform:translateX(-50%) translateY(0)}
+.landscape-keyboard-host{display:none}
 @media (min-width:700px) and (orientation:landscape){
   .app{max-width:1100px}.game-layout{display:grid;grid-template-columns:minmax(390px,1.1fr) minmax(360px,.9fr);gap:14px}.grid-scroll{max-height:76dvh}.right-play{align-self:start}.screen{padding:16px 20px}
+}
+@media (orientation:landscape) and (max-height:600px){
+  .landscape-keyboard-host{display:block;width:min(760px,100%);margin:8px auto 0}
+  .landscape-keyboard-host #keyboardArea{width:100%;margin:0 auto}
 }
 </style>
 </head>
@@ -159,7 +164,7 @@ body.no-numbers .cell .num{display:none}
   </section>
 
   <section id="settings" class="screen">
-    <div class="list-head"><button class="iconbtn" data-home>←</button><h2>Настройки</h2></div>
+    <div class="list-head"><button id="settingsBack" class="iconbtn">←</button><h2>Настройки</h2></div>
     <div class="settings-card"><h3>Размер интерфейса</h3><div class="choice" id="scaleChoice">
       <button data-scale-value="normal">Обычный</button><button data-scale-value="large">Крупный — рекомендуется</button><button data-scale-value="xlarge">Очень крупный</button>
     </div></div>
@@ -183,10 +188,13 @@ body.no-numbers .cell .num{display:none}
         <div id="answerStrip" class="answer-strip"></div>
         <div class="word-nav"><button id="prevWord" class="actionbtn">← Предыдущее</button><button id="nextWord" class="actionbtn">Следующее →</button></div>
         <div class="quick-actions single"><button id="overviewBtn" class="actionbtn primary">▦ Весь кроссворд</button></div>
-        <div id="keyboard" class="keyboard"></div>
-        <div class="smallnote">⌫ удаляет выбранную букву; если клетка пустая — предыдущую букву текущего слова.</div>
+        <div id="keyboardArea">
+          <div id="keyboard" class="keyboard"></div>
+          <div class="smallnote">⌫ удаляет выбранную букву; если клетка пустая — предыдущую букву текущего слова.</div>
+        </div>
       </div>
     </div>
+    <div id="landscapeKeyboardHost" class="landscape-keyboard-host"></div>
   </section>
 </div>
 
@@ -205,6 +213,7 @@ const cardEmoji={
 let settings=loadSettings();
 let state=loadState();
 let currentPuzzle=null, selectedWord=0, selectedCellIndex=0, justCompletedWord=null, overviewMode=false, pendingCompletionAfterCard=false;
+let settingsReturnScreen='home', settingsReturnScrollY=0;
 function defaults(){return {completed:{},levels:{},activeLevel:null}}
 function loadState(){try{return {...defaults(),...JSON.parse(localStorage.getItem(STORAGE)||'{}')}}catch(e){return defaults()}}
 function saveState(){try{localStorage.setItem(STORAGE,JSON.stringify(state))}catch(e){}refreshHome()}
@@ -212,6 +221,20 @@ function loadSettings(){let d={scale:'large',cards:'auto',numbers:true,keyboard:
 function saveSettings(){try{localStorage.setItem(SETTINGS,JSON.stringify(settings))}catch(e){}applySettings()}
 function applySettings(){document.body.dataset.scale=settings.scale;document.body.classList.toggle('no-numbers',!settings.numbers);document.querySelectorAll('[data-scale-value]').forEach(b=>b.classList.toggle('selected',b.dataset.scaleValue===settings.scale));document.querySelectorAll('[data-card-value]').forEach(b=>b.classList.toggle('selected',b.dataset.cardValue===settings.cards));document.querySelectorAll('[data-keyboard-value]').forEach(b=>b.classList.toggle('selected',b.dataset.keyboardValue===settings.keyboard));document.getElementById('numbersToggle').classList.toggle('on',settings.numbers);if(document.getElementById('keyboard'))buildKeyboard()}
 function showScreen(id){document.querySelectorAll('.screen').forEach(s=>s.classList.remove('active'));document.getElementById(id).classList.add('active');window.scrollTo(0,0)}
+function openSettings(from){
+  settingsReturnScreen=from;
+  settingsReturnScrollY=window.scrollY;
+  showScreen('settings');
+}
+function closeSettings(){
+  if(settingsReturnScreen==='game'&&currentPuzzle){
+    showScreen('game');
+    setTimeout(()=>window.scrollTo(0,settingsReturnScrollY),0);
+  }else{
+    showScreen('home');
+    refreshHome();
+  }
+}
 function getLevelState(i){if(!state.levels[i]) state.levels[i]={letters:{},hinted:{},completedWords:{}};return state.levels[i]}
 function refreshHome(){const btn=document.getElementById('resumeBtn');if(state.activeLevel!==null && !state.completed[state.activeLevel]){btn.classList.add('show');document.getElementById('resumeSub').textContent=`Кроссворд ${state.activeLevel+1}`}else btn.classList.remove('show');const done=Object.keys(state.completed).filter(k=>state.completed[k]).length;document.getElementById('homeStatus').textContent=`Пройдено: ${done} из ${PUZZLES.length}`}
 function nextUnfinished(preferUnstarted=false){for(let i=0;i<PUZZLES.length;i++){if(!state.completed[i] && (!preferUnstarted || !state.levels[i])) return i}for(let i=0;i<PUZZLES.length;i++) if(!state.completed[i]) return i;return 0}
@@ -455,6 +478,18 @@ function appendKeyboardActions(container,isQwerty){
   container.appendChild(actions);
 }
 
+function placeKeyboardForViewport(){
+  const area=document.getElementById('keyboardArea');
+  const host=document.getElementById('landscapeKeyboardHost');
+  const right=document.querySelector('.right-play');
+  if(!area||!host||!right)return;
+  const phoneLandscape=window.matchMedia('(orientation: landscape) and (max-height: 600px)').matches;
+  if(phoneLandscape){
+    if(area.parentElement!==host)host.appendChild(area);
+  }else{
+    if(area.parentElement!==right)right.appendChild(area);
+  }
+}
 function buildKeyboard(){
   const k=document.getElementById('keyboard');
   k.innerHTML='';
@@ -480,6 +515,7 @@ function buildKeyboard(){
     });
 
     appendKeyboardActions(k,true);
+    placeKeyboardForViewport();
     return;
   }
 
@@ -499,6 +535,7 @@ function buildKeyboard(){
   k.appendChild(del);
 
   appendKeyboardActions(k,false);
+  placeKeyboardForViewport();
 }
 function openHint(){document.getElementById('hintModal').classList.add('show')}
 function closeModals(){document.querySelectorAll('.modal-wrap').forEach(m=>m.classList.remove('show'))}
@@ -593,12 +630,13 @@ buildKeyboard();applySettings();refreshHome();
 document.getElementById('resumeBtn').onclick=()=>startLevel(state.activeLevel);
 document.getElementById('newBtn').onclick=()=>startLevel(nextUnfinished(true));
 document.getElementById('levelsBtn').onclick=()=>{buildLevelList();showScreen('levels')};
-document.getElementById('settingsBtn').onclick=()=>showScreen('settings');
+document.getElementById('settingsBtn').onclick=()=>openSettings('home');
 document.querySelectorAll('[data-home]').forEach(b=>b.onclick=goHome);
-document.getElementById('gameHome').onclick=goHome;document.getElementById('gameSettings').onclick=()=>showScreen('settings');
+document.getElementById('gameHome').onclick=goHome;document.getElementById('gameSettings').onclick=()=>openSettings('game');document.getElementById('settingsBack').onclick=closeSettings;
 document.getElementById('prevWord').onclick=()=>moveWord(-1);document.getElementById('nextWord').onclick=()=>moveWord(1);document.getElementById('overviewBtn').onclick=overview;document.getElementById('cardBtn').onclick=()=>openCard();document.getElementById('speakBtn').onclick=speak;
 document.getElementById('hintLetter').onclick=hintLetter;document.getElementById('hintWord').onclick=hintWord;document.querySelectorAll('[data-close-modal]').forEach(b=>b.onclick=closeModals);document.getElementById('cardContinueBtn').onclick=closeCard;document.getElementById('nextLevelBtn').onclick=nextAfterComplete;document.getElementById('completeHome').onclick=goHome;
 document.querySelectorAll('[data-scale-value]').forEach(b=>b.onclick=()=>{settings.scale=b.dataset.scaleValue;saveSettings()});document.querySelectorAll('[data-card-value]').forEach(b=>b.onclick=()=>{settings.cards=b.dataset.cardValue;saveSettings()});document.querySelectorAll('[data-keyboard-value]').forEach(b=>b.onclick=()=>{settings.keyboard=b.dataset.keyboardValue;saveSettings()});document.getElementById('numbersToggle').onclick=()=>{settings.numbers=!settings.numbers;saveSettings()};
+window.addEventListener('resize',()=>setTimeout(placeKeyboardForViewport,60));
 document.addEventListener('keydown',e=>{if(!document.getElementById('game').classList.contains('active'))return;let ch=e.key.toUpperCase();if(DATA.alphabet.includes(ch)){e.preventDefault();inputLetter(ch)}else if(e.key==='Backspace'){e.preventDefault();deleteLetter()}else if(e.key==='ArrowRight'){e.preventDefault();moveWord(1)}else if(e.key==='ArrowLeft'){e.preventDefault();moveWord(-1)}});
 // Close modal by tapping dark area only
 for(const m of document.querySelectorAll('.modal-wrap'))m.addEventListener('click',e=>{
