@@ -4,7 +4,7 @@
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width,initial-scale=1,maximum-scale=1,user-scalable=no,viewport-fit=cover">
 <meta name="theme-color" content="#f7f2e8">
-<title>Добрые Кроссворды — прототип v0.14</title>
+<title>Добрые Кроссворды — прототип v0.15</title>
 <style>
 :root{
   --bg:#f6f0e5; --paper:#fffdf8; --ink:#202a36; --muted:#68717d;
@@ -153,11 +153,52 @@ body.no-numbers .cell .num{display:none}
 @media (orientation:landscape) and (max-height:600px){
   .game-layout{display:block}
   .game-layout>div:first-child,
-  .right-play{width:min(760px,100%);margin-left:auto;margin-right:auto}
-  .right-play{margin-top:14px}
+  .right-play{width:min(900px,100%);margin-left:auto;margin-right:auto}
+  .right-play{
+    margin-top:10px;
+    display:flex;
+    flex-direction:column
+  }
+  .clue-card{order:1;margin:6px 0}
+  .answer-strip{order:2}
+  #keyboardArea{order:3;width:100%;margin:4px auto 0}
+  .word-nav{order:4;margin-top:6px}
+  .quick-actions{order:5;margin-top:6px}
   .grid-scroll{max-height:none}
   .landscape-keyboard-host{display:none}
-  #keyboardArea{width:100%;margin:8px auto 0}
+  #keyboardArea .smallnote{display:none}
+
+  /* Use landscape width so the alphabetic keyboard needs only 3 letter rows. */
+  .keyboard:not(.qwerty){
+    grid-template-columns:repeat(11,minmax(0,1fr));
+    gap:4px
+  }
+  .keyboard:not(.qwerty)>.key{
+    min-height:44px;
+    font-size:clamp(18px,3.2vw,24px);
+    border-radius:9px
+  }
+  .keyboard:not(.qwerty)>.key.delete{
+    grid-column:span 4;
+    min-height:48px;
+    font-size:17px
+  }
+  .keyboard:not(.qwerty)>.kb-actions{
+    grid-column:span 7;
+    grid-template-columns:1fr 1fr;
+    gap:4px;
+    margin-top:0
+  }
+  .keyboard:not(.qwerty)>.kb-actions .key{
+    min-height:48px;
+    font-size:16px
+  }
+
+  /* QWERTY also becomes a little shorter on a low landscape viewport. */
+  .keyboard.qwerty .key.letter,
+  .keyboard.qwerty .key.delete-phone{min-height:44px}
+  .keyboard.qwerty .kb-row{margin-bottom:4px}
+  .keyboard.qwerty .kb-actions .key{min-height:48px}
 }
 </style>
 </head>
