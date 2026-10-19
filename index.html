@@ -4,7 +4,7 @@
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width,initial-scale=1,maximum-scale=1,user-scalable=no,viewport-fit=cover">
 <meta name="theme-color" content="#f7f2e8">
-<title>Добрые Кроссворды — прототип v0.12</title>
+<title>Добрые Кроссворды — прототип v0.13</title>
 <style>
 :root{
   --bg:#f6f0e5; --paper:#fffdf8; --ink:#202a36; --muted:#68717d;
@@ -151,8 +151,13 @@ body.no-numbers .cell .num{display:none}
   .app{max-width:1100px}.game-layout{display:grid;grid-template-columns:minmax(390px,1.1fr) minmax(360px,.9fr);gap:14px}.grid-scroll{max-height:76dvh}.right-play{align-self:start}.screen{padding:16px 20px}
 }
 @media (orientation:landscape) and (max-height:600px){
-  .landscape-keyboard-host{display:block;width:min(760px,100%);margin:8px auto 0}
-  .landscape-keyboard-host #keyboardArea{width:100%;margin:0 auto}
+  .game-layout{display:block}
+  .game-layout>div:first-child,
+  .right-play{width:min(760px,100%);margin-left:auto;margin-right:auto}
+  .right-play{margin-top:14px}
+  .grid-scroll{max-height:none}
+  .landscape-keyboard-host{display:none}
+  #keyboardArea{width:100%;margin:8px auto 0}
 }
 </style>
 </head>
@@ -491,15 +496,9 @@ function appendKeyboardActions(container,isQwerty){
 
 function placeKeyboardForViewport(){
   const area=document.getElementById('keyboardArea');
-  const host=document.getElementById('landscapeKeyboardHost');
   const right=document.querySelector('.right-play');
-  if(!area||!host||!right)return;
-  const phoneLandscape=window.matchMedia('(orientation: landscape) and (max-height: 600px)').matches;
-  if(phoneLandscape){
-    if(area.parentElement!==host)host.appendChild(area);
-  }else{
-    if(area.parentElement!==right)right.appendChild(area);
-  }
+  if(!area||!right)return;
+  if(area.parentElement!==right)right.appendChild(area);
 }
 function buildKeyboard(){
   const k=document.getElementById('keyboard');
