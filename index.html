@@ -4,7 +4,7 @@
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width,initial-scale=1,maximum-scale=1,user-scalable=no,viewport-fit=cover">
 <meta name="theme-color" content="#f7f2e8">
-<title>Добрые Кроссворды — прототип v0.16</title>
+<title>Добрые Кроссворды — прототип v0.17</title>
 <style>
 :root{
   --bg:#f6f0e5; --paper:#fffdf8; --ink:#202a36; --muted:#68717d;
@@ -132,6 +132,7 @@ body.no-numbers .cell .num{display:none}
 .toggle{width:66px;height:38px;border-radius:22px;background:#c6ccd2;border:0;position:relative;cursor:pointer}
 .toggle:after{content:"";position:absolute;width:30px;height:30px;left:4px;top:4px;border-radius:50%;background:white;transition:.15s;box-shadow:0 1px 4px #778}
 .toggle.on{background:#4f8d62}.toggle.on:after{left:32px}
+#soundToggle{height:48px}#soundToggle:after{top:9px}
 .modal-wrap{display:none;position:fixed;z-index:50;inset:0;background:rgba(25,34,44,.48);padding:18px;align-items:flex-end;justify-content:center}
 .modal-wrap.show{display:flex}
 .modal{width:min(560px,100%);max-height:90dvh;overflow:auto;background:#fffdf8;border-radius:24px;padding:18px;box-shadow:0 18px 70px rgba(0,0,0,.3)}
@@ -231,8 +232,9 @@ body.no-numbers .cell .num{display:none}
     <div class="settings-card"><h3>Раскладка клавиатуры</h3><div class="choice" id="keyboardChoice">
       <button data-keyboard-value="alpha">Алфавитная (А–Я)</button><button data-keyboard-value="qwerty">Обычная (ЙЦУКЕН)</button>
     </div></div>
+    <div class="settings-card"><div class="toggle-row"><span>Звуки игры<br><small id="soundState" style="font-size:15px;font-weight:600;color:#68717d">Включены</small></span><button id="soundToggle" type="button" class="toggle on" aria-label="Выключить звуки игры" aria-pressed="true"></button></div></div>
     <div class="settings-card"><div class="toggle-row"><span>Показывать номера клеток</span><button id="numbersToggle" class="toggle on" aria-label="Показывать номера клеток"></button></div></div>
-    <div class="settings-card"><p style="margin:0;color:#68717d;line-height:1.45">Все настройки сохраняются на этом устройстве. Номера клеток включены по умолчанию.</p></div>
+    <div class="settings-card"><p style="margin:0;color:#68717d;line-height:1.45">Все настройки сохраняются на этом устройстве. Звуки и номера клеток включены по умолчанию.</p></div>
   </section>
 
   <section id="game" class="screen">
@@ -271,12 +273,51 @@ let settings=loadSettings();
 let state=loadState();
 let currentPuzzle=null, selectedWord=0, selectedCellIndex=0, justCompletedWord=null, overviewMode=false, pendingCompletionAfterCard=false;
 let settingsReturnScreen='home', settingsReturnScrollY=0;
+// Four soft, short, offline effects. Audio starts only after a user action.
+let gameAudioContext=null;
+let lastLetterSoundAt=0;
+const SOUND_NOTES={
+  letter:[[620,0,.043,.014]],
+  word:[[523.25,.025,.12,.030],[659.25,.13,.16,.034]],
+  card:[[783.99,0,.11,.019],[1046.5,.060,.17,.015]],
+  complete:[[523.25,0,.14,.030],[659.25,.12,.14,.033],[783.99,.25,.16,.036],[1046.5,.40,.35,.041]]
+};
+function playSound(type){
+  if(!settings.sound)return;
+  const AudioCtor=window.AudioContext||window.webkitAudioContext;
+  if(!AudioCtor)return; // Graceful fallback for browsers without Web Audio.
+  try{
+    if(!gameAudioContext||gameAudioContext.state==='closed')gameAudioContext=new AudioCtor();
+    if(gameAudioContext.state==='suspended')gameAudioContext.resume().catch(()=>{});
+    const ctx=gameAudioContext;
+    const now=ctx.currentTime+.008;
+    if(type==='letter'){
+      if(now-lastLetterSoundAt<.025)return;
+      lastLetterSoundAt=now;
+    }
+    for(const [frequency,offset,duration,volume] of SOUND_NOTES[type]||[]){
+      const start=now+offset;
+      const oscillator=ctx.createOscillator();
+      const gain=ctx.createGain();
+      oscillator.type='sine';
+      oscillator.frequency.setValueAtTime(frequency,start);
+      gain.gain.setValueAtTime(.0001,start);
+      gain.gain.linearRampToValueAtTime(volume,start+.012);
+      gain.gain.exponentialRampToValueAtTime(.0001,start+duration);
+      oscillator.connect(gain);
+      gain.connect(ctx.destination);
+      oscillator.onended=()=>{oscillator.disconnect();gain.disconnect()};
+      oscillator.start(start);
+      oscillator.stop(start+duration+.005);
+    }
+  }catch(e){/* No sound must never interrupt the crossword. */}
+}
 function defaults(){return {completed:{},levels:{},activeLevel:null}}
 function loadState(){try{return {...defaults(),...JSON.parse(localStorage.getItem(STORAGE)||'{}')}}catch(e){return defaults()}}
 function saveState(){try{localStorage.setItem(STORAGE,JSON.stringify(state))}catch(e){}refreshHome()}
-function loadSettings(){let d={scale:'large',cards:'auto',numbers:true,keyboard:'alpha'};try{return {...d,...JSON.parse(localStorage.getItem(SETTINGS)||'{}')}}catch(e){return d}}
+function loadSettings(){let d={scale:'large',cards:'auto',numbers:true,keyboard:'alpha',sound:true};try{return {...d,...JSON.parse(localStorage.getItem(SETTINGS)||'{}')}}catch(e){return d}}
 function saveSettings(){try{localStorage.setItem(SETTINGS,JSON.stringify(settings))}catch(e){}applySettings()}
-function applySettings(){document.body.dataset.scale=settings.scale;document.body.classList.toggle('no-numbers',!settings.numbers);document.querySelectorAll('[data-scale-value]').forEach(b=>b.classList.toggle('selected',b.dataset.scaleValue===settings.scale));document.querySelectorAll('[data-card-value]').forEach(b=>b.classList.toggle('selected',b.dataset.cardValue===settings.cards));document.querySelectorAll('[data-keyboard-value]').forEach(b=>b.classList.toggle('selected',b.dataset.keyboardValue===settings.keyboard));document.getElementById('numbersToggle').classList.toggle('on',settings.numbers);if(document.getElementById('keyboard'))buildKeyboard()}
+function applySettings(){document.body.dataset.scale=settings.scale;document.body.classList.toggle('no-numbers',!settings.numbers);document.querySelectorAll('[data-scale-value]').forEach(b=>b.classList.toggle('selected',b.dataset.scaleValue===settings.scale));document.querySelectorAll('[data-card-value]').forEach(b=>b.classList.toggle('selected',b.dataset.cardValue===settings.cards));document.querySelectorAll('[data-keyboard-value]').forEach(b=>b.classList.toggle('selected',b.dataset.keyboardValue===settings.keyboard));document.getElementById('numbersToggle').classList.toggle('on',settings.numbers);const soundToggle=document.getElementById('soundToggle');soundToggle.classList.toggle('on',settings.sound);soundToggle.setAttribute('aria-pressed',String(!!settings.sound));soundToggle.setAttribute('aria-label',settings.sound?'Выключить звуки игры':'Включить звуки игры');document.getElementById('soundState').textContent=settings.sound?'Включены':'Выключены';if(document.getElementById('keyboard'))buildKeyboard()}
 function showScreen(id){document.querySelectorAll('.screen').forEach(s=>s.classList.remove('active'));document.getElementById(id).classList.add('active');window.scrollTo(0,0)}
 function openSettings(from){
   settingsReturnScreen=from;
@@ -409,6 +450,7 @@ function inputLetter(ch){
   const next=nextEmptyIndexInWord(selectedWord,idx+1);
   selectedCellIndex=next>=0?next:idx;
 
+  playSound('letter');
   afterEdit(selectedWord);
   saveState();
   renderGame();
@@ -461,7 +503,9 @@ function findUnsolvedInDirection(startIdx,delta){
 }
 function showCompletionModal(){
   pendingCompletionAfterCard=false;
-  document.getElementById('completeModal').classList.add('show');
+  const modal=document.getElementById('completeModal');
+  if(!modal.classList.contains('show'))playSound('complete');
+  modal.classList.add('show');
 }
 function afterEdit(wordIdx){
   const ls=getLevelState(state.activeLevel);
@@ -474,6 +518,7 @@ function afterEdit(wordIdx){
     newlyCompleted=true;
     completedPlacement=currentPuzzle.placements[wordIdx];
     toast('Слово разгадано ✓');
+    playSound('word');
   }
 
   const puzzleFinished=countCompleted()===currentPuzzle.placements.length;
@@ -598,7 +643,7 @@ function closeCard(){
 }
 function hintLetter(){const pl=currentPuzzle.placements[selectedWord],cells=placementCells(pl),ls=getLevelState(state.activeLevel);let candidates=[];cells.forEach(([r,c],i)=>{const key=cellKey(r,c);if(ls.letters[key]!==pl.word[i])candidates.push([r,c,i])});if(!candidates.length){toast('Это слово уже разгадано');closeModals();return}let chosen=candidates.find(x=>x[2]>=selectedCellIndex)||candidates[0];const [r,c,i]=chosen,key=cellKey(r,c);ls.letters[key]=pl.word[i];ls.hinted[key]=true;const next=nextEmptyIndexInWord(selectedWord,i+1);selectedCellIndex=next>=0?next:i;closeModals();afterEdit(selectedWord);saveState();renderGame()}
 function hintWord(){const pl=currentPuzzle.placements[selectedWord],ls=getLevelState(state.activeLevel);placementCells(pl).forEach(([r,c],i)=>{const key=cellKey(r,c);ls.letters[key]=pl.word[i];ls.hinted[key]=true});closeModals();afterEdit(selectedWord);saveState();renderGame()}
-function openCard(idx=selectedWord){const pl=currentPuzzle.placements[idx];if(!pl.card_enabled)return;document.getElementById('cardTitle').textContent=pl.word;document.getElementById('cardExplanation').textContent=pl.card_explanation||pl.clue;document.getElementById('cardFact').textContent=pl.card_fact?`Интересный факт: ${pl.card_fact}`:'';document.getElementById('cardVisual').innerHTML=`<span>${cardEmoji[pl.category]||'🖼️'}</span><small>${pl.category||'новое слово'}</small>`;document.getElementById('cardModal').classList.add('show')}
+function openCard(idx=selectedWord){const pl=currentPuzzle.placements[idx];if(!pl.card_enabled)return;document.getElementById('cardTitle').textContent=pl.word;document.getElementById('cardExplanation').textContent=pl.card_explanation||pl.clue;document.getElementById('cardFact').textContent=pl.card_fact?`Интересный факт: ${pl.card_fact}`:'';document.getElementById('cardVisual').innerHTML=`<span>${cardEmoji[pl.category]||'🖼️'}</span><small>${pl.category||'новое слово'}</small>`;playSound('card');document.getElementById('cardModal').classList.add('show')}
 function scrollActiveIntoView(){
   const wrap=document.getElementById('gridScroll');
   const el=document.querySelector('.cell.active');
@@ -690,7 +735,7 @@ document.querySelectorAll('[data-home]').forEach(b=>b.onclick=goHome);
 document.getElementById('gameHome').onclick=goHome;document.getElementById('gameSettings').onclick=()=>openSettings('game');document.getElementById('settingsBack').onclick=closeSettings;
 document.getElementById('prevWord').onclick=()=>moveWord(-1);document.getElementById('nextWord').onclick=()=>moveWord(1);document.getElementById('overviewBtn').onclick=overview;document.getElementById('cardBtn').onclick=()=>openCard();document.getElementById('speakBtn').onclick=speak;
 document.getElementById('hintLetter').onclick=hintLetter;document.getElementById('hintWord').onclick=hintWord;document.querySelectorAll('[data-close-modal]').forEach(b=>b.onclick=closeModals);document.getElementById('cardContinueBtn').onclick=closeCard;document.getElementById('nextLevelBtn').onclick=nextAfterComplete;document.getElementById('completeHome').onclick=goHome;
-document.querySelectorAll('[data-scale-value]').forEach(b=>b.onclick=()=>{settings.scale=b.dataset.scaleValue;saveSettings()});document.querySelectorAll('[data-card-value]').forEach(b=>b.onclick=()=>{settings.cards=b.dataset.cardValue;saveSettings()});document.querySelectorAll('[data-keyboard-value]').forEach(b=>b.onclick=()=>{settings.keyboard=b.dataset.keyboardValue;saveSettings()});document.getElementById('numbersToggle').onclick=()=>{settings.numbers=!settings.numbers;saveSettings()};
+document.querySelectorAll('[data-scale-value]').forEach(b=>b.onclick=()=>{settings.scale=b.dataset.scaleValue;saveSettings()});document.querySelectorAll('[data-card-value]').forEach(b=>b.onclick=()=>{settings.cards=b.dataset.cardValue;saveSettings()});document.querySelectorAll('[data-keyboard-value]').forEach(b=>b.onclick=()=>{settings.keyboard=b.dataset.keyboardValue;saveSettings()});document.getElementById('numbersToggle').onclick=()=>{settings.numbers=!settings.numbers;saveSettings()};document.getElementById('soundToggle').onclick=()=>{settings.sound=!settings.sound;saveSettings();if(settings.sound)playSound('card')};
 window.addEventListener('resize',()=>setTimeout(placeKeyboardForViewport,60));
 document.addEventListener('keydown',e=>{if(!document.getElementById('game').classList.contains('active'))return;let ch=e.key.toUpperCase();if(DATA.alphabet.includes(ch)){e.preventDefault();inputLetter(ch)}else if(e.key==='Backspace'){e.preventDefault();deleteLetter()}else if(e.key==='ArrowRight'){e.preventDefault();moveWord(1)}else if(e.key==='ArrowLeft'){e.preventDefault();moveWord(-1)}});
 // Close modal by tapping dark area only
