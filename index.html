@@ -4,7 +4,7 @@
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width,initial-scale=1,maximum-scale=1,user-scalable=no,viewport-fit=cover">
 <meta name="theme-color" content="#f7f2e8">
-<title>Добрые Кроссворды — прототип v0.17</title>
+<title>Добрые Кроссворды — прототип v0.18</title>
 <style>
 :root{
   --bg:#f6f0e5; --paper:#fffdf8; --ink:#202a36; --muted:#68717d;
@@ -278,6 +278,9 @@ let gameAudioContext=null;
 let lastLetterSoundAt=-1;
 const SOUND_NOTES={
   letter:[[620,0,.043,.014]],
+  delete:[[470,0,.075,.018],[330,.04,.075,.012]],
+  hint:[[740,0,.13,.025],[980,.12,.21,.024]],
+  menu:[[440,0,.07,.012]],
   word:[[523.25,.025,.12,.030],[659.25,.13,.16,.034]],
   card:[[783.99,0,.11,.019],[1046.5,.060,.17,.015]],
   complete:[[523.25,0,.14,.030],[659.25,.12,.14,.033],[783.99,.25,.16,.036],[1046.5,.40,.35,.041]]
@@ -480,6 +483,7 @@ function deleteLetter(){
     [r,c]=cells[idx];key=cellKey(r,c);
     delete ls.letters[key];
   }
+  playSound('delete');
   saveState();renderGame();
 }
 function isWordCorrect(idx){const pl=currentPuzzle.placements[idx],ls=getLevelState(state.activeLevel);return placementCells(pl).every(([r,c],i)=>ls.letters[cellKey(r,c)]===pl.word[i])}
@@ -641,8 +645,8 @@ function closeCard(){
     setTimeout(showCompletionModal,180);
   }
 }
-function hintLetter(){const pl=currentPuzzle.placements[selectedWord],cells=placementCells(pl),ls=getLevelState(state.activeLevel);let candidates=[];cells.forEach(([r,c],i)=>{const key=cellKey(r,c);if(ls.letters[key]!==pl.word[i])candidates.push([r,c,i])});if(!candidates.length){toast('Это слово уже разгадано');closeModals();return}let chosen=candidates.find(x=>x[2]>=selectedCellIndex)||candidates[0];const [r,c,i]=chosen,key=cellKey(r,c);ls.letters[key]=pl.word[i];ls.hinted[key]=true;const next=nextEmptyIndexInWord(selectedWord,i+1);selectedCellIndex=next>=0?next:i;closeModals();afterEdit(selectedWord);saveState();renderGame()}
-function hintWord(){const pl=currentPuzzle.placements[selectedWord],ls=getLevelState(state.activeLevel);placementCells(pl).forEach(([r,c],i)=>{const key=cellKey(r,c);ls.letters[key]=pl.word[i];ls.hinted[key]=true});closeModals();afterEdit(selectedWord);saveState();renderGame()}
+function hintLetter(){const pl=currentPuzzle.placements[selectedWord],cells=placementCells(pl),ls=getLevelState(state.activeLevel);let candidates=[];cells.forEach(([r,c],i)=>{const key=cellKey(r,c);if(ls.letters[key]!==pl.word[i])candidates.push([r,c,i])});if(!candidates.length){toast('Это слово уже разгадано');closeModals();return}playSound('hint');let chosen=candidates.find(x=>x[2]>=selectedCellIndex)||candidates[0];const [r,c,i]=chosen,key=cellKey(r,c);ls.letters[key]=pl.word[i];ls.hinted[key]=true;const next=nextEmptyIndexInWord(selectedWord,i+1);selectedCellIndex=next>=0?next:i;closeModals();afterEdit(selectedWord);saveState();renderGame()}
+function hintWord(){const pl=currentPuzzle.placements[selectedWord],ls=getLevelState(state.activeLevel);if(isWordCorrect(selectedWord)){toast('Это слово уже разгадано');closeModals();return}playSound('hint');placementCells(pl).forEach(([r,c],i)=>{const key=cellKey(r,c);ls.letters[key]=pl.word[i];ls.hinted[key]=true});closeModals();afterEdit(selectedWord);saveState();renderGame()}
 function openCard(idx=selectedWord){const pl=currentPuzzle.placements[idx];if(!pl.card_enabled)return;document.getElementById('cardTitle').textContent=pl.word;document.getElementById('cardExplanation').textContent=pl.card_explanation||pl.clue;document.getElementById('cardFact').textContent=pl.card_fact?`Интересный факт: ${pl.card_fact}`:'';document.getElementById('cardVisual').innerHTML=`<span>${cardEmoji[pl.category]||'🖼️'}</span><small>${pl.category||'новое слово'}</small>`;playSound('card');document.getElementById('cardModal').classList.add('show')}
 function scrollActiveIntoView(){
   const wrap=document.getElementById('gridScroll');
@@ -725,6 +729,22 @@ function toast(msg){const t=document.getElementById('toast');t.textContent=msg;t
 function goHome(){pendingCompletionAfterCard=false;closeModals();showScreen('home');refreshHome()}
 function nextAfterComplete(){closeModals();let i=nextUnfinished(true);if(Object.values(state.completed).filter(Boolean).length===PUZZLES.length){toast('Все тестовые кроссворды пройдены');goHome()}else startLevel(i)}
 
+// The shared navigation sound applies to buttons and dynamically generated level buttons.
+// Action-specific sounds (letters, delete, hint, card, success) are intentionally excluded.
+const MENU_SOUND_BUTTONS = [
+  '#resumeBtn','#newBtn','#levelsBtn','#settingsBtn','#settingsBack',
+  '#gameHome','#gameSettings','#prevWord','#nextWord','#overviewBtn',
+  '#nextLevelBtn','#completeHome','#cardContinueBtn','#numbersToggle',
+  '[data-home]','[data-close-modal]',
+  '[data-scale-value]','[data-card-value]','[data-keyboard-value]',
+  '.keyboard .hint','.level'
+].join(',');
+document.addEventListener('click',e=>{
+  const target=e.target;
+  const button=target instanceof Element ? target.closest('button') : null;
+  if(button && !button.disabled && button.matches(MENU_SOUND_BUTTONS))playSound('menu');
+},true);
+
 // bindings
 buildKeyboard();applySettings();refreshHome();
 document.getElementById('resumeBtn').onclick=()=>startLevel(state.activeLevel);
@@ -735,9 +755,9 @@ document.querySelectorAll('[data-home]').forEach(b=>b.onclick=goHome);
 document.getElementById('gameHome').onclick=goHome;document.getElementById('gameSettings').onclick=()=>openSettings('game');document.getElementById('settingsBack').onclick=closeSettings;
 document.getElementById('prevWord').onclick=()=>moveWord(-1);document.getElementById('nextWord').onclick=()=>moveWord(1);document.getElementById('overviewBtn').onclick=overview;document.getElementById('cardBtn').onclick=()=>openCard();document.getElementById('speakBtn').onclick=speak;
 document.getElementById('hintLetter').onclick=hintLetter;document.getElementById('hintWord').onclick=hintWord;document.querySelectorAll('[data-close-modal]').forEach(b=>b.onclick=closeModals);document.getElementById('cardContinueBtn').onclick=closeCard;document.getElementById('nextLevelBtn').onclick=nextAfterComplete;document.getElementById('completeHome').onclick=goHome;
-document.querySelectorAll('[data-scale-value]').forEach(b=>b.onclick=()=>{settings.scale=b.dataset.scaleValue;saveSettings()});document.querySelectorAll('[data-card-value]').forEach(b=>b.onclick=()=>{settings.cards=b.dataset.cardValue;saveSettings()});document.querySelectorAll('[data-keyboard-value]').forEach(b=>b.onclick=()=>{settings.keyboard=b.dataset.keyboardValue;saveSettings()});document.getElementById('numbersToggle').onclick=()=>{settings.numbers=!settings.numbers;saveSettings()};document.getElementById('soundToggle').onclick=()=>{settings.sound=!settings.sound;saveSettings();if(settings.sound)playSound('card')};
+document.querySelectorAll('[data-scale-value]').forEach(b=>b.onclick=()=>{settings.scale=b.dataset.scaleValue;saveSettings()});document.querySelectorAll('[data-card-value]').forEach(b=>b.onclick=()=>{settings.cards=b.dataset.cardValue;saveSettings()});document.querySelectorAll('[data-keyboard-value]').forEach(b=>b.onclick=()=>{settings.keyboard=b.dataset.keyboardValue;saveSettings()});document.getElementById('numbersToggle').onclick=()=>{settings.numbers=!settings.numbers;saveSettings()};document.getElementById('soundToggle').onclick=()=>{settings.sound=!settings.sound;saveSettings();if(settings.sound)playSound('menu')};
 window.addEventListener('resize',()=>setTimeout(placeKeyboardForViewport,60));
-document.addEventListener('keydown',e=>{if(!document.getElementById('game').classList.contains('active'))return;let ch=e.key.toUpperCase();if(DATA.alphabet.includes(ch)){e.preventDefault();inputLetter(ch)}else if(e.key==='Backspace'){e.preventDefault();deleteLetter()}else if(e.key==='ArrowRight'){e.preventDefault();moveWord(1)}else if(e.key==='ArrowLeft'){e.preventDefault();moveWord(-1)}});
+document.addEventListener('keydown',e=>{if(!document.getElementById('game').classList.contains('active'))return;let ch=e.key.toUpperCase();if(DATA.alphabet.includes(ch)){e.preventDefault();inputLetter(ch)}else if(e.key==='Backspace'){e.preventDefault();deleteLetter()}else if(e.key==='ArrowRight'){e.preventDefault();playSound('menu');moveWord(1)}else if(e.key==='ArrowLeft'){e.preventDefault();playSound('menu');moveWord(-1)}});
 // Close modal by tapping dark area only
 for(const m of document.querySelectorAll('.modal-wrap'))m.addEventListener('click',e=>{
   if(e.target!==m)return;
