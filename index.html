@@ -4,7 +4,7 @@
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width,initial-scale=1,maximum-scale=1,user-scalable=no,viewport-fit=cover">
 <meta name="theme-color" content="#f7f2e8">
-<title>Добрые Кроссворды — прототип v0.13</title>
+<title>Добрые Кроссворды — прототип v0.14</title>
 <style>
 :root{
   --bg:#f6f0e5; --paper:#fffdf8; --ink:#202a36; --muted:#68717d;
@@ -611,7 +611,11 @@ function overview(){
   if(overviewMode)toast('Весь кроссворд показан целиком');
 }
 function scrollPlayControlsIntoView(){
-  if(window.matchMedia('(min-width:860px)').matches)return;
+  // A phone in landscape can be wider than 860px, so width alone must not
+  // disable auto-scroll. Skip it only on genuinely large tablet/desktop viewports.
+  const largeViewport=window.matchMedia('(min-width:860px) and (min-height:700px)').matches;
+  if(largeViewport)return;
+
   const strip=document.getElementById('answerStrip');
   if(!strip)return;
   const top=strip.getBoundingClientRect().top+window.scrollY-12;
