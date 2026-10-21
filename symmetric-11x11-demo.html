@@ -1,0 +1,58 @@
+<!doctype html>
+<html lang="ru"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1"><meta name="theme-color" content="#f7f2e8">
+<title>Добрые Кроссворды — симметричная сетка 11×11</title>
+<style>
+*{box-sizing:border-box}body{margin:0;background:#f5f0e5;font:18px/1.4 system-ui,Arial,sans-serif;color:#243345}main{max-width:920px;margin:auto;padding:18px}
+h1{font-size:clamp(25px,6vw,35px);line-height:1.15;margin:12px 0}p{line-height:1.5}.sub{color:#5b6674}
+.card{background:#fffefa;border:1px solid #cbd3db;border-radius:18px;padding:18px;box-shadow:0 3px 14px #00000010}
+.tags{display:flex;gap:8px;flex-wrap:wrap;margin:16px 0}.tags span{font-size:14px;background:#dff2e4;padding:6px 10px;border-radius:100px;color:#225638;font-weight:700}
+.layout{display:grid;grid-template-columns:1fr 1fr;gap:22px}.grid{display:grid;grid-template-columns:repeat(11,1fr);width:100%;max-width:490px;aspect-ratio:1;border:3px solid #34404b;background:#34404b;gap:1px;margin:auto}
+.cell{position:relative;background:#fff;display:flex;align-items:center;justify-content:center;min-width:0;min-height:0;font-weight:800;font-size:clamp(16px,2.8vw,27px);cursor:pointer}.cell.black{background:#34404b;cursor:default}.cell.active{background:#f7e5b0}.cell b{font-size:clamp(8px,1.1vw,11px);position:absolute;top:0;left:2px;line-height:1;color:#34404b}.cell .letter{display:none}.grid.answers .letter{display:inline}
+.actions{display:flex;gap:8px;justify-content:center;flex-wrap:wrap;margin-top:14px}
+button{border-radius:12px;border:2px solid #b8cce1;background:#e4effe;color:#21558d;font:700 16px system-ui;padding:10px 12px;min-height:48px;cursor:pointer}.primary{background:#2266b7;border-color:#2266b7;color:#fff}
+.clues{display:grid;grid-template-columns:1fr 1fr;gap:16px}.clues h2{font-size:19px;margin:0 0 8px}.clues ol{list-style:none;margin:0;padding:0}.clues li{margin-bottom:7px}.clues button{background:none;border:0;width:100%;text-align:left;padding:7px 6px;color:#293847;font-weight:500;font-size:15px}.clues button.active{background:#fff1c6}.clues strong{color:#2266b7}
+.note{margin-top:18px;border-left:5px solid #c89c4a;background:#fff7e8;padding:12px 14px;border-radius:8px}
+@media(max-width:760px){.layout{grid-template-columns:1fr}.clues{grid-template-columns:1fr}.cell{font-size:clamp(16px,5vw,27px)}.cell b{font-size:clamp(8px,2vw,11px)}}
+</style></head><body><main>
+<h1>Добрые Кроссворды — сетка 11×11</h1>
+<p class="sub">Первый правильно заполненный симметричный кроссворд. Это отдельный предпросмотр: действующая игра не изменена.</p>
+<section class="card">
+<div class="tags"><span>✓ Симметрия 180°</span><span>✓ 19 настоящих слов</span><span>✓ 20 пересечений</span><span>✓ Слова от 4 букв</span><span>✓ Нет слитых участков 2×2</span></div>
+<div class="layout"><div>
+<div id="grid" class="grid" aria-label="Симметричная сетка кроссворда 11×11"></div>
+<div class="actions"><button id="reveal" class="primary">Показать ответы</button><button id="reset">Снять выделение</button></div>
+<p class="sub" style="font-size:14px">Нажмите на определение: соответствующее слово выделится в сетке.</p>
+</div><div class="clues"><section><h2>По горизонтали</h2><ol id="across"></ol></section><section><h2>По вертикали</h2><ol id="down"></ol></section></div></div></section>
+<p class="note">Каждое слово занимает отдельную горизонтальную или вертикальную последовательность клеток. Чёрные клетки разделяют слова. Все пересечения согласованы, слова образуют единую связанную систему. Тема примера — «Общие знания».</p>
+</main>
+<script>
+const puzzle={"id":"symmetric_11x11_v020_01","rows":11,"cols":11,"size":11,"theme":"Общие знания","symmetry":"180°","white_cells":69,"black_cells":52,"crossings":20,"pattern":["□■□□□□□□□■■","□■□■■■■□■■■","□■□■□□□□■□■","□□□□□■■□□□□","□■■■□■□■■□■","■□■□□□□□■□■","■□■■□■□■■■□","□□□□■■□□□□□","■□■□□□□■□■□","■■■□■■■■□■□","■■□□□□□□□■□"],"solution":["Н■ГАЛСТУК■■","А■Е■■■■Д■■■","Б■Л■ДАМА■Е■","ОЛЬХА■■РАНА","Р■■■М■И■■О■","■И■ОБИДА■Т■","■Г■■А■Е■■■Ю","БЛИЦ■■АВТОР","■А■ИДОЛ■А■И","■■■К■■■■Н■С","■■ПЛАСТИК■Т"],"placed_words":19,"placements":[{"id":"v020_1","word":"ГАЛСТУК","clue":"Полоска ткани, которую завязывают под воротником рубашки.","row":0,"col":2,"direction":"across","number":2,"length":7},{"id":"v020_2","word":"ДАМА","clue":"Вежливое обращение к женщине.","row":2,"col":4,"direction":"across","number":4,"length":4},{"id":"v020_3","word":"ОЛЬХА","clue":"Дерево, часто растущее у рек и болот.","row":3,"col":0,"direction":"across","number":6,"length":5},{"id":"v020_4","word":"РАНА","clue":"Повреждение кожи и тканей.","row":3,"col":7,"direction":"across","number":7,"length":4},{"id":"v020_5","word":"ОБИДА","clue":"Неприятное чувство из-за несправедливых слов или поступков.","row":5,"col":3,"direction":"across","number":10,"length":5},{"id":"v020_6","word":"БЛИЦ","clue":"Очень быстрый шахматный поединок.","row":7,"col":0,"direction":"across","number":12,"length":4},{"id":"v020_7","word":"АВТОР","clue":"Человек, создавший литературное или художественное произведение.","row":7,"col":6,"direction":"across","number":14,"length":5},{"id":"v020_8","word":"ИДОЛ","clue":"Предмет поклонения; кумир.","row":8,"col":3,"direction":"across","number":16,"length":4},{"id":"v020_9","word":"ПЛАСТИК","clue":"Искусственный материал, из которого делают многие бытовые предметы.","row":10,"col":2,"direction":"across","number":17,"length":7},{"id":"v020_10","word":"НАБОР","clue":"Несколько предметов, объединённых общим назначением.","row":0,"col":0,"direction":"down","number":1,"length":5},{"id":"v020_11","word":"ИГЛА","clue":"Тонкий предмет с ушком для шитья.","row":5,"col":1,"direction":"down","number":9,"length":4},{"id":"v020_12","word":"ГЕЛЬ","clue":"Густая желеобразная масса, например для душа.","row":0,"col":2,"direction":"down","number":2,"length":4},{"id":"v020_13","word":"ЦИКЛ","clue":"Последовательность событий, которая регулярно повторяется.","row":7,"col":3,"direction":"down","number":13,"length":4},{"id":"v020_14","word":"ДАМБА","clue":"Сооружение для удержания воды или защиты от затопления.","row":2,"col":4,"direction":"down","number":4,"length":5},{"id":"v020_15","word":"ИДЕАЛ","clue":"Образец совершенства, к которому стремятся.","row":4,"col":6,"direction":"down","number":8,"length":5},{"id":"v020_16","word":"УДАР","clue":"Резкое силовое столкновение или толчок.","row":0,"col":7,"direction":"down","number":3,"length":4},{"id":"v020_17","word":"ТАНК","clue":"Боевая бронированная машина на гусеницах.","row":7,"col":8,"direction":"down","number":15,"length":4},{"id":"v020_18","word":"ЕНОТ","clue":"Зверёк с полосатым хвостом и тёмной «маской» вокруг глаз.","row":2,"col":9,"direction":"down","number":5,"length":4},{"id":"v020_19","word":"ЮРИСТ","clue":"Специалист по законам и праву.","row":6,"col":10,"direction":"down","number":11,"length":5}]};
+let selected=-1;
+const starts=new Map(puzzle.placements.map(w=>[w.row+','+w.col,w.number]));
+const coords=w=>Array.from({length:w.word.length},(_,i)=>[w.row+(w.direction==='down'?i:0),w.col+(w.direction==='across'?i:0)].join(','));
+function draw(){
+ const grid=document.getElementById('grid');grid.innerHTML='';
+ const hi=selected<0?new Set():new Set(coords(puzzle.placements[selected]));
+ for(let r=0;r<11;r++)for(let c=0;c<11;c++){
+   const block=puzzle.pattern[r][c]==='■',cell=document.createElement('div'),key=r+','+c;
+   cell.className='cell'+(block?' black':'')+(hi.has(key)?' active':'');
+   if(!block){
+      const num=starts.get(key);if(num){const b=document.createElement('b');b.textContent=num;cell.appendChild(b)}
+      const t=document.createElement('span');t.className='letter';t.textContent=puzzle.solution[r][c];cell.appendChild(t);
+      cell.onclick=()=>{let i=puzzle.placements.findIndex(w=>coords(w).includes(key));if(i>=0){selected=i;draw()}}
+   }
+   grid.appendChild(cell);
+ }
+ document.querySelectorAll('[data-w]').forEach(b=>b.classList.toggle('active',Number(b.dataset.w)===selected));
+}
+puzzle.placements.forEach((w,i)=>{
+ const li=document.createElement('li'),b=document.createElement('button');b.dataset.w=i;
+ const n=document.createElement('strong');n.textContent=w.number+'. ';b.appendChild(n);
+ b.appendChild(document.createTextNode(w.clue+' ('+w.word.length+' букв)'));
+ b.onclick=()=>{selected=i;draw()};li.appendChild(b);
+ document.getElementById(w.direction).appendChild(li);
+});
+document.getElementById('reveal').onclick=()=>{let visible=document.getElementById('grid').classList.toggle('answers');document.getElementById('reveal').textContent=visible?'Скрыть ответы':'Показать ответы'};
+document.getElementById('reset').onclick=()=>{selected=-1;draw()};
+draw();
+</script></body></html>
