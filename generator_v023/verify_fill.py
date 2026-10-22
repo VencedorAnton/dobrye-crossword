@@ -43,6 +43,7 @@ def verify():
     assert len({p["id"] for p in puzzles}) == len(puzzles)
     assert docs["release_status"] == "preview_only"
     total_clues = 0
+    total_hints = 0
     for puzzle in puzzles:
         name = puzzle["id"]
         template = by_id[name]
@@ -86,6 +87,16 @@ def verify():
             assert actual == word, (name, word, actual)
             for cell in cells:
                 coverage[cell] += 1
+            hint = p.get("hint")
+            if hint is not None:
+                assert isinstance(hint, dict), (name, word)
+                assert set(hint) == {"kind", "text"}, (name, word)
+                assert hint["kind"] in ("synonym", "alternate_meaning"), (name, word)
+                assert isinstance(hint["text"], str) and hint["text"].strip(), (name, word)
+                assert word.casefold().replace("ё", "е") not in (
+                    hint["text"].casefold().replace("ё", "е")
+                ), (name, word, "Hint leaks literal answer")
+                total_hints += 1
             total_clues += 1
         whites = {(r, c) for r in range(n) for c in range(n)
                   if mask[r][c] == "□"}
@@ -108,6 +119,8 @@ def verify():
           ", ".join(sorted(all_answers & pending_review)) or "none")
     print("Plural-only exceptions in current puzzles:",
           ", ".join(sorted(all_answers & allowed_plural_only)) or "none")
+    assert total_hints >= 11, (total_hints, "Missing seed editorial hints")
+    print(f"Hint QA: {total_hints} optional editorial hints passed format/leak checks.")
     assert total_clues == 216, total_clues
     print(f"PASS: {len(puzzles)}/9 сеток; {total_clues}/216 слов и определений.")
     print("NOTE: editor-approved word quality and definition accuracy are NOT verified.")
