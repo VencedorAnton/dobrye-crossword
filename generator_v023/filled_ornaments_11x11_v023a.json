@@ -1,0 +1,792 @@
+{
+  "version": "0.23a",
+  "stage": "Ornament Word Filling",
+  "release_status": "offline_preview_only",
+  "note": "3 fill-valid 11x11 ornament puzzles. Clues authored/reused; require an independent editorial review before publishing. The 13x13 and 15x15 templates remain geometry-only.",
+  "constraints": "No repeated word within a puzzle, exact crossing agreement, all white cells filled, each entry has a non-empty clue.",
+  "puzzles": [
+    {
+      "id": "snowflake",
+      "title": "Снежинка",
+      "size": 11,
+      "template_id": "snowflake",
+      "pattern": [
+        "■□■□□□□□■□■",
+        "□□□□■■■□□□□",
+        "■□■□□□□□■□■",
+        "□□□□■□■□□□□",
+        "□■□■■□■■□■□",
+        "□■□□□□□□□■□",
+        "□■□■■□■■□■□",
+        "□□□□■□■□□□□",
+        "■□■□□□□□■□■",
+        "□□□□■■■□□□□",
+        "■□■□□□□□■□■"
+      ],
+      "solution": [
+        "■Н■АНГЕЛ■Б■",
+        "ВЕЕР■■■ИГЛА",
+        "■Б■КВАРЦ■И■",
+        "НОГА■Р■ОКНО",
+        "А■У■■С■■О■Б",
+        "У■СУВЕНИР■Р",
+        "К■Л■■Н■■О■А",
+        "АЗИЯ■А■ОБОЗ",
+        "■А■ХАЛАТ■Б■",
+        "ПЛОТ■■■ЕНОТ",
+        "■П■АБЗАЦ■И■"
+      ],
+      "placements": [
+        {
+          "number": 2,
+          "direction": "across",
+          "row": 0,
+          "col": 3,
+          "length": 5,
+          "word": "АНГЕЛ",
+          "clue": "Небесный посланник с крыльями в сказках и на картинах."
+        },
+        {
+          "number": 5,
+          "direction": "across",
+          "row": 1,
+          "col": 0,
+          "length": 4,
+          "word": "ВЕЕР",
+          "clue": "Складной предмет, которым обмахиваются в жару."
+        },
+        {
+          "number": 6,
+          "direction": "across",
+          "row": 1,
+          "col": 7,
+          "length": 4,
+          "word": "ИГЛА",
+          "clue": "Тонкий предмет с ушком для шитья."
+        },
+        {
+          "number": 7,
+          "direction": "across",
+          "row": 2,
+          "col": 3,
+          "length": 5,
+          "word": "КВАРЦ",
+          "clue": "Минерал, из которого состоит множество горных пород."
+        },
+        {
+          "number": 9,
+          "direction": "across",
+          "row": 3,
+          "col": 0,
+          "length": 4,
+          "word": "НОГА",
+          "clue": "Нижняя конечность человека."
+        },
+        {
+          "number": 11,
+          "direction": "across",
+          "row": 3,
+          "col": 7,
+          "length": 4,
+          "word": "ОКНО",
+          "clue": "Проём в стене, пропускающий свет в комнату."
+        },
+        {
+          "number": 14,
+          "direction": "across",
+          "row": 5,
+          "col": 2,
+          "length": 7,
+          "word": "СУВЕНИР",
+          "clue": "Памятная вещица, привезённая из путешествия."
+        },
+        {
+          "number": 15,
+          "direction": "across",
+          "row": 7,
+          "col": 0,
+          "length": 4,
+          "word": "АЗИЯ",
+          "clue": "Самая большая часть света."
+        },
+        {
+          "number": 18,
+          "direction": "across",
+          "row": 7,
+          "col": 7,
+          "length": 4,
+          "word": "ОБОЗ",
+          "clue": "Большая вереница повозок с грузом."
+        },
+        {
+          "number": 20,
+          "direction": "across",
+          "row": 8,
+          "col": 3,
+          "length": 5,
+          "word": "ХАЛАТ",
+          "clue": "Домашняя или рабочая одежда с запахом."
+        },
+        {
+          "number": 21,
+          "direction": "across",
+          "row": 9,
+          "col": 0,
+          "length": 4,
+          "word": "ПЛОТ",
+          "clue": "Плавучее сооружение из связанных брёвен."
+        },
+        {
+          "number": 22,
+          "direction": "across",
+          "row": 9,
+          "col": 7,
+          "length": 4,
+          "word": "ЕНОТ",
+          "clue": "Зверёк с полосатым хвостом и тёмной «маской» вокруг глаз."
+        },
+        {
+          "number": 23,
+          "direction": "across",
+          "row": 10,
+          "col": 3,
+          "length": 5,
+          "word": "АБЗАЦ",
+          "clue": "Часть текста, начинающаяся с новой строки."
+        },
+        {
+          "number": 9,
+          "direction": "down",
+          "row": 3,
+          "col": 0,
+          "length": 5,
+          "word": "НАУКА",
+          "clue": "Систематическое изучение природы и общества."
+        },
+        {
+          "number": 1,
+          "direction": "down",
+          "row": 0,
+          "col": 1,
+          "length": 4,
+          "word": "НЕБО",
+          "clue": "Воздушное пространство, которое видно над землёй."
+        },
+        {
+          "number": 16,
+          "direction": "down",
+          "row": 7,
+          "col": 1,
+          "length": 4,
+          "word": "ЗАЛП",
+          "clue": "Одновременный выстрел нескольких орудий."
+        },
+        {
+          "number": 10,
+          "direction": "down",
+          "row": 3,
+          "col": 2,
+          "length": 5,
+          "word": "ГУСЛИ",
+          "clue": "Старинный русский струнный музыкальный инструмент."
+        },
+        {
+          "number": 2,
+          "direction": "down",
+          "row": 0,
+          "col": 3,
+          "length": 4,
+          "word": "АРКА",
+          "clue": "Дугообразное перекрытие прохода или проёма."
+        },
+        {
+          "number": 17,
+          "direction": "down",
+          "row": 7,
+          "col": 3,
+          "length": 4,
+          "word": "ЯХТА",
+          "clue": "Небольшое судно для отдыха или спортивных плаваний."
+        },
+        {
+          "number": 8,
+          "direction": "down",
+          "row": 2,
+          "col": 5,
+          "length": 7,
+          "word": "АРСЕНАЛ",
+          "clue": "Хранилище оружия и боеприпасов."
+        },
+        {
+          "number": 3,
+          "direction": "down",
+          "row": 0,
+          "col": 7,
+          "length": 4,
+          "word": "ЛИЦО",
+          "clue": "Передняя часть головы человека."
+        },
+        {
+          "number": 18,
+          "direction": "down",
+          "row": 7,
+          "col": 7,
+          "length": 4,
+          "word": "ОТЕЦ",
+          "clue": "Мужчина по отношению к своему сыну или дочери."
+        },
+        {
+          "number": 12,
+          "direction": "down",
+          "row": 3,
+          "col": 8,
+          "length": 5,
+          "word": "КОРОБ",
+          "clue": "Большой жёсткий ящик для хранения вещей."
+        },
+        {
+          "number": 4,
+          "direction": "down",
+          "row": 0,
+          "col": 9,
+          "length": 4,
+          "word": "БЛИН",
+          "clue": "Тонкая круглая лепёшка из жидкого теста."
+        },
+        {
+          "number": 19,
+          "direction": "down",
+          "row": 7,
+          "col": 9,
+          "length": 4,
+          "word": "ОБОИ",
+          "clue": "Рулонное покрытие для отделки стен."
+        },
+        {
+          "number": 13,
+          "direction": "down",
+          "row": 3,
+          "col": 10,
+          "length": 5,
+          "word": "ОБРАЗ",
+          "clue": "Художественное изображение человека или явления."
+        }
+      ],
+      "word_count": 26,
+      "crossings": 37,
+      "filled_cells": 81,
+      "status": "clues_drafted_review_required",
+      "is_published": false
+    },
+    {
+      "id": "granny",
+      "title": "Бабушкин квадрат",
+      "size": 11,
+      "template_id": "granny",
+      "pattern": [
+        "□□□□■□■□□□□",
+        "□■■□■□■□■■□",
+        "□■■□□□□□■■□",
+        "□□□□■□■□□□□",
+        "■■□■■□■■□■■",
+        "□□□□□■□□□□□",
+        "■■□■■□■■□■■",
+        "□□□□■□■□□□□",
+        "□■■□□□□□■■□",
+        "□■■□■□■□■■□",
+        "□□□□■□■□□□□"
+      ],
+      "solution": [
+        "ГОРА■В■ГЕРБ",
+        "Р■■Р■Ы■Н■■О",
+        "И■■КОПЬЕ■■К",
+        "БАЗА■А■ВКУС",
+        "■■А■■Д■■О■■",
+        "АРМИЯ■АТЛЕТ",
+        "■■Ш■■А■■Ь■■",
+        "АГАТ■Г■ТЕМП",
+        "З■■ЕГЕРЬ■■У",
+        "И■■Л■Н■М■■Л",
+        "ЯДРО■Т■АРИЯ"
+      ],
+      "placements": [
+        {
+          "number": 1,
+          "direction": "across",
+          "row": 0,
+          "col": 0,
+          "length": 4,
+          "word": "ГОРА",
+          "clue": "Высокое природное возвышение над окружающей местностью."
+        },
+        {
+          "number": 4,
+          "direction": "across",
+          "row": 0,
+          "col": 7,
+          "length": 4,
+          "word": "ГЕРБ",
+          "clue": "Официальный отличительный знак города, страны или рода."
+        },
+        {
+          "number": 6,
+          "direction": "across",
+          "row": 2,
+          "col": 3,
+          "length": 5,
+          "word": "КОПЬЕ",
+          "clue": "Древнее оружие с длинным древком и острым наконечником."
+        },
+        {
+          "number": 7,
+          "direction": "across",
+          "row": 3,
+          "col": 0,
+          "length": 4,
+          "word": "БАЗА",
+          "clue": "Место, где хранят запасы или размещают оборудование."
+        },
+        {
+          "number": 9,
+          "direction": "across",
+          "row": 3,
+          "col": 7,
+          "length": 4,
+          "word": "ВКУС",
+          "clue": "Ощущение, которое мы испытываем, пробуя пищу."
+        },
+        {
+          "number": 11,
+          "direction": "across",
+          "row": 5,
+          "col": 0,
+          "length": 5,
+          "word": "АРМИЯ",
+          "clue": "Вооружённые силы государства."
+        },
+        {
+          "number": 12,
+          "direction": "across",
+          "row": 5,
+          "col": 6,
+          "length": 5,
+          "word": "АТЛЕТ",
+          "clue": "Спортсмен с хорошо развитой мускулатурой."
+        },
+        {
+          "number": 14,
+          "direction": "across",
+          "row": 7,
+          "col": 0,
+          "length": 4,
+          "word": "АГАТ",
+          "clue": "Полосатый полудрагоценный камень."
+        },
+        {
+          "number": 16,
+          "direction": "across",
+          "row": 7,
+          "col": 7,
+          "length": 4,
+          "word": "ТЕМП",
+          "clue": "Скорость, с которой что-либо происходит."
+        },
+        {
+          "number": 18,
+          "direction": "across",
+          "row": 8,
+          "col": 3,
+          "length": 5,
+          "word": "ЕГЕРЬ",
+          "clue": "Работник, который следит за лесом и охотничьими угодьями."
+        },
+        {
+          "number": 19,
+          "direction": "across",
+          "row": 10,
+          "col": 0,
+          "length": 4,
+          "word": "ЯДРО",
+          "clue": "Твёрдая внутренняя часть некоторых плодов."
+        },
+        {
+          "number": 20,
+          "direction": "across",
+          "row": 10,
+          "col": 7,
+          "length": 4,
+          "word": "АРИЯ",
+          "clue": "Сольный вокальный номер в опере."
+        },
+        {
+          "number": 1,
+          "direction": "down",
+          "row": 0,
+          "col": 0,
+          "length": 4,
+          "word": "ГРИБ",
+          "clue": "Лесной организм со шляпкой и ножкой."
+        },
+        {
+          "number": 14,
+          "direction": "down",
+          "row": 7,
+          "col": 0,
+          "length": 4,
+          "word": "АЗИЯ",
+          "clue": "Самая большая часть света."
+        },
+        {
+          "number": 8,
+          "direction": "down",
+          "row": 3,
+          "col": 2,
+          "length": 5,
+          "word": "ЗАМША",
+          "clue": "Мягкая кожа с бархатистой поверхностью."
+        },
+        {
+          "number": 2,
+          "direction": "down",
+          "row": 0,
+          "col": 3,
+          "length": 4,
+          "word": "АРКА",
+          "clue": "Дугообразное перекрытие прохода или проёма."
+        },
+        {
+          "number": 15,
+          "direction": "down",
+          "row": 7,
+          "col": 3,
+          "length": 4,
+          "word": "ТЕЛО",
+          "clue": "Физическая оболочка человека или животного."
+        },
+        {
+          "number": 3,
+          "direction": "down",
+          "row": 0,
+          "col": 5,
+          "length": 5,
+          "word": "ВЫПАД",
+          "clue": "Резкий шаг вперёд при фехтовании или гимнастике."
+        },
+        {
+          "number": 13,
+          "direction": "down",
+          "row": 6,
+          "col": 5,
+          "length": 5,
+          "word": "АГЕНТ",
+          "clue": "Человек, который действует по поручению другого лица."
+        },
+        {
+          "number": 4,
+          "direction": "down",
+          "row": 0,
+          "col": 7,
+          "length": 4,
+          "word": "ГНЕВ",
+          "clue": "Очень сильное чувство злости."
+        },
+        {
+          "number": 16,
+          "direction": "down",
+          "row": 7,
+          "col": 7,
+          "length": 4,
+          "word": "ТЬМА",
+          "clue": "Полное отсутствие света."
+        },
+        {
+          "number": 10,
+          "direction": "down",
+          "row": 3,
+          "col": 8,
+          "length": 5,
+          "word": "КОЛЬЕ",
+          "clue": "Шейное украшение из драгоценных камней или бусин."
+        },
+        {
+          "number": 5,
+          "direction": "down",
+          "row": 0,
+          "col": 10,
+          "length": 4,
+          "word": "БОКС",
+          "clue": "Вид спорта, где соперники сражаются на ринге в перчатках."
+        },
+        {
+          "number": 17,
+          "direction": "down",
+          "row": 7,
+          "col": 10,
+          "length": 4,
+          "word": "ПУЛЯ",
+          "clue": "Небольшой металлический снаряд для огнестрельного оружия."
+        }
+      ],
+      "word_count": 24,
+      "crossings": 28,
+      "filled_cells": 76,
+      "status": "clues_drafted_review_required",
+      "is_published": false
+    },
+    {
+      "id": "spiderweb",
+      "title": "Паутина",
+      "size": 11,
+      "template_id": "spiderweb",
+      "pattern": [
+        "■□■□■□■□■□■",
+        "□□□□■□■□□□□",
+        "■□■□□□□□■□■",
+        "□□□□■□■□□□□",
+        "■■□■■□■■□■■",
+        "□□□□□■□□□□□",
+        "■■□■■□■■□■■",
+        "□□□□■□■□□□□",
+        "■□■□□□□□■□■",
+        "□□□□■□■□□□□",
+        "■□■□■□■□■□■"
+      ],
+      "solution": [
+        "■В■В■Ю■У■У■",
+        "ГИМН■Р■ДЫРА",
+        "■Н■ОБИДА■А■",
+        "БОКС■С■РАНА",
+        "■■О■■Т■■С■■",
+        "ФАЗАН■АВТОР",
+        "■■Н■■А■■Р■■",
+        "БЛИЦ■Г■БАЗА",
+        "■А■ИДЕАЛ■В■",
+        "ЗВУК■Н■ОВОЩ",
+        "■А■Л■Т■К■Н■"
+      ],
+      "placements": [
+        {
+          "number": 6,
+          "direction": "across",
+          "row": 1,
+          "col": 0,
+          "length": 4,
+          "word": "ГИМН",
+          "clue": "Торжественная песня государства."
+        },
+        {
+          "number": 7,
+          "direction": "across",
+          "row": 1,
+          "col": 7,
+          "length": 4,
+          "word": "ДЫРА",
+          "clue": "Отверстие в ткани, стене или другом предмете."
+        },
+        {
+          "number": 8,
+          "direction": "across",
+          "row": 2,
+          "col": 3,
+          "length": 5,
+          "word": "ОБИДА",
+          "clue": "Неприятное чувство из-за несправедливых слов или поступков."
+        },
+        {
+          "number": 9,
+          "direction": "across",
+          "row": 3,
+          "col": 0,
+          "length": 4,
+          "word": "БОКС",
+          "clue": "Вид спорта, где соперники сражаются на ринге в перчатках."
+        },
+        {
+          "number": 11,
+          "direction": "across",
+          "row": 3,
+          "col": 7,
+          "length": 4,
+          "word": "РАНА",
+          "clue": "Повреждение кожи и тканей."
+        },
+        {
+          "number": 13,
+          "direction": "across",
+          "row": 5,
+          "col": 0,
+          "length": 5,
+          "word": "ФАЗАН",
+          "clue": "Птица с длинным хвостом; у самца яркое оперение."
+        },
+        {
+          "number": 14,
+          "direction": "across",
+          "row": 5,
+          "col": 6,
+          "length": 5,
+          "word": "АВТОР",
+          "clue": "Человек, создавший литературное или художественное произведение."
+        },
+        {
+          "number": 16,
+          "direction": "across",
+          "row": 7,
+          "col": 0,
+          "length": 4,
+          "word": "БЛИЦ",
+          "clue": "Очень быстрый шахматный поединок."
+        },
+        {
+          "number": 19,
+          "direction": "across",
+          "row": 7,
+          "col": 7,
+          "length": 4,
+          "word": "БАЗА",
+          "clue": "Место, где хранят запасы или размещают оборудование."
+        },
+        {
+          "number": 21,
+          "direction": "across",
+          "row": 8,
+          "col": 3,
+          "length": 5,
+          "word": "ИДЕАЛ",
+          "clue": "Образец совершенства, к которому стремятся."
+        },
+        {
+          "number": 22,
+          "direction": "across",
+          "row": 9,
+          "col": 0,
+          "length": 4,
+          "word": "ЗВУК",
+          "clue": "То, что мы слышим ушами."
+        },
+        {
+          "number": 23,
+          "direction": "across",
+          "row": 9,
+          "col": 7,
+          "length": 4,
+          "word": "ОВОЩ",
+          "clue": "Съедобная часть огородного растения."
+        },
+        {
+          "number": 1,
+          "direction": "down",
+          "row": 0,
+          "col": 1,
+          "length": 4,
+          "word": "ВИНО",
+          "clue": "Напиток из перебродившего виноградного сока."
+        },
+        {
+          "number": 17,
+          "direction": "down",
+          "row": 7,
+          "col": 1,
+          "length": 4,
+          "word": "ЛАВА",
+          "clue": "Расплавленная горная порода, вытекающая из вулкана."
+        },
+        {
+          "number": 10,
+          "direction": "down",
+          "row": 3,
+          "col": 2,
+          "length": 5,
+          "word": "КОЗНИ",
+          "clue": "Тайные недобрые замыслы и интриги."
+        },
+        {
+          "number": 2,
+          "direction": "down",
+          "row": 0,
+          "col": 3,
+          "length": 4,
+          "word": "ВНОС",
+          "clue": "Занесение вещей внутрь помещения."
+        },
+        {
+          "number": 18,
+          "direction": "down",
+          "row": 7,
+          "col": 3,
+          "length": 4,
+          "word": "ЦИКЛ",
+          "clue": "Последовательность событий, которая регулярно повторяется."
+        },
+        {
+          "number": 3,
+          "direction": "down",
+          "row": 0,
+          "col": 5,
+          "length": 5,
+          "word": "ЮРИСТ",
+          "clue": "Специалист по законам и праву."
+        },
+        {
+          "number": 15,
+          "direction": "down",
+          "row": 6,
+          "col": 5,
+          "length": 5,
+          "word": "АГЕНТ",
+          "clue": "Человек, который действует по поручению другого лица."
+        },
+        {
+          "number": 4,
+          "direction": "down",
+          "row": 0,
+          "col": 7,
+          "length": 4,
+          "word": "УДАР",
+          "clue": "Резкое соприкосновение с чем-либо."
+        },
+        {
+          "number": 19,
+          "direction": "down",
+          "row": 7,
+          "col": 7,
+          "length": 4,
+          "word": "БЛОК",
+          "clue": "Соединённая в одно целое группа деталей или предметов."
+        },
+        {
+          "number": 12,
+          "direction": "down",
+          "row": 3,
+          "col": 8,
+          "length": 5,
+          "word": "АСТРА",
+          "clue": "Садовый цветок с множеством узких лепестков."
+        },
+        {
+          "number": 5,
+          "direction": "down",
+          "row": 0,
+          "col": 9,
+          "length": 4,
+          "word": "УРАН",
+          "clue": "Планета Солнечной системы, следующая за Сатурном."
+        },
+        {
+          "number": 20,
+          "direction": "down",
+          "row": 7,
+          "col": 9,
+          "length": 4,
+          "word": "ЗВОН",
+          "clue": "Протяжный, ясный металлический звук."
+        }
+      ],
+      "word_count": 24,
+      "crossings": 28,
+      "filled_cells": 76,
+      "status": "clues_drafted_review_required",
+      "is_published": false
+    }
+  ]
+}
