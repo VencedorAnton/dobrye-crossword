@@ -10,7 +10,22 @@
     "unique_answers": 208,
     "all_clues_present": true,
     "all_crossings_consistent": true,
-    "independent_editorial_qa": false
+    "independent_editorial_qa": false,
+    "singular_noun_policy": "Words with a normal singular noun form must be singular; inherently plural nouns (e.g. ЧАСЫ, НОЖНИЦЫ, ОБОИ, ГУСЛИ) may remain plural. Automated complete morphology not yet validated.",
+    "plural_candidates_pending": [
+      {
+        "word": "КУДРИ",
+        "flag": "requires_singular_review"
+      },
+      {
+        "word": "КОЗНИ",
+        "flag": "requires_singular_review"
+      },
+      {
+        "word": "ДАННЫЕ",
+        "flag": "requires_singular_or_semantic_review"
+      }
+    ]
   },
   "puzzles": [
     {
@@ -706,7 +721,8 @@
           "col": 2,
           "length": 5,
           "word": "КОЗНИ",
-          "clue": "Тайные недобрые замыслы и интриги."
+          "clue": "Тайные недобрые замыслы и интриги.",
+          "editorial_flag": "requires_singular_review"
         },
         {
           "number": 2,
@@ -828,7 +844,7 @@
         "■Г■■ФОКУС■■Т■",
         "■О■■■Б■Г■■■М■",
         "■Л■■■М■О■■■Е■",
-        "ИКОНКА■ЛАДОНИ",
+        "ИКОНКА■ЛАДОНЬ",
         "■А■■■Н■Ь■■■А■"
       ],
       "placements": [
@@ -938,8 +954,8 @@
           "row": 11,
           "col": 7,
           "length": 6,
-          "word": "ЛАДОНИ",
-          "clue": "Внутренние стороны кистей рук.",
+          "word": "ЛАДОНЬ",
+          "clue": "Внутренняя сторона кисти руки.",
           "editorial_flag": null
         },
         {
@@ -1323,7 +1339,7 @@
           "length": 5,
           "word": "КУДРИ",
           "clue": "Завитые или вьющиеся пряди волос.",
-          "editorial_flag": null
+          "editorial_flag": "requires_singular_review"
         },
         {
           "number": 17,
@@ -1893,7 +1909,7 @@
           "length": 6,
           "word": "ДАННЫЕ",
           "clue": "Сведения, используемые для анализа или обработки.",
-          "editorial_flag": null
+          "editorial_flag": "requires_singular_or_semantic_review"
         },
         {
           "number": 20,
