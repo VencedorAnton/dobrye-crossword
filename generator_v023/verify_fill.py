@@ -93,6 +93,21 @@ def verify():
         assert all(1 <= v <= 2 for v in coverage.values()), name
         assert sum(v == 2 for v in coverage.values()) == puzzle["crossings"], name
         print(f"PASS: {name:14} {n}x{n} · {len(placements)} слов · {len(whites)} клеток")
+    # Неполная автоматическая проверка: список известных плюральных форм,
+    # для остальных необходим редакторский разбор по значению.
+    known_forbidden = {"ЛАДОНИ"}
+    pending_review = {"КУДРИ", "КОЗНИ", "ДАННЫЕ"}
+    allowed_plural_only = {"ЧАСЫ", "НОЖНИЦЫ", "ОБОИ", "ГУСЛИ"}
+    all_answers = {item["word"] for puzzle in puzzles for item in puzzle["placements"]}
+    assert not (all_answers & known_forbidden), "Non-singular nominative answers found"
+    for puzzle in puzzles:
+        for item in puzzle["placements"]:
+            if item["word"] in pending_review:
+                assert item.get("editorial_flag"), (puzzle["id"], item["word"])
+    print("Singular QA: no known forbidden ЛАДОНИ; flagged for editorial review:",
+          ", ".join(sorted(all_answers & pending_review)) or "none")
+    print("Plural-only exceptions in current puzzles:",
+          ", ".join(sorted(all_answers & allowed_plural_only)) or "none")
     assert total_clues == 216, total_clues
     print(f"PASS: {len(puzzles)}/9 сеток; {total_clues}/216 слов и определений.")
     print("NOTE: editor-approved word quality and definition accuracy are NOT verified.")
