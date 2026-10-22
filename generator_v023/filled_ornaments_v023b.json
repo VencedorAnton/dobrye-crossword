@@ -25,7 +25,10 @@
         "word": "ДАННЫЕ",
         "flag": "requires_singular_or_semantic_review"
       }
-    ]
+    ],
+    "hint_policy": "At most one optional editorial hint per answer. Prefer a direct synonym or another genuine meaning of the same answer. A hint may not contain the answer text, cannot contradict the clue, and must be reviewed before publication.",
+    "hint_seed_status": "draft_optional_not_gameplay",
+    "hint_seed_count": 11
   },
   "puzzles": [
     {
@@ -367,7 +370,11 @@
           "col": 0,
           "length": 4,
           "word": "БАЗА",
-          "clue": "Место, где хранят запасы или размещают оборудование."
+          "clue": "Место, где хранят запасы или размещают оборудование.",
+          "hint": {
+            "kind": "alternate_meaning",
+            "text": "Так называют и основу, на которой что-либо строится."
+          }
         },
         {
           "number": 9,
@@ -511,7 +518,11 @@
           "col": 7,
           "length": 4,
           "word": "ГНЕВ",
-          "clue": "Очень сильное чувство злости."
+          "clue": "Очень сильное чувство злости.",
+          "hint": {
+            "kind": "synonym",
+            "text": "Ярость."
+          }
         },
         {
           "number": 16,
@@ -520,7 +531,11 @@
           "col": 7,
           "length": 4,
           "word": "ТЬМА",
-          "clue": "Полное отсутствие света."
+          "clue": "Полное отсутствие света.",
+          "hint": {
+            "kind": "synonym",
+            "text": "Мрак."
+          }
         },
         {
           "number": 10,
@@ -595,7 +610,11 @@
           "col": 0,
           "length": 4,
           "word": "ГИМН",
-          "clue": "Торжественная песня государства."
+          "clue": "Торжественная песня государства.",
+          "hint": {
+            "kind": "alternate_meaning",
+            "text": "Так называют торжественную песню во славу человека или события."
+          }
         },
         {
           "number": 7,
@@ -667,7 +686,11 @@
           "col": 7,
           "length": 4,
           "word": "БАЗА",
-          "clue": "Место, где хранят запасы или размещают оборудование."
+          "clue": "Место, где хранят запасы или размещают оборудование.",
+          "hint": {
+            "kind": "alternate_meaning",
+            "text": "Так называют и основу, на которой что-либо строится."
+          }
         },
         {
           "number": 21,
@@ -906,7 +929,11 @@
           "length": 5,
           "word": "ЛЕНТА",
           "clue": "Узкая длинная полоска ткани или другого материала.",
-          "editorial_flag": null
+          "editorial_flag": null,
+          "hint": {
+            "kind": "alternate_meaning",
+            "text": "Так иногда называют кинофильм."
+          }
         },
         {
           "number": 13,
@@ -1309,7 +1336,11 @@
           "length": 5,
           "word": "КАНАЛ",
           "clue": "Искусственно прорытый водный путь.",
-          "editorial_flag": null
+          "editorial_flag": null,
+          "hint": {
+            "kind": "alternate_meaning",
+            "text": "По нему также показывают телепередачи."
+          }
         },
         {
           "number": 16,
@@ -1562,7 +1593,11 @@
           "length": 5,
           "word": "СТРАХ",
           "clue": "Чувство тревоги перед опасностью.",
-          "editorial_flag": null
+          "editorial_flag": null,
+          "hint": {
+            "kind": "synonym",
+            "text": "Боязнь."
+          }
         },
         {
           "number": 3,
@@ -1799,7 +1834,11 @@
           "length": 6,
           "word": "ТАЛАНТ",
           "clue": "Выдающаяся природная способность к какому-либо занятию.",
-          "editorial_flag": null
+          "editorial_flag": null,
+          "hint": {
+            "kind": "synonym",
+            "text": "Дар."
+          }
         },
         {
           "number": 1,
@@ -1919,7 +1958,11 @@
           "length": 6,
           "word": "ТИШИНА",
           "clue": "Отсутствие слышимых звуков.",
-          "editorial_flag": null
+          "editorial_flag": null,
+          "hint": {
+            "kind": "synonym",
+            "text": "Безмолвие."
+          }
         }
       ],
       "word_count": 24,
@@ -2076,7 +2119,11 @@
           "length": 6,
           "word": "КАМЕРА",
           "clue": "Устройство для съёмки фото или видео.",
-          "editorial_flag": null
+          "editorial_flag": null,
+          "hint": {
+            "kind": "alternate_meaning",
+            "text": "Так называют также помещение для заключённого."
+          }
         },
         {
           "number": 23,
