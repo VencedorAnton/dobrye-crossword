@@ -1,0 +1,132 @@
+<!doctype html><html lang="ru"><head><meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1,viewport-fit=cover">
+<meta name="theme-color" content="#f5f0e5">
+<title>Добрые Кроссворды — орнаментальные узоры 11×11</title>
+<style>
+:root{--ink:#243449;--muted:#526377;--navy:#2e4054;--cream:#f5f0e5;--paper:#fffdf9;--light:#e9f2fc;--blue:#2469aa;--gold:#ffe4a0}
+*{box-sizing:border-box}
+body{margin:0;background:var(--cream);color:var(--ink);font:18px/1.47 system-ui,-apple-system,"Segoe UI",sans-serif}
+main{max-width:1120px;margin:0 auto;padding:16px clamp(12px,3vw,30px) 44px}
+h1{font-size:clamp(27px,5vw,39px);line-height:1.13;letter-spacing:-.6px;margin:10px 0 12px}
+h2{font-size:clamp(22px,3vw,28px);margin:0 0 12px}
+h3{font-size:20px;margin:12px 0}
+p{margin:8px 0 15px}
+.muted{color:var(--muted)}
+.caption{font-size:15px}
+.card{background:var(--paper);border-radius:20px;padding:clamp(12px,2.5vw,22px);box-shadow:0 4px 22px #20334a19;margin:16px 0}
+.gallery{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:15px}
+.pick{border:3px solid #c2cfdb;background:#fff;border-radius:18px;cursor:pointer;text-align:left;padding:13px 13px 17px;min-width:0;color:var(--ink);font:inherit}
+.pick.selected{border-color:#b17c13;background:#fff7e2;box-shadow:0 0 0 3px #ffe7a9}
+.pick:focus-visible,button:focus-visible{outline:4px solid #e6ad3b;outline-offset:2px}
+.pick .label{display:block;font-size:20px;font-weight:850;line-height:1.3;margin-bottom:7px}
+.pick .small{display:block;color:var(--muted);font-size:14px;margin-bottom:12px}
+.mini{display:grid;grid-template-columns:repeat(11,minmax(0,1fr));gap:1px;background:var(--navy);padding:2px;aspect-ratio:1;max-width:260px;width:100%;margin:0 auto}
+.mini div{background:#fff;min-width:0;min-height:0}.mini div.dark{background:var(--navy)}
+.pick .meta{font-size:14px;font-weight:700;color:#476484;text-align:center;margin-top:9px}
+.layout{display:grid;grid-template-columns:minmax(280px,490px) minmax(280px,1fr);gap:22px;align-items:start}
+.bigwrap{max-width:100%;overflow-x:auto;padding-bottom:6px}
+.biggrid{--cell:38px;display:grid;grid-template-columns:repeat(11,var(--cell));grid-template-rows:repeat(11,var(--cell));width:max-content;gap:1px;background:var(--navy);border:3px solid var(--navy);border-radius:2px;overflow:hidden}
+.tile{display:flex;position:relative;align-items:center;justify-content:center;background:#fff;min-width:0;min-height:0;cursor:pointer}
+.tile.dark{background:var(--navy);cursor:default}
+.tile.highlight{background:var(--gold)}
+.tile:hover:not(.dark){box-shadow:inset 0 0 0 3px #5585b5}
+.tile .num{position:absolute;left:2px;top:1px;font-size:10px;font-weight:850;color:#32547a;line-height:1}
+button.action{border-radius:12px;border:2px solid #b5c9dd;background:var(--light);color:#235788;font:750 16px/1.2 system-ui;min-height:49px;padding:10px 12px;cursor:pointer}
+button.action.on{border-color:var(--blue);background:var(--blue);color:#fff}
+.row{display:flex;gap:10px;flex-wrap:wrap;margin:12px 0}
+.stats{display:flex;flex-wrap:wrap;gap:7px;margin:12px 0 18px}
+.stats span{display:inline-block;border-radius:20px;background:#e3f1e7;padding:5px 10px;color:#215b36;font-size:14px;font-weight:750}
+.slotbox{background:#fef3d8;border-radius:12px;padding:13px;margin:14px 0;min-height:100px}
+.slotbox strong{display:block;font-size:18px;margin-bottom:7px}
+.slotbox p{font-size:15px;color:#5a6071;margin:0}
+.listcols{display:grid;grid-template-columns:1fr 1fr;gap:14px}
+.slotlist{display:flex;flex-wrap:wrap;gap:7px}
+.slotlist button{min-width:70px;min-height:46px;border:2px solid #c8d5e3;border-radius:10px;background:#fff;color:#244766;font:700 16px system-ui;padding:6px 10px;cursor:pointer}
+.slotlist button.active{background:var(--gold);border-color:#be913c;color:#433113}
+.footer{border-left:5px solid #cb9737;padding:13px 15px;background:#fff7e5;border-radius:10px;font-size:16px;margin-top:20px}
+@media(max-width:850px){.layout{grid-template-columns:1fr}.gallery{gap:8px}.pick{padding:9px}.pick .label{font-size:16px}.pick .small{font-size:12px}.listcols{grid-template-columns:1fr 1fr}}
+@media(max-width:580px){.gallery{grid-template-columns:repeat(3,220px);overflow-x:auto;padding:4px 4px 14px;scroll-snap-type:x mandatory}.pick{scroll-snap-align:start}.pick .label{font-size:18px}.pick .small{font-size:13px}.listcols{grid-template-columns:1fr}.biggrid{--cell:calc((100vw - 40px)/11 - 1px)}}
+</style></head><body><main>
+<h1>❄️ 🧶 🕸️ Орнаментальные кроссворды</h1>
+<p class="muted">Три варианта 11×11 — теперь в виде настоящих клетчатых сеток. Выберите узор, чтобы рассмотреть его крупнее и проверить пересечения.</p>
+<section class="card"><h2>Сравните три формы</h2>
+<div class="gallery" id="gallery" aria-label="Выбор орнамента"></div>
+<p class="caption muted">На телефоне карточки можно листать горизонтально.</p></section>
+<section class="card"><h2 id="detailName"></h2><p class="muted" id="detailIntro"></p>
+<div class="stats" id="stats"></div>
+<div class="layout">
+<section>
+<div class="bigwrap"><div id="biggrid" class="biggrid" role="grid" aria-label="Увеличенный шаблон кроссворда"></div></div>
+<div class="row"><button id="numbers" class="action" aria-pressed="false">Показать номера</button><button id="clear" class="action">Снять выделение</button><button id="zoom" class="action" aria-pressed="false">Крупнее</button></div>
+<div class="slotbox"><strong id="slotTitle">Выберите слово</strong><p id="slotHelp">Нажмите на белую клетку, чтобы подсветить горизонтальное или вертикальное слово. Повторное нажатие на пересечение переключит направление.</p></div>
+</section>
+<section><h3>Горизонтальные слова</h3><div class="slotlist" id="across" aria-label="Горизонтальные слоты"></div>
+<h3>Вертикальные слова</h3><div class="slotlist" id="down" aria-label="Вертикальные слоты"></div>
+<p class="caption muted" style="margin-top:16px">Номер и длина каждого слова показаны на кнопке. Это пока шаблоны для будущего заполнения словами.</p></section>
+</div></section>
+<p class="footer"><strong>На этом этапе слова ещё не подобраны.</strong> Пустые белые клетки показывают место для будущих букв, тёмные разделяют слова. Все три формы проверены: симметрия по вертикали, горизонтали и диагоналям; нет слотов из 2–3 букв; все длинные слоты связаны пересечениями.</p>
+</main>
+<script>
+"use strict";
+const DATA=[{"id":"snowflake","name":"Снежинка","emoji":"❄️","subtitle":"Лучистый орнамент вокруг центра","pattern":["■□■□□□□□■□■","□□□□■■■□□□□","■□■□□□□□■□■","□□□□■□■□□□□","□■□■■□■■□■□","□■□□□□□□□■□","□■□■■□■■□■□","□□□□■□■□□□□","■□■□□□□□■□■","□□□□■■■□□□□","■□■□□□□□■□■"],"stats":{"total":26,"horizontal":13,"vertical":13,"crossings":37,"white":81},"slots":[{"d":"across","cells":[[0,3],[0,4],[0,5],[0,6],[0,7]],"length":5,"row":0,"col":3,"number":2},{"d":"across","cells":[[1,0],[1,1],[1,2],[1,3]],"length":4,"row":1,"col":0,"number":5},{"d":"across","cells":[[1,7],[1,8],[1,9],[1,10]],"length":4,"row":1,"col":7,"number":6},{"d":"across","cells":[[2,3],[2,4],[2,5],[2,6],[2,7]],"length":5,"row":2,"col":3,"number":7},{"d":"across","cells":[[3,0],[3,1],[3,2],[3,3]],"length":4,"row":3,"col":0,"number":9},{"d":"across","cells":[[3,7],[3,8],[3,9],[3,10]],"length":4,"row":3,"col":7,"number":11},{"d":"across","cells":[[5,2],[5,3],[5,4],[5,5],[5,6],[5,7],[5,8]],"length":7,"row":5,"col":2,"number":14},{"d":"across","cells":[[7,0],[7,1],[7,2],[7,3]],"length":4,"row":7,"col":0,"number":15},{"d":"across","cells":[[7,7],[7,8],[7,9],[7,10]],"length":4,"row":7,"col":7,"number":18},{"d":"across","cells":[[8,3],[8,4],[8,5],[8,6],[8,7]],"length":5,"row":8,"col":3,"number":20},{"d":"across","cells":[[9,0],[9,1],[9,2],[9,3]],"length":4,"row":9,"col":0,"number":21},{"d":"across","cells":[[9,7],[9,8],[9,9],[9,10]],"length":4,"row":9,"col":7,"number":22},{"d":"across","cells":[[10,3],[10,4],[10,5],[10,6],[10,7]],"length":5,"row":10,"col":3,"number":23},{"d":"down","cells":[[3,0],[4,0],[5,0],[6,0],[7,0]],"length":5,"row":3,"col":0,"number":9},{"d":"down","cells":[[0,1],[1,1],[2,1],[3,1]],"length":4,"row":0,"col":1,"number":1},{"d":"down","cells":[[7,1],[8,1],[9,1],[10,1]],"length":4,"row":7,"col":1,"number":16},{"d":"down","cells":[[3,2],[4,2],[5,2],[6,2],[7,2]],"length":5,"row":3,"col":2,"number":10},{"d":"down","cells":[[0,3],[1,3],[2,3],[3,3]],"length":4,"row":0,"col":3,"number":2},{"d":"down","cells":[[7,3],[8,3],[9,3],[10,3]],"length":4,"row":7,"col":3,"number":17},{"d":"down","cells":[[2,5],[3,5],[4,5],[5,5],[6,5],[7,5],[8,5]],"length":7,"row":2,"col":5,"number":8},{"d":"down","cells":[[0,7],[1,7],[2,7],[3,7]],"length":4,"row":0,"col":7,"number":3},{"d":"down","cells":[[7,7],[8,7],[9,7],[10,7]],"length":4,"row":7,"col":7,"number":18},{"d":"down","cells":[[3,8],[4,8],[5,8],[6,8],[7,8]],"length":5,"row":3,"col":8,"number":12},{"d":"down","cells":[[0,9],[1,9],[2,9],[3,9]],"length":4,"row":0,"col":9,"number":4},{"d":"down","cells":[[7,9],[8,9],[9,9],[10,9]],"length":4,"row":7,"col":9,"number":19},{"d":"down","cells":[[3,10],[4,10],[5,10],[6,10],[7,10]],"length":5,"row":3,"col":10,"number":13}]},{"id":"granny","name":"Бабушкин квадрат","emoji":"🧶","subtitle":"Повторяющиеся квадраты и центр","pattern":["□□□□■□■□□□□","□■■□■□■□■■□","□■■□□□□□■■□","□□□□■□■□□□□","■■□■■□■■□■■","□□□□□■□□□□□","■■□■■□■■□■■","□□□□■□■□□□□","□■■□□□□□■■□","□■■□■□■□■■□","□□□□■□■□□□□"],"stats":{"total":24,"horizontal":12,"vertical":12,"crossings":28,"white":76},"slots":[{"d":"across","cells":[[0,0],[0,1],[0,2],[0,3]],"length":4,"row":0,"col":0,"number":1},{"d":"across","cells":[[0,7],[0,8],[0,9],[0,10]],"length":4,"row":0,"col":7,"number":4},{"d":"across","cells":[[2,3],[2,4],[2,5],[2,6],[2,7]],"length":5,"row":2,"col":3,"number":6},{"d":"across","cells":[[3,0],[3,1],[3,2],[3,3]],"length":4,"row":3,"col":0,"number":7},{"d":"across","cells":[[3,7],[3,8],[3,9],[3,10]],"length":4,"row":3,"col":7,"number":9},{"d":"across","cells":[[5,0],[5,1],[5,2],[5,3],[5,4]],"length":5,"row":5,"col":0,"number":11},{"d":"across","cells":[[5,6],[5,7],[5,8],[5,9],[5,10]],"length":5,"row":5,"col":6,"number":12},{"d":"across","cells":[[7,0],[7,1],[7,2],[7,3]],"length":4,"row":7,"col":0,"number":14},{"d":"across","cells":[[7,7],[7,8],[7,9],[7,10]],"length":4,"row":7,"col":7,"number":16},{"d":"across","cells":[[8,3],[8,4],[8,5],[8,6],[8,7]],"length":5,"row":8,"col":3,"number":18},{"d":"across","cells":[[10,0],[10,1],[10,2],[10,3]],"length":4,"row":10,"col":0,"number":19},{"d":"across","cells":[[10,7],[10,8],[10,9],[10,10]],"length":4,"row":10,"col":7,"number":20},{"d":"down","cells":[[0,0],[1,0],[2,0],[3,0]],"length":4,"row":0,"col":0,"number":1},{"d":"down","cells":[[7,0],[8,0],[9,0],[10,0]],"length":4,"row":7,"col":0,"number":14},{"d":"down","cells":[[3,2],[4,2],[5,2],[6,2],[7,2]],"length":5,"row":3,"col":2,"number":8},{"d":"down","cells":[[0,3],[1,3],[2,3],[3,3]],"length":4,"row":0,"col":3,"number":2},{"d":"down","cells":[[7,3],[8,3],[9,3],[10,3]],"length":4,"row":7,"col":3,"number":15},{"d":"down","cells":[[0,5],[1,5],[2,5],[3,5],[4,5]],"length":5,"row":0,"col":5,"number":3},{"d":"down","cells":[[6,5],[7,5],[8,5],[9,5],[10,5]],"length":5,"row":6,"col":5,"number":13},{"d":"down","cells":[[0,7],[1,7],[2,7],[3,7]],"length":4,"row":0,"col":7,"number":4},{"d":"down","cells":[[7,7],[8,7],[9,7],[10,7]],"length":4,"row":7,"col":7,"number":16},{"d":"down","cells":[[3,8],[4,8],[5,8],[6,8],[7,8]],"length":5,"row":3,"col":8,"number":10},{"d":"down","cells":[[0,10],[1,10],[2,10],[3,10]],"length":4,"row":0,"col":10,"number":5},{"d":"down","cells":[[7,10],[8,10],[9,10],[10,10]],"length":4,"row":7,"col":10,"number":17}]},{"id":"spiderweb","name":"Паутина","emoji":"🕸️","subtitle":"Сеть из перемычек и повторяющихся линий","pattern":["■□■□■□■□■□■","□□□□■□■□□□□","■□■□□□□□■□■","□□□□■□■□□□□","■■□■■□■■□■■","□□□□□■□□□□□","■■□■■□■■□■■","□□□□■□■□□□□","■□■□□□□□■□■","□□□□■□■□□□□","■□■□■□■□■□■"],"stats":{"total":24,"horizontal":12,"vertical":12,"crossings":28,"white":76},"slots":[{"d":"across","cells":[[1,0],[1,1],[1,2],[1,3]],"length":4,"row":1,"col":0,"number":6},{"d":"across","cells":[[1,7],[1,8],[1,9],[1,10]],"length":4,"row":1,"col":7,"number":7},{"d":"across","cells":[[2,3],[2,4],[2,5],[2,6],[2,7]],"length":5,"row":2,"col":3,"number":8},{"d":"across","cells":[[3,0],[3,1],[3,2],[3,3]],"length":4,"row":3,"col":0,"number":9},{"d":"across","cells":[[3,7],[3,8],[3,9],[3,10]],"length":4,"row":3,"col":7,"number":11},{"d":"across","cells":[[5,0],[5,1],[5,2],[5,3],[5,4]],"length":5,"row":5,"col":0,"number":13},{"d":"across","cells":[[5,6],[5,7],[5,8],[5,9],[5,10]],"length":5,"row":5,"col":6,"number":14},{"d":"across","cells":[[7,0],[7,1],[7,2],[7,3]],"length":4,"row":7,"col":0,"number":16},{"d":"across","cells":[[7,7],[7,8],[7,9],[7,10]],"length":4,"row":7,"col":7,"number":19},{"d":"across","cells":[[8,3],[8,4],[8,5],[8,6],[8,7]],"length":5,"row":8,"col":3,"number":21},{"d":"across","cells":[[9,0],[9,1],[9,2],[9,3]],"length":4,"row":9,"col":0,"number":22},{"d":"across","cells":[[9,7],[9,8],[9,9],[9,10]],"length":4,"row":9,"col":7,"number":23},{"d":"down","cells":[[0,1],[1,1],[2,1],[3,1]],"length":4,"row":0,"col":1,"number":1},{"d":"down","cells":[[7,1],[8,1],[9,1],[10,1]],"length":4,"row":7,"col":1,"number":17},{"d":"down","cells":[[3,2],[4,2],[5,2],[6,2],[7,2]],"length":5,"row":3,"col":2,"number":10},{"d":"down","cells":[[0,3],[1,3],[2,3],[3,3]],"length":4,"row":0,"col":3,"number":2},{"d":"down","cells":[[7,3],[8,3],[9,3],[10,3]],"length":4,"row":7,"col":3,"number":18},{"d":"down","cells":[[0,5],[1,5],[2,5],[3,5],[4,5]],"length":5,"row":0,"col":5,"number":3},{"d":"down","cells":[[6,5],[7,5],[8,5],[9,5],[10,5]],"length":5,"row":6,"col":5,"number":15},{"d":"down","cells":[[0,7],[1,7],[2,7],[3,7]],"length":4,"row":0,"col":7,"number":4},{"d":"down","cells":[[7,7],[8,7],[9,7],[10,7]],"length":4,"row":7,"col":7,"number":19},{"d":"down","cells":[[3,8],[4,8],[5,8],[6,8],[7,8]],"length":5,"row":3,"col":8,"number":12},{"d":"down","cells":[[0,9],[1,9],[2,9],[3,9]],"length":4,"row":0,"col":9,"number":5},{"d":"down","cells":[[7,9],[8,9],[9,9],[10,9]],"length":4,"row":7,"col":9,"number":20}]}];
+let chosen=0,chosenSlot=-1,showNums=false,large=false;
+const el=id=>document.getElementById(id);
+function coords(slot){return slot.cells.map(a=>a[0]+","+a[1]);}
+function drawMini(rows,container){const g=document.createElement("div");g.className="mini";for(const row of rows)for(const ch of row){const x=document.createElement("div");if(ch==="■")x.className="dark";g.appendChild(x)}container.appendChild(g)}
+function render(){
+ const m=DATA[chosen],grid=el("biggrid");
+ const starts=new Map;for(const w of m.slots)starts.set(w.row+","+w.col,w.number);
+ const membership=new Map;for(let i=0;i<m.slots.length;i++)for(const c of coords(m.slots[i])){if(!membership.has(c))membership.set(c,[]);membership.get(c).push(i)}
+ const active=chosenSlot<0?new Set():new Set(coords(m.slots[chosenSlot]));
+ for(const b of el("gallery").querySelectorAll(".pick")){b.classList.toggle("selected",Number(b.dataset.index)===chosen);b.setAttribute("aria-pressed",String(Number(b.dataset.index)===chosen))}
+ el("detailName").textContent=m.emoji+" "+m.name;
+ el("detailIntro").textContent=m.subtitle;
+ const stats=el("stats");stats.replaceChildren();
+ for(const text of [m.stats.total+" слов",m.stats.horizontal+" по горизонтали",m.stats.vertical+" по вертикали",m.stats.crossings+" пересечений","4 оси симметрии"]){const s=document.createElement("span");s.textContent=text;stats.appendChild(s)}
+ grid.replaceChildren();grid.style.setProperty("--cell",large?"46px":"38px");
+ for(let r=0;r<11;r++)for(let c=0;c<11;c++){
+  const key=r+","+c,black=m.pattern[r][c]==="■",b=document.createElement("div");
+  b.className="tile"+(black?" dark":"")+(active.has(key)?" highlight":"");
+  b.setAttribute("role","gridcell");
+  b.setAttribute("aria-label",black?"Чёрная клетка":"Белая клетка, строка "+(r+1)+", столбец "+(c+1));
+  if(!black){
+    if(showNums&&starts.has(key)){const n=document.createElement("span");n.className="num";n.textContent=starts.get(key);b.appendChild(n)}
+    b.onclick=()=>{const opts=membership.get(key)||[];if(!opts.length)return;chosenSlot=opts.includes(chosenSlot)&&opts.length>1?opts[(opts.indexOf(chosenSlot)+1)%opts.length]:opts[0];render()}
+  }
+  grid.appendChild(b);
+ }
+ for(const d of ["across","down"]){let host=el(d);host.replaceChildren();
+  for(let i=0;i<m.slots.length;i++){let s=m.slots[i];if(s.d!==d)continue;
+    const b=document.createElement("button");
+    b.textContent="№ "+s.number+" · "+s.length+" кл.";
+    b.classList.toggle("active",i===chosenSlot);
+    b.setAttribute("aria-pressed",String(i===chosenSlot));
+    b.onclick=()=>{chosenSlot=i;render()};host.appendChild(b)
+  }
+ }
+ if(chosenSlot<0){
+  el("slotTitle").textContent="Выберите слово";
+  el("slotHelp").textContent="Нажмите на белую клетку или на номер справа. Выбранный ряд клеток выделится жёлтым.";
+ }else{
+  const s=m.slots[chosenSlot];
+  el("slotTitle").textContent="№ "+s.number+" — "+(s.d==="across"?"по горизонтали":"по вертикали")+" · "+s.length+" букв";
+  el("slotHelp").textContent="Это отдельный слот будущего слова. Выберите соседний номер или нажмите на пересечение, чтобы увидеть другое слово.";
+ }
+ el("numbers").classList.toggle("on",showNums);el("numbers").setAttribute("aria-pressed",String(showNums));el("numbers").textContent=showNums?"Скрыть номера":"Показать номера";
+ el("zoom").classList.toggle("on",large);el("zoom").setAttribute("aria-pressed",String(large));
+ el("zoom").textContent=large?"Обычный размер":"Крупнее";
+}
+for(let i=0;i<DATA.length;i++){
+ const m=DATA[i],button=document.createElement("button");
+ button.type="button";button.className="pick";button.dataset.index=i;button.setAttribute("aria-pressed","false");
+ const name=document.createElement("span");name.className="label";name.textContent=m.emoji+" "+m.name;button.appendChild(name);
+ const desc=document.createElement("span");desc.className="small";desc.textContent=m.subtitle;button.appendChild(desc);
+ drawMini(m.pattern,button);
+ const meta=document.createElement("div");meta.className="meta";meta.textContent=m.stats.total+" слов · "+m.stats.crossings+" пересечений";button.appendChild(meta);
+ button.onclick=()=>{chosen=i;chosenSlot=-1;render()};el("gallery").appendChild(button)
+}
+el("numbers").onclick=()=>{showNums=!showNums;render()};
+el("clear").onclick=()=>{chosenSlot=-1;render()};
+el("zoom").onclick=()=>{large=!large;render()};
+render();
+</script></body></html>
