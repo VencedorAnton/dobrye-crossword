@@ -135,13 +135,14 @@
       "topical_categories": [
         "Общие знания"
       ],
-      "difficulty": null,
+      "difficulty": "medium",
       "frequency_rank": null,
       "editorial_status": "draft",
       "approved_by": null,
       "approved_at": null,
       "review_flags": [
-        "requires_age_accessibility_review"
+        "requires_age_accessibility_review",
+        "brand_reference_review"
       ],
       "sources": [
         "mit_nouns_v021"
@@ -150,17 +151,30 @@
         {
           "sense_id": "ru:АБСОЛЮТ:sense:1",
           "definition": "Безусловное и независимое начало в философии.",
-          "hint": null,
+          "hint": {
+            "kind": "alternate_meaning",
+            "text": "Шведская торговая марка водки."
+          },
           "definition_origin": "ai_draft",
           "editorial_status": "draft",
           "usage_refs": [
             "snowflake-15:across:7:8"
-          ]
+          ],
+          "hint_origin": "owner_editorial_upload_2026-10-22",
+          "hint_editorial_status": "pending_independent_review"
         }
       ],
       "usage_refs": [
         "snowflake-15:across:7:8"
-      ]
+      ],
+      "review_suggestion": {
+        "decision": "looks_good",
+        "grammar": "singular_verified",
+        "difficulty": "medium",
+        "notes": "",
+        "origin": "owner_upload_2026-10-22",
+        "approved": false
+      }
     },
     {
       "id": "ru:АБСУРД",
@@ -1245,7 +1259,7 @@
       "topical_categories": [
         "Общие знания"
       ],
-      "difficulty": null,
+      "difficulty": "medium",
       "frequency_rank": null,
       "editorial_status": "draft",
       "approved_by": null,
@@ -1260,17 +1274,30 @@
         {
           "sense_id": "ru:АРКАДА:sense:1",
           "definition": "Ряд одинаковых арок, опирающихся на колонны.",
-          "hint": null,
+          "hint": {
+            "kind": "alternate_meaning",
+            "text": "Жанр компьютерных игр с простым и динамичным игровым процессом."
+          },
           "definition_origin": "ai_draft",
           "editorial_status": "draft",
           "usage_refs": [
             "spiderweb-15:across:4:9"
-          ]
+          ],
+          "hint_origin": "owner_editorial_upload_2026-10-22",
+          "hint_editorial_status": "pending_independent_review"
         }
       ],
       "usage_refs": [
         "spiderweb-15:across:4:9"
-      ]
+      ],
+      "review_suggestion": {
+        "decision": "looks_good",
+        "grammar": "singular_verified",
+        "difficulty": "medium",
+        "notes": "",
+        "origin": "owner_upload_2026-10-22",
+        "approved": false
+      }
     },
     {
       "id": "ru:АРМИЯ",
