@@ -1,0 +1,63 @@
+{
+  "version": "0.24b.1",
+  "created_at": "2026-10-22",
+  "licensing_policy": "Only explicitly cleared sources can be imported into production; derived CC-BY-SA source content quarantined pending attribution/share-alike review.",
+  "sources": [
+    {
+      "id": "mit_nouns_v021",
+      "name": "sk4tzR/russian-words",
+      "location": "generator_v021/data/mit_russian_nouns.txt",
+      "original_url": "https://github.com/sk4tzR/russian-words",
+      "license": "MIT",
+      "license_file": "generator_v021/data/THIRD_PARTY_LICENSE.txt",
+      "status": "used_for_candidate_words",
+      "allowed_for_candidate_import": true,
+      "notes": "Raw nouns only; contents are not vetted lemmas, frequencies or definitions."
+    },
+    {
+      "id": "human_word_correction",
+      "name": "Project editorial correction",
+      "location": "generator_v023/filled_ornaments_v023b.json",
+      "license": "project_created",
+      "status": "used_as_draft",
+      "allowed_for_candidate_import": true,
+      "notes": "LADONЬ substituted for plural LADONИ; review still pending."
+    },
+    {
+      "id": "ai_draft_v023",
+      "name": "New Russian original clue drafts",
+      "location": "generator_v023/filled_ornaments_v023b.json",
+      "license": "project_draft_provenance",
+      "status": "drafts_only",
+      "allowed_for_candidate_import": false,
+      "notes": "Clues/hints generated for this project, not copied from dictionaries; independent QA outstanding."
+    },
+    {
+      "id": "openrussian",
+      "name": "OpenRussian.org",
+      "original_url": "https://en.openrussian.org/dictionary-data",
+      "license": "CC BY-SA 4.0",
+      "status": "on_hold_licensing_and_mapping",
+      "allowed_for_candidate_import": false,
+      "notes": "External tables have mixed source provenance and ShareAlike obligations; no data imported in v0.24b."
+    },
+    {
+      "id": "opencorpora",
+      "name": "OpenCorpora",
+      "original_url": "https://opencorpora.org/?page=downloads",
+      "license": "CC BY-SA 3.0",
+      "status": "on_hold_licensing_and_mapping",
+      "allowed_for_candidate_import": false,
+      "notes": "Morphological lexicon is potentially useful, but attribution and share-alike requirements must be assessed; no data imported."
+    },
+    {
+      "id": "wiktionary",
+      "name": "Wiktionary / Wikimedia",
+      "original_url": "https://ru.wiktionary.org/",
+      "license": "CC BY-SA 4.0 / GFDL (check per dataset)",
+      "status": "on_hold_licensing_and_parsing",
+      "allowed_for_candidate_import": false,
+      "notes": "No copied definitions or articles imported. Need attribution and license-compatible content pipeline."
+    }
+  ]
+}
