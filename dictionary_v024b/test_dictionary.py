@@ -22,7 +22,7 @@ class DictionaryFoundationTests(unittest.TestCase):
         self.assertEqual(len(result), 208)
         self.assertEqual(sum(len(x["usage_refs"]) for x in result.values()), 216)
         self.assertEqual(sum(any(s.get("hint") for s in x["senses"])
-                             for x in result.values()), 10)
+                             for x in result.values()), 12)
 
     def test_candidate_pool_preserves_manual_correction(self):
         source = b.read_candidates(self.registry)
