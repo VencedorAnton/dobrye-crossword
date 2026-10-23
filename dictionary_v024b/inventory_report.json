@@ -1,0 +1,153 @@
+{
+  "version": "0.24b.1",
+  "generated_on": "2026-10-22",
+  "word_source": "generator_v021/data/mit_russian_nouns.txt",
+  "original_import_raw_rows": 3261,
+  "mit_candidates_filtered": 2873,
+  "manual_corrections": [
+    "ЛАДОНЬ"
+  ],
+  "total_candidate_lemmas": 2874,
+  "defined_drafts": 208,
+  "definition_senses": 208,
+  "crossword_uses": 216,
+  "hinted_unique_lemmas": 10,
+  "flagged_entries": 21,
+  "flagged_words": [
+    {
+      "word": "АБСОЛЮТ",
+      "flags": [
+        "requires_age_accessibility_review"
+      ]
+    },
+    {
+      "word": "АГРЕГАТ",
+      "flags": [
+        "requires_age_accessibility_review"
+      ]
+    },
+    {
+      "word": "АДЕПТ",
+      "flags": [
+        "requires_age_accessibility_review"
+      ]
+    },
+    {
+      "word": "АЖИОТАЖ",
+      "flags": [
+        "requires_age_accessibility_review"
+      ]
+    },
+    {
+      "word": "АКТЕР",
+      "flags": [
+        "ё_spelling_review"
+      ]
+    },
+    {
+      "word": "АПЛОМБ",
+      "flags": [
+        "requires_age_accessibility_review"
+      ]
+    },
+    {
+      "word": "АРКАДА",
+      "flags": [
+        "requires_age_accessibility_review"
+      ]
+    },
+    {
+      "word": "АХИНЕЯ",
+      "flags": [
+        "requires_age_accessibility_review"
+      ]
+    },
+    {
+      "word": "БАТРАК",
+      "flags": [
+        "requires_age_accessibility_review"
+      ]
+    },
+    {
+      "word": "БЕРИЛЛ",
+      "flags": [
+        "requires_age_accessibility_review"
+      ]
+    },
+    {
+      "word": "БОГЕМА",
+      "flags": [
+        "requires_age_accessibility_review"
+      ]
+    },
+    {
+      "word": "ВАЛЕТ",
+      "flags": [
+        "requires_age_accessibility_review"
+      ]
+    },
+    {
+      "word": "ВЕНГР",
+      "flags": [
+        "requires_age_accessibility_review"
+      ]
+    },
+    {
+      "word": "ДАННЫЕ",
+      "flags": [
+        "requires_singular_or_semantic_review",
+        "singular_or_sense_review_required"
+      ]
+    },
+    {
+      "word": "ДИРИЖЕР",
+      "flags": [
+        "ё_spelling_review"
+      ]
+    },
+    {
+      "word": "ЗЕНИЦА",
+      "flags": [
+        "requires_age_accessibility_review"
+      ]
+    },
+    {
+      "word": "КЛЕРК",
+      "flags": [
+        "requires_age_accessibility_review"
+      ]
+    },
+    {
+      "word": "КОЗНИ",
+      "flags": [
+        "requires_singular_review",
+        "singular_or_sense_review_required"
+      ]
+    },
+    {
+      "word": "КУДРИ",
+      "flags": [
+        "requires_singular_review",
+        "singular_or_sense_review_required"
+      ]
+    },
+    {
+      "word": "ЛОББИ",
+      "flags": [
+        "requires_age_accessibility_review"
+      ]
+    },
+    {
+      "word": "ОТБРОС",
+      "flags": [
+        "requires_age_accessibility_review"
+      ]
+    }
+  ],
+  "candidate_only_count": 2666,
+  "approved_entries": 0,
+  "review_gate": "BLOCKED_UNTIL_EDITORIAL_QA",
+  "external_cc_by_sa_data_imported": false,
+  "crossword_inputs_match_dictionary": true,
+  "qa_warnings": []
+}
