@@ -11,13 +11,14 @@
   "defined_drafts": 208,
   "definition_senses": 208,
   "crossword_uses": 216,
-  "hinted_unique_lemmas": 10,
+  "hinted_unique_lemmas": 12,
   "flagged_entries": 21,
   "flagged_words": [
     {
       "word": "АБСОЛЮТ",
       "flags": [
-        "requires_age_accessibility_review"
+        "requires_age_accessibility_review",
+        "brand_reference_review"
       ]
     },
     {
@@ -149,5 +150,15 @@
   "review_gate": "BLOCKED_UNTIL_EDITORIAL_QA",
   "external_cc_by_sa_data_imported": false,
   "crossword_inputs_match_dictionary": true,
-  "qa_warnings": []
+  "qa_warnings": [],
+  "user_hint_imports_2026_10_22": [
+    {
+      "word": "АРКАДА",
+      "status": "draft_pending_review"
+    },
+    {
+      "word": "АБСОЛЮТ",
+      "status": "draft_pending_review"
+    }
+  ]
 }
