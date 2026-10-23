@@ -23,7 +23,7 @@ WORD_RE = re.compile(r"^[А-ЯЁ]{4,9}$")
 
 
 def blob_sha(contents):
-    return hashlib.sha1(b"blob " + str(len(contents)).encode() + b"\\0" + contents).hexdigest()
+    return hashlib.sha1(b"blob " + str(len(contents)).encode() + b"\x00" + contents).hexdigest()
 
 
 def validate_export(review, seed_bytes, batch_bytes):
