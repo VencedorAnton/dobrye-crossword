@@ -1,0 +1,51 @@
+{
+  "version": "0.24c.1",
+  "status": "editorial_preview_only",
+  "base": "dictionary_v024b/draft_entries.json",
+  "new_batch": "dictionary_v024c/common_words_batch_001.json",
+  "current_known_candidate_count": 2874,
+  "new_definition_drafts": 103,
+  "existing_definition_drafts": 208,
+  "total_definition_drafts": 311,
+  "existing_crossword_placements": 216,
+  "existing_crosswords_modified": false,
+  "verified_mit_candidates": 2873,
+  "candidates_without_definitions": 2563,
+  "total_hinted_lemmas": 33,
+  "new_hints": 21,
+  "category_counts": {
+    "Дом и быт": 25,
+    "Природа": 25,
+    "Животные": 18,
+    "Еда и кухня": 17,
+    "Город и транспорт": 9,
+    "Общие знания": 4,
+    "Искусство": 3,
+    "Здоровье": 2
+  },
+  "new_word_lengths": {
+    "4": 24,
+    "5": 34,
+    "6": 19,
+    "7": 19,
+    "8": 6,
+    "9": 1
+  },
+  "flags": {
+    "total": 22,
+    "remaining_morphology": [
+      "КУДРИ",
+      "КОЗНИ",
+      "ДАННЫЕ"
+    ],
+    "spelling": [
+      "КОВЕР",
+      "АКТЕР",
+      "ДИРИЖЕР"
+    ]
+  },
+  "frequency_data": "not_available_not_fabricated",
+  "independent_human_editorial_approval": 0,
+  "automated_verification": "wordbank membership, no duplicate, syntax, hint leakage, geometry unchanged; JS smoke test PASS",
+  "python_regression_tests": "added_not_executed_in_current_remote_environment"
+}
