@@ -1,0 +1,4092 @@
+{
+  "schema_version": "0.24c.1",
+  "release_status": "drafts_only_not_approved",
+  "batch_id": "v024c_common_batch_001",
+  "provenance": "Candidates from existing MIT wordbank; definitions and hints originally drafted for this project by AI, NOT dictionary quotations.",
+  "audience": "Older Russian-speaking players; short simple definitions; no publication without independent editorial review.",
+  "word_count": 103,
+  "entries": [
+    {
+      "id": "ru:БАРАН",
+      "lemma": "БАРАН",
+      "length": 5,
+      "language": "ru",
+      "part_of_speech": "noun_candidate",
+      "grammar": {
+        "number": "singular_candidate",
+        "case": "nominative_candidate",
+        "check_required": true
+      },
+      "topical_categories": [
+        "Животные"
+      ],
+      "difficulty": "easy",
+      "frequency_rank": null,
+      "editorial_status": "draft",
+      "approved_by": null,
+      "approved_at": null,
+      "review_flags": [],
+      "sources": [
+        "mit_nouns_v021"
+      ],
+      "senses": [
+        {
+          "sense_id": "ru:БАРАН:sense:1",
+          "definition": "Домашнее животное с густой шерстью; самец овцы.",
+          "hint": null,
+          "definition_origin": "ai_draft",
+          "editorial_status": "draft",
+          "usage_refs": []
+        }
+      ],
+      "usage_refs": [],
+      "batch_id": "v024c_common_batch_001",
+      "priority": "common_candidate",
+      "frequency_status": "not_measured",
+      "notes": "AI-authored draft; requires linguistic and editorial review."
+    },
+    {
+      "id": "ru:БОЛЬНИЦА",
+      "lemma": "БОЛЬНИЦА",
+      "length": 8,
+      "language": "ru",
+      "part_of_speech": "noun_candidate",
+      "grammar": {
+        "number": "singular_candidate",
+        "case": "nominative_candidate",
+        "check_required": true
+      },
+      "topical_categories": [
+        "Здоровье"
+      ],
+      "difficulty": "easy",
+      "frequency_rank": null,
+      "editorial_status": "draft",
+      "approved_by": null,
+      "approved_at": null,
+      "review_flags": [],
+      "sources": [
+        "mit_nouns_v021"
+      ],
+      "senses": [
+        {
+          "sense_id": "ru:БОЛЬНИЦА:sense:1",
+          "definition": "Учреждение, где врачи лечат пациентов.",
+          "hint": null,
+          "definition_origin": "ai_draft",
+          "editorial_status": "draft",
+          "usage_refs": []
+        }
+      ],
+      "usage_refs": [],
+      "batch_id": "v024c_common_batch_001",
+      "priority": "common_candidate",
+      "frequency_status": "not_measured",
+      "notes": "AI-authored draft; requires linguistic and editorial review."
+    },
+    {
+      "id": "ru:ВЕДРО",
+      "lemma": "ВЕДРО",
+      "length": 5,
+      "language": "ru",
+      "part_of_speech": "noun_candidate",
+      "grammar": {
+        "number": "singular_candidate",
+        "case": "nominative_candidate",
+        "check_required": true
+      },
+      "topical_categories": [
+        "Дом и быт"
+      ],
+      "difficulty": "easy",
+      "frequency_rank": null,
+      "editorial_status": "draft",
+      "approved_by": null,
+      "approved_at": null,
+      "review_flags": [],
+      "sources": [
+        "mit_nouns_v021"
+      ],
+      "senses": [
+        {
+          "sense_id": "ru:ВЕДРО:sense:1",
+          "definition": "Ёмкость с ручкой для воды или других жидкостей.",
+          "hint": null,
+          "definition_origin": "ai_draft",
+          "editorial_status": "draft",
+          "usage_refs": []
+        }
+      ],
+      "usage_refs": [],
+      "batch_id": "v024c_common_batch_001",
+      "priority": "common_candidate",
+      "frequency_status": "not_measured",
+      "notes": "AI-authored draft; requires linguistic and editorial review."
+    },
+    {
+      "id": "ru:ВИЛКА",
+      "lemma": "ВИЛКА",
+      "length": 5,
+      "language": "ru",
+      "part_of_speech": "noun_candidate",
+      "grammar": {
+        "number": "singular_candidate",
+        "case": "nominative_candidate",
+        "check_required": true
+      },
+      "topical_categories": [
+        "Дом и быт"
+      ],
+      "difficulty": "easy",
+      "frequency_rank": null,
+      "editorial_status": "draft",
+      "approved_by": null,
+      "approved_at": null,
+      "review_flags": [],
+      "sources": [
+        "mit_nouns_v021"
+      ],
+      "senses": [
+        {
+          "sense_id": "ru:ВИЛКА:sense:1",
+          "definition": "Столовый прибор с несколькими зубцами.",
+          "hint": {
+            "kind": "alternate_meaning",
+            "text": "Так называют место, где дорога раздваивается."
+          },
+          "definition_origin": "ai_draft",
+          "editorial_status": "draft",
+          "usage_refs": []
+        }
+      ],
+      "usage_refs": [],
+      "batch_id": "v024c_common_batch_001",
+      "priority": "common_candidate",
+      "frequency_status": "not_measured",
+      "notes": "AI-authored draft; requires linguistic and editorial review."
+    },
+    {
+      "id": "ru:ВОЛК",
+      "lemma": "ВОЛК",
+      "length": 4,
+      "language": "ru",
+      "part_of_speech": "noun_candidate",
+      "grammar": {
+        "number": "singular_candidate",
+        "case": "nominative_candidate",
+        "check_required": true
+      },
+      "topical_categories": [
+        "Животные"
+      ],
+      "difficulty": "easy",
+      "frequency_rank": null,
+      "editorial_status": "draft",
+      "approved_by": null,
+      "approved_at": null,
+      "review_flags": [],
+      "sources": [
+        "mit_nouns_v021"
+      ],
+      "senses": [
+        {
+          "sense_id": "ru:ВОЛК:sense:1",
+          "definition": "Дикий хищник с серой шерстью, похожий на собаку.",
+          "hint": null,
+          "definition_origin": "ai_draft",
+          "editorial_status": "draft",
+          "usage_refs": []
+        }
+      ],
+      "usage_refs": [],
+      "batch_id": "v024c_common_batch_001",
+      "priority": "common_candidate",
+      "frequency_status": "not_measured",
+      "notes": "AI-authored draft; requires linguistic and editorial review."
+    },
+    {
+      "id": "ru:ВОЛНА",
+      "lemma": "ВОЛНА",
+      "length": 5,
+      "language": "ru",
+      "part_of_speech": "noun_candidate",
+      "grammar": {
+        "number": "singular_candidate",
+        "case": "nominative_candidate",
+        "check_required": true
+      },
+      "topical_categories": [
+        "Природа"
+      ],
+      "difficulty": "easy",
+      "frequency_rank": null,
+      "editorial_status": "draft",
+      "approved_by": null,
+      "approved_at": null,
+      "review_flags": [],
+      "sources": [
+        "mit_nouns_v021"
+      ],
+      "senses": [
+        {
+          "sense_id": "ru:ВОЛНА:sense:1",
+          "definition": "Движущийся водяной вал на поверхности моря или реки.",
+          "hint": {
+            "kind": "alternate_meaning",
+            "text": "Так называют распространение звуковых или световых колебаний."
+          },
+          "definition_origin": "ai_draft",
+          "editorial_status": "draft",
+          "usage_refs": []
+        }
+      ],
+      "usage_refs": [],
+      "batch_id": "v024c_common_batch_001",
+      "priority": "common_candidate",
+      "frequency_status": "not_measured",
+      "notes": "AI-authored draft; requires linguistic and editorial review."
+    },
+    {
+      "id": "ru:ВОРОБЕЙ",
+      "lemma": "ВОРОБЕЙ",
+      "length": 7,
+      "language": "ru",
+      "part_of_speech": "noun_candidate",
+      "grammar": {
+        "number": "singular_candidate",
+        "case": "nominative_candidate",
+        "check_required": true
+      },
+      "topical_categories": [
+        "Животные"
+      ],
+      "difficulty": "easy",
+      "frequency_rank": null,
+      "editorial_status": "draft",
+      "approved_by": null,
+      "approved_at": null,
+      "review_flags": [],
+      "sources": [
+        "mit_nouns_v021"
+      ],
+      "senses": [
+        {
+          "sense_id": "ru:ВОРОБЕЙ:sense:1",
+          "definition": "Небольшая серая птица, часто живущая рядом с людьми.",
+          "hint": null,
+          "definition_origin": "ai_draft",
+          "editorial_status": "draft",
+          "usage_refs": []
+        }
+      ],
+      "usage_refs": [],
+      "batch_id": "v024c_common_batch_001",
+      "priority": "common_candidate",
+      "frequency_status": "not_measured",
+      "notes": "AI-authored draft; requires linguistic and editorial review."
+    },
+    {
+      "id": "ru:ВРЕМЯ",
+      "lemma": "ВРЕМЯ",
+      "length": 5,
+      "language": "ru",
+      "part_of_speech": "noun_candidate",
+      "grammar": {
+        "number": "singular_candidate",
+        "case": "nominative_candidate",
+        "check_required": true
+      },
+      "topical_categories": [
+        "Общие знания"
+      ],
+      "difficulty": "easy",
+      "frequency_rank": null,
+      "editorial_status": "draft",
+      "approved_by": null,
+      "approved_at": null,
+      "review_flags": [],
+      "sources": [
+        "mit_nouns_v021"
+      ],
+      "senses": [
+        {
+          "sense_id": "ru:ВРЕМЯ:sense:1",
+          "definition": "То, что отсчитывают часы и измеряют в минутах.",
+          "hint": null,
+          "definition_origin": "ai_draft",
+          "editorial_status": "draft",
+          "usage_refs": []
+        }
+      ],
+      "usage_refs": [],
+      "batch_id": "v024c_common_batch_001",
+      "priority": "common_candidate",
+      "frequency_status": "not_measured",
+      "notes": "AI-authored draft; requires linguistic and editorial review."
+    },
+    {
+      "id": "ru:ГАЗОН",
+      "lemma": "ГАЗОН",
+      "length": 5,
+      "language": "ru",
+      "part_of_speech": "noun_candidate",
+      "grammar": {
+        "number": "singular_candidate",
+        "case": "nominative_candidate",
+        "check_required": true
+      },
+      "topical_categories": [
+        "Природа"
+      ],
+      "difficulty": "easy",
+      "frequency_rank": null,
+      "editorial_status": "draft",
+      "approved_by": null,
+      "approved_at": null,
+      "review_flags": [],
+      "sources": [
+        "mit_nouns_v021"
+      ],
+      "senses": [
+        {
+          "sense_id": "ru:ГАЗОН:sense:1",
+          "definition": "Участок земли, засеянный короткой травой.",
+          "hint": null,
+          "definition_origin": "ai_draft",
+          "editorial_status": "draft",
+          "usage_refs": []
+        }
+      ],
+      "usage_refs": [],
+      "batch_id": "v024c_common_batch_001",
+      "priority": "common_candidate",
+      "frequency_status": "not_measured",
+      "notes": "AI-authored draft; requires linguistic and editorial review."
+    },
+    {
+      "id": "ru:ГОРОД",
+      "lemma": "ГОРОД",
+      "length": 5,
+      "language": "ru",
+      "part_of_speech": "noun_candidate",
+      "grammar": {
+        "number": "singular_candidate",
+        "case": "nominative_candidate",
+        "check_required": true
+      },
+      "topical_categories": [
+        "Город и транспорт"
+      ],
+      "difficulty": "easy",
+      "frequency_rank": null,
+      "editorial_status": "draft",
+      "approved_by": null,
+      "approved_at": null,
+      "review_flags": [],
+      "sources": [
+        "mit_nouns_v021"
+      ],
+      "senses": [
+        {
+          "sense_id": "ru:ГОРОД:sense:1",
+          "definition": "Крупный населённый пункт с улицами и домами.",
+          "hint": null,
+          "definition_origin": "ai_draft",
+          "editorial_status": "draft",
+          "usage_refs": []
+        }
+      ],
+      "usage_refs": [],
+      "batch_id": "v024c_common_batch_001",
+      "priority": "common_candidate",
+      "frequency_status": "not_measured",
+      "notes": "AI-authored draft; requires linguistic and editorial review."
+    },
+    {
+      "id": "ru:ГРЕБЕНЬ",
+      "lemma": "ГРЕБЕНЬ",
+      "length": 7,
+      "language": "ru",
+      "part_of_speech": "noun_candidate",
+      "grammar": {
+        "number": "singular_candidate",
+        "case": "nominative_candidate",
+        "check_required": true
+      },
+      "topical_categories": [
+        "Дом и быт"
+      ],
+      "difficulty": "easy",
+      "frequency_rank": null,
+      "editorial_status": "draft",
+      "approved_by": null,
+      "approved_at": null,
+      "review_flags": [],
+      "sources": [
+        "mit_nouns_v021"
+      ],
+      "senses": [
+        {
+          "sense_id": "ru:ГРЕБЕНЬ:sense:1",
+          "definition": "Предмет с зубцами для расчёсывания волос.",
+          "hint": {
+            "kind": "alternate_meaning",
+            "text": "Так называют верхний край горы или волны."
+          },
+          "definition_origin": "ai_draft",
+          "editorial_status": "draft",
+          "usage_refs": []
+        }
+      ],
+      "usage_refs": [],
+      "batch_id": "v024c_common_batch_001",
+      "priority": "common_candidate",
+      "frequency_status": "not_measured",
+      "notes": "AI-authored draft; requires linguistic and editorial review."
+    },
+    {
+      "id": "ru:ГРОЗА",
+      "lemma": "ГРОЗА",
+      "length": 5,
+      "language": "ru",
+      "part_of_speech": "noun_candidate",
+      "grammar": {
+        "number": "singular_candidate",
+        "case": "nominative_candidate",
+        "check_required": true
+      },
+      "topical_categories": [
+        "Природа"
+      ],
+      "difficulty": "easy",
+      "frequency_rank": null,
+      "editorial_status": "draft",
+      "approved_by": null,
+      "approved_at": null,
+      "review_flags": [],
+      "sources": [
+        "mit_nouns_v021"
+      ],
+      "senses": [
+        {
+          "sense_id": "ru:ГРОЗА:sense:1",
+          "definition": "Ненастье с громом, молниями и часто дождём.",
+          "hint": {
+            "kind": "alternate_meaning",
+            "text": "Так могут назвать человека, которого все вокруг боятся."
+          },
+          "definition_origin": "ai_draft",
+          "editorial_status": "draft",
+          "usage_refs": []
+        }
+      ],
+      "usage_refs": [],
+      "batch_id": "v024c_common_batch_001",
+      "priority": "common_candidate",
+      "frequency_status": "not_measured",
+      "notes": "AI-authored draft; requires linguistic and editorial review."
+    },
+    {
+      "id": "ru:ГРУЗОВИК",
+      "lemma": "ГРУЗОВИК",
+      "length": 8,
+      "language": "ru",
+      "part_of_speech": "noun_candidate",
+      "grammar": {
+        "number": "singular_candidate",
+        "case": "nominative_candidate",
+        "check_required": true
+      },
+      "topical_categories": [
+        "Город и транспорт"
+      ],
+      "difficulty": "easy",
+      "frequency_rank": null,
+      "editorial_status": "draft",
+      "approved_by": null,
+      "approved_at": null,
+      "review_flags": [],
+      "sources": [
+        "mit_nouns_v021"
+      ],
+      "senses": [
+        {
+          "sense_id": "ru:ГРУЗОВИК:sense:1",
+          "definition": "Автомобиль, предназначенный для перевозки грузов.",
+          "hint": null,
+          "definition_origin": "ai_draft",
+          "editorial_status": "draft",
+          "usage_refs": []
+        }
+      ],
+      "usage_refs": [],
+      "batch_id": "v024c_common_batch_001",
+      "priority": "common_candidate",
+      "frequency_status": "not_measured",
+      "notes": "AI-authored draft; requires linguistic and editorial review."
+    },
+    {
+      "id": "ru:ДЕРЕВО",
+      "lemma": "ДЕРЕВО",
+      "length": 6,
+      "language": "ru",
+      "part_of_speech": "noun_candidate",
+      "grammar": {
+        "number": "singular_candidate",
+        "case": "nominative_candidate",
+        "check_required": true
+      },
+      "topical_categories": [
+        "Природа"
+      ],
+      "difficulty": "easy",
+      "frequency_rank": null,
+      "editorial_status": "draft",
+      "approved_by": null,
+      "approved_at": null,
+      "review_flags": [],
+      "sources": [
+        "mit_nouns_v021"
+      ],
+      "senses": [
+        {
+          "sense_id": "ru:ДЕРЕВО:sense:1",
+          "definition": "Растение с высоким твёрдым стволом и ветвями.",
+          "hint": {
+            "kind": "alternate_meaning",
+            "text": "Так называют и древесину, из которой делают мебель."
+          },
+          "definition_origin": "ai_draft",
+          "editorial_status": "draft",
+          "usage_refs": []
+        }
+      ],
+      "usage_refs": [],
+      "batch_id": "v024c_common_batch_001",
+      "priority": "common_candidate",
+      "frequency_status": "not_measured",
+      "notes": "AI-authored draft; requires linguistic and editorial review."
+    },
+    {
+      "id": "ru:ДИВАН",
+      "lemma": "ДИВАН",
+      "length": 5,
+      "language": "ru",
+      "part_of_speech": "noun_candidate",
+      "grammar": {
+        "number": "singular_candidate",
+        "case": "nominative_candidate",
+        "check_required": true
+      },
+      "topical_categories": [
+        "Дом и быт"
+      ],
+      "difficulty": "easy",
+      "frequency_rank": null,
+      "editorial_status": "draft",
+      "approved_by": null,
+      "approved_at": null,
+      "review_flags": [],
+      "sources": [
+        "mit_nouns_v021"
+      ],
+      "senses": [
+        {
+          "sense_id": "ru:ДИВАН:sense:1",
+          "definition": "Мягкая мебель со спинкой, на которой сидят или лежат.",
+          "hint": null,
+          "definition_origin": "ai_draft",
+          "editorial_status": "draft",
+          "usage_refs": []
+        }
+      ],
+      "usage_refs": [],
+      "batch_id": "v024c_common_batch_001",
+      "priority": "common_candidate",
+      "frequency_status": "not_measured",
+      "notes": "AI-authored draft; requires linguistic and editorial review."
+    },
+    {
+      "id": "ru:ДОЖДЬ",
+      "lemma": "ДОЖДЬ",
+      "length": 5,
+      "language": "ru",
+      "part_of_speech": "noun_candidate",
+      "grammar": {
+        "number": "singular_candidate",
+        "case": "nominative_candidate",
+        "check_required": true
+      },
+      "topical_categories": [
+        "Природа"
+      ],
+      "difficulty": "easy",
+      "frequency_rank": null,
+      "editorial_status": "draft",
+      "approved_by": null,
+      "approved_at": null,
+      "review_flags": [],
+      "sources": [
+        "mit_nouns_v021"
+      ],
+      "senses": [
+        {
+          "sense_id": "ru:ДОЖДЬ:sense:1",
+          "definition": "Осадки в виде капель воды, падающих из облаков.",
+          "hint": null,
+          "definition_origin": "ai_draft",
+          "editorial_status": "draft",
+          "usage_refs": []
+        }
+      ],
+      "usage_refs": [],
+      "batch_id": "v024c_common_batch_001",
+      "priority": "common_candidate",
+      "frequency_status": "not_measured",
+      "notes": "AI-authored draft; requires linguistic and editorial review."
+    },
+    {
+      "id": "ru:ДОКТОР",
+      "lemma": "ДОКТОР",
+      "length": 6,
+      "language": "ru",
+      "part_of_speech": "noun_candidate",
+      "grammar": {
+        "number": "singular_candidate",
+        "case": "nominative_candidate",
+        "check_required": true
+      },
+      "topical_categories": [
+        "Здоровье"
+      ],
+      "difficulty": "easy",
+      "frequency_rank": null,
+      "editorial_status": "draft",
+      "approved_by": null,
+      "approved_at": null,
+      "review_flags": [],
+      "sources": [
+        "mit_nouns_v021"
+      ],
+      "senses": [
+        {
+          "sense_id": "ru:ДОКТОР:sense:1",
+          "definition": "Врач, который обследует и лечит пациентов.",
+          "hint": {
+            "kind": "alternate_meaning",
+            "text": "Так называют также человека с высшей учёной степенью."
+          },
+          "definition_origin": "ai_draft",
+          "editorial_status": "draft",
+          "usage_refs": []
+        }
+      ],
+      "usage_refs": [],
+      "batch_id": "v024c_common_batch_001",
+      "priority": "common_candidate",
+      "frequency_status": "not_measured",
+      "notes": "AI-authored draft; requires linguistic and editorial review."
+    },
+    {
+      "id": "ru:ДЫНЯ",
+      "lemma": "ДЫНЯ",
+      "length": 4,
+      "language": "ru",
+      "part_of_speech": "noun_candidate",
+      "grammar": {
+        "number": "singular_candidate",
+        "case": "nominative_candidate",
+        "check_required": true
+      },
+      "topical_categories": [
+        "Еда и кухня"
+      ],
+      "difficulty": "easy",
+      "frequency_rank": null,
+      "editorial_status": "draft",
+      "approved_by": null,
+      "approved_at": null,
+      "review_flags": [],
+      "sources": [
+        "mit_nouns_v021"
+      ],
+      "senses": [
+        {
+          "sense_id": "ru:ДЫНЯ:sense:1",
+          "definition": "Крупный сладкий бахчевой плод с ароматной мякотью.",
+          "hint": null,
+          "definition_origin": "ai_draft",
+          "editorial_status": "draft",
+          "usage_refs": []
+        }
+      ],
+      "usage_refs": [],
+      "batch_id": "v024c_common_batch_001",
+      "priority": "common_candidate",
+      "frequency_status": "not_measured",
+      "notes": "AI-authored draft; requires linguistic and editorial review."
+    },
+    {
+      "id": "ru:ЕЖЕВИКА",
+      "lemma": "ЕЖЕВИКА",
+      "length": 7,
+      "language": "ru",
+      "part_of_speech": "noun_candidate",
+      "grammar": {
+        "number": "singular_candidate",
+        "case": "nominative_candidate",
+        "check_required": true
+      },
+      "topical_categories": [
+        "Природа"
+      ],
+      "difficulty": "easy",
+      "frequency_rank": null,
+      "editorial_status": "draft",
+      "approved_by": null,
+      "approved_at": null,
+      "review_flags": [],
+      "sources": [
+        "mit_nouns_v021"
+      ],
+      "senses": [
+        {
+          "sense_id": "ru:ЕЖЕВИКА:sense:1",
+          "definition": "Колючий кустарник с тёмными ягодами, похожими на малину.",
+          "hint": null,
+          "definition_origin": "ai_draft",
+          "editorial_status": "draft",
+          "usage_refs": []
+        }
+      ],
+      "usage_refs": [],
+      "batch_id": "v024c_common_batch_001",
+      "priority": "common_candidate",
+      "frequency_status": "not_measured",
+      "notes": "AI-authored draft; requires linguistic and editorial review."
+    },
+    {
+      "id": "ru:ЖИРАФ",
+      "lemma": "ЖИРАФ",
+      "length": 5,
+      "language": "ru",
+      "part_of_speech": "noun_candidate",
+      "grammar": {
+        "number": "singular_candidate",
+        "case": "nominative_candidate",
+        "check_required": true
+      },
+      "topical_categories": [
+        "Животные"
+      ],
+      "difficulty": "easy",
+      "frequency_rank": null,
+      "editorial_status": "draft",
+      "approved_by": null,
+      "approved_at": null,
+      "review_flags": [],
+      "sources": [
+        "mit_nouns_v021"
+      ],
+      "senses": [
+        {
+          "sense_id": "ru:ЖИРАФ:sense:1",
+          "definition": "Высокое африканское животное с очень длинной шеей.",
+          "hint": null,
+          "definition_origin": "ai_draft",
+          "editorial_status": "draft",
+          "usage_refs": []
+        }
+      ],
+      "usage_refs": [],
+      "batch_id": "v024c_common_batch_001",
+      "priority": "common_candidate",
+      "frequency_status": "not_measured",
+      "notes": "AI-authored draft; requires linguistic and editorial review."
+    },
+    {
+      "id": "ru:ЖУРАВЛЬ",
+      "lemma": "ЖУРАВЛЬ",
+      "length": 7,
+      "language": "ru",
+      "part_of_speech": "noun_candidate",
+      "grammar": {
+        "number": "singular_candidate",
+        "case": "nominative_candidate",
+        "check_required": true
+      },
+      "topical_categories": [
+        "Животные"
+      ],
+      "difficulty": "easy",
+      "frequency_rank": null,
+      "editorial_status": "draft",
+      "approved_by": null,
+      "approved_at": null,
+      "review_flags": [],
+      "sources": [
+        "mit_nouns_v021"
+      ],
+      "senses": [
+        {
+          "sense_id": "ru:ЖУРАВЛЬ:sense:1",
+          "definition": "Высокая перелётная птица с длинными ногами и шеей.",
+          "hint": {
+            "kind": "alternate_meaning",
+            "text": "Так называют рычаг у старинного колодца для подъёма ведра."
+          },
+          "definition_origin": "ai_draft",
+          "editorial_status": "draft",
+          "usage_refs": []
+        }
+      ],
+      "usage_refs": [],
+      "batch_id": "v024c_common_batch_001",
+      "priority": "common_candidate",
+      "frequency_status": "not_measured",
+      "notes": "AI-authored draft; requires linguistic and editorial review."
+    },
+    {
+      "id": "ru:ЗАВТРАК",
+      "lemma": "ЗАВТРАК",
+      "length": 7,
+      "language": "ru",
+      "part_of_speech": "noun_candidate",
+      "grammar": {
+        "number": "singular_candidate",
+        "case": "nominative_candidate",
+        "check_required": true
+      },
+      "topical_categories": [
+        "Еда и кухня"
+      ],
+      "difficulty": "easy",
+      "frequency_rank": null,
+      "editorial_status": "draft",
+      "approved_by": null,
+      "approved_at": null,
+      "review_flags": [],
+      "sources": [
+        "mit_nouns_v021"
+      ],
+      "senses": [
+        {
+          "sense_id": "ru:ЗАВТРАК:sense:1",
+          "definition": "Первый приём пищи после ночного сна.",
+          "hint": null,
+          "definition_origin": "ai_draft",
+          "editorial_status": "draft",
+          "usage_refs": []
+        }
+      ],
+      "usage_refs": [],
+      "batch_id": "v024c_common_batch_001",
+      "priority": "common_candidate",
+      "frequency_status": "not_measured",
+      "notes": "AI-authored draft; requires linguistic and editorial review."
+    },
+    {
+      "id": "ru:ЗАЯЦ",
+      "lemma": "ЗАЯЦ",
+      "length": 4,
+      "language": "ru",
+      "part_of_speech": "noun_candidate",
+      "grammar": {
+        "number": "singular_candidate",
+        "case": "nominative_candidate",
+        "check_required": true
+      },
+      "topical_categories": [
+        "Животные"
+      ],
+      "difficulty": "easy",
+      "frequency_rank": null,
+      "editorial_status": "draft",
+      "approved_by": null,
+      "approved_at": null,
+      "review_flags": [],
+      "sources": [
+        "mit_nouns_v021"
+      ],
+      "senses": [
+        {
+          "sense_id": "ru:ЗАЯЦ:sense:1",
+          "definition": "Пугливый зверёк с длинными ушами и коротким хвостом.",
+          "hint": {
+            "kind": "alternate_meaning",
+            "text": "Так называют пассажира, который едет без билета."
+          },
+          "definition_origin": "ai_draft",
+          "editorial_status": "draft",
+          "usage_refs": []
+        }
+      ],
+      "usage_refs": [],
+      "batch_id": "v024c_common_batch_001",
+      "priority": "common_candidate",
+      "frequency_status": "not_measured",
+      "notes": "AI-authored draft; requires linguistic and editorial review."
+    },
+    {
+      "id": "ru:ЗЕМЛЯ",
+      "lemma": "ЗЕМЛЯ",
+      "length": 5,
+      "language": "ru",
+      "part_of_speech": "noun_candidate",
+      "grammar": {
+        "number": "singular_candidate",
+        "case": "nominative_candidate",
+        "check_required": true
+      },
+      "topical_categories": [
+        "Природа"
+      ],
+      "difficulty": "easy",
+      "frequency_rank": null,
+      "editorial_status": "draft",
+      "approved_by": null,
+      "approved_at": null,
+      "review_flags": [],
+      "sources": [
+        "mit_nouns_v021"
+      ],
+      "senses": [
+        {
+          "sense_id": "ru:ЗЕМЛЯ:sense:1",
+          "definition": "Планета Солнечной системы, на которой мы живём.",
+          "hint": {
+            "kind": "alternate_meaning",
+            "text": "Так называют почву, в которой растут цветы."
+          },
+          "definition_origin": "ai_draft",
+          "editorial_status": "draft",
+          "usage_refs": []
+        }
+      ],
+      "usage_refs": [],
+      "batch_id": "v024c_common_batch_001",
+      "priority": "common_candidate",
+      "frequency_status": "not_measured",
+      "notes": "AI-authored draft; requires linguistic and editorial review."
+    },
+    {
+      "id": "ru:ЗЕРКАЛО",
+      "lemma": "ЗЕРКАЛО",
+      "length": 7,
+      "language": "ru",
+      "part_of_speech": "noun_candidate",
+      "grammar": {
+        "number": "singular_candidate",
+        "case": "nominative_candidate",
+        "check_required": true
+      },
+      "topical_categories": [
+        "Дом и быт"
+      ],
+      "difficulty": "easy",
+      "frequency_rank": null,
+      "editorial_status": "draft",
+      "approved_by": null,
+      "approved_at": null,
+      "review_flags": [],
+      "sources": [
+        "mit_nouns_v021"
+      ],
+      "senses": [
+        {
+          "sense_id": "ru:ЗЕРКАЛО:sense:1",
+          "definition": "Гладкая поверхность, в которой видно своё отражение.",
+          "hint": {
+            "kind": "alternate_meaning",
+            "text": "Так называют гладкую поверхность воды."
+          },
+          "definition_origin": "ai_draft",
+          "editorial_status": "draft",
+          "usage_refs": []
+        }
+      ],
+      "usage_refs": [],
+      "batch_id": "v024c_common_batch_001",
+      "priority": "common_candidate",
+      "frequency_status": "not_measured",
+      "notes": "AI-authored draft; requires linguistic and editorial review."
+    },
+    {
+      "id": "ru:ЗИМА",
+      "lemma": "ЗИМА",
+      "length": 4,
+      "language": "ru",
+      "part_of_speech": "noun_candidate",
+      "grammar": {
+        "number": "singular_candidate",
+        "case": "nominative_candidate",
+        "check_required": true
+      },
+      "topical_categories": [
+        "Природа"
+      ],
+      "difficulty": "easy",
+      "frequency_rank": null,
+      "editorial_status": "draft",
+      "approved_by": null,
+      "approved_at": null,
+      "review_flags": [],
+      "sources": [
+        "mit_nouns_v021"
+      ],
+      "senses": [
+        {
+          "sense_id": "ru:ЗИМА:sense:1",
+          "definition": "Холодное время года между осенью и весной.",
+          "hint": null,
+          "definition_origin": "ai_draft",
+          "editorial_status": "draft",
+          "usage_refs": []
+        }
+      ],
+      "usage_refs": [],
+      "batch_id": "v024c_common_batch_001",
+      "priority": "common_candidate",
+      "frequency_status": "not_measured",
+      "notes": "AI-authored draft; requires linguistic and editorial review."
+    },
+    {
+      "id": "ru:ЗОНТ",
+      "lemma": "ЗОНТ",
+      "length": 4,
+      "language": "ru",
+      "part_of_speech": "noun_candidate",
+      "grammar": {
+        "number": "singular_candidate",
+        "case": "nominative_candidate",
+        "check_required": true
+      },
+      "topical_categories": [
+        "Дом и быт"
+      ],
+      "difficulty": "easy",
+      "frequency_rank": null,
+      "editorial_status": "draft",
+      "approved_by": null,
+      "approved_at": null,
+      "review_flags": [],
+      "sources": [
+        "mit_nouns_v021"
+      ],
+      "senses": [
+        {
+          "sense_id": "ru:ЗОНТ:sense:1",
+          "definition": "Складное приспособление для защиты от дождя или солнца.",
+          "hint": null,
+          "definition_origin": "ai_draft",
+          "editorial_status": "draft",
+          "usage_refs": []
+        }
+      ],
+      "usage_refs": [],
+      "batch_id": "v024c_common_batch_001",
+      "priority": "common_candidate",
+      "frequency_status": "not_measured",
+      "notes": "AI-authored draft; requires linguistic and editorial review."
+    },
+    {
+      "id": "ru:ИГРА",
+      "lemma": "ИГРА",
+      "length": 4,
+      "language": "ru",
+      "part_of_speech": "noun_candidate",
+      "grammar": {
+        "number": "singular_candidate",
+        "case": "nominative_candidate",
+        "check_required": true
+      },
+      "topical_categories": [
+        "Общие знания"
+      ],
+      "difficulty": "easy",
+      "frequency_rank": null,
+      "editorial_status": "draft",
+      "approved_by": null,
+      "approved_at": null,
+      "review_flags": [],
+      "sources": [
+        "mit_nouns_v021"
+      ],
+      "senses": [
+        {
+          "sense_id": "ru:ИГРА:sense:1",
+          "definition": "Занятие для развлечения, обычно с участниками и правилами.",
+          "hint": {
+            "kind": "alternate_meaning",
+            "text": "Так называют исполнение роли актёром."
+          },
+          "definition_origin": "ai_draft",
+          "editorial_status": "draft",
+          "usage_refs": []
+        }
+      ],
+      "usage_refs": [],
+      "batch_id": "v024c_common_batch_001",
+      "priority": "common_candidate",
+      "frequency_status": "not_measured",
+      "notes": "AI-authored draft; requires linguistic and editorial review."
+    },
+    {
+      "id": "ru:ИЗЮМ",
+      "lemma": "ИЗЮМ",
+      "length": 4,
+      "language": "ru",
+      "part_of_speech": "noun_candidate",
+      "grammar": {
+        "number": "singular_candidate",
+        "case": "nominative_candidate",
+        "check_required": true
+      },
+      "topical_categories": [
+        "Еда и кухня"
+      ],
+      "difficulty": "easy",
+      "frequency_rank": null,
+      "editorial_status": "draft",
+      "approved_by": null,
+      "approved_at": null,
+      "review_flags": [],
+      "sources": [
+        "mit_nouns_v021"
+      ],
+      "senses": [
+        {
+          "sense_id": "ru:ИЗЮМ:sense:1",
+          "definition": "Высушенные ягоды винограда.",
+          "hint": null,
+          "definition_origin": "ai_draft",
+          "editorial_status": "draft",
+          "usage_refs": []
+        }
+      ],
+      "usage_refs": [],
+      "batch_id": "v024c_common_batch_001",
+      "priority": "common_candidate",
+      "frequency_status": "not_measured",
+      "notes": "AI-authored draft; requires linguistic and editorial review."
+    },
+    {
+      "id": "ru:ИНДЮК",
+      "lemma": "ИНДЮК",
+      "length": 5,
+      "language": "ru",
+      "part_of_speech": "noun_candidate",
+      "grammar": {
+        "number": "singular_candidate",
+        "case": "nominative_candidate",
+        "check_required": true
+      },
+      "topical_categories": [
+        "Животные"
+      ],
+      "difficulty": "easy",
+      "frequency_rank": null,
+      "editorial_status": "draft",
+      "approved_by": null,
+      "approved_at": null,
+      "review_flags": [],
+      "sources": [
+        "mit_nouns_v021"
+      ],
+      "senses": [
+        {
+          "sense_id": "ru:ИНДЮК:sense:1",
+          "definition": "Крупная домашняя птица, самец индейки.",
+          "hint": null,
+          "definition_origin": "ai_draft",
+          "editorial_status": "draft",
+          "usage_refs": []
+        }
+      ],
+      "usage_refs": [],
+      "batch_id": "v024c_common_batch_001",
+      "priority": "common_candidate",
+      "frequency_status": "not_measured",
+      "notes": "AI-authored draft; requires linguistic and editorial review."
+    },
+    {
+      "id": "ru:КАРМАН",
+      "lemma": "КАРМАН",
+      "length": 6,
+      "language": "ru",
+      "part_of_speech": "noun_candidate",
+      "grammar": {
+        "number": "singular_candidate",
+        "case": "nominative_candidate",
+        "check_required": true
+      },
+      "topical_categories": [
+        "Дом и быт"
+      ],
+      "difficulty": "easy",
+      "frequency_rank": null,
+      "editorial_status": "draft",
+      "approved_by": null,
+      "approved_at": null,
+      "review_flags": [],
+      "sources": [
+        "mit_nouns_v021"
+      ],
+      "senses": [
+        {
+          "sense_id": "ru:КАРМАН:sense:1",
+          "definition": "Небольшое отделение на одежде для хранения мелочей.",
+          "hint": null,
+          "definition_origin": "ai_draft",
+          "editorial_status": "draft",
+          "usage_refs": []
+        }
+      ],
+      "usage_refs": [],
+      "batch_id": "v024c_common_batch_001",
+      "priority": "common_candidate",
+      "frequency_status": "not_measured",
+      "notes": "AI-authored draft; requires linguistic and editorial review."
+    },
+    {
+      "id": "ru:КАРТИНА",
+      "lemma": "КАРТИНА",
+      "length": 7,
+      "language": "ru",
+      "part_of_speech": "noun_candidate",
+      "grammar": {
+        "number": "singular_candidate",
+        "case": "nominative_candidate",
+        "check_required": true
+      },
+      "topical_categories": [
+        "Искусство"
+      ],
+      "difficulty": "easy",
+      "frequency_rank": null,
+      "editorial_status": "draft",
+      "approved_by": null,
+      "approved_at": null,
+      "review_flags": [],
+      "sources": [
+        "mit_nouns_v021"
+      ],
+      "senses": [
+        {
+          "sense_id": "ru:КАРТИНА:sense:1",
+          "definition": "Произведение живописи, написанное на холсте или другой основе.",
+          "hint": {
+            "kind": "alternate_meaning",
+            "text": "Так могут назвать общее состояние дел: «полная ... происходящего»."
+          },
+          "definition_origin": "ai_draft",
+          "editorial_status": "draft",
+          "usage_refs": []
+        }
+      ],
+      "usage_refs": [],
+      "batch_id": "v024c_common_batch_001",
+      "priority": "common_candidate",
+      "frequency_status": "not_measured",
+      "notes": "AI-authored draft; requires linguistic and editorial review."
+    },
+    {
+      "id": "ru:КАРТОФЕЛЬ",
+      "lemma": "КАРТОФЕЛЬ",
+      "length": 9,
+      "language": "ru",
+      "part_of_speech": "noun_candidate",
+      "grammar": {
+        "number": "singular_candidate",
+        "case": "nominative_candidate",
+        "check_required": true
+      },
+      "topical_categories": [
+        "Еда и кухня"
+      ],
+      "difficulty": "easy",
+      "frequency_rank": null,
+      "editorial_status": "draft",
+      "approved_by": null,
+      "approved_at": null,
+      "review_flags": [],
+      "sources": [
+        "mit_nouns_v021"
+      ],
+      "senses": [
+        {
+          "sense_id": "ru:КАРТОФЕЛЬ:sense:1",
+          "definition": "Огородное растение, съедобные клубни которого варят и жарят.",
+          "hint": null,
+          "definition_origin": "ai_draft",
+          "editorial_status": "draft",
+          "usage_refs": []
+        }
+      ],
+      "usage_refs": [],
+      "batch_id": "v024c_common_batch_001",
+      "priority": "common_candidate",
+      "frequency_status": "not_measured",
+      "notes": "AI-authored draft; requires linguistic and editorial review."
+    },
+    {
+      "id": "ru:КАСТРЮЛЯ",
+      "lemma": "КАСТРЮЛЯ",
+      "length": 8,
+      "language": "ru",
+      "part_of_speech": "noun_candidate",
+      "grammar": {
+        "number": "singular_candidate",
+        "case": "nominative_candidate",
+        "check_required": true
+      },
+      "topical_categories": [
+        "Еда и кухня"
+      ],
+      "difficulty": "easy",
+      "frequency_rank": null,
+      "editorial_status": "draft",
+      "approved_by": null,
+      "approved_at": null,
+      "review_flags": [],
+      "sources": [
+        "mit_nouns_v021"
+      ],
+      "senses": [
+        {
+          "sense_id": "ru:КАСТРЮЛЯ:sense:1",
+          "definition": "Глубокая кухонная посуда, в которой варят еду.",
+          "hint": null,
+          "definition_origin": "ai_draft",
+          "editorial_status": "draft",
+          "usage_refs": []
+        }
+      ],
+      "usage_refs": [],
+      "batch_id": "v024c_common_batch_001",
+      "priority": "common_candidate",
+      "frequency_status": "not_measured",
+      "notes": "AI-authored draft; requires linguistic and editorial review."
+    },
+    {
+      "id": "ru:КАША",
+      "lemma": "КАША",
+      "length": 4,
+      "language": "ru",
+      "part_of_speech": "noun_candidate",
+      "grammar": {
+        "number": "singular_candidate",
+        "case": "nominative_candidate",
+        "check_required": true
+      },
+      "topical_categories": [
+        "Еда и кухня"
+      ],
+      "difficulty": "easy",
+      "frequency_rank": null,
+      "editorial_status": "draft",
+      "approved_by": null,
+      "approved_at": null,
+      "review_flags": [],
+      "sources": [
+        "mit_nouns_v021"
+      ],
+      "senses": [
+        {
+          "sense_id": "ru:КАША:sense:1",
+          "definition": "Блюдо из крупы, сваренной в воде или молоке.",
+          "hint": {
+            "kind": "alternate_meaning",
+            "text": "Так называют беспорядок или путаницу."
+          },
+          "definition_origin": "ai_draft",
+          "editorial_status": "draft",
+          "usage_refs": []
+        }
+      ],
+      "usage_refs": [],
+      "batch_id": "v024c_common_batch_001",
+      "priority": "common_candidate",
+      "frequency_status": "not_measured",
+      "notes": "AI-authored draft; requires linguistic and editorial review."
+    },
+    {
+      "id": "ru:КЛУБНИКА",
+      "lemma": "КЛУБНИКА",
+      "length": 8,
+      "language": "ru",
+      "part_of_speech": "noun_candidate",
+      "grammar": {
+        "number": "singular_candidate",
+        "case": "nominative_candidate",
+        "check_required": true
+      },
+      "topical_categories": [
+        "Еда и кухня"
+      ],
+      "difficulty": "easy",
+      "frequency_rank": null,
+      "editorial_status": "draft",
+      "approved_by": null,
+      "approved_at": null,
+      "review_flags": [],
+      "sources": [
+        "mit_nouns_v021"
+      ],
+      "senses": [
+        {
+          "sense_id": "ru:КЛУБНИКА:sense:1",
+          "definition": "Сладкая садовая ягода, обычно красного цвета.",
+          "hint": null,
+          "definition_origin": "ai_draft",
+          "editorial_status": "draft",
+          "usage_refs": []
+        }
+      ],
+      "usage_refs": [],
+      "batch_id": "v024c_common_batch_001",
+      "priority": "common_candidate",
+      "frequency_status": "not_measured",
+      "notes": "AI-authored draft; requires linguistic and editorial review."
+    },
+    {
+      "id": "ru:КНИГА",
+      "lemma": "КНИГА",
+      "length": 5,
+      "language": "ru",
+      "part_of_speech": "noun_candidate",
+      "grammar": {
+        "number": "singular_candidate",
+        "case": "nominative_candidate",
+        "check_required": true
+      },
+      "topical_categories": [
+        "Дом и быт"
+      ],
+      "difficulty": "easy",
+      "frequency_rank": null,
+      "editorial_status": "draft",
+      "approved_by": null,
+      "approved_at": null,
+      "review_flags": [],
+      "sources": [
+        "mit_nouns_v021"
+      ],
+      "senses": [
+        {
+          "sense_id": "ru:КНИГА:sense:1",
+          "definition": "Переплетённые страницы с текстом или рисунками.",
+          "hint": null,
+          "definition_origin": "ai_draft",
+          "editorial_status": "draft",
+          "usage_refs": []
+        }
+      ],
+      "usage_refs": [],
+      "batch_id": "v024c_common_batch_001",
+      "priority": "common_candidate",
+      "frequency_status": "not_measured",
+      "notes": "AI-authored draft; requires linguistic and editorial review."
+    },
+    {
+      "id": "ru:КОВЕР",
+      "lemma": "КОВЕР",
+      "length": 5,
+      "language": "ru",
+      "part_of_speech": "noun_candidate",
+      "grammar": {
+        "number": "singular_candidate",
+        "case": "nominative_candidate",
+        "check_required": true
+      },
+      "topical_categories": [
+        "Дом и быт"
+      ],
+      "difficulty": "easy",
+      "frequency_rank": null,
+      "editorial_status": "draft",
+      "approved_by": null,
+      "approved_at": null,
+      "review_flags": [
+        "ё_spelling_review"
+      ],
+      "sources": [
+        "mit_nouns_v021"
+      ],
+      "senses": [
+        {
+          "sense_id": "ru:КОВЕР:sense:1",
+          "definition": "Тканое покрытие, которое обычно стелют на пол.",
+          "hint": null,
+          "definition_origin": "ai_draft",
+          "editorial_status": "draft",
+          "usage_refs": []
+        }
+      ],
+      "usage_refs": [],
+      "batch_id": "v024c_common_batch_001",
+      "priority": "common_candidate",
+      "frequency_status": "not_measured",
+      "notes": "AI-authored draft; requires linguistic and editorial review."
+    },
+    {
+      "id": "ru:КОМАР",
+      "lemma": "КОМАР",
+      "length": 5,
+      "language": "ru",
+      "part_of_speech": "noun_candidate",
+      "grammar": {
+        "number": "singular_candidate",
+        "case": "nominative_candidate",
+        "check_required": true
+      },
+      "topical_categories": [
+        "Животные"
+      ],
+      "difficulty": "easy",
+      "frequency_rank": null,
+      "editorial_status": "draft",
+      "approved_by": null,
+      "approved_at": null,
+      "review_flags": [],
+      "sources": [
+        "mit_nouns_v021"
+      ],
+      "senses": [
+        {
+          "sense_id": "ru:КОМАР:sense:1",
+          "definition": "Маленькое летающее насекомое с длинным хоботком.",
+          "hint": null,
+          "definition_origin": "ai_draft",
+          "editorial_status": "draft",
+          "usage_refs": []
+        }
+      ],
+      "usage_refs": [],
+      "batch_id": "v024c_common_batch_001",
+      "priority": "common_candidate",
+      "frequency_status": "not_measured",
+      "notes": "AI-authored draft; requires linguistic and editorial review."
+    },
+    {
+      "id": "ru:КОРОВА",
+      "lemma": "КОРОВА",
+      "length": 6,
+      "language": "ru",
+      "part_of_speech": "noun_candidate",
+      "grammar": {
+        "number": "singular_candidate",
+        "case": "nominative_candidate",
+        "check_required": true
+      },
+      "topical_categories": [
+        "Животные"
+      ],
+      "difficulty": "easy",
+      "frequency_rank": null,
+      "editorial_status": "draft",
+      "approved_by": null,
+      "approved_at": null,
+      "review_flags": [],
+      "sources": [
+        "mit_nouns_v021"
+      ],
+      "senses": [
+        {
+          "sense_id": "ru:КОРОВА:sense:1",
+          "definition": "Крупное домашнее животное, от которого получают молоко.",
+          "hint": null,
+          "definition_origin": "ai_draft",
+          "editorial_status": "draft",
+          "usage_refs": []
+        }
+      ],
+      "usage_refs": [],
+      "batch_id": "v024c_common_batch_001",
+      "priority": "common_candidate",
+      "frequency_status": "not_measured",
+      "notes": "AI-authored draft; requires linguistic and editorial review."
+    },
+    {
+      "id": "ru:КОШКА",
+      "lemma": "КОШКА",
+      "length": 5,
+      "language": "ru",
+      "part_of_speech": "noun_candidate",
+      "grammar": {
+        "number": "singular_candidate",
+        "case": "nominative_candidate",
+        "check_required": true
+      },
+      "topical_categories": [
+        "Животные"
+      ],
+      "difficulty": "easy",
+      "frequency_rank": null,
+      "editorial_status": "draft",
+      "approved_by": null,
+      "approved_at": null,
+      "review_flags": [],
+      "sources": [
+        "mit_nouns_v021"
+      ],
+      "senses": [
+        {
+          "sense_id": "ru:КОШКА:sense:1",
+          "definition": "Домашнее животное, которое мурлычет и ловит мышей.",
+          "hint": null,
+          "definition_origin": "ai_draft",
+          "editorial_status": "draft",
+          "usage_refs": []
+        }
+      ],
+      "usage_refs": [],
+      "batch_id": "v024c_common_batch_001",
+      "priority": "common_candidate",
+      "frequency_status": "not_measured",
+      "notes": "AI-authored draft; requires linguistic and editorial review."
+    },
+    {
+      "id": "ru:КУКЛА",
+      "lemma": "КУКЛА",
+      "length": 5,
+      "language": "ru",
+      "part_of_speech": "noun_candidate",
+      "grammar": {
+        "number": "singular_candidate",
+        "case": "nominative_candidate",
+        "check_required": true
+      },
+      "topical_categories": [
+        "Дом и быт"
+      ],
+      "difficulty": "easy",
+      "frequency_rank": null,
+      "editorial_status": "draft",
+      "approved_by": null,
+      "approved_at": null,
+      "review_flags": [],
+      "sources": [
+        "mit_nouns_v021"
+      ],
+      "senses": [
+        {
+          "sense_id": "ru:КУКЛА:sense:1",
+          "definition": "Игрушка в виде человека, обычно ребёнка.",
+          "hint": null,
+          "definition_origin": "ai_draft",
+          "editorial_status": "draft",
+          "usage_refs": []
+        }
+      ],
+      "usage_refs": [],
+      "batch_id": "v024c_common_batch_001",
+      "priority": "common_candidate",
+      "frequency_status": "not_measured",
+      "notes": "AI-authored draft; requires linguistic and editorial review."
+    },
+    {
+      "id": "ru:ЛАМПА",
+      "lemma": "ЛАМПА",
+      "length": 5,
+      "language": "ru",
+      "part_of_speech": "noun_candidate",
+      "grammar": {
+        "number": "singular_candidate",
+        "case": "nominative_candidate",
+        "check_required": true
+      },
+      "topical_categories": [
+        "Дом и быт"
+      ],
+      "difficulty": "easy",
+      "frequency_rank": null,
+      "editorial_status": "draft",
+      "approved_by": null,
+      "approved_at": null,
+      "review_flags": [],
+      "sources": [
+        "mit_nouns_v021"
+      ],
+      "senses": [
+        {
+          "sense_id": "ru:ЛАМПА:sense:1",
+          "definition": "Прибор, который даёт искусственный свет.",
+          "hint": null,
+          "definition_origin": "ai_draft",
+          "editorial_status": "draft",
+          "usage_refs": []
+        }
+      ],
+      "usage_refs": [],
+      "batch_id": "v024c_common_batch_001",
+      "priority": "common_candidate",
+      "frequency_status": "not_measured",
+      "notes": "AI-authored draft; requires linguistic and editorial review."
+    },
+    {
+      "id": "ru:ЛИМОН",
+      "lemma": "ЛИМОН",
+      "length": 5,
+      "language": "ru",
+      "part_of_speech": "noun_candidate",
+      "grammar": {
+        "number": "singular_candidate",
+        "case": "nominative_candidate",
+        "check_required": true
+      },
+      "topical_categories": [
+        "Еда и кухня"
+      ],
+      "difficulty": "easy",
+      "frequency_rank": null,
+      "editorial_status": "draft",
+      "approved_by": null,
+      "approved_at": null,
+      "review_flags": [],
+      "sources": [
+        "mit_nouns_v021"
+      ],
+      "senses": [
+        {
+          "sense_id": "ru:ЛИМОН:sense:1",
+          "definition": "Жёлтый цитрусовый плод с очень кислым соком.",
+          "hint": null,
+          "definition_origin": "ai_draft",
+          "editorial_status": "draft",
+          "usage_refs": []
+        }
+      ],
+      "usage_refs": [],
+      "batch_id": "v024c_common_batch_001",
+      "priority": "common_candidate",
+      "frequency_status": "not_measured",
+      "notes": "AI-authored draft; requires linguistic and editorial review."
+    },
+    {
+      "id": "ru:ЛИСА",
+      "lemma": "ЛИСА",
+      "length": 4,
+      "language": "ru",
+      "part_of_speech": "noun_candidate",
+      "grammar": {
+        "number": "singular_candidate",
+        "case": "nominative_candidate",
+        "check_required": true
+      },
+      "topical_categories": [
+        "Животные"
+      ],
+      "difficulty": "easy",
+      "frequency_rank": null,
+      "editorial_status": "draft",
+      "approved_by": null,
+      "approved_at": null,
+      "review_flags": [],
+      "sources": [
+        "mit_nouns_v021"
+      ],
+      "senses": [
+        {
+          "sense_id": "ru:ЛИСА:sense:1",
+          "definition": "Рыжий хищный зверь с пушистым хвостом.",
+          "hint": {
+            "kind": "alternate_meaning",
+            "text": "Так могут назвать очень хитрого человека."
+          },
+          "definition_origin": "ai_draft",
+          "editorial_status": "draft",
+          "usage_refs": []
+        }
+      ],
+      "usage_refs": [],
+      "batch_id": "v024c_common_batch_001",
+      "priority": "common_candidate",
+      "frequency_status": "not_measured",
+      "notes": "AI-authored draft; requires linguistic and editorial review."
+    },
+    {
+      "id": "ru:ЛОПАТА",
+      "lemma": "ЛОПАТА",
+      "length": 6,
+      "language": "ru",
+      "part_of_speech": "noun_candidate",
+      "grammar": {
+        "number": "singular_candidate",
+        "case": "nominative_candidate",
+        "check_required": true
+      },
+      "topical_categories": [
+        "Дом и быт"
+      ],
+      "difficulty": "easy",
+      "frequency_rank": null,
+      "editorial_status": "draft",
+      "approved_by": null,
+      "approved_at": null,
+      "review_flags": [],
+      "sources": [
+        "mit_nouns_v021"
+      ],
+      "senses": [
+        {
+          "sense_id": "ru:ЛОПАТА:sense:1",
+          "definition": "Инструмент с длинной ручкой для копания земли.",
+          "hint": null,
+          "definition_origin": "ai_draft",
+          "editorial_status": "draft",
+          "usage_refs": []
+        }
+      ],
+      "usage_refs": [],
+      "batch_id": "v024c_common_batch_001",
+      "priority": "common_candidate",
+      "frequency_status": "not_measured",
+      "notes": "AI-authored draft; requires linguistic and editorial review."
+    },
+    {
+      "id": "ru:ЛОШАДЬ",
+      "lemma": "ЛОШАДЬ",
+      "length": 6,
+      "language": "ru",
+      "part_of_speech": "noun_candidate",
+      "grammar": {
+        "number": "singular_candidate",
+        "case": "nominative_candidate",
+        "check_required": true
+      },
+      "topical_categories": [
+        "Животные"
+      ],
+      "difficulty": "easy",
+      "frequency_rank": null,
+      "editorial_status": "draft",
+      "approved_by": null,
+      "approved_at": null,
+      "review_flags": [],
+      "sources": [
+        "mit_nouns_v021"
+      ],
+      "senses": [
+        {
+          "sense_id": "ru:ЛОШАДЬ:sense:1",
+          "definition": "Крупное домашнее животное, на котором ездят верхом.",
+          "hint": null,
+          "definition_origin": "ai_draft",
+          "editorial_status": "draft",
+          "usage_refs": []
+        }
+      ],
+      "usage_refs": [],
+      "batch_id": "v024c_common_batch_001",
+      "priority": "common_candidate",
+      "frequency_status": "not_measured",
+      "notes": "AI-authored draft; requires linguistic and editorial review."
+    },
+    {
+      "id": "ru:ЛУНА",
+      "lemma": "ЛУНА",
+      "length": 4,
+      "language": "ru",
+      "part_of_speech": "noun_candidate",
+      "grammar": {
+        "number": "singular_candidate",
+        "case": "nominative_candidate",
+        "check_required": true
+      },
+      "topical_categories": [
+        "Природа"
+      ],
+      "difficulty": "easy",
+      "frequency_rank": null,
+      "editorial_status": "draft",
+      "approved_by": null,
+      "approved_at": null,
+      "review_flags": [],
+      "sources": [
+        "mit_nouns_v021"
+      ],
+      "senses": [
+        {
+          "sense_id": "ru:ЛУНА:sense:1",
+          "definition": "Естественный спутник Земли, видимый ночью на небе.",
+          "hint": null,
+          "definition_origin": "ai_draft",
+          "editorial_status": "draft",
+          "usage_refs": []
+        }
+      ],
+      "usage_refs": [],
+      "batch_id": "v024c_common_batch_001",
+      "priority": "common_candidate",
+      "frequency_status": "not_measured",
+      "notes": "AI-authored draft; requires linguistic and editorial review."
+    },
+    {
+      "id": "ru:ЛЯГУШКА",
+      "lemma": "ЛЯГУШКА",
+      "length": 7,
+      "language": "ru",
+      "part_of_speech": "noun_candidate",
+      "grammar": {
+        "number": "singular_candidate",
+        "case": "nominative_candidate",
+        "check_required": true
+      },
+      "topical_categories": [
+        "Животные"
+      ],
+      "difficulty": "easy",
+      "frequency_rank": null,
+      "editorial_status": "draft",
+      "approved_by": null,
+      "approved_at": null,
+      "review_flags": [],
+      "sources": [
+        "mit_nouns_v021"
+      ],
+      "senses": [
+        {
+          "sense_id": "ru:ЛЯГУШКА:sense:1",
+          "definition": "Земноводное с длинными задними лапами, которое умеет прыгать.",
+          "hint": null,
+          "definition_origin": "ai_draft",
+          "editorial_status": "draft",
+          "usage_refs": []
+        }
+      ],
+      "usage_refs": [],
+      "batch_id": "v024c_common_batch_001",
+      "priority": "common_candidate",
+      "frequency_status": "not_measured",
+      "notes": "AI-authored draft; requires linguistic and editorial review."
+    },
+    {
+      "id": "ru:МАГАЗИН",
+      "lemma": "МАГАЗИН",
+      "length": 7,
+      "language": "ru",
+      "part_of_speech": "noun_candidate",
+      "grammar": {
+        "number": "singular_candidate",
+        "case": "nominative_candidate",
+        "check_required": true
+      },
+      "topical_categories": [
+        "Город и транспорт"
+      ],
+      "difficulty": "easy",
+      "frequency_rank": null,
+      "editorial_status": "draft",
+      "approved_by": null,
+      "approved_at": null,
+      "review_flags": [],
+      "sources": [
+        "mit_nouns_v021"
+      ],
+      "senses": [
+        {
+          "sense_id": "ru:МАГАЗИН:sense:1",
+          "definition": "Место, где продают товары покупателям.",
+          "hint": {
+            "kind": "alternate_meaning",
+            "text": "В технике так называют устройство для подачи или хранения патронов."
+          },
+          "definition_origin": "ai_draft",
+          "editorial_status": "draft",
+          "usage_refs": []
+        }
+      ],
+      "usage_refs": [],
+      "batch_id": "v024c_common_batch_001",
+      "priority": "common_candidate",
+      "frequency_status": "not_measured",
+      "notes": "AI-authored draft; requires linguistic and editorial review."
+    },
+    {
+      "id": "ru:МАШИНА",
+      "lemma": "МАШИНА",
+      "length": 6,
+      "language": "ru",
+      "part_of_speech": "noun_candidate",
+      "grammar": {
+        "number": "singular_candidate",
+        "case": "nominative_candidate",
+        "check_required": true
+      },
+      "topical_categories": [
+        "Город и транспорт"
+      ],
+      "difficulty": "easy",
+      "frequency_rank": null,
+      "editorial_status": "draft",
+      "approved_by": null,
+      "approved_at": null,
+      "review_flags": [],
+      "sources": [
+        "mit_nouns_v021"
+      ],
+      "senses": [
+        {
+          "sense_id": "ru:МАШИНА:sense:1",
+          "definition": "В разговорной речи — автомобиль.",
+          "hint": {
+            "kind": "alternate_meaning",
+            "text": "Так называют и любой механизм, выполняющий определённую работу."
+          },
+          "definition_origin": "ai_draft",
+          "editorial_status": "draft",
+          "usage_refs": []
+        }
+      ],
+      "usage_refs": [],
+      "batch_id": "v024c_common_batch_001",
+      "priority": "common_candidate",
+      "frequency_status": "not_measured",
+      "notes": "AI-authored draft; requires linguistic and editorial review."
+    },
+    {
+      "id": "ru:МОЛОКО",
+      "lemma": "МОЛОКО",
+      "length": 6,
+      "language": "ru",
+      "part_of_speech": "noun_candidate",
+      "grammar": {
+        "number": "singular_candidate",
+        "case": "nominative_candidate",
+        "check_required": true
+      },
+      "topical_categories": [
+        "Еда и кухня"
+      ],
+      "difficulty": "easy",
+      "frequency_rank": null,
+      "editorial_status": "draft",
+      "approved_by": null,
+      "approved_at": null,
+      "review_flags": [],
+      "sources": [
+        "mit_nouns_v021"
+      ],
+      "senses": [
+        {
+          "sense_id": "ru:МОЛОКО:sense:1",
+          "definition": "Белая питательная жидкость, которую получают от коровы.",
+          "hint": null,
+          "definition_origin": "ai_draft",
+          "editorial_status": "draft",
+          "usage_refs": []
+        }
+      ],
+      "usage_refs": [],
+      "batch_id": "v024c_common_batch_001",
+      "priority": "common_candidate",
+      "frequency_status": "not_measured",
+      "notes": "AI-authored draft; requires linguistic and editorial review."
+    },
+    {
+      "id": "ru:МОРКОВЬ",
+      "lemma": "МОРКОВЬ",
+      "length": 7,
+      "language": "ru",
+      "part_of_speech": "noun_candidate",
+      "grammar": {
+        "number": "singular_candidate",
+        "case": "nominative_candidate",
+        "check_required": true
+      },
+      "topical_categories": [
+        "Еда и кухня"
+      ],
+      "difficulty": "easy",
+      "frequency_rank": null,
+      "editorial_status": "draft",
+      "approved_by": null,
+      "approved_at": null,
+      "review_flags": [],
+      "sources": [
+        "mit_nouns_v021"
+      ],
+      "senses": [
+        {
+          "sense_id": "ru:МОРКОВЬ:sense:1",
+          "definition": "Оранжевый корнеплод, который едят сырым или варёным.",
+          "hint": null,
+          "definition_origin": "ai_draft",
+          "editorial_status": "draft",
+          "usage_refs": []
+        }
+      ],
+      "usage_refs": [],
+      "batch_id": "v024c_common_batch_001",
+      "priority": "common_candidate",
+      "frequency_status": "not_measured",
+      "notes": "AI-authored draft; requires linguistic and editorial review."
+    },
+    {
+      "id": "ru:МОРОЗ",
+      "lemma": "МОРОЗ",
+      "length": 5,
+      "language": "ru",
+      "part_of_speech": "noun_candidate",
+      "grammar": {
+        "number": "singular_candidate",
+        "case": "nominative_candidate",
+        "check_required": true
+      },
+      "topical_categories": [
+        "Природа"
+      ],
+      "difficulty": "easy",
+      "frequency_rank": null,
+      "editorial_status": "draft",
+      "approved_by": null,
+      "approved_at": null,
+      "review_flags": [],
+      "sources": [
+        "mit_nouns_v021"
+      ],
+      "senses": [
+        {
+          "sense_id": "ru:МОРОЗ:sense:1",
+          "definition": "Сильный холод при температуре воздуха ниже нуля.",
+          "hint": null,
+          "definition_origin": "ai_draft",
+          "editorial_status": "draft",
+          "usage_refs": []
+        }
+      ],
+      "usage_refs": [],
+      "batch_id": "v024c_common_batch_001",
+      "priority": "common_candidate",
+      "frequency_status": "not_measured",
+      "notes": "AI-authored draft; requires linguistic and editorial review."
+    },
+    {
+      "id": "ru:МОСТ",
+      "lemma": "МОСТ",
+      "length": 4,
+      "language": "ru",
+      "part_of_speech": "noun_candidate",
+      "grammar": {
+        "number": "singular_candidate",
+        "case": "nominative_candidate",
+        "check_required": true
+      },
+      "topical_categories": [
+        "Город и транспорт"
+      ],
+      "difficulty": "easy",
+      "frequency_rank": null,
+      "editorial_status": "draft",
+      "approved_by": null,
+      "approved_at": null,
+      "review_flags": [],
+      "sources": [
+        "mit_nouns_v021"
+      ],
+      "senses": [
+        {
+          "sense_id": "ru:МОСТ:sense:1",
+          "definition": "Сооружение, по которому переходят через реку или дорогу.",
+          "hint": null,
+          "definition_origin": "ai_draft",
+          "editorial_status": "draft",
+          "usage_refs": []
+        }
+      ],
+      "usage_refs": [],
+      "batch_id": "v024c_common_batch_001",
+      "priority": "common_candidate",
+      "frequency_status": "not_measured",
+      "notes": "AI-authored draft; requires linguistic and editorial review."
+    },
+    {
+      "id": "ru:МУЗЕЙ",
+      "lemma": "МУЗЕЙ",
+      "length": 5,
+      "language": "ru",
+      "part_of_speech": "noun_candidate",
+      "grammar": {
+        "number": "singular_candidate",
+        "case": "nominative_candidate",
+        "check_required": true
+      },
+      "topical_categories": [
+        "Искусство"
+      ],
+      "difficulty": "easy",
+      "frequency_rank": null,
+      "editorial_status": "draft",
+      "approved_by": null,
+      "approved_at": null,
+      "review_flags": [],
+      "sources": [
+        "mit_nouns_v021"
+      ],
+      "senses": [
+        {
+          "sense_id": "ru:МУЗЕЙ:sense:1",
+          "definition": "Учреждение, где хранят и показывают исторические и художественные экспонаты.",
+          "hint": null,
+          "definition_origin": "ai_draft",
+          "editorial_status": "draft",
+          "usage_refs": []
+        }
+      ],
+      "usage_refs": [],
+      "batch_id": "v024c_common_batch_001",
+      "priority": "common_candidate",
+      "frequency_status": "not_measured",
+      "notes": "AI-authored draft; requires linguistic and editorial review."
+    },
+    {
+      "id": "ru:НОЧЬ",
+      "lemma": "НОЧЬ",
+      "length": 4,
+      "language": "ru",
+      "part_of_speech": "noun_candidate",
+      "grammar": {
+        "number": "singular_candidate",
+        "case": "nominative_candidate",
+        "check_required": true
+      },
+      "topical_categories": [
+        "Природа"
+      ],
+      "difficulty": "easy",
+      "frequency_rank": null,
+      "editorial_status": "draft",
+      "approved_by": null,
+      "approved_at": null,
+      "review_flags": [],
+      "sources": [
+        "mit_nouns_v021"
+      ],
+      "senses": [
+        {
+          "sense_id": "ru:НОЧЬ:sense:1",
+          "definition": "Тёмное время суток между вечером и утром.",
+          "hint": null,
+          "definition_origin": "ai_draft",
+          "editorial_status": "draft",
+          "usage_refs": []
+        }
+      ],
+      "usage_refs": [],
+      "batch_id": "v024c_common_batch_001",
+      "priority": "common_candidate",
+      "frequency_status": "not_measured",
+      "notes": "AI-authored draft; requires linguistic and editorial review."
+    },
+    {
+      "id": "ru:ОГУРЕЦ",
+      "lemma": "ОГУРЕЦ",
+      "length": 6,
+      "language": "ru",
+      "part_of_speech": "noun_candidate",
+      "grammar": {
+        "number": "singular_candidate",
+        "case": "nominative_candidate",
+        "check_required": true
+      },
+      "topical_categories": [
+        "Еда и кухня"
+      ],
+      "difficulty": "easy",
+      "frequency_rank": null,
+      "editorial_status": "draft",
+      "approved_by": null,
+      "approved_at": null,
+      "review_flags": [],
+      "sources": [
+        "mit_nouns_v021"
+      ],
+      "senses": [
+        {
+          "sense_id": "ru:ОГУРЕЦ:sense:1",
+          "definition": "Зелёный продолговатый овощ, который часто добавляют в салат.",
+          "hint": null,
+          "definition_origin": "ai_draft",
+          "editorial_status": "draft",
+          "usage_refs": []
+        }
+      ],
+      "usage_refs": [],
+      "batch_id": "v024c_common_batch_001",
+      "priority": "common_candidate",
+      "frequency_status": "not_measured",
+      "notes": "AI-authored draft; requires linguistic and editorial review."
+    },
+    {
+      "id": "ru:ОДЕЯЛО",
+      "lemma": "ОДЕЯЛО",
+      "length": 6,
+      "language": "ru",
+      "part_of_speech": "noun_candidate",
+      "grammar": {
+        "number": "singular_candidate",
+        "case": "nominative_candidate",
+        "check_required": true
+      },
+      "topical_categories": [
+        "Дом и быт"
+      ],
+      "difficulty": "easy",
+      "frequency_rank": null,
+      "editorial_status": "draft",
+      "approved_by": null,
+      "approved_at": null,
+      "review_flags": [],
+      "sources": [
+        "mit_nouns_v021"
+      ],
+      "senses": [
+        {
+          "sense_id": "ru:ОДЕЯЛО:sense:1",
+          "definition": "Постельная принадлежность, которой укрываются во время сна.",
+          "hint": null,
+          "definition_origin": "ai_draft",
+          "editorial_status": "draft",
+          "usage_refs": []
+        }
+      ],
+      "usage_refs": [],
+      "batch_id": "v024c_common_batch_001",
+      "priority": "common_candidate",
+      "frequency_status": "not_measured",
+      "notes": "AI-authored draft; requires linguistic and editorial review."
+    },
+    {
+      "id": "ru:ОРЕХ",
+      "lemma": "ОРЕХ",
+      "length": 4,
+      "language": "ru",
+      "part_of_speech": "noun_candidate",
+      "grammar": {
+        "number": "singular_candidate",
+        "case": "nominative_candidate",
+        "check_required": true
+      },
+      "topical_categories": [
+        "Еда и кухня"
+      ],
+      "difficulty": "easy",
+      "frequency_rank": null,
+      "editorial_status": "draft",
+      "approved_by": null,
+      "approved_at": null,
+      "review_flags": [],
+      "sources": [
+        "mit_nouns_v021"
+      ],
+      "senses": [
+        {
+          "sense_id": "ru:ОРЕХ:sense:1",
+          "definition": "Плод с твёрдой скорлупой и съедобным ядром.",
+          "hint": null,
+          "definition_origin": "ai_draft",
+          "editorial_status": "draft",
+          "usage_refs": []
+        }
+      ],
+      "usage_refs": [],
+      "batch_id": "v024c_common_batch_001",
+      "priority": "common_candidate",
+      "frequency_status": "not_measured",
+      "notes": "AI-authored draft; requires linguistic and editorial review."
+    },
+    {
+      "id": "ru:ОСТРОВ",
+      "lemma": "ОСТРОВ",
+      "length": 6,
+      "language": "ru",
+      "part_of_speech": "noun_candidate",
+      "grammar": {
+        "number": "singular_candidate",
+        "case": "nominative_candidate",
+        "check_required": true
+      },
+      "topical_categories": [
+        "Природа"
+      ],
+      "difficulty": "easy",
+      "frequency_rank": null,
+      "editorial_status": "draft",
+      "approved_by": null,
+      "approved_at": null,
+      "review_flags": [],
+      "sources": [
+        "mit_nouns_v021"
+      ],
+      "senses": [
+        {
+          "sense_id": "ru:ОСТРОВ:sense:1",
+          "definition": "Участок суши, окружённый водой со всех сторон.",
+          "hint": null,
+          "definition_origin": "ai_draft",
+          "editorial_status": "draft",
+          "usage_refs": []
+        }
+      ],
+      "usage_refs": [],
+      "batch_id": "v024c_common_batch_001",
+      "priority": "common_candidate",
+      "frequency_status": "not_measured",
+      "notes": "AI-authored draft; requires linguistic and editorial review."
+    },
+    {
+      "id": "ru:ПАРК",
+      "lemma": "ПАРК",
+      "length": 4,
+      "language": "ru",
+      "part_of_speech": "noun_candidate",
+      "grammar": {
+        "number": "singular_candidate",
+        "case": "nominative_candidate",
+        "check_required": true
+      },
+      "topical_categories": [
+        "Город и транспорт"
+      ],
+      "difficulty": "easy",
+      "frequency_rank": null,
+      "editorial_status": "draft",
+      "approved_by": null,
+      "approved_at": null,
+      "review_flags": [],
+      "sources": [
+        "mit_nouns_v021"
+      ],
+      "senses": [
+        {
+          "sense_id": "ru:ПАРК:sense:1",
+          "definition": "Озеленённая территория с дорожками для прогулок.",
+          "hint": {
+            "kind": "alternate_meaning",
+            "text": "Так называют совокупность транспортных машин предприятия."
+          },
+          "definition_origin": "ai_draft",
+          "editorial_status": "draft",
+          "usage_refs": []
+        }
+      ],
+      "usage_refs": [],
+      "batch_id": "v024c_common_batch_001",
+      "priority": "common_candidate",
+      "frequency_status": "not_measured",
+      "notes": "AI-authored draft; requires linguistic and editorial review."
+    },
+    {
+      "id": "ru:ПАРОХОД",
+      "lemma": "ПАРОХОД",
+      "length": 7,
+      "language": "ru",
+      "part_of_speech": "noun_candidate",
+      "grammar": {
+        "number": "singular_candidate",
+        "case": "nominative_candidate",
+        "check_required": true
+      },
+      "topical_categories": [
+        "Город и транспорт"
+      ],
+      "difficulty": "easy",
+      "frequency_rank": null,
+      "editorial_status": "draft",
+      "approved_by": null,
+      "approved_at": null,
+      "review_flags": [],
+      "sources": [
+        "mit_nouns_v021"
+      ],
+      "senses": [
+        {
+          "sense_id": "ru:ПАРОХОД:sense:1",
+          "definition": "Судно, приводимое в движение паровой машиной.",
+          "hint": null,
+          "definition_origin": "ai_draft",
+          "editorial_status": "draft",
+          "usage_refs": []
+        }
+      ],
+      "usage_refs": [],
+      "batch_id": "v024c_common_batch_001",
+      "priority": "common_candidate",
+      "frequency_status": "not_measured",
+      "notes": "AI-authored draft; requires linguistic and editorial review."
+    },
+    {
+      "id": "ru:ПАСПОРТ",
+      "lemma": "ПАСПОРТ",
+      "length": 7,
+      "language": "ru",
+      "part_of_speech": "noun_candidate",
+      "grammar": {
+        "number": "singular_candidate",
+        "case": "nominative_candidate",
+        "check_required": true
+      },
+      "topical_categories": [
+        "Город и транспорт"
+      ],
+      "difficulty": "easy",
+      "frequency_rank": null,
+      "editorial_status": "draft",
+      "approved_by": null,
+      "approved_at": null,
+      "review_flags": [],
+      "sources": [
+        "mit_nouns_v021"
+      ],
+      "senses": [
+        {
+          "sense_id": "ru:ПАСПОРТ:sense:1",
+          "definition": "Документ, удостоверяющий личность человека.",
+          "hint": {
+            "kind": "alternate_meaning",
+            "text": "Так называют и документ с техническими характеристиками изделия."
+          },
+          "definition_origin": "ai_draft",
+          "editorial_status": "draft",
+          "usage_refs": []
+        }
+      ],
+      "usage_refs": [],
+      "batch_id": "v024c_common_batch_001",
+      "priority": "common_candidate",
+      "frequency_status": "not_measured",
+      "notes": "AI-authored draft; requires linguistic and editorial review."
+    },
+    {
+      "id": "ru:ПЕРО",
+      "lemma": "ПЕРО",
+      "length": 4,
+      "language": "ru",
+      "part_of_speech": "noun_candidate",
+      "grammar": {
+        "number": "singular_candidate",
+        "case": "nominative_candidate",
+        "check_required": true
+      },
+      "topical_categories": [
+        "Природа"
+      ],
+      "difficulty": "easy",
+      "frequency_rank": null,
+      "editorial_status": "draft",
+      "approved_by": null,
+      "approved_at": null,
+      "review_flags": [],
+      "sources": [
+        "mit_nouns_v021"
+      ],
+      "senses": [
+        {
+          "sense_id": "ru:ПЕРО:sense:1",
+          "definition": "Покров на теле птицы с прочным стержнем и мягкими бородками.",
+          "hint": null,
+          "definition_origin": "ai_draft",
+          "editorial_status": "draft",
+          "usage_refs": []
+        }
+      ],
+      "usage_refs": [],
+      "batch_id": "v024c_common_batch_001",
+      "priority": "common_candidate",
+      "frequency_status": "not_measured",
+      "notes": "AI-authored draft; requires linguistic and editorial review."
+    },
+    {
+      "id": "ru:ПЕСОК",
+      "lemma": "ПЕСОК",
+      "length": 5,
+      "language": "ru",
+      "part_of_speech": "noun_candidate",
+      "grammar": {
+        "number": "singular_candidate",
+        "case": "nominative_candidate",
+        "check_required": true
+      },
+      "topical_categories": [
+        "Природа"
+      ],
+      "difficulty": "easy",
+      "frequency_rank": null,
+      "editorial_status": "draft",
+      "approved_by": null,
+      "approved_at": null,
+      "review_flags": [],
+      "sources": [
+        "mit_nouns_v021"
+      ],
+      "senses": [
+        {
+          "sense_id": "ru:ПЕСОК:sense:1",
+          "definition": "Мелкие сыпучие частицы горных пород на пляже.",
+          "hint": null,
+          "definition_origin": "ai_draft",
+          "editorial_status": "draft",
+          "usage_refs": []
+        }
+      ],
+      "usage_refs": [],
+      "batch_id": "v024c_common_batch_001",
+      "priority": "common_candidate",
+      "frequency_status": "not_measured",
+      "notes": "AI-authored draft; requires linguistic and editorial review."
+    },
+    {
+      "id": "ru:ПЕТУХ",
+      "lemma": "ПЕТУХ",
+      "length": 5,
+      "language": "ru",
+      "part_of_speech": "noun_candidate",
+      "grammar": {
+        "number": "singular_candidate",
+        "case": "nominative_candidate",
+        "check_required": true
+      },
+      "topical_categories": [
+        "Животные"
+      ],
+      "difficulty": "easy",
+      "frequency_rank": null,
+      "editorial_status": "draft",
+      "approved_by": null,
+      "approved_at": null,
+      "review_flags": [],
+      "sources": [
+        "mit_nouns_v021"
+      ],
+      "senses": [
+        {
+          "sense_id": "ru:ПЕТУХ:sense:1",
+          "definition": "Самец домашней курицы, который кукарекает.",
+          "hint": null,
+          "definition_origin": "ai_draft",
+          "editorial_status": "draft",
+          "usage_refs": []
+        }
+      ],
+      "usage_refs": [],
+      "batch_id": "v024c_common_batch_001",
+      "priority": "common_candidate",
+      "frequency_status": "not_measured",
+      "notes": "AI-authored draft; requires linguistic and editorial review."
+    },
+    {
+      "id": "ru:ПИРОГ",
+      "lemma": "ПИРОГ",
+      "length": 5,
+      "language": "ru",
+      "part_of_speech": "noun_candidate",
+      "grammar": {
+        "number": "singular_candidate",
+        "case": "nominative_candidate",
+        "check_required": true
+      },
+      "topical_categories": [
+        "Еда и кухня"
+      ],
+      "difficulty": "easy",
+      "frequency_rank": null,
+      "editorial_status": "draft",
+      "approved_by": null,
+      "approved_at": null,
+      "review_flags": [],
+      "sources": [
+        "mit_nouns_v021"
+      ],
+      "senses": [
+        {
+          "sense_id": "ru:ПИРОГ:sense:1",
+          "definition": "Выпечка из теста с начинкой.",
+          "hint": null,
+          "definition_origin": "ai_draft",
+          "editorial_status": "draft",
+          "usage_refs": []
+        }
+      ],
+      "usage_refs": [],
+      "batch_id": "v024c_common_batch_001",
+      "priority": "common_candidate",
+      "frequency_status": "not_measured",
+      "notes": "AI-authored draft; requires linguistic and editorial review."
+    },
+    {
+      "id": "ru:ПИСЬМО",
+      "lemma": "ПИСЬМО",
+      "length": 6,
+      "language": "ru",
+      "part_of_speech": "noun_candidate",
+      "grammar": {
+        "number": "singular_candidate",
+        "case": "nominative_candidate",
+        "check_required": true
+      },
+      "topical_categories": [
+        "Дом и быт"
+      ],
+      "difficulty": "easy",
+      "frequency_rank": null,
+      "editorial_status": "draft",
+      "approved_by": null,
+      "approved_at": null,
+      "review_flags": [],
+      "sources": [
+        "mit_nouns_v021"
+      ],
+      "senses": [
+        {
+          "sense_id": "ru:ПИСЬМО:sense:1",
+          "definition": "Сообщение, написанное или напечатанное для другого человека.",
+          "hint": null,
+          "definition_origin": "ai_draft",
+          "editorial_status": "draft",
+          "usage_refs": []
+        }
+      ],
+      "usage_refs": [],
+      "batch_id": "v024c_common_batch_001",
+      "priority": "common_candidate",
+      "frequency_status": "not_measured",
+      "notes": "AI-authored draft; requires linguistic and editorial review."
+    },
+    {
+      "id": "ru:ПЛАТЬЕ",
+      "lemma": "ПЛАТЬЕ",
+      "length": 6,
+      "language": "ru",
+      "part_of_speech": "noun_candidate",
+      "grammar": {
+        "number": "singular_candidate",
+        "case": "nominative_candidate",
+        "check_required": true
+      },
+      "topical_categories": [
+        "Дом и быт"
+      ],
+      "difficulty": "easy",
+      "frequency_rank": null,
+      "editorial_status": "draft",
+      "approved_by": null,
+      "approved_at": null,
+      "review_flags": [],
+      "sources": [
+        "mit_nouns_v021"
+      ],
+      "senses": [
+        {
+          "sense_id": "ru:ПЛАТЬЕ:sense:1",
+          "definition": "Женская одежда, соединяющая лиф и юбку.",
+          "hint": null,
+          "definition_origin": "ai_draft",
+          "editorial_status": "draft",
+          "usage_refs": []
+        }
+      ],
+      "usage_refs": [],
+      "batch_id": "v024c_common_batch_001",
+      "priority": "common_candidate",
+      "frequency_status": "not_measured",
+      "notes": "AI-authored draft; requires linguistic and editorial review."
+    },
+    {
+      "id": "ru:ПОГОДА",
+      "lemma": "ПОГОДА",
+      "length": 6,
+      "language": "ru",
+      "part_of_speech": "noun_candidate",
+      "grammar": {
+        "number": "singular_candidate",
+        "case": "nominative_candidate",
+        "check_required": true
+      },
+      "topical_categories": [
+        "Природа"
+      ],
+      "difficulty": "easy",
+      "frequency_rank": null,
+      "editorial_status": "draft",
+      "approved_by": null,
+      "approved_at": null,
+      "review_flags": [],
+      "sources": [
+        "mit_nouns_v021"
+      ],
+      "senses": [
+        {
+          "sense_id": "ru:ПОГОДА:sense:1",
+          "definition": "Состояние воздуха на улице: тепло, дождь, ветер и другое.",
+          "hint": null,
+          "definition_origin": "ai_draft",
+          "editorial_status": "draft",
+          "usage_refs": []
+        }
+      ],
+      "usage_refs": [],
+      "batch_id": "v024c_common_batch_001",
+      "priority": "common_candidate",
+      "frequency_status": "not_measured",
+      "notes": "AI-authored draft; requires linguistic and editorial review."
+    },
+    {
+      "id": "ru:ПОДАРОК",
+      "lemma": "ПОДАРОК",
+      "length": 7,
+      "language": "ru",
+      "part_of_speech": "noun_candidate",
+      "grammar": {
+        "number": "singular_candidate",
+        "case": "nominative_candidate",
+        "check_required": true
+      },
+      "topical_categories": [
+        "Дом и быт"
+      ],
+      "difficulty": "easy",
+      "frequency_rank": null,
+      "editorial_status": "draft",
+      "approved_by": null,
+      "approved_at": null,
+      "review_flags": [],
+      "sources": [
+        "mit_nouns_v021"
+      ],
+      "senses": [
+        {
+          "sense_id": "ru:ПОДАРОК:sense:1",
+          "definition": "Вещь, которую дарят человеку без оплаты.",
+          "hint": null,
+          "definition_origin": "ai_draft",
+          "editorial_status": "draft",
+          "usage_refs": []
+        }
+      ],
+      "usage_refs": [],
+      "batch_id": "v024c_common_batch_001",
+      "priority": "common_candidate",
+      "frequency_status": "not_measured",
+      "notes": "AI-authored draft; requires linguistic and editorial review."
+    },
+    {
+      "id": "ru:ПОДУШКА",
+      "lemma": "ПОДУШКА",
+      "length": 7,
+      "language": "ru",
+      "part_of_speech": "noun_candidate",
+      "grammar": {
+        "number": "singular_candidate",
+        "case": "nominative_candidate",
+        "check_required": true
+      },
+      "topical_categories": [
+        "Дом и быт"
+      ],
+      "difficulty": "easy",
+      "frequency_rank": null,
+      "editorial_status": "draft",
+      "approved_by": null,
+      "approved_at": null,
+      "review_flags": [],
+      "sources": [
+        "mit_nouns_v021"
+      ],
+      "senses": [
+        {
+          "sense_id": "ru:ПОДУШКА:sense:1",
+          "definition": "Мягкая постельная принадлежность, на которую кладут голову.",
+          "hint": null,
+          "definition_origin": "ai_draft",
+          "editorial_status": "draft",
+          "usage_refs": []
+        }
+      ],
+      "usage_refs": [],
+      "batch_id": "v024c_common_batch_001",
+      "priority": "common_candidate",
+      "frequency_status": "not_measured",
+      "notes": "AI-authored draft; requires linguistic and editorial review."
+    },
+    {
+      "id": "ru:ПОЛОТНО",
+      "lemma": "ПОЛОТНО",
+      "length": 7,
+      "language": "ru",
+      "part_of_speech": "noun_candidate",
+      "grammar": {
+        "number": "singular_candidate",
+        "case": "nominative_candidate",
+        "check_required": true
+      },
+      "topical_categories": [
+        "Дом и быт"
+      ],
+      "difficulty": "easy",
+      "frequency_rank": null,
+      "editorial_status": "draft",
+      "approved_by": null,
+      "approved_at": null,
+      "review_flags": [],
+      "sources": [
+        "mit_nouns_v021"
+      ],
+      "senses": [
+        {
+          "sense_id": "ru:ПОЛОТНО:sense:1",
+          "definition": "Ткань, из которой шьют одежду или другие изделия.",
+          "hint": {
+            "kind": "alternate_meaning",
+            "text": "Так называют поверхность картины художника."
+          },
+          "definition_origin": "ai_draft",
+          "editorial_status": "draft",
+          "usage_refs": []
+        }
+      ],
+      "usage_refs": [],
+      "batch_id": "v024c_common_batch_001",
+      "priority": "common_candidate",
+      "frequency_status": "not_measured",
+      "notes": "AI-authored draft; requires linguistic and editorial review."
+    },
+    {
+      "id": "ru:ПОМИДОР",
+      "lemma": "ПОМИДОР",
+      "length": 7,
+      "language": "ru",
+      "part_of_speech": "noun_candidate",
+      "grammar": {
+        "number": "singular_candidate",
+        "case": "nominative_candidate",
+        "check_required": true
+      },
+      "topical_categories": [
+        "Еда и кухня"
+      ],
+      "difficulty": "easy",
+      "frequency_rank": null,
+      "editorial_status": "draft",
+      "approved_by": null,
+      "approved_at": null,
+      "review_flags": [],
+      "sources": [
+        "mit_nouns_v021"
+      ],
+      "senses": [
+        {
+          "sense_id": "ru:ПОМИДОР:sense:1",
+          "definition": "Красный сочный плод, который добавляют в салаты.",
+          "hint": null,
+          "definition_origin": "ai_draft",
+          "editorial_status": "draft",
+          "usage_refs": []
+        }
+      ],
+      "usage_refs": [],
+      "batch_id": "v024c_common_batch_001",
+      "priority": "common_candidate",
+      "frequency_status": "not_measured",
+      "notes": "AI-authored draft; requires linguistic and editorial review."
+    },
+    {
+      "id": "ru:ПОРТРЕТ",
+      "lemma": "ПОРТРЕТ",
+      "length": 7,
+      "language": "ru",
+      "part_of_speech": "noun_candidate",
+      "grammar": {
+        "number": "singular_candidate",
+        "case": "nominative_candidate",
+        "check_required": true
+      },
+      "topical_categories": [
+        "Искусство"
+      ],
+      "difficulty": "easy",
+      "frequency_rank": null,
+      "editorial_status": "draft",
+      "approved_by": null,
+      "approved_at": null,
+      "review_flags": [],
+      "sources": [
+        "mit_nouns_v021"
+      ],
+      "senses": [
+        {
+          "sense_id": "ru:ПОРТРЕТ:sense:1",
+          "definition": "Изображение лица или внешнего облика человека.",
+          "hint": null,
+          "definition_origin": "ai_draft",
+          "editorial_status": "draft",
+          "usage_refs": []
+        }
+      ],
+      "usage_refs": [],
+      "batch_id": "v024c_common_batch_001",
+      "priority": "common_candidate",
+      "frequency_status": "not_measured",
+      "notes": "AI-authored draft; requires linguistic and editorial review."
+    },
+    {
+      "id": "ru:ПТИЦА",
+      "lemma": "ПТИЦА",
+      "length": 5,
+      "language": "ru",
+      "part_of_speech": "noun_candidate",
+      "grammar": {
+        "number": "singular_candidate",
+        "case": "nominative_candidate",
+        "check_required": true
+      },
+      "topical_categories": [
+        "Животные"
+      ],
+      "difficulty": "easy",
+      "frequency_rank": null,
+      "editorial_status": "draft",
+      "approved_by": null,
+      "approved_at": null,
+      "review_flags": [],
+      "sources": [
+        "mit_nouns_v021"
+      ],
+      "senses": [
+        {
+          "sense_id": "ru:ПТИЦА:sense:1",
+          "definition": "Животное с перьями, клювом и двумя крыльями.",
+          "hint": null,
+          "definition_origin": "ai_draft",
+          "editorial_status": "draft",
+          "usage_refs": []
+        }
+      ],
+      "usage_refs": [],
+      "batch_id": "v024c_common_batch_001",
+      "priority": "common_candidate",
+      "frequency_status": "not_measured",
+      "notes": "AI-authored draft; requires linguistic and editorial review."
+    },
+    {
+      "id": "ru:РАДУГА",
+      "lemma": "РАДУГА",
+      "length": 6,
+      "language": "ru",
+      "part_of_speech": "noun_candidate",
+      "grammar": {
+        "number": "singular_candidate",
+        "case": "nominative_candidate",
+        "check_required": true
+      },
+      "topical_categories": [
+        "Природа"
+      ],
+      "difficulty": "easy",
+      "frequency_rank": null,
+      "editorial_status": "draft",
+      "approved_by": null,
+      "approved_at": null,
+      "review_flags": [],
+      "sources": [
+        "mit_nouns_v021"
+      ],
+      "senses": [
+        {
+          "sense_id": "ru:РАДУГА:sense:1",
+          "definition": "Цветная дуга в небе после дождя.",
+          "hint": null,
+          "definition_origin": "ai_draft",
+          "editorial_status": "draft",
+          "usage_refs": []
+        }
+      ],
+      "usage_refs": [],
+      "batch_id": "v024c_common_batch_001",
+      "priority": "common_candidate",
+      "frequency_status": "not_measured",
+      "notes": "AI-authored draft; requires linguistic and editorial review."
+    },
+    {
+      "id": "ru:РУКА",
+      "lemma": "РУКА",
+      "length": 4,
+      "language": "ru",
+      "part_of_speech": "noun_candidate",
+      "grammar": {
+        "number": "singular_candidate",
+        "case": "nominative_candidate",
+        "check_required": true
+      },
+      "topical_categories": [
+        "Общие знания"
+      ],
+      "difficulty": "easy",
+      "frequency_rank": null,
+      "editorial_status": "draft",
+      "approved_by": null,
+      "approved_at": null,
+      "review_flags": [],
+      "sources": [
+        "mit_nouns_v021"
+      ],
+      "senses": [
+        {
+          "sense_id": "ru:РУКА:sense:1",
+          "definition": "Верхняя конечность человека от плеча до пальцев.",
+          "hint": null,
+          "definition_origin": "ai_draft",
+          "editorial_status": "draft",
+          "usage_refs": []
+        }
+      ],
+      "usage_refs": [],
+      "batch_id": "v024c_common_batch_001",
+      "priority": "common_candidate",
+      "frequency_status": "not_measured",
+      "notes": "AI-authored draft; requires linguistic and editorial review."
+    },
+    {
+      "id": "ru:РУЧЕЙ",
+      "lemma": "РУЧЕЙ",
+      "length": 5,
+      "language": "ru",
+      "part_of_speech": "noun_candidate",
+      "grammar": {
+        "number": "singular_candidate",
+        "case": "nominative_candidate",
+        "check_required": true
+      },
+      "topical_categories": [
+        "Природа"
+      ],
+      "difficulty": "easy",
+      "frequency_rank": null,
+      "editorial_status": "draft",
+      "approved_by": null,
+      "approved_at": null,
+      "review_flags": [],
+      "sources": [
+        "mit_nouns_v021"
+      ],
+      "senses": [
+        {
+          "sense_id": "ru:РУЧЕЙ:sense:1",
+          "definition": "Небольшой естественный поток воды.",
+          "hint": null,
+          "definition_origin": "ai_draft",
+          "editorial_status": "draft",
+          "usage_refs": []
+        }
+      ],
+      "usage_refs": [],
+      "batch_id": "v024c_common_batch_001",
+      "priority": "common_candidate",
+      "frequency_status": "not_measured",
+      "notes": "AI-authored draft; requires linguistic and editorial review."
+    },
+    {
+      "id": "ru:РЫБА",
+      "lemma": "РЫБА",
+      "length": 4,
+      "language": "ru",
+      "part_of_speech": "noun_candidate",
+      "grammar": {
+        "number": "singular_candidate",
+        "case": "nominative_candidate",
+        "check_required": true
+      },
+      "topical_categories": [
+        "Животные"
+      ],
+      "difficulty": "easy",
+      "frequency_rank": null,
+      "editorial_status": "draft",
+      "approved_by": null,
+      "approved_at": null,
+      "review_flags": [],
+      "sources": [
+        "mit_nouns_v021"
+      ],
+      "senses": [
+        {
+          "sense_id": "ru:РЫБА:sense:1",
+          "definition": "Водное позвоночное животное, которое обычно дышит жабрами.",
+          "hint": null,
+          "definition_origin": "ai_draft",
+          "editorial_status": "draft",
+          "usage_refs": []
+        }
+      ],
+      "usage_refs": [],
+      "batch_id": "v024c_common_batch_001",
+      "priority": "common_candidate",
+      "frequency_status": "not_measured",
+      "notes": "AI-authored draft; requires linguistic and editorial review."
+    },
+    {
+      "id": "ru:СКАТЕРТЬ",
+      "lemma": "СКАТЕРТЬ",
+      "length": 8,
+      "language": "ru",
+      "part_of_speech": "noun_candidate",
+      "grammar": {
+        "number": "singular_candidate",
+        "case": "nominative_candidate",
+        "check_required": true
+      },
+      "topical_categories": [
+        "Дом и быт"
+      ],
+      "difficulty": "easy",
+      "frequency_rank": null,
+      "editorial_status": "draft",
+      "approved_by": null,
+      "approved_at": null,
+      "review_flags": [],
+      "sources": [
+        "mit_nouns_v021"
+      ],
+      "senses": [
+        {
+          "sense_id": "ru:СКАТЕРТЬ:sense:1",
+          "definition": "Тканевое покрытие, которым накрывают стол.",
+          "hint": null,
+          "definition_origin": "ai_draft",
+          "editorial_status": "draft",
+          "usage_refs": []
+        }
+      ],
+      "usage_refs": [],
+      "batch_id": "v024c_common_batch_001",
+      "priority": "common_candidate",
+      "frequency_status": "not_measured",
+      "notes": "AI-authored draft; requires linguistic and editorial review."
+    },
+    {
+      "id": "ru:СНЕГ",
+      "lemma": "СНЕГ",
+      "length": 4,
+      "language": "ru",
+      "part_of_speech": "noun_candidate",
+      "grammar": {
+        "number": "singular_candidate",
+        "case": "nominative_candidate",
+        "check_required": true
+      },
+      "topical_categories": [
+        "Природа"
+      ],
+      "difficulty": "easy",
+      "frequency_rank": null,
+      "editorial_status": "draft",
+      "approved_by": null,
+      "approved_at": null,
+      "review_flags": [],
+      "sources": [
+        "mit_nouns_v021"
+      ],
+      "senses": [
+        {
+          "sense_id": "ru:СНЕГ:sense:1",
+          "definition": "Белые хлопья льда, выпадающие зимой из облаков.",
+          "hint": null,
+          "definition_origin": "ai_draft",
+          "editorial_status": "draft",
+          "usage_refs": []
+        }
+      ],
+      "usage_refs": [],
+      "batch_id": "v024c_common_batch_001",
+      "priority": "common_candidate",
+      "frequency_status": "not_measured",
+      "notes": "AI-authored draft; requires linguistic and editorial review."
+    },
+    {
+      "id": "ru:СОБАКА",
+      "lemma": "СОБАКА",
+      "length": 6,
+      "language": "ru",
+      "part_of_speech": "noun_candidate",
+      "grammar": {
+        "number": "singular_candidate",
+        "case": "nominative_candidate",
+        "check_required": true
+      },
+      "topical_categories": [
+        "Животные"
+      ],
+      "difficulty": "easy",
+      "frequency_rank": null,
+      "editorial_status": "draft",
+      "approved_by": null,
+      "approved_at": null,
+      "review_flags": [],
+      "sources": [
+        "mit_nouns_v021"
+      ],
+      "senses": [
+        {
+          "sense_id": "ru:СОБАКА:sense:1",
+          "definition": "Домашнее животное, которое лает и часто охраняет дом.",
+          "hint": null,
+          "definition_origin": "ai_draft",
+          "editorial_status": "draft",
+          "usage_refs": []
+        }
+      ],
+      "usage_refs": [],
+      "batch_id": "v024c_common_batch_001",
+      "priority": "common_candidate",
+      "frequency_status": "not_measured",
+      "notes": "AI-authored draft; requires linguistic and editorial review."
+    },
+    {
+      "id": "ru:СОЛНЦЕ",
+      "lemma": "СОЛНЦЕ",
+      "length": 6,
+      "language": "ru",
+      "part_of_speech": "noun_candidate",
+      "grammar": {
+        "number": "singular_candidate",
+        "case": "nominative_candidate",
+        "check_required": true
+      },
+      "topical_categories": [
+        "Природа"
+      ],
+      "difficulty": "easy",
+      "frequency_rank": null,
+      "editorial_status": "draft",
+      "approved_by": null,
+      "approved_at": null,
+      "review_flags": [],
+      "sources": [
+        "mit_nouns_v021"
+      ],
+      "senses": [
+        {
+          "sense_id": "ru:СОЛНЦЕ:sense:1",
+          "definition": "Звезда, освещающая и согревающая Землю.",
+          "hint": null,
+          "definition_origin": "ai_draft",
+          "editorial_status": "draft",
+          "usage_refs": []
+        }
+      ],
+      "usage_refs": [],
+      "batch_id": "v024c_common_batch_001",
+      "priority": "common_candidate",
+      "frequency_status": "not_measured",
+      "notes": "AI-authored draft; requires linguistic and editorial review."
+    },
+    {
+      "id": "ru:СОСНА",
+      "lemma": "СОСНА",
+      "length": 5,
+      "language": "ru",
+      "part_of_speech": "noun_candidate",
+      "grammar": {
+        "number": "singular_candidate",
+        "case": "nominative_candidate",
+        "check_required": true
+      },
+      "topical_categories": [
+        "Природа"
+      ],
+      "difficulty": "easy",
+      "frequency_rank": null,
+      "editorial_status": "draft",
+      "approved_by": null,
+      "approved_at": null,
+      "review_flags": [],
+      "sources": [
+        "mit_nouns_v021"
+      ],
+      "senses": [
+        {
+          "sense_id": "ru:СОСНА:sense:1",
+          "definition": "Хвойное дерево с длинными иголками и шишками.",
+          "hint": null,
+          "definition_origin": "ai_draft",
+          "editorial_status": "draft",
+          "usage_refs": []
+        }
+      ],
+      "usage_refs": [],
+      "batch_id": "v024c_common_batch_001",
+      "priority": "common_candidate",
+      "frequency_status": "not_measured",
+      "notes": "AI-authored draft; requires linguistic and editorial review."
+    },
+    {
+      "id": "ru:СТОЛ",
+      "lemma": "СТОЛ",
+      "length": 4,
+      "language": "ru",
+      "part_of_speech": "noun_candidate",
+      "grammar": {
+        "number": "singular_candidate",
+        "case": "nominative_candidate",
+        "check_required": true
+      },
+      "topical_categories": [
+        "Дом и быт"
+      ],
+      "difficulty": "easy",
+      "frequency_rank": null,
+      "editorial_status": "draft",
+      "approved_by": null,
+      "approved_at": null,
+      "review_flags": [],
+      "sources": [
+        "mit_nouns_v021"
+      ],
+      "senses": [
+        {
+          "sense_id": "ru:СТОЛ:sense:1",
+          "definition": "Мебель с горизонтальной поверхностью на ножках.",
+          "hint": null,
+          "definition_origin": "ai_draft",
+          "editorial_status": "draft",
+          "usage_refs": []
+        }
+      ],
+      "usage_refs": [],
+      "batch_id": "v024c_common_batch_001",
+      "priority": "common_candidate",
+      "frequency_status": "not_measured",
+      "notes": "AI-authored draft; requires linguistic and editorial review."
+    },
+    {
+      "id": "ru:СТУЛ",
+      "lemma": "СТУЛ",
+      "length": 4,
+      "language": "ru",
+      "part_of_speech": "noun_candidate",
+      "grammar": {
+        "number": "singular_candidate",
+        "case": "nominative_candidate",
+        "check_required": true
+      },
+      "topical_categories": [
+        "Дом и быт"
+      ],
+      "difficulty": "easy",
+      "frequency_rank": null,
+      "editorial_status": "draft",
+      "approved_by": null,
+      "approved_at": null,
+      "review_flags": [],
+      "sources": [
+        "mit_nouns_v021"
+      ],
+      "senses": [
+        {
+          "sense_id": "ru:СТУЛ:sense:1",
+          "definition": "Предмет мебели со спинкой для сидения одного человека.",
+          "hint": null,
+          "definition_origin": "ai_draft",
+          "editorial_status": "draft",
+          "usage_refs": []
+        }
+      ],
+      "usage_refs": [],
+      "batch_id": "v024c_common_batch_001",
+      "priority": "common_candidate",
+      "frequency_status": "not_measured",
+      "notes": "AI-authored draft; requires linguistic and editorial review."
+    },
+    {
+      "id": "ru:ТЕЛЕФОН",
+      "lemma": "ТЕЛЕФОН",
+      "length": 7,
+      "language": "ru",
+      "part_of_speech": "noun_candidate",
+      "grammar": {
+        "number": "singular_candidate",
+        "case": "nominative_candidate",
+        "check_required": true
+      },
+      "topical_categories": [
+        "Дом и быт"
+      ],
+      "difficulty": "easy",
+      "frequency_rank": null,
+      "editorial_status": "draft",
+      "approved_by": null,
+      "approved_at": null,
+      "review_flags": [],
+      "sources": [
+        "mit_nouns_v021"
+      ],
+      "senses": [
+        {
+          "sense_id": "ru:ТЕЛЕФОН:sense:1",
+          "definition": "Устройство для разговора с людьми на расстоянии.",
+          "hint": null,
+          "definition_origin": "ai_draft",
+          "editorial_status": "draft",
+          "usage_refs": []
+        }
+      ],
+      "usage_refs": [],
+      "batch_id": "v024c_common_batch_001",
+      "priority": "common_candidate",
+      "frequency_status": "not_measured",
+      "notes": "AI-authored draft; requires linguistic and editorial review."
+    },
+    {
+      "id": "ru:ТЕТРАДЬ",
+      "lemma": "ТЕТРАДЬ",
+      "length": 7,
+      "language": "ru",
+      "part_of_speech": "noun_candidate",
+      "grammar": {
+        "number": "singular_candidate",
+        "case": "nominative_candidate",
+        "check_required": true
+      },
+      "topical_categories": [
+        "Дом и быт"
+      ],
+      "difficulty": "easy",
+      "frequency_rank": null,
+      "editorial_status": "draft",
+      "approved_by": null,
+      "approved_at": null,
+      "review_flags": [],
+      "sources": [
+        "mit_nouns_v021"
+      ],
+      "senses": [
+        {
+          "sense_id": "ru:ТЕТРАДЬ:sense:1",
+          "definition": "Несколько листов бумаги в обложке для записей.",
+          "hint": null,
+          "definition_origin": "ai_draft",
+          "editorial_status": "draft",
+          "usage_refs": []
+        }
+      ],
+      "usage_refs": [],
+      "batch_id": "v024c_common_batch_001",
+      "priority": "common_candidate",
+      "frequency_status": "not_measured",
+      "notes": "AI-authored draft; requires linguistic and editorial review."
+    },
+    {
+      "id": "ru:ТРАВА",
+      "lemma": "ТРАВА",
+      "length": 5,
+      "language": "ru",
+      "part_of_speech": "noun_candidate",
+      "grammar": {
+        "number": "singular_candidate",
+        "case": "nominative_candidate",
+        "check_required": true
+      },
+      "topical_categories": [
+        "Природа"
+      ],
+      "difficulty": "easy",
+      "frequency_rank": null,
+      "editorial_status": "draft",
+      "approved_by": null,
+      "approved_at": null,
+      "review_flags": [],
+      "sources": [
+        "mit_nouns_v021"
+      ],
+      "senses": [
+        {
+          "sense_id": "ru:ТРАВА:sense:1",
+          "definition": "Невысокие зелёные растения с мягкими стеблями.",
+          "hint": null,
+          "definition_origin": "ai_draft",
+          "editorial_status": "draft",
+          "usage_refs": []
+        }
+      ],
+      "usage_refs": [],
+      "batch_id": "v024c_common_batch_001",
+      "priority": "common_candidate",
+      "frequency_status": "not_measured",
+      "notes": "AI-authored draft; requires linguistic and editorial review."
+    },
+    {
+      "id": "ru:ТРОПИНКА",
+      "lemma": "ТРОПИНКА",
+      "length": 8,
+      "language": "ru",
+      "part_of_speech": "noun_candidate",
+      "grammar": {
+        "number": "singular_candidate",
+        "case": "nominative_candidate",
+        "check_required": true
+      },
+      "topical_categories": [
+        "Природа"
+      ],
+      "difficulty": "easy",
+      "frequency_rank": null,
+      "editorial_status": "draft",
+      "approved_by": null,
+      "approved_at": null,
+      "review_flags": [],
+      "sources": [
+        "mit_nouns_v021"
+      ],
+      "senses": [
+        {
+          "sense_id": "ru:ТРОПИНКА:sense:1",
+          "definition": "Узкая дорожка, протоптанная людьми или животными.",
+          "hint": null,
+          "definition_origin": "ai_draft",
+          "editorial_status": "draft",
+          "usage_refs": []
+        }
+      ],
+      "usage_refs": [],
+      "batch_id": "v024c_common_batch_001",
+      "priority": "common_candidate",
+      "frequency_status": "not_measured",
+      "notes": "AI-authored draft; requires linguistic and editorial review."
+    },
+    {
+      "id": "ru:ТУЧА",
+      "lemma": "ТУЧА",
+      "length": 4,
+      "language": "ru",
+      "part_of_speech": "noun_candidate",
+      "grammar": {
+        "number": "singular_candidate",
+        "case": "nominative_candidate",
+        "check_required": true
+      },
+      "topical_categories": [
+        "Природа"
+      ],
+      "difficulty": "easy",
+      "frequency_rank": null,
+      "editorial_status": "draft",
+      "approved_by": null,
+      "approved_at": null,
+      "review_flags": [],
+      "sources": [
+        "mit_nouns_v021"
+      ],
+      "senses": [
+        {
+          "sense_id": "ru:ТУЧА:sense:1",
+          "definition": "Большое густое облако, часто предвещающее дождь.",
+          "hint": null,
+          "definition_origin": "ai_draft",
+          "editorial_status": "draft",
+          "usage_refs": []
+        }
+      ],
+      "usage_refs": [],
+      "batch_id": "v024c_common_batch_001",
+      "priority": "common_candidate",
+      "frequency_status": "not_measured",
+      "notes": "AI-authored draft; requires linguistic and editorial review."
+    },
+    {
+      "id": "ru:УЛИЦА",
+      "lemma": "УЛИЦА",
+      "length": 5,
+      "language": "ru",
+      "part_of_speech": "noun_candidate",
+      "grammar": {
+        "number": "singular_candidate",
+        "case": "nominative_candidate",
+        "check_required": true
+      },
+      "topical_categories": [
+        "Город и транспорт"
+      ],
+      "difficulty": "easy",
+      "frequency_rank": null,
+      "editorial_status": "draft",
+      "approved_by": null,
+      "approved_at": null,
+      "review_flags": [],
+      "sources": [
+        "mit_nouns_v021"
+      ],
+      "senses": [
+        {
+          "sense_id": "ru:УЛИЦА:sense:1",
+          "definition": "Проход между рядами домов в населённом пункте.",
+          "hint": null,
+          "definition_origin": "ai_draft",
+          "editorial_status": "draft",
+          "usage_refs": []
+        }
+      ],
+      "usage_refs": [],
+      "batch_id": "v024c_common_batch_001",
+      "priority": "common_candidate",
+      "frequency_status": "not_measured",
+      "notes": "AI-authored draft; requires linguistic and editorial review."
+    },
+    {
+      "id": "ru:УТКА",
+      "lemma": "УТКА",
+      "length": 4,
+      "language": "ru",
+      "part_of_speech": "noun_candidate",
+      "grammar": {
+        "number": "singular_candidate",
+        "case": "nominative_candidate",
+        "check_required": true
+      },
+      "topical_categories": [
+        "Животные"
+      ],
+      "difficulty": "easy",
+      "frequency_rank": null,
+      "editorial_status": "draft",
+      "approved_by": null,
+      "approved_at": null,
+      "review_flags": [],
+      "sources": [
+        "mit_nouns_v021"
+      ],
+      "senses": [
+        {
+          "sense_id": "ru:УТКА:sense:1",
+          "definition": "Водоплавающая птица с широким плоским клювом.",
+          "hint": {
+            "kind": "alternate_meaning",
+            "text": "Так называют выдуманную новость в газете."
+          },
+          "definition_origin": "ai_draft",
+          "editorial_status": "draft",
+          "usage_refs": []
+        }
+      ],
+      "usage_refs": [],
+      "batch_id": "v024c_common_batch_001",
+      "priority": "common_candidate",
+      "frequency_status": "not_measured",
+      "notes": "AI-authored draft; requires linguistic and editorial review."
+    },
+    {
+      "id": "ru:ФОНАРЬ",
+      "lemma": "ФОНАРЬ",
+      "length": 6,
+      "language": "ru",
+      "part_of_speech": "noun_candidate",
+      "grammar": {
+        "number": "singular_candidate",
+        "case": "nominative_candidate",
+        "check_required": true
+      },
+      "topical_categories": [
+        "Дом и быт"
+      ],
+      "difficulty": "easy",
+      "frequency_rank": null,
+      "editorial_status": "draft",
+      "approved_by": null,
+      "approved_at": null,
+      "review_flags": [],
+      "sources": [
+        "mit_nouns_v021"
+      ],
+      "senses": [
+        {
+          "sense_id": "ru:ФОНАРЬ:sense:1",
+          "definition": "Осветительный прибор, который можно держать в руке или повесить на улице.",
+          "hint": null,
+          "definition_origin": "ai_draft",
+          "editorial_status": "draft",
+          "usage_refs": []
+        }
+      ],
+      "usage_refs": [],
+      "batch_id": "v024c_common_batch_001",
+      "priority": "common_candidate",
+      "frequency_status": "not_measured",
+      "notes": "AI-authored draft; requires linguistic and editorial review."
+    },
+    {
+      "id": "ru:ФРУКТ",
+      "lemma": "ФРУКТ",
+      "length": 5,
+      "language": "ru",
+      "part_of_speech": "noun_candidate",
+      "grammar": {
+        "number": "singular_candidate",
+        "case": "nominative_candidate",
+        "check_required": true
+      },
+      "topical_categories": [
+        "Еда и кухня"
+      ],
+      "difficulty": "easy",
+      "frequency_rank": null,
+      "editorial_status": "draft",
+      "approved_by": null,
+      "approved_at": null,
+      "review_flags": [],
+      "sources": [
+        "mit_nouns_v021"
+      ],
+      "senses": [
+        {
+          "sense_id": "ru:ФРУКТ:sense:1",
+          "definition": "Сладкий съедобный плод дерева или кустарника.",
+          "hint": null,
+          "definition_origin": "ai_draft",
+          "editorial_status": "draft",
+          "usage_refs": []
+        }
+      ],
+      "usage_refs": [],
+      "batch_id": "v024c_common_batch_001",
+      "priority": "common_candidate",
+      "frequency_status": "not_measured",
+      "notes": "AI-authored draft; requires linguistic and editorial review."
+    },
+    {
+      "id": "ru:ХЛЕБ",
+      "lemma": "ХЛЕБ",
+      "length": 4,
+      "language": "ru",
+      "part_of_speech": "noun_candidate",
+      "grammar": {
+        "number": "singular_candidate",
+        "case": "nominative_candidate",
+        "check_required": true
+      },
+      "topical_categories": [
+        "Еда и кухня"
+      ],
+      "difficulty": "easy",
+      "frequency_rank": null,
+      "editorial_status": "draft",
+      "approved_by": null,
+      "approved_at": null,
+      "review_flags": [],
+      "sources": [
+        "mit_nouns_v021"
+      ],
+      "senses": [
+        {
+          "sense_id": "ru:ХЛЕБ:sense:1",
+          "definition": "Выпеченный из муки продукт, который едят с основной пищей.",
+          "hint": null,
+          "definition_origin": "ai_draft",
+          "editorial_status": "draft",
+          "usage_refs": []
+        }
+      ],
+      "usage_refs": [],
+      "batch_id": "v024c_common_batch_001",
+      "priority": "common_candidate",
+      "frequency_status": "not_measured",
+      "notes": "AI-authored draft; requires linguistic and editorial review."
+    },
+    {
+      "id": "ru:ХОЛОД",
+      "lemma": "ХОЛОД",
+      "length": 5,
+      "language": "ru",
+      "part_of_speech": "noun_candidate",
+      "grammar": {
+        "number": "singular_candidate",
+        "case": "nominative_candidate",
+        "check_required": true
+      },
+      "topical_categories": [
+        "Природа"
+      ],
+      "difficulty": "easy",
+      "frequency_rank": null,
+      "editorial_status": "draft",
+      "approved_by": null,
+      "approved_at": null,
+      "review_flags": [],
+      "sources": [
+        "mit_nouns_v021"
+      ],
+      "senses": [
+        {
+          "sense_id": "ru:ХОЛОД:sense:1",
+          "definition": "Низкая температура воздуха или предмета.",
+          "hint": null,
+          "definition_origin": "ai_draft",
+          "editorial_status": "draft",
+          "usage_refs": []
+        }
+      ],
+      "usage_refs": [],
+      "batch_id": "v024c_common_batch_001",
+      "priority": "common_candidate",
+      "frequency_status": "not_measured",
+      "notes": "AI-authored draft; requires linguistic and editorial review."
+    },
+    {
+      "id": "ru:ШАРФ",
+      "lemma": "ШАРФ",
+      "length": 4,
+      "language": "ru",
+      "part_of_speech": "noun_candidate",
+      "grammar": {
+        "number": "singular_candidate",
+        "case": "nominative_candidate",
+        "check_required": true
+      },
+      "topical_categories": [
+        "Дом и быт"
+      ],
+      "difficulty": "easy",
+      "frequency_rank": null,
+      "editorial_status": "draft",
+      "approved_by": null,
+      "approved_at": null,
+      "review_flags": [],
+      "sources": [
+        "mit_nouns_v021"
+      ],
+      "senses": [
+        {
+          "sense_id": "ru:ШАРФ:sense:1",
+          "definition": "Длинная полоса ткани, которую носят на шее.",
+          "hint": null,
+          "definition_origin": "ai_draft",
+          "editorial_status": "draft",
+          "usage_refs": []
+        }
+      ],
+      "usage_refs": [],
+      "batch_id": "v024c_common_batch_001",
+      "priority": "common_candidate",
+      "frequency_status": "not_measured",
+      "notes": "AI-authored draft; requires linguistic and editorial review."
+    },
+    {
+      "id": "ru:ШКОЛА",
+      "lemma": "ШКОЛА",
+      "length": 5,
+      "language": "ru",
+      "part_of_speech": "noun_candidate",
+      "grammar": {
+        "number": "singular_candidate",
+        "case": "nominative_candidate",
+        "check_required": true
+      },
+      "topical_categories": [
+        "Общие знания"
+      ],
+      "difficulty": "easy",
+      "frequency_rank": null,
+      "editorial_status": "draft",
+      "approved_by": null,
+      "approved_at": null,
+      "review_flags": [],
+      "sources": [
+        "mit_nouns_v021"
+      ],
+      "senses": [
+        {
+          "sense_id": "ru:ШКОЛА:sense:1",
+          "definition": "Учебное заведение, где дети получают образование.",
+          "hint": {
+            "kind": "alternate_meaning",
+            "text": "Так называют направление в искусстве или науке."
+          },
+          "definition_origin": "ai_draft",
+          "editorial_status": "draft",
+          "usage_refs": []
+        }
+      ],
+      "usage_refs": [],
+      "batch_id": "v024c_common_batch_001",
+      "priority": "common_candidate",
+      "frequency_status": "not_measured",
+      "notes": "AI-authored draft; requires linguistic and editorial review."
+    },
+    {
+      "id": "ru:ЯБЛОКО",
+      "lemma": "ЯБЛОКО",
+      "length": 6,
+      "language": "ru",
+      "part_of_speech": "noun_candidate",
+      "grammar": {
+        "number": "singular_candidate",
+        "case": "nominative_candidate",
+        "check_required": true
+      },
+      "topical_categories": [
+        "Еда и кухня"
+      ],
+      "difficulty": "easy",
+      "frequency_rank": null,
+      "editorial_status": "draft",
+      "approved_by": null,
+      "approved_at": null,
+      "review_flags": [],
+      "sources": [
+        "mit_nouns_v021"
+      ],
+      "senses": [
+        {
+          "sense_id": "ru:ЯБЛОКО:sense:1",
+          "definition": "Круглый сочный плод яблони.",
+          "hint": null,
+          "definition_origin": "ai_draft",
+          "editorial_status": "draft",
+          "usage_refs": []
+        }
+      ],
+      "usage_refs": [],
+      "batch_id": "v024c_common_batch_001",
+      "priority": "common_candidate",
+      "frequency_status": "not_measured",
+      "notes": "AI-authored draft; requires linguistic and editorial review."
+    },
+    {
+      "id": "ru:ЯГОДА",
+      "lemma": "ЯГОДА",
+      "length": 5,
+      "language": "ru",
+      "part_of_speech": "noun_candidate",
+      "grammar": {
+        "number": "singular_candidate",
+        "case": "nominative_candidate",
+        "check_required": true
+      },
+      "topical_categories": [
+        "Природа"
+      ],
+      "difficulty": "easy",
+      "frequency_rank": null,
+      "editorial_status": "draft",
+      "approved_by": null,
+      "approved_at": null,
+      "review_flags": [],
+      "sources": [
+        "mit_nouns_v021"
+      ],
+      "senses": [
+        {
+          "sense_id": "ru:ЯГОДА:sense:1",
+          "definition": "Небольшой сочный плод растения.",
+          "hint": null,
+          "definition_origin": "ai_draft",
+          "editorial_status": "draft",
+          "usage_refs": []
+        }
+      ],
+      "usage_refs": [],
+      "batch_id": "v024c_common_batch_001",
+      "priority": "common_candidate",
+      "frequency_status": "not_measured",
+      "notes": "AI-authored draft; requires linguistic and editorial review."
+    }
+  ]
+}
