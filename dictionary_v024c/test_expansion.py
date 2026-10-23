@@ -46,7 +46,7 @@ class DictionaryExpansionTests(unittest.TestCase):
 
     def test_reject_unsupported_word(self):
         poisoned = copy.deepcopy(self.batch)
-        poisoned["entries"][0]["lemma"] = "ФАБРИКАТ"
+        poisoned["entries"][0]["lemma"] = "ФФФФФФФ"
         with self.assertRaises(AssertionError):
             exp.validate_expansion(self.base, poisoned, self.pool)
 
