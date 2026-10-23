@@ -28,7 +28,7 @@
     ],
     "hint_policy": "At most one optional editorial hint per answer. Prefer a direct synonym or another genuine meaning of the same answer. A hint may not contain the answer text, cannot contradict the clue, and must be reviewed before publication.",
     "hint_seed_status": "draft_optional_not_gameplay",
-    "hint_seed_count": 11
+    "hint_seed_count": 13
   },
   "puzzles": [
     {
@@ -1784,7 +1784,11 @@
           "length": 7,
           "word": "АБСОЛЮТ",
           "clue": "Безусловное и независимое начало в философии.",
-          "editorial_flag": "requires_age_accessibility_review"
+          "editorial_flag": "requires_age_accessibility_review",
+          "hint": {
+            "kind": "alternate_meaning",
+            "text": "Шведская торговая марка водки."
+          }
         },
         {
           "number": 16,
@@ -2350,7 +2354,11 @@
           "length": 6,
           "word": "АРКАДА",
           "clue": "Ряд одинаковых арок, опирающихся на колонны.",
-          "editorial_flag": "requires_age_accessibility_review"
+          "editorial_flag": "requires_age_accessibility_review",
+          "hint": {
+            "kind": "alternate_meaning",
+            "text": "Жанр компьютерных игр с простым и динамичным игровым процессом."
+          }
         },
         {
           "number": 13,
