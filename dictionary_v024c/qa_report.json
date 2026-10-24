@@ -82,6 +82,22 @@
       ],
       "existing_hint_retained": true,
       "status": "owner_selected_draft_not_published"
+    },
+    {
+      "lemma": "ЗЕРКАЛО",
+      "selected_options": [
+        1,
+        2
+      ],
+      "categories": [
+        "Дом и быт",
+        "Литература и классика"
+      ],
+      "classical_definition": "Предмет с гладкой поверхностью, отражающей свет и позволяющей человеку увидеть собственное изображение.",
+      "literary_definition": "В сказке Пушкина царица спрашивала его, кто на свете всех милее.",
+      "storage": "owner_clue_overrides_v024d.json (applied by build_owner_review_v024d.py)",
+      "original_hint_retained": true,
+      "status": "owner_selected_draft_not_published"
     }
   ],
   "secondary_clue_variants": 1,
@@ -94,8 +110,9 @@
     "Общие знания": 4,
     "Искусство": 3,
     "Здоровье": 2,
-    "Литература и классика": 1,
+    "Литература и классика": 2,
     "Пословицы и поговорки": 1
   },
-  "category_note": "Categories may overlap: one literary category on ГРОЗА, one proverb category on ЖУРАВЛЬ. No additional words or puzzle slots."
+  "category_note": "Categories may overlap: one literary category on ГРОЗА, one proverb category on ЖУРАВЛЬ. No additional words or puzzle slots.",
+  "workflow": "Owner reviews 3 words per chat round; commit all 3 choices together to compact owner overrides file after all choices are received; no auto-publication."
 }
