@@ -56,6 +56,20 @@ class DictionaryExpansionTests(unittest.TestCase):
         self.assertIn("звукоизоляции", carpet["senses"][0]["definition"])
         self.assertNotIn("ё_spelling_review", carpet["review_flags"])
 
+    def test_owner_selected_storm_definitions_and_category(self):
+        full, drafts, stats = exp.build()
+        byword = {e["lemma"]: e for e in drafts}
+        storm = byword["ГРОЗА"]
+        sense = storm["senses"][0]
+        self.assertEqual(storm["topical_categories"], ["Природа", "Литература и классика"])
+        self.assertEqual(sense["preferred_clue_variant"], "literary")
+        self.assertEqual(len(sense["clue_variants"]), 2)
+        self.assertEqual(sense["definition"], sense["clue_variants"][0]["text"])
+        self.assertIn("А. Островского", sense["definition"])
+        self.assertIn("электрическими разрядами", sense["clue_variants"][1]["text"])
+        self.assertEqual(storm["editorial_status"], "draft")
+        self.assertEqual(stats["approved"], 0)
+
     def test_reject_unsupported_word(self):
         poisoned = copy.deepcopy(self.batch)
         poisoned["entries"][0]["lemma"] = "ФФФФФФФ"
