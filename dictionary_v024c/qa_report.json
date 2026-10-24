@@ -1,5 +1,5 @@
 {
-  "version": "0.24c.1",
+  "version": "0.24d.1",
   "status": "editorial_preview_only",
   "base": "dictionary_v024b/draft_entries.json",
   "new_batch": "dictionary_v024c/common_words_batch_001.json",
@@ -32,20 +32,30 @@
     "9": 1
   },
   "flags": {
-    "total": 22,
+    "total": 21,
     "remaining_morphology": [
       "КУДРИ",
       "КОЗНИ",
       "ДАННЫЕ"
     ],
     "spelling": [
-      "КОВЕР",
       "АКТЕР",
       "ДИРИЖЕР"
     ]
   },
   "frequency_data": "not_available_not_fabricated",
   "independent_human_editorial_approval": 0,
-  "automated_verification": "wordbank membership, no duplicate, syntax, hint leakage, geometry unchanged; JS smoke test PASS",
-  "python_regression_tests": "added_not_executed_in_current_remote_environment"
+  "automated_verification": "Original candidate source spelling mapped to canonical КОВЁР; no duplicated lemmas; HTML JavaScript syntax valid; independent morphology QA still pending",
+  "python_regression_tests": "added_not_executed_in_current_remote_environment",
+  "owner_editorial_corrections": [
+    {
+      "old_lemma": "КОВЕР",
+      "new_lemma": "КОВЁР",
+      "definition": "Плотное текстильное изделие для украшения, утепления, а также звукоизоляции полов и стен.",
+      "source": "owner_direct_feedback",
+      "status": "saved_to_draft_and_review_ui",
+      "original_dictionary_source_spelling": "КОВЕР",
+      "gameplay_release_status": "not_published"
+    }
+  ]
 }
