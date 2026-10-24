@@ -28,6 +28,73 @@
       ],
       "hint_policy": "preserve_existing",
       "status": "owner_selected_draft_not_published"
+    },
+    {
+      "lemma": "ЗАЯЦ",
+      "categories": [
+        "Животные",
+        "Сказки и фольклор"
+      ],
+      "preferred_clue_variant": "folklore",
+      "clue_variants": [
+        {
+          "id": "folklore",
+          "label": "Народная сказка",
+          "text": "В русской сказке лиса выгнала его из лубяной избушки.",
+          "origin": "ai_draft_owner_selected",
+          "editorial_status": "owner_selected_draft"
+        }
+      ],
+      "original_selected_text": "В русской народной сказке у него была лубяная избушка, пока хитрая лиса не выгнала его из собственного дома.",
+      "editing_note": "Сокращено для мобильного экрана по требованию владельца, смысл варианта 2 сохранён.",
+      "hint_policy": "replace",
+      "hint_override": {
+        "kind": "alternate_meaning",
+        "text": "Безбилетник."
+      },
+      "status": "owner_selected_draft_not_published"
+    },
+    {
+      "lemma": "ЛУНА",
+      "categories": [
+        "Природа"
+      ],
+      "preferred_clue_variant": "science",
+      "clue_variants": [
+        {
+          "id": "science",
+          "label": "Классическое",
+          "text": "Естественный спутник Земли, влияющий на морские приливы и отливы.",
+          "origin": "owner_authored",
+          "editorial_status": "owner_selected_draft"
+        }
+      ],
+      "hint_policy": "preserve_existing",
+      "status": "owner_selected_draft_not_published"
+    },
+    {
+      "lemma": "КНИГА",
+      "categories": [
+        "Дом и быт"
+      ],
+      "preferred_clue_variant": "playful",
+      "clue_variants": [
+        {
+          "id": "playful",
+          "label": "С несколькими значениями",
+          "text": "Она бывает настольной, электронной и даже Красной.",
+          "origin": "owner_authored",
+          "editorial_status": "owner_selected_draft"
+        }
+      ],
+      "hint_policy": "preserve_existing",
+      "status": "owner_selected_draft_not_published"
     }
-  ]
+  ],
+  "editorial_display_guideline": {
+    "max_lines": 2,
+    "target_characters": 70,
+    "require_real_device_font_measurement": true,
+    "wording": "Не более двух строк на малом экране с крупным шрифтом; ограничение по символам — предварительный фильтр, а не гарантия."
+  }
 }
