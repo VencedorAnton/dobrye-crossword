@@ -154,6 +154,7 @@ def build():
 def write_queue(path, defined):
     columns = ["word", "category", "length", "definition", "hint_type", "hint",
                "difficulty_draft", "grammar_draft", "review_flags", "source_batch",
+               "additional_clues", "clue_style",
                "editorial_decision", "notes"]
     with path.open("w", encoding="utf-8-sig", newline="") as h:
         writer = csv.DictWriter(h, fieldnames=columns)
@@ -170,6 +171,13 @@ def write_queue(path, defined):
                 "grammar_draft": e["grammar"]["number"],
                 "review_flags": "; ".join(e["review_flags"]),
                 "source_batch": e.get("batch_id", "v0.24b_legacy"),
+                "additional_clues": " | ".join(
+                    v["label"] + ": " + v["text"]
+                    for v in s.get("clue_variants", [])
+                    if v["id"] != s.get("preferred_clue_variant")
+                ),
+                "clue_style": s.get("preferred_clue_variant", ""),
+
                 "editorial_decision": "", "notes": ""
             })
 
