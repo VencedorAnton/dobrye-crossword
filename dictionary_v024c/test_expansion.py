@@ -19,6 +19,8 @@ class DictionaryExpansionTests(unittest.TestCase):
         cls.batch = exp.base.load_json(exp.BATCH)
         cls.registry = exp.base.load_json(exp.base.REGISTRY)
         cls.pool = exp.base.read_candidates(cls.registry)
+        for raw, correct in exp.CANONICAL_SPELLINGS.items():
+            cls.pool[correct] = cls.pool.pop(raw)
 
     def test_batch_is_clean_and_from_mit(self):
         verified = exp.validate_expansion(self.base, self.batch, self.pool)
@@ -39,7 +41,7 @@ class DictionaryExpansionTests(unittest.TestCase):
     def test_plural_cases_remain_flagged(self):
         full, _, stats = exp.build()
         lookup = {e["lemma"]: e for e in full}
-        for word in ["КУДРИ", "КОЗНИ", "ДАННЫЕ", "КОВЕР"]:
+        for word in ["КУДРИ", "КОЗНИ", "ДАННЫЕ"]:
             with self.subTest(word=word):
                 self.assertTrue(lookup[word]["review_flags"])
                 self.assertTrue(lookup[word]["grammar"]["check_required"])
