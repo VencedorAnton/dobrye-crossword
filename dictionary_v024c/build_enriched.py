@@ -18,7 +18,8 @@ import build_dictionary as base  # noqa: E402
 
 BATCH = HERE / "common_words_batch_001.json"
 GRAMMAR_WATCH = {"КОЗНИ", "КУДРИ", "ДАННЫЕ"}
-SPELLING_WATCH = {"КОВЕР", "АКТЕР", "ДИРИЖЕР"}
+SPELLING_WATCH = {"АКТЕР", "ДИРИЖЕР"}
+CANONICAL_SPELLINGS = {"КОВЕР": "КОВЁР"}
 
 
 def validate_expansion(existing_seed, batch, pool):
@@ -55,7 +56,7 @@ def validate_expansion(existing_seed, batch, pool):
         assert len(e["senses"]) == 1
         s = e["senses"][0]
         assert s["definition"].strip() and s["editorial_status"] == "draft"
-        assert s["definition_origin"] == "ai_draft"
+        assert s["definition_origin"] in {"ai_draft", "owner_authored"}
         assert s["usage_refs"] == []
         hint = s.get("hint")
         if hint:
@@ -65,6 +66,10 @@ def validate_expansion(existing_seed, batch, pool):
                 hint["text"].lower().replace("ё", "е")), ("Hint reveals answer", w)
         if w in SPELLING_WATCH:
             assert "ё_spelling_review" in e["review_flags"], w
+        if w == "КОВЁР":
+            assert e["source_spelling"] == "КОВЕР"
+            assert s["definition_origin"] == "owner_authored"
+            assert "ё_spelling_review" not in e["review_flags"]
     return {e["lemma"]: e for e in batch["entries"]}
 
 
@@ -74,6 +79,11 @@ def build():
     old_seed = base.load_json(base.DRAFTS)
     old_entries = base.check_seed(old_seed, puzzle_data, registry)
     candidate_pool = base.read_candidates(registry)
+    # The original MIT source spells КОВЕР without Ё. Preserve its provenance,
+    # but normalize the candidate into the owner-approved orthography КОВЁР.
+    for raw, canonical in CANONICAL_SPELLINGS.items():
+        assert raw in candidate_pool and canonical not in candidate_pool
+        candidate_pool[canonical] = candidate_pool.pop(raw)
     newcomers = validate_expansion(old_seed, base.load_json(BATCH), candidate_pool)
     combined = dict(old_entries)
     combined.update(newcomers)
