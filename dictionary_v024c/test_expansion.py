@@ -46,6 +46,16 @@ class DictionaryExpansionTests(unittest.TestCase):
                 self.assertTrue(lookup[word]["review_flags"])
                 self.assertTrue(lookup[word]["grammar"]["check_required"])
 
+    def test_carpet_spelling_and_owner_definition(self):
+        full, _, _ = exp.build()
+        words = {e["lemma"]: e for e in full}
+        self.assertNotIn("КОВЕР", words)
+        carpet = words["КОВЁР"]
+        self.assertEqual(carpet["source_spelling"], "КОВЕР")
+        self.assertEqual(carpet["senses"][0]["definition_origin"], "owner_authored")
+        self.assertIn("звукоизоляции", carpet["senses"][0]["definition"])
+        self.assertNotIn("ё_spelling_review", carpet["review_flags"])
+
     def test_reject_unsupported_word(self):
         poisoned = copy.deepcopy(self.batch)
         poisoned["entries"][0]["lemma"] = "ФФФФФФФ"
