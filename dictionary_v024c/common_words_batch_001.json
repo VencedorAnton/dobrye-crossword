@@ -1489,8 +1489,8 @@
       "notes": "AI-authored draft; requires linguistic and editorial review."
     },
     {
-      "id": "ru:КОВЕР",
-      "lemma": "КОВЕР",
+      "id": "ru:КОВЁР",
+      "lemma": "КОВЁР",
       "length": 5,
       "language": "ru",
       "part_of_speech": "noun_candidate",
@@ -1502,23 +1502,21 @@
       "topical_categories": [
         "Дом и быт"
       ],
-      "difficulty": "easy",
+      "difficulty": null,
       "frequency_rank": null,
       "editorial_status": "draft",
       "approved_by": null,
       "approved_at": null,
-      "review_flags": [
-        "ё_spelling_review"
-      ],
+      "review_flags": [],
       "sources": [
         "mit_nouns_v021"
       ],
       "senses": [
         {
-          "sense_id": "ru:КОВЕР:sense:1",
-          "definition": "Тканое покрытие, которое обычно стелют на пол.",
+          "sense_id": "ru:КОВЁР:sense:1",
+          "definition": "Плотное текстильное изделие для украшения, утепления, а также звукоизоляции полов и стен.",
           "hint": null,
-          "definition_origin": "ai_draft",
+          "definition_origin": "owner_authored",
           "editorial_status": "draft",
           "usage_refs": []
         }
@@ -1527,7 +1525,17 @@
       "batch_id": "v024c_common_batch_001",
       "priority": "common_candidate",
       "frequency_status": "not_measured",
-      "notes": "AI-authored draft; requires linguistic and editorial review."
+      "notes": "Определение предоставлено владельцем проекта; написание Ё исправлено. Для публикации нужна общая редакторская проверка.",
+      "source_spelling": "КОВЕР",
+      "editorial_revision": {
+        "revision": "v0.24d-owner-edit-001",
+        "submitted_word": "КОВЁР",
+        "original_word": "КОВЕР",
+        "spelling_note": "Use Ё in canonical form; map the MIT candidate КОВЕР to КОВЁР.",
+        "definition_source": "owner_direct_feedback",
+        "owner_definition_accepted": true,
+        "publication_status": "draft_pending_full_editorial_gate"
+      }
     },
     {
       "id": "ru:КОМАР",
