@@ -70,6 +70,18 @@
       "meaning": "one noun, multiple crossword formulations",
       "existing_hint_retained": true,
       "status": "owner_selected_drafts_not_published"
+    },
+    {
+      "lemma": "ЖУРАВЛЬ",
+      "selected_variant": 2,
+      "style": "Пословицы и поговорки",
+      "selected_definition": "Согласно известной пословице, он остаётся в небе, пока синица находится в руках.",
+      "categories": [
+        "Животные",
+        "Пословицы и поговорки"
+      ],
+      "existing_hint_retained": true,
+      "status": "owner_selected_draft_not_published"
     }
   ],
   "secondary_clue_variants": 1,
@@ -82,7 +94,8 @@
     "Общие знания": 4,
     "Искусство": 3,
     "Здоровье": 2,
-    "Литература и классика": 1
+    "Литература и классика": 1,
+    "Пословицы и поговорки": 1
   },
-  "category_note": "Categories can overlap; 104 tags for 103 new entries after assigning ГРОЗА to both Nature and Literature & Classics."
+  "category_note": "Categories may overlap: one literary category on ГРОЗА, one proverb category on ЖУРАВЛЬ. No additional words or puzzle slots."
 }
