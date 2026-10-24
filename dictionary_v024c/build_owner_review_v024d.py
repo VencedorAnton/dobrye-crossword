@@ -28,10 +28,10 @@ def compile_editorial_view():
         e = by_word[word]
         assert e["editorial_status"] == "draft" and e["approved_at"] is None
         assert e["grammar"]["check_required"] is True
-        assert change["hint_policy"] == "preserve_existing"
-        assert len(change["clue_variants"]) == 2
+        assert change["hint_policy"] in {"preserve_existing", "replace"}
+        assert 1 <= len(change["clue_variants"]) <= 3
         ids = [v["id"] for v in change["clue_variants"]]
-        assert len(set(ids)) == 2 and change["preferred_clue_variant"] in ids
+        assert len(set(ids)) == len(ids) and change["preferred_clue_variant"] in ids
         for v in change["clue_variants"]:
             assert v["text"].strip() and v["editorial_status"] == "owner_selected_draft"
             assert word.lower().replace("ё", "е") not in v["text"].lower().replace("ё", "е")
@@ -44,8 +44,15 @@ def compile_editorial_view():
                                    if v["id"] == change["preferred_clue_variant"])
         sense["definition_origin"] = "ai_draft_owner_selected"
         sense["editorial_choice"] = {"selected_by": "owner", "status": "draft"}
-        assert sense.get("hint") == old_hint
-    assert seen == {"ЗЕРКАЛО"}
+        if change["hint_policy"] == "replace":
+            hint = change["hint_override"]
+            assert set(hint) == {"kind", "text"} and hint["text"].strip()
+            assert hint["kind"] in {"alternate_meaning", "synonym"}
+            assert word.lower().replace("ё", "е") not in hint["text"].lower().replace("ё", "е")
+            sense["hint"] = hint
+        else:
+            assert sense.get("hint") == old_hint
+    assert seen == {"ЗЕРКАЛО", "ЗАЯЦ", "ЛУНА", "КНИГА"}
     assert len(all_entries) == 2874 and len(drafts) == 311
     assert all(e["editorial_status"] != "approved" for e in all_entries)
     stats["version"] = "0.24d.1"
