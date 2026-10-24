@@ -1,0 +1,33 @@
+{
+  "schema_version": "0.24d.owner_clue_overrides.1",
+  "release_status": "draft_only",
+  "notes": "Editorial patch overlays the v0.24c base batch; preserve old 311-word bank and published grids.",
+  "changes": [
+    {
+      "lemma": "ЗЕРКАЛО",
+      "categories": [
+        "Дом и быт",
+        "Литература и классика"
+      ],
+      "preferred_clue_variant": "classical",
+      "clue_variants": [
+        {
+          "id": "classical",
+          "label": "Классическое",
+          "text": "Предмет с гладкой поверхностью, отражающей свет и позволяющей человеку увидеть собственное изображение.",
+          "origin": "ai_draft_owner_selected",
+          "editorial_status": "owner_selected_draft"
+        },
+        {
+          "id": "literary",
+          "label": "Литературное",
+          "text": "В сказке Пушкина царица спрашивала его, кто на свете всех милее.",
+          "origin": "ai_draft_owner_selected",
+          "editorial_status": "owner_selected_draft"
+        }
+      ],
+      "hint_policy": "preserve_existing",
+      "status": "owner_selected_draft_not_published"
+    }
+  ]
+}
