@@ -230,14 +230,19 @@
       "senses": [
         {
           "sense_id": "ru:ВОЛНА:sense:1",
-          "definition": "Движущийся водяной вал на поверхности моря или реки.",
+          "definition": "Она накатывает на берег, прокатывается по трибунам стадиона и порой захлёстывает человека чувствами.",
           "hint": {
             "kind": "alternate_meaning",
             "text": "Так называют распространение звуковых или световых колебаний."
           },
-          "definition_origin": "ai_draft",
+          "definition_origin": "ai_draft_owner_selected",
           "editorial_status": "draft",
-          "usage_refs": []
+          "usage_refs": [],
+          "editorial_choice": {
+            "variant": 3,
+            "selected_by": "owner",
+            "status": "draft"
+          }
         }
       ],
       "usage_refs": [],
