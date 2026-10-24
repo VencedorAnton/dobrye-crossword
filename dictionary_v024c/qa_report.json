@@ -56,6 +56,33 @@
       "status": "saved_to_draft_and_review_ui",
       "original_dictionary_source_spelling": "КОВЕР",
       "gameplay_release_status": "not_published"
+    },
+    {
+      "lemma": "ГРОЗА",
+      "category_added": "Литература и классика",
+      "categories": [
+        "Природа",
+        "Литература и классика"
+      ],
+      "preferred_clue_style": "literary",
+      "literary_definition": "Природное явление, давшее название знаменитой пьесе А. Островского.",
+      "classical_definition": "Атмосферное явление, сопровождающееся электрическими разрядами, раскатами грома и нередко сильными осадками.",
+      "meaning": "one noun, multiple crossword formulations",
+      "existing_hint_retained": true,
+      "status": "owner_selected_drafts_not_published"
     }
-  ]
+  ],
+  "secondary_clue_variants": 1,
+  "category_counts_all_tags": {
+    "Дом и быт": 25,
+    "Природа": 25,
+    "Животные": 18,
+    "Еда и кухня": 17,
+    "Город и транспорт": 9,
+    "Общие знания": 4,
+    "Искусство": 3,
+    "Здоровье": 2,
+    "Литература и классика": 1
+  },
+  "category_note": "Categories can overlap; 104 tags for 103 new entries after assigning ГРОЗА to both Nature and Literature & Classics."
 }
