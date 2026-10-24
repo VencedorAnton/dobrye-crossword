@@ -56,7 +56,7 @@ def validate_expansion(existing_seed, batch, pool):
         assert len(e["senses"]) == 1
         s = e["senses"][0]
         assert s["definition"].strip() and s["editorial_status"] == "draft"
-        assert s["definition_origin"] in {"ai_draft", "owner_authored"}
+        assert s["definition_origin"] in {"ai_draft", "owner_authored", "ai_draft_owner_selected"}
         assert s["usage_refs"] == []
         hint = s.get("hint")
         if hint:
