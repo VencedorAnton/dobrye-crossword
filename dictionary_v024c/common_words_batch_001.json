@@ -844,7 +844,8 @@
         "check_required": true
       },
       "topical_categories": [
-        "Животные"
+        "Животные",
+        "Пословицы и поговорки"
       ],
       "difficulty": "easy",
       "frequency_rank": null,
@@ -858,14 +859,20 @@
       "senses": [
         {
           "sense_id": "ru:ЖУРАВЛЬ:sense:1",
-          "definition": "Высокая перелётная птица с длинными ногами и шеей.",
+          "definition": "Согласно известной пословице, он остаётся в небе, пока синица находится в руках.",
           "hint": {
             "kind": "alternate_meaning",
             "text": "Так называют рычаг у старинного колодца для подъёма ведра."
           },
-          "definition_origin": "ai_draft",
+          "definition_origin": "ai_draft_owner_selected",
           "editorial_status": "draft",
-          "usage_refs": []
+          "usage_refs": [],
+          "editorial_choice": {
+            "variant": 2,
+            "selected_by": "owner",
+            "style": "proverb",
+            "status": "draft"
+          }
         }
       ],
       "usage_refs": [],
