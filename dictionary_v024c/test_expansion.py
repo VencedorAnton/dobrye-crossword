@@ -70,6 +70,17 @@ class DictionaryExpansionTests(unittest.TestCase):
         self.assertEqual(storm["editorial_status"], "draft")
         self.assertEqual(stats["approved"], 0)
 
+    def test_crane_proverb_choice_is_preserved(self):
+        _, drafts, stats = exp.build()
+        lookup = {e["lemma"]: e for e in drafts}
+        crane = lookup["ЖУРАВЛЬ"]
+        self.assertEqual(crane["senses"][0]["editorial_choice"]["variant"], 2)
+        self.assertIn("синица находится в руках", crane["senses"][0]["definition"])
+        self.assertIn("Пословицы и поговорки", crane["topical_categories"])
+        self.assertEqual(crane["senses"][0]["hint"]["kind"], "alternate_meaning")
+        self.assertEqual(crane["editorial_status"], "draft")
+        self.assertEqual(stats["approved"], 0)
+
     def test_reject_unsupported_word(self):
         poisoned = copy.deepcopy(self.batch)
         poisoned["entries"][0]["lemma"] = "ФФФФФФФ"
