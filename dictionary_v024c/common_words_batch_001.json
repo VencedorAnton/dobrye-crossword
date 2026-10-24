@@ -461,7 +461,8 @@
         "check_required": true
       },
       "topical_categories": [
-        "Природа"
+        "Природа",
+        "Литература и классика"
       ],
       "difficulty": "easy",
       "frequency_rank": null,
@@ -475,21 +476,43 @@
       "senses": [
         {
           "sense_id": "ru:ГРОЗА:sense:1",
-          "definition": "Ненастье с громом, молниями и часто дождём.",
+          "definition": "Природное явление, давшее название знаменитой пьесе А. Островского.",
           "hint": {
             "kind": "alternate_meaning",
             "text": "Так могут назвать человека, которого все вокруг боятся."
           },
-          "definition_origin": "ai_draft",
+          "definition_origin": "owner_authored",
           "editorial_status": "draft",
-          "usage_refs": []
+          "usage_refs": [],
+          "clue_variants": [
+            {
+              "id": "literary",
+              "label": "Литературное",
+              "text": "Природное явление, давшее название знаменитой пьесе А. Островского.",
+              "origin": "owner_authored",
+              "editorial_status": "owner_selected_draft"
+            },
+            {
+              "id": "classical",
+              "label": "Классическое",
+              "text": "Атмосферное явление, сопровождающееся электрическими разрядами, раскатами грома и нередко сильными осадками.",
+              "origin": "owner_authored",
+              "editorial_status": "owner_selected_draft"
+            }
+          ],
+          "preferred_clue_variant": "literary",
+          "editorial_choice": {
+            "selected_by": "owner",
+            "mode": "two_clue_variants",
+            "status": "draft_pending_publication_checks"
+          }
         }
       ],
       "usage_refs": [],
       "batch_id": "v024c_common_batch_001",
       "priority": "common_candidate",
       "frequency_status": "not_measured",
-      "notes": "AI-authored draft; requires linguistic and editorial review."
+      "notes": "Две выбранные владельцем формулировки одного ответа: литературная и классическая; основная — литературная. Оба варианта относятся к одному значению существительного. Старое определение: Ненастье с громом, молниями и часто дождём. Смысловая подсказка сохранена."
     },
     {
       "id": "ru:ГРУЗОВИК",
