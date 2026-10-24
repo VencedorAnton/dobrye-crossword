@@ -33,7 +33,8 @@ def validate_expansion(existing_seed, batch, pool):
     seen = set()
     allowed_categories = {
         "Животные", "Здоровье", "Дом и быт", "Природа", "Общие знания",
-        "Город и транспорт", "Еда и кухня", "Искусство"
+        "Город и транспорт", "Еда и кухня", "Искусство",
+        "Литература и классика"
     }
     for e in batch["entries"]:
         w = e["lemma"]
@@ -58,6 +59,30 @@ def validate_expansion(existing_seed, batch, pool):
         assert s["definition"].strip() and s["editorial_status"] == "draft"
         assert s["definition_origin"] in {"ai_draft", "owner_authored", "ai_draft_owner_selected"}
         assert s["usage_refs"] == []
+        # Different crossword definitions for one meaning are clue variants,
+        # NOT separate lexical senses or duplicate word entries.
+        variants = s.get("clue_variants")
+        if variants is not None:
+            assert isinstance(variants, list) and len(variants) >= 2
+            ids = set()
+            for v in variants:
+                assert set(v) >= {"id", "label", "text", "origin", "editorial_status"}
+                assert isinstance(v["text"], str) and v["text"].strip()
+                assert v["id"] not in ids
+                assert v["editorial_status"] == "owner_selected_draft"
+                ids.add(v["id"])
+                assert w.lower().replace("ё", "е") not in (
+                    v["text"].lower().replace("ё", "е")), ("Clue reveals answer", w)
+            assert s["preferred_clue_variant"] in ids
+            assert s["definition"] == next(
+                v["text"] for v in variants
+                if v["id"] == s["preferred_clue_variant"]
+            )
+        if w == "ГРОЗА":
+            assert s["preferred_clue_variant"] == "literary"
+            assert {v["id"] for v in s["clue_variants"]} == {"literary", "classical"}
+            assert "Литература и классика" in e["topical_categories"]
+
         hint = s.get("hint")
         if hint:
             assert set(hint) == {"kind", "text"}
