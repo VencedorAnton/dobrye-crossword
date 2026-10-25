@@ -416,6 +416,82 @@
         "round": "21-23",
         "owner_selection": true
       }
+    },
+    {
+      "lemma": "ВОРОБЕЙ",
+      "categories": [
+        "Животные",
+        "Пословицы и поговорки"
+      ],
+      "preferred_clue_variant": "proverb",
+      "clue_variants": [
+        {
+          "id": "proverb",
+          "label": "Пословицы",
+          "text": "С ним сравнивают слово, которое вылетело и уже не поймать.",
+          "origin": "ai_draft_owner_selected",
+          "editorial_status": "owner_selected_draft"
+        }
+      ],
+      "hint_policy": "preserve_existing",
+      "status": "owner_selected_draft_not_published",
+      "editorial_choice": {
+        "selected_options": [
+          2
+        ],
+        "round": "24-26",
+        "owner_selection": true
+      }
+    },
+    {
+      "lemma": "ЗОНТ",
+      "categories": [
+        "Дом и быт"
+      ],
+      "preferred_clue_variant": "classical",
+      "clue_variants": [
+        {
+          "id": "classical",
+          "label": "Классическое",
+          "text": "Складная защита от дождя и палящего солнца.",
+          "origin": "ai_draft_owner_selected",
+          "editorial_status": "owner_selected_draft"
+        }
+      ],
+      "hint_policy": "preserve_existing",
+      "status": "owner_selected_draft_not_published",
+      "editorial_choice": {
+        "selected_options": [
+          1
+        ],
+        "round": "24-26",
+        "owner_selection": true
+      }
+    },
+    {
+      "lemma": "МОСТ",
+      "categories": [
+        "Город и транспорт"
+      ],
+      "preferred_clue_variant": "classical",
+      "clue_variants": [
+        {
+          "id": "classical",
+          "label": "Классическое",
+          "text": "Сооружение, позволяющее пересечь реку или ущелье.",
+          "origin": "ai_draft_owner_selected",
+          "editorial_status": "owner_selected_draft"
+        }
+      ],
+      "hint_policy": "preserve_existing",
+      "status": "owner_selected_draft_not_published",
+      "editorial_choice": {
+        "selected_options": [
+          1
+        ],
+        "round": "24-26",
+        "owner_selection": true
+      }
     }
   ],
   "editorial_display_guideline": {
