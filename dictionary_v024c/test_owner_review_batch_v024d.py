@@ -221,6 +221,24 @@ class OwnerBatchEditorialTests(unittest.TestCase):
                       self.by_word["ЛАМПА"]["topical_categories"])
         self.assertIn("беспорядок", self.by_word["КАША"]["senses"][0]["hint"]["text"])
 
+    def test_kitchenware_raisin_pine_editorial_round(self):
+        expected = {
+            "КАСТРЮЛЯ": "Кухонная труженица с двумя ручками и крышкой вместо шляпы.",
+            "ИЗЮМ": "Его уменьшительно-ласкательная форма — особенность, шарм, «фишка».",
+            "СОСНА": "Её стройные стволы когда-то шли на мачты кораблей.",
+        }
+        for word, text in expected.items():
+            with self.subTest(word=word):
+                entry = self.by_word[word]
+                sense = entry["senses"][0]
+                self.assertEqual(sense["definition"], text)
+                self.assertEqual(len(sense["clue_variants"]), 1)
+                self.assertLessEqual(len(text), 70)
+                self.assertEqual(entry["editorial_status"], "draft")
+                self.assertTrue(entry["grammar"]["check_required"])
+        self.assertIn("Общие знания",
+                      self.by_word["ИЗЮМ"]["topical_categories"])
+
     def test_no_publication_and_no_new_words(self):
         self.assertEqual(len(self.entries), 2874)
         self.assertEqual(len(self.drafts), 311)
