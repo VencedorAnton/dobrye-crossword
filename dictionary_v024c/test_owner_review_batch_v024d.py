@@ -61,6 +61,20 @@ class OwnerBatchEditorialTests(unittest.TestCase):
         self.assertEqual(fox["senses"][0]["hint"]["text"],
                          "Так могут назвать очень хитрого человека.")
 
+    def test_third_three_word_choices(self):
+        expected = {
+            "МОРОЗ": "От него краснеют щёки, а на окнах появляются узоры.",
+            "МУЗЕЙ": "Место, где хранят и показывают предметы истории и искусства.",
+            "ПИРОГ": "Выпечка с начинкой из ягод, мяса, рыбы или капусты.",
+        }
+        for word, definition in expected.items():
+            with self.subTest(word=word):
+                entry = self.by_word[word]
+                self.assertEqual(entry["senses"][0]["definition"], definition)
+                self.assertLessEqual(len(definition), 70)
+                self.assertEqual(entry["editorial_status"], "draft")
+                self.assertEqual(len(entry["senses"][0]["clue_variants"]), 1)
+
     def test_no_publication_and_no_new_words(self):
         self.assertEqual(len(self.entries), 2874)
         self.assertEqual(len(self.drafts), 311)
