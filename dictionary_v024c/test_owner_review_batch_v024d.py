@@ -128,6 +128,18 @@ class OwnerBatchEditorialTests(unittest.TestCase):
         self.assertIn("Сказки и фольклор", self.by_word["ЛЯГУШКА"]["topical_categories"])
         self.assertIn("общее состояние дел", self.by_word["КАРТИНА"]["senses"][0]["hint"]["text"])
 
+    def test_newest_three_clues(self):
+        expected = {
+            "ВОРОБЕЙ": "С ним сравнивают слово, которое вылетело и уже не поймать.",
+            "ЗОНТ": "Складная защита от дождя и палящего солнца.",
+            "МОСТ": "Сооружение, позволяющее пересечь реку или ущелье.",
+        }
+        for word, definition in expected.items():
+            entry = self.by_word[word]
+            self.assertEqual(entry["senses"][0]["definition"], definition)
+            self.assertLessEqual(len(definition), 70)
+            self.assertEqual(entry["editorial_status"], "draft")
+
     def test_no_publication_and_no_new_words(self):
         self.assertEqual(len(self.entries), 2874)
         self.assertEqual(len(self.drafts), 311)
