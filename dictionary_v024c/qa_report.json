@@ -117,23 +117,24 @@
   "workflow": "Owner reviews 3 words per chat round; commit all 3 choices together to compact owner overrides file after all choices are received; no auto-publication.",
   "latest_three_word_batch": {
     "selections": {
-      "ВЕДРО": [
+      "ЖИРАФ": [
+        1,
         2
       ],
-      "ТУЧА": [
+      "ОРЕХ": [
         1,
-        3
+        2
       ],
-      "ПИСЬМО": [
+      "ОСТРОВ": [
+        1,
         2
       ]
     },
-    "owner_reviewed_words_total": 34,
-    "clue_count": 4,
+    "owner_reviewed_words_total": 37,
     "storage": "dictionary_v024c/owner_clue_overrides_v024d.json",
-    "status": "draft_only"
+    "release_status": "draft_only"
   },
-  "editorial_override_count": 34,
+  "editorial_override_count": 37,
   "release_status": "blocked_pending_independent_editorial_review",
   "owner_feedback": {
     "date": "2026-10-24",
@@ -142,5 +143,19 @@
     "editorial_adjustment": "Предлагать избирательно культурные, исторические, научные и филологические факты, требующие ассоциации; максимум 2 строки",
     "documentation": "dictionary_v024c/EDITORIAL_BATCH_WORKFLOW_v024d.md",
     "cat_example": "Древний Египет, почитание кошек, богиня Бастет; пример направления, а не сохранённый вариант"
+  },
+  "owner_historical_clue_guideline": {
+    "date": "2026-10-24",
+    "goal": "Prefer precise historical names over generic category-word clues",
+    "first_exile": {
+      "word": "ЭЛЬБА",
+      "clue": "Остров первого изгнания Наполеона в 1814 году."
+    },
+    "final_exile": {
+      "word": "ЕЛЕНА",
+      "clue": "Женское имя в названии острова, где умер Наполеон."
+    },
+    "caution": "Do not confuse Elba and Saint Helena or label Елена as the entire island name.",
+    "added_to_live_dictionary": false
   }
 }
