@@ -116,59 +116,22 @@
   "category_note": "Categories may overlap: one literary category on ГРОЗА, one proverb category on ЖУРАВЛЬ. No additional words or puzzle slots.",
   "workflow": "Owner reviews 3 words per chat round; commit all 3 choices together to compact owner overrides file after all choices are received; no auto-publication.",
   "latest_three_word_batch": {
-    "choices": [
-      {
-        "word": "СНЕГ",
-        "selected_options": [
-          2,
-          3
-        ],
-        "definitions": [
-          "Он укрывает землю белым одеялом и скрипит под ногами.",
-          "У Пушкина он лежит „великолепными коврами“."
-        ],
-        "categories": [
-          "Природа",
-          "Литература и классика"
-        ]
-      },
-      {
-        "word": "СОЛНЦЕ",
-        "selected_options": [
-          1,
-          3
-        ],
-        "definitions": [
-          "Звезда, вокруг которой вращается Земля.",
-          "Его проглотил крокодил в сказке Корнея Чуковского."
-        ],
-        "categories": [
-          "Природа",
-          "Литература и классика"
-        ]
-      },
-      {
-        "word": "КОШКА",
-        "selected_options": [
-          2,
-          3
-        ],
-        "definitions": [
-          "У Киплинга она гуляла сама по себе.",
-          "В народе ей приписывают девять жизней."
-        ],
-        "categories": [
-          "Животные",
-          "Литература и классика",
-          "Сказки и фольклор"
-        ]
-      }
-    ],
-    "owner_reviewed_words_total": 13,
-    "source": "dictionary_v024c/owner_clue_overrides_v024d.json",
-    "release_status": "draft_only",
-    "notes": "Two clue variants per word; preserve canonical raw dictionary and existing crossword grids. Readability target ~70 characters is not equivalent to visual two-line verification."
+    "selections": {
+      "ВОЛК": [
+        1,
+        3
+      ],
+      "КАРТИНА": [
+        3
+      ],
+      "ЛЯГУШКА": [
+        2
+      ]
+    },
+    "owner_reviewed_words_total": 16,
+    "storage": "owner_clue_overrides_v024d.json",
+    "status": "draft_only"
   },
-  "editorial_override_count": 13,
+  "editorial_override_count": 16,
   "release_status": "blocked_pending_independent_editorial_review"
 }
