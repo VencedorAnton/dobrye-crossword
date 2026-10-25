@@ -1252,6 +1252,127 @@
           3
         ]
       }
+    },
+    {
+      "lemma": "УТКА",
+      "categories": [
+        "Животные",
+        "Литература и классика",
+        "Общие знания"
+      ],
+      "preferred_clue_variant": "andersen",
+      "clue_variants": [
+        {
+          "id": "andersen",
+          "label": "Литература",
+          "text": "В сказке Андерсена она высидела будущего лебедя.",
+          "origin": "ai_draft_owner_selected",
+          "editorial_status": "owner_selected_draft"
+        },
+        {
+          "id": "ornithology",
+          "label": "Орнитология",
+          "text": "Мандаринка, кряква и огарь — три вида этой птицы.",
+          "origin": "ai_draft_owner_selected",
+          "editorial_status": "owner_selected_draft"
+        },
+        {
+          "id": "wordplay",
+          "label": "Игра слов",
+          "text": "Её «газетную» разновидность никто не слышал крякающей.",
+          "origin": "ai_draft_owner_selected",
+          "editorial_status": "owner_selected_draft"
+        }
+      ],
+      "hint_policy": "preserve_existing",
+      "status": "owner_selected_draft_not_published",
+      "editorial_choice": {
+        "selected_options": [
+          1,
+          2,
+          3
+        ],
+        "owner_selection": true,
+        "round": "51-53"
+      }
+    },
+    {
+      "lemma": "ЯБЛОКО",
+      "categories": [
+        "Еда и кухня",
+        "Сказки и фольклор",
+        "История и наука"
+      ],
+      "preferred_clue_variant": "greek_myth",
+      "clue_variants": [
+        {
+          "id": "greek_myth",
+          "label": "Древнегреческая мифология",
+          "text": "Из-за него в греческом мифе поссорились три богини.",
+          "origin": "ai_draft_owner_selected",
+          "editorial_status": "owner_selected_draft"
+        },
+        {
+          "id": "tell",
+          "label": "Швейцарская легенда",
+          "text": "На голове сына Вильгельма Телля оно стало мишенью.",
+          "origin": "ai_draft_owner_selected",
+          "editorial_status": "owner_selected_draft"
+        },
+        {
+          "id": "newton",
+          "label": "История науки",
+          "text": "Его падение связывают с открытием закона тяготения.",
+          "origin": "ai_draft_owner_selected",
+          "editorial_status": "owner_selected_draft"
+        }
+      ],
+      "hint_policy": "preserve_existing",
+      "status": "owner_selected_draft_not_published",
+      "editorial_choice": {
+        "selected_options": [
+          1,
+          2,
+          3
+        ],
+        "owner_selection": true,
+        "round": "51-53"
+      }
+    },
+    {
+      "lemma": "ЗИМА",
+      "categories": [
+        "Природа",
+        "Искусство",
+        "Литература и классика"
+      ],
+      "preferred_clue_variant": "vivaldi",
+      "clue_variants": [
+        {
+          "id": "vivaldi",
+          "label": "Классическая музыка",
+          "text": "Ей Вивальди завершил цикл «Времена года».",
+          "origin": "ai_draft_owner_selected",
+          "editorial_status": "owner_selected_draft"
+        },
+        {
+          "id": "tyutchev",
+          "label": "Русская поэзия",
+          "text": "Она «недаром злится» в стихотворении Тютчева.",
+          "origin": "ai_draft_owner_selected",
+          "editorial_status": "owner_selected_draft"
+        }
+      ],
+      "hint_policy": "preserve_existing",
+      "status": "owner_selected_draft_not_published",
+      "editorial_choice": {
+        "selected_options": [
+          1,
+          2
+        ],
+        "owner_selection": true,
+        "round": "51-53"
+      }
     }
   ],
   "editorial_display_guideline": {
