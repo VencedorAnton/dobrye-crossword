@@ -292,6 +292,37 @@ class OwnerBatchEditorialTests(unittest.TestCase):
         self.assertIn("Литература и классика",
                       self.by_word["ОСТРОВ"]["topical_categories"])
 
+    def test_passport_lemon_ram_owner_selections(self):
+        choices = {
+            "ПАСПОРТ": [
+                "Его Маяковский доставал «из широких штанин».",
+                "Его прообразом служила старинная «проезжая грамота».",
+                "Бывает дипломатическим, служебным и биометрическим.",
+            ],
+            "ЛИМОН": [
+                "В сказке Родари так звали принца — правителя страны.",
+                "В просторечии — миллион рублей, а в ботанике — цитрус.",
+            ],
+            "БАРАН": [
+                "За его золотым руном отправились Ясон и аргонавты.",
+                "Он смотрит на новые ворота в известной поговорке.",
+            ],
+        }
+        for word, clues in choices.items():
+            with self.subTest(word=word):
+                entry = self.by_word[word]
+                sense = entry["senses"][0]
+                self.assertEqual([v["text"] for v in sense["clue_variants"]], clues)
+                self.assertEqual(sense["definition"], clues[0])
+                self.assertTrue(all(len(clue) <= 70 for clue in clues))
+                self.assertEqual(entry["editorial_status"], "draft")
+        self.assertIn("Литература и классика",
+                      self.by_word["ПАСПОРТ"]["topical_categories"])
+        self.assertIn("Пословицы и поговорки",
+                      self.by_word["БАРАН"]["topical_categories"])
+        self.assertIn("техническими характеристиками",
+                      self.by_word["ПАСПОРТ"]["senses"][0]["hint"]["text"])
+
     def test_no_publication_and_no_new_words(self):
         self.assertEqual(len(self.entries), 2874)
         self.assertEqual(len(self.drafts), 311)
