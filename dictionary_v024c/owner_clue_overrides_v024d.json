@@ -1381,6 +1381,141 @@
         "owner_selection": true,
         "round": "51-53"
       }
+    },
+    {
+      "lemma": "ЖУРАВЛЬ",
+      "categories": [
+        "Животные",
+        "Пословицы и поговорки",
+        "Литература и классика",
+        "История и наука"
+      ],
+      "preferred_clue_variant": "gamzatov",
+      "clue_variants": [
+        {
+          "id": "gamzatov",
+          "label": "Русская поэзия",
+          "text": "В стихах Гамзатова он стал символом погибшего солдата.",
+          "origin": "ai_draft_owner_selected",
+          "editorial_status": "owner_selected_draft"
+        },
+        {
+          "id": "heraldry",
+          "label": "Европейская геральдика",
+          "text": "В европейской геральдике держит камень — символ бдительности.",
+          "origin": "ai_draft_owner_selected",
+          "editorial_status": "owner_selected_draft"
+        },
+        {
+          "id": "folk_wisdom",
+          "label": "Народная мудрость",
+          "text": "Его в небе противопоставляют синице в руках.",
+          "origin": "ai_draft_owner_selected",
+          "editorial_status": "owner_selected_draft"
+        }
+      ],
+      "hint_policy": "preserve_existing",
+      "status": "owner_selected_draft_not_published",
+      "editorial_choice": {
+        "selected_options": [
+          1,
+          2,
+          3
+        ],
+        "owner_selection": true,
+        "round": "54-56",
+        "owner_revision": {
+          "option": 2,
+          "original": "в европейской геральдике эта птица держит камень как символ бдительности.",
+          "mobile_shortened": true
+        }
+      }
+    },
+    {
+      "lemma": "ВОЛНА",
+      "categories": [
+        "Природа",
+        "Искусство",
+        "Общие знания"
+      ],
+      "preferred_clue_variant": "aivazovsky",
+      "clue_variants": [
+        {
+          "id": "aivazovsky",
+          "label": "Живопись",
+          "text": "Айвазовский прославил её под названием «Девятый вал».",
+          "origin": "ai_draft_owner_selected",
+          "editorial_status": "owner_selected_draft"
+        },
+        {
+          "id": "physics",
+          "label": "Физика",
+          "text": "Её длину измеряют в метрах, а частоту — в герцах.",
+          "origin": "ai_draft_owner_selected",
+          "editorial_status": "owner_selected_draft"
+        },
+        {
+          "id": "mexican_wave",
+          "label": "Необычное значение",
+          "text": "Её «мексиканский» вариант прокатывается по трибунам стадиона.",
+          "origin": "ai_draft_owner_selected",
+          "editorial_status": "owner_selected_draft"
+        }
+      ],
+      "hint_policy": "preserve_existing",
+      "status": "owner_selected_draft_not_published",
+      "editorial_choice": {
+        "selected_options": [
+          1,
+          2,
+          3
+        ],
+        "owner_selection": true,
+        "round": "54-56"
+      }
+    },
+    {
+      "lemma": "ПОЛОТНО",
+      "categories": [
+        "Дом и быт",
+        "Искусство",
+        "Город и транспорт"
+      ],
+      "preferred_clue_variant": "meanings",
+      "clue_variants": [
+        {
+          "id": "meanings",
+          "label": "Разные значения",
+          "text": "Оно бывает железнодорожным, льняным и живописным.",
+          "origin": "ai_draft_owner_selected",
+          "editorial_status": "owner_selected_draft"
+        },
+        {
+          "id": "art_and_craft",
+          "label": "Искусство и ремёсла",
+          "text": "У художника оно в раме, у ткача — на станке.",
+          "origin": "ai_draft_owner_selected",
+          "editorial_status": "owner_selected_draft"
+        },
+        {
+          "id": "wordplay",
+          "label": "Игра значений",
+          "text": "Его кладут под рельсы и натягивают на подрамник.",
+          "origin": "ai_draft_owner_selected",
+          "editorial_status": "owner_selected_draft"
+        }
+      ],
+      "hint_policy": "preserve_existing",
+      "status": "owner_selected_draft_not_published",
+      "editorial_choice": {
+        "selected_options": [
+          1,
+          2,
+          3
+        ],
+        "owner_selection": true,
+        "round": "54-56"
+      }
     }
   ],
   "editorial_display_guideline": {
