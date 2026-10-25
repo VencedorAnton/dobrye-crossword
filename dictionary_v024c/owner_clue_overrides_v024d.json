@@ -757,6 +757,85 @@
           2
         ]
       }
+    },
+    {
+      "lemma": "КАСТРЮЛЯ",
+      "categories": [
+        "Еда и кухня"
+      ],
+      "preferred_clue_variant": "humorous",
+      "clue_variants": [
+        {
+          "id": "humorous",
+          "label": "С юмором",
+          "text": "Кухонная труженица с двумя ручками и крышкой вместо шляпы.",
+          "origin": "ai_draft_owner_selected",
+          "editorial_status": "owner_selected_draft"
+        }
+      ],
+      "hint_policy": "preserve_existing",
+      "status": "owner_selected_draft_not_published",
+      "editorial_choice": {
+        "selected_options": [
+          3
+        ],
+        "owner_selection": true,
+        "round": "36-38"
+      }
+    },
+    {
+      "lemma": "ИЗЮМ",
+      "categories": [
+        "Еда и кухня",
+        "Общие знания"
+      ],
+      "preferred_clue_variant": "wordplay",
+      "clue_variants": [
+        {
+          "id": "wordplay",
+          "label": "Игра слов",
+          "text": "Его уменьшительно-ласкательная форма — особенность, шарм, «фишка».",
+          "origin": "owner_authored",
+          "editorial_status": "owner_selected_draft"
+        }
+      ],
+      "hint_policy": "preserve_existing",
+      "status": "owner_selected_draft_not_published",
+      "editorial_choice": {
+        "selected_options": [
+          "owner_text"
+        ],
+        "owner_selection": true,
+        "round": "36-38"
+      },
+      "owner_original_text": "Уменьшительно-ласкательная форма этого слова означает особенность, шарм, фишку.",
+      "editing_note": "Укорочено с 79 до 66 символов для двухстрочного мобильного определения; оригинальная авторская формулировка сохранена."
+    },
+    {
+      "lemma": "СОСНА",
+      "categories": [
+        "Природа",
+        "Общие знания"
+      ],
+      "preferred_clue_variant": "historical",
+      "clue_variants": [
+        {
+          "id": "historical",
+          "label": "Историческое",
+          "text": "Её стройные стволы когда-то шли на мачты кораблей.",
+          "origin": "ai_draft_owner_selected",
+          "editorial_status": "owner_selected_draft"
+        }
+      ],
+      "hint_policy": "preserve_existing",
+      "status": "owner_selected_draft_not_published",
+      "editorial_choice": {
+        "selected_options": [
+          2
+        ],
+        "owner_selection": true,
+        "round": "36-38"
+      }
     }
   ],
   "editorial_display_guideline": {
