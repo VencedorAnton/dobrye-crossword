@@ -159,6 +159,75 @@
         "round": "12-14",
         "owner_selection": true
       }
+    },
+    {
+      "lemma": "МОРОЗ",
+      "categories": [
+        "Природа"
+      ],
+      "preferred_clue_variant": "associative",
+      "clue_variants": [
+        {
+          "id": "associative",
+          "label": "Ассоциативное",
+          "text": "От него краснеют щёки, а на окнах появляются узоры.",
+          "origin": "ai_draft_owner_selected",
+          "editorial_status": "owner_selected_draft"
+        }
+      ],
+      "hint_policy": "preserve_existing",
+      "status": "owner_selected_draft_not_published",
+      "editorial_choice": {
+        "option": 3,
+        "round": "15-17",
+        "owner_selection": true
+      }
+    },
+    {
+      "lemma": "МУЗЕЙ",
+      "categories": [
+        "Искусство"
+      ],
+      "preferred_clue_variant": "classical",
+      "clue_variants": [
+        {
+          "id": "classical",
+          "label": "Классическое",
+          "text": "Место, где хранят и показывают предметы истории и искусства.",
+          "origin": "ai_draft_owner_selected",
+          "editorial_status": "owner_selected_draft"
+        }
+      ],
+      "hint_policy": "preserve_existing",
+      "status": "owner_selected_draft_not_published",
+      "editorial_choice": {
+        "option": 1,
+        "round": "15-17",
+        "owner_selection": true
+      }
+    },
+    {
+      "lemma": "ПИРОГ",
+      "categories": [
+        "Еда и кухня"
+      ],
+      "preferred_clue_variant": "classical",
+      "clue_variants": [
+        {
+          "id": "classical",
+          "label": "Классическое",
+          "text": "Выпечка с начинкой из ягод, мяса, рыбы или капусты.",
+          "origin": "ai_draft_owner_selected",
+          "editorial_status": "owner_selected_draft"
+        }
+      ],
+      "hint_policy": "preserve_existing",
+      "status": "owner_selected_draft_not_published",
+      "editorial_choice": {
+        "option": 1,
+        "round": "15-17",
+        "owner_selection": true
+      }
     }
   ],
   "editorial_display_guideline": {
