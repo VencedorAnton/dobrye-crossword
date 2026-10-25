@@ -140,6 +140,32 @@ class OwnerBatchEditorialTests(unittest.TestCase):
             self.assertLessEqual(len(definition), 70)
             self.assertEqual(entry["editorial_status"], "draft")
 
+    def test_new_four_editorial_choices(self):
+        from pathlib import Path
+        import json
+        overlay = json.loads(
+            (Path(__file__).resolve().parent / "owner_clue_overrides_v024d.json")
+            .read_text(encoding="utf-8")
+        )
+        expected = {
+            "ВРЕМЯ": "Его тратят, теряют и даже убивают, но вернуть не могут.",
+            "ГРЕБЕНЬ": "У петуха он красный, у волны — пенистый, у горы — скалистый.",
+            "ПЕРО": "Им писали письма задолго до появления шариковой ручки.",
+        }
+        self.assertEqual(len(overlay["changes"]), 22)
+        for word, clue in expected.items():
+            with self.subTest(word=word):
+                entry = self.by_word[word]
+                self.assertEqual(entry["senses"][0]["definition"], clue)
+                self.assertLessEqual(len(clue), 70)
+                self.assertEqual(entry["editorial_status"], "draft")
+        bridge = self.by_word["МОСТ"]
+        options = [x["text"] for x in bridge["senses"][0]["clue_variants"]]
+        self.assertEqual(len(options), 2)
+        self.assertEqual(options[1], "В Петербурге его разводят вовсе не из-за ссоры.")
+        self.assertEqual(bridge["senses"][0]["definition"], options[0])
+        self.assertIn("верхний край горы", self.by_word["ГРЕБЕНЬ"]["senses"][0]["hint"]["text"])
+
     def test_no_publication_and_no_new_words(self):
         self.assertEqual(len(self.entries), 2874)
         self.assertEqual(len(self.drafts), 311)
