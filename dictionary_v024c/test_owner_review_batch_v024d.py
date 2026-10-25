@@ -264,6 +264,34 @@ class OwnerBatchEditorialTests(unittest.TestCase):
         self.assertIn("Литература и классика",
                       self.by_word["ТУЧА"]["topical_categories"])
 
+    def test_giraffe_nut_island_owner_choices(self):
+        expected = {
+            "ЖИРАФ": [
+                "У Гумилёва он «изысканный» и бродит у озера Чад.",
+                "Его ближайший ныне живущий родственник — окапи.",
+            ],
+            "ОРЕХ": [
+                "В сказке Андерсена его скорлупа была колыбелью Дюймовочки.",
+                "Герой балета Чайковского был создан, чтобы их раскалывать.",
+            ],
+            "ОСТРОВ": [
+                "У Жюля Верна — таинственный, у Стивенсона — сокровищ.",
+                "Он бывает материковым, вулканическим и коралловым.",
+            ],
+        }
+        for word, variants in expected.items():
+            with self.subTest(word=word):
+                entry = self.by_word[word]
+                sense = entry["senses"][0]
+                self.assertEqual([v["text"] for v in sense["clue_variants"]],
+                                 variants)
+                self.assertEqual(sense["definition"], variants[0])
+                self.assertTrue(all(len(text) <= 70 for text in variants))
+                self.assertEqual(entry["editorial_status"], "draft")
+                self.assertIsNone(sense["hint"])
+        self.assertIn("Литература и классика",
+                      self.by_word["ОСТРОВ"]["topical_categories"])
+
     def test_no_publication_and_no_new_words(self):
         self.assertEqual(len(self.entries), 2874)
         self.assertEqual(len(self.drafts), 311)
