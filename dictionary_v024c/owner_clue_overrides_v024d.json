@@ -89,6 +89,76 @@
       ],
       "hint_policy": "preserve_existing",
       "status": "owner_selected_draft_not_published"
+    },
+    {
+      "lemma": "ЛИСА",
+      "categories": [
+        "Животные",
+        "Сказки и фольклор"
+      ],
+      "preferred_clue_variant": "folklore",
+      "clue_variants": [
+        {
+          "id": "folklore",
+          "label": "Народные сказки",
+          "text": "Хитрая плутовка из русских народных сказок.",
+          "origin": "ai_draft_owner_selected",
+          "editorial_status": "owner_selected_draft"
+        }
+      ],
+      "hint_policy": "preserve_existing",
+      "status": "owner_selected_draft_not_published",
+      "editorial_choice": {
+        "option": 3,
+        "round": "12-14",
+        "owner_selection": true
+      }
+    },
+    {
+      "lemma": "РАДУГА",
+      "categories": [
+        "Природа"
+      ],
+      "preferred_clue_variant": "classical",
+      "clue_variants": [
+        {
+          "id": "classical",
+          "label": "Классическое",
+          "text": "Разноцветная дуга в небе после дождя.",
+          "origin": "ai_draft_owner_selected",
+          "editorial_status": "owner_selected_draft"
+        }
+      ],
+      "hint_policy": "preserve_existing",
+      "status": "owner_selected_draft_not_published",
+      "editorial_choice": {
+        "option": 1,
+        "round": "12-14",
+        "owner_selection": true
+      }
+    },
+    {
+      "lemma": "ДОЖДЬ",
+      "categories": [
+        "Природа"
+      ],
+      "preferred_clue_variant": "classical",
+      "clue_variants": [
+        {
+          "id": "classical",
+          "label": "Классическое",
+          "text": "Атмосферные осадки из падающих капель воды.",
+          "origin": "ai_draft_owner_selected",
+          "editorial_status": "owner_selected_draft"
+        }
+      ],
+      "hint_policy": "preserve_existing",
+      "status": "owner_selected_draft_not_published",
+      "editorial_choice": {
+        "option": 1,
+        "round": "12-14",
+        "owner_selection": true
+      }
     }
   ],
   "editorial_display_guideline": {
