@@ -669,6 +669,94 @@
         "owner_selection": true,
         "round": "30-32"
       }
+    },
+    {
+      "lemma": "КАША",
+      "categories": [
+        "Еда и кухня",
+        "Пословицы и поговорки"
+      ],
+      "preferred_clue_variant": "proverb",
+      "clue_variants": [
+        {
+          "id": "proverb",
+          "label": "Народная мудрость",
+          "text": "Блюдо из крупы, которое маслом не испортишь.",
+          "origin": "ai_draft_owner_selected",
+          "editorial_status": "owner_selected_draft"
+        },
+        {
+          "id": "wordplay",
+          "label": "Игра слов",
+          "text": "Её можно заварить, даже не подходя к плите.",
+          "origin": "ai_draft_owner_selected",
+          "editorial_status": "owner_selected_draft"
+        },
+        {
+          "id": "idiom",
+          "label": "Фразеологизм",
+          "text": "Её приходится расхлёбывать после чужих неприятностей.",
+          "origin": "ai_draft_owner_selected",
+          "editorial_status": "owner_selected_draft"
+        }
+      ],
+      "hint_policy": "preserve_existing",
+      "status": "owner_selected_draft_not_published",
+      "editorial_choice": {
+        "selected_options": [
+          1,
+          2,
+          3
+        ]
+      }
+    },
+    {
+      "lemma": "ЛАМПА",
+      "categories": [
+        "Дом и быт",
+        "Сказки и фольклор"
+      ],
+      "preferred_clue_variant": "fairytale",
+      "clue_variants": [
+        {
+          "id": "fairytale",
+          "label": "Сказочное",
+          "text": "В сказке об Аладдине в ней скрывался джинн.",
+          "origin": "ai_draft_owner_selected",
+          "editorial_status": "owner_selected_draft"
+        }
+      ],
+      "hint_policy": "preserve_existing",
+      "status": "owner_selected_draft_not_published",
+      "editorial_choice": {
+        "selected_options": [
+          2
+        ]
+      }
+    },
+    {
+      "lemma": "ЛОШАДЬ",
+      "categories": [
+        "Животные",
+        "Общие знания"
+      ],
+      "preferred_clue_variant": "power",
+      "clue_variants": [
+        {
+          "id": "power",
+          "label": "Необычное",
+          "text": "Её имя носит единица мощности автомобильного двигателя.",
+          "origin": "ai_draft_owner_selected",
+          "editorial_status": "owner_selected_draft"
+        }
+      ],
+      "hint_policy": "preserve_existing",
+      "status": "owner_selected_draft_not_published",
+      "editorial_choice": {
+        "selected_options": [
+          2
+        ]
+      }
     }
   ],
   "editorial_display_guideline": {
