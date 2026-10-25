@@ -117,21 +117,25 @@
   "workflow": "Owner reviews 3 words per chat round; commit all 3 choices together to compact owner overrides file after all choices are received; no auto-publication.",
   "latest_three_word_batch": {
     "selections": {
-      "ВОРОБЕЙ": [
+      "ВРЕМЯ": [
+        3
+      ],
+      "ГРЕБЕНЬ": [
         2
       ],
-      "ЗОНТ": [
-        1
-      ],
-      "МОСТ": [
-        1
+      "ПЕРО": [
+        2
       ]
     },
-    "owner_reviewed_words_total": 19,
+    "additional_choice": {
+      "МОСТ": [
+        "Б"
+      ]
+    },
+    "owner_reviewed_words_total": 22,
     "storage": "dictionary_v024c/owner_clue_overrides_v024d.json",
-    "status": "draft_only",
-    "bridge_note": "Owner wants a more interesting St Petersburg drawbridge clue; not selected or saved yet."
+    "status": "draft_only"
   },
-  "editorial_override_count": 19,
+  "editorial_override_count": 22,
   "release_status": "blocked_pending_independent_editorial_review"
 }
