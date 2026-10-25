@@ -228,6 +228,109 @@
         "round": "15-17",
         "owner_selection": true
       }
+    },
+    {
+      "lemma": "СНЕГ",
+      "categories": [
+        "Природа",
+        "Литература и классика"
+      ],
+      "preferred_clue_variant": "poetic",
+      "clue_variants": [
+        {
+          "id": "poetic",
+          "label": "Образное",
+          "text": "Он укрывает землю белым одеялом и скрипит под ногами.",
+          "origin": "ai_draft_owner_selected",
+          "editorial_status": "owner_selected_draft"
+        },
+        {
+          "id": "literary",
+          "label": "Литературное",
+          "text": "У Пушкина он лежит «великолепными коврами».",
+          "origin": "ai_draft_owner_selected",
+          "editorial_status": "owner_selected_draft"
+        }
+      ],
+      "hint_policy": "preserve_existing",
+      "status": "owner_selected_draft_not_published",
+      "editorial_choice": {
+        "selected_options": [
+          2,
+          3
+        ],
+        "round": "18-20",
+        "owner_selection": true
+      }
+    },
+    {
+      "lemma": "СОЛНЦЕ",
+      "categories": [
+        "Природа",
+        "Литература и классика"
+      ],
+      "preferred_clue_variant": "classical",
+      "clue_variants": [
+        {
+          "id": "classical",
+          "label": "Классическое",
+          "text": "Звезда, вокруг которой вращается Земля.",
+          "origin": "ai_draft_owner_selected",
+          "editorial_status": "owner_selected_draft"
+        },
+        {
+          "id": "literary",
+          "label": "Литературное",
+          "text": "Его проглотил крокодил в сказке Корнея Чуковского.",
+          "origin": "ai_draft_owner_selected",
+          "editorial_status": "owner_selected_draft"
+        }
+      ],
+      "hint_policy": "preserve_existing",
+      "status": "owner_selected_draft_not_published",
+      "editorial_choice": {
+        "selected_options": [
+          1,
+          3
+        ],
+        "round": "18-20",
+        "owner_selection": true
+      }
+    },
+    {
+      "lemma": "КОШКА",
+      "categories": [
+        "Животные",
+        "Литература и классика",
+        "Сказки и фольклор"
+      ],
+      "preferred_clue_variant": "literary",
+      "clue_variants": [
+        {
+          "id": "literary",
+          "label": "Литературное",
+          "text": "У Киплинга она гуляла сама по себе.",
+          "origin": "ai_draft_owner_selected",
+          "editorial_status": "owner_selected_draft"
+        },
+        {
+          "id": "folklore",
+          "label": "Народные поверья",
+          "text": "В народе ей приписывают девять жизней.",
+          "origin": "ai_draft_owner_selected",
+          "editorial_status": "owner_selected_draft"
+        }
+      ],
+      "hint_policy": "preserve_existing",
+      "status": "owner_selected_draft_not_published",
+      "editorial_choice": {
+        "selected_options": [
+          2,
+          3
+        ],
+        "round": "18-20",
+        "owner_selection": true
+      }
     }
   ],
   "editorial_display_guideline": {
