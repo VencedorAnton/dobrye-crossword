@@ -117,25 +117,26 @@
   "workflow": "Owner reviews 3 words per chat round; commit all 3 choices together to compact owner overrides file after all choices are received; no auto-publication.",
   "latest_three_word_batch": {
     "selections": {
-      "КАША": [
-        1,
-        2,
+      "КАСТРЮЛЯ": [
         3
       ],
-      "ЛАМПА": [
-        2
+      "ИЗЮМ": [
+        "owner_authored"
       ],
-      "ЛОШАДЬ": [
+      "СОСНА": [
         2
       ]
     },
-    "owner_reviewed_words_total": 28,
-    "saved_clue_count": 5,
+    "owner_reviewed_words_total": 31,
+    "owner_authored_example": {
+      "word": "ИЗЮМ",
+      "original": "Уменьшительно-ласкательная форма этого слова означает особенность, шарм, фишку.",
+      "mobile_clue": "Его уменьшительно-ласкательная форма — особенность, шарм, «фишка»."
+    },
     "storage": "dictionary_v024c/owner_clue_overrides_v024d.json",
-    "hint_policy": "preserve_existing",
     "release_status": "draft_only",
-    "display_rule": "up to two lines; each new clue under 70 characters, rendered mobile check pending"
+    "mobile_qa": "Characters meet 70-character budget, two lines require device test"
   },
-  "editorial_override_count": 28,
+  "editorial_override_count": 31,
   "release_status": "blocked_pending_independent_editorial_review"
 }
