@@ -114,5 +114,39 @@
     "Пословицы и поговорки": 1
   },
   "category_note": "Categories may overlap: one literary category on ГРОЗА, one proverb category on ЖУРАВЛЬ. No additional words or puzzle slots.",
-  "workflow": "Owner reviews 3 words per chat round; commit all 3 choices together to compact owner overrides file after all choices are received; no auto-publication."
+  "workflow": "Owner reviews 3 words per chat round; commit all 3 choices together to compact owner overrides file after all choices are received; no auto-publication.",
+  "latest_three_word_batch": {
+    "choices": [
+      {
+        "word": "ЛИСА",
+        "choice": 3,
+        "clue": "Хитрая плутовка из русских народных сказок.",
+        "categories": [
+          "Животные",
+          "Сказки и фольклор"
+        ]
+      },
+      {
+        "word": "РАДУГА",
+        "choice": 1,
+        "clue": "Разноцветная дуга в небе после дождя.",
+        "categories": [
+          "Природа"
+        ]
+      },
+      {
+        "word": "ДОЖДЬ",
+        "choice": 1,
+        "clue": "Атмосферные осадки из падающих капель воды.",
+        "categories": [
+          "Природа"
+        ]
+      }
+    ],
+    "data_source": "dictionary_v024c/owner_clue_overrides_v024d.json",
+    "editor_preview_synced": true,
+    "qa": "static dataset and JavaScript syntax check completed; runtime Python tests pending",
+    "publication": "not released",
+    "screen_rule": "two lines maximum with large type; short text only, visual device test still pending"
+  }
 }
