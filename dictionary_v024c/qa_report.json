@@ -117,25 +117,26 @@
   "workflow": "Owner reviews 3 words per chat round; commit all 3 choices together to compact owner overrides file after all choices are received; no auto-publication.",
   "latest_three_word_batch": {
     "selections": {
-      "ВРЕМЯ": [
+      "ПЕТУХ": [
+        2,
         3
       ],
-      "ГРЕБЕНЬ": [
+      "КАРМАН": [
+        1,
         2
       ],
-      "ПЕРО": [
-        2
+      "ДЕРЕВО": [
+        1,
+        3
       ]
     },
-    "additional_choice": {
-      "МОСТ": [
-        "Б"
-      ]
-    },
-    "owner_reviewed_words_total": 22,
+    "owner_reviewed_words_total": 25,
+    "saved_clue_count": 6,
     "storage": "dictionary_v024c/owner_clue_overrides_v024d.json",
-    "status": "draft_only"
+    "hint_policy": "preserve_existing",
+    "release_status": "draft_only",
+    "mobile_readability": "all six under 70 characters; visual two-line QA still required"
   },
-  "editorial_override_count": 22,
+  "editorial_override_count": 25,
   "release_status": "blocked_pending_independent_editorial_review"
 }
