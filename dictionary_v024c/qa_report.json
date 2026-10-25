@@ -117,21 +117,21 @@
   "workflow": "Owner reviews 3 words per chat round; commit all 3 choices together to compact owner overrides file after all choices are received; no auto-publication.",
   "latest_three_word_batch": {
     "selections": {
-      "ВОЛК": [
-        1,
-        3
-      ],
-      "КАРТИНА": [
-        3
-      ],
-      "ЛЯГУШКА": [
+      "ВОРОБЕЙ": [
         2
+      ],
+      "ЗОНТ": [
+        1
+      ],
+      "МОСТ": [
+        1
       ]
     },
-    "owner_reviewed_words_total": 16,
-    "storage": "owner_clue_overrides_v024d.json",
-    "status": "draft_only"
+    "owner_reviewed_words_total": 19,
+    "storage": "dictionary_v024c/owner_clue_overrides_v024d.json",
+    "status": "draft_only",
+    "bridge_note": "Owner wants a more interesting St Petersburg drawbridge clue; not selected or saved yet."
   },
-  "editorial_override_count": 16,
+  "editorial_override_count": 19,
   "release_status": "blocked_pending_independent_editorial_review"
 }
