@@ -102,6 +102,32 @@ class OwnerBatchEditorialTests(unittest.TestCase):
                 self.assertIn("Литература и классика", record["topical_categories"])
         self.assertIn("Сказки и фольклор", self.by_word["КОШКА"]["topical_categories"])
 
+    def test_wolf_painting_frog_owner_choices(self):
+        choices = {
+            "ВОЛК": [
+                "Дикий хищник, близкий родственник собаки.",
+                "В известной пословице его кормят ноги.",
+            ],
+            "КАРТИНА": [
+                "Её можно повесить на стену или представить в воображении.",
+            ],
+            "ЛЯГУШКА": [
+                "В сказке она нашла стрелу Ивана-царевича.",
+            ],
+        }
+        for word, definitions in choices.items():
+            with self.subTest(word=word):
+                entry = self.by_word[word]
+                sense = entry["senses"][0]
+                self.assertEqual([v["text"] for v in sense["clue_variants"]], definitions)
+                self.assertEqual(sense["definition"], definitions[0])
+                self.assertTrue(all(len(text) <= 70 for text in definitions))
+                self.assertEqual(entry["editorial_status"], "draft")
+                self.assertTrue(entry["grammar"]["check_required"])
+        self.assertIn("Пословицы и поговорки", self.by_word["ВОЛК"]["topical_categories"])
+        self.assertIn("Сказки и фольклор", self.by_word["ЛЯГУШКА"]["topical_categories"])
+        self.assertIn("общее состояние дел", self.by_word["КАРТИНА"]["senses"][0]["hint"]["text"])
+
     def test_no_publication_and_no_new_words(self):
         self.assertEqual(len(self.entries), 2874)
         self.assertEqual(len(self.drafts), 311)
