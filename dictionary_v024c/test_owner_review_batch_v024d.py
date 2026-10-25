@@ -348,6 +348,36 @@ class OwnerBatchEditorialTests(unittest.TestCase):
             self.assertTrue(all(len(t) <= 70 for t in definitions))
             self.assertEqual(entry["editorial_status"], "draft")
 
+    def test_duck_apple_winter_owner_choices(self):
+        expected = {
+            "УТКА": [
+                "В сказке Андерсена она высидела будущего лебедя.",
+                "Мандаринка, кряква и огарь — три вида этой птицы.",
+                "Её «газетную» разновидность никто не слышал крякающей.",
+            ],
+            "ЯБЛОКО": [
+                "Из-за него в греческом мифе поссорились три богини.",
+                "На голове сына Вильгельма Телля оно стало мишенью.",
+                "Его падение связывают с открытием закона тяготения.",
+            ],
+            "ЗИМА": [
+                "Ей Вивальди завершил цикл «Времена года».",
+                "Она «недаром злится» в стихотворении Тютчева.",
+                "Арчимбольдо изобразил её как старика из голых ветвей.",
+            ],
+        }
+        for word, clues in expected.items():
+            with self.subTest(word=word):
+                entry = self.by_word[word]
+                sense = entry["senses"][0]
+                self.assertEqual([v["text"] for v in sense["clue_variants"]], clues)
+                self.assertEqual(sense["definition"], clues[0])
+                self.assertEqual(entry["editorial_status"], "draft")
+                self.assertTrue(all(len(text) <= 70 for text in clues))
+        self.assertIn("Искусство", self.by_word["ЗИМА"]["topical_categories"])
+        self.assertIn("выдуманную новость",
+                      self.by_word["УТКА"]["senses"][0]["hint"]["text"])
+
     def test_no_publication_and_no_new_words(self):
         self.assertEqual(len(self.entries), 2874)
         self.assertEqual(len(self.drafts), 311)
