@@ -117,28 +117,26 @@
   "workflow": "Owner reviews 3 words per chat round; commit all 3 choices together to compact owner overrides file after all choices are received; no auto-publication.",
   "latest_three_word_batch": {
     "selections": {
-      "ПАСПОРТ": [
+      "КАРТОФЕЛЬ": [
         1,
         2,
         3
       ],
-      "ЛИМОН": [
+      "ПОРТРЕТ": [
         1,
-        2
+        2,
+        3
       ],
-      "БАРАН": [
-        1,
+      "ПАРОХОД": [
+        2,
         3
       ]
     },
-    "owner_reviewed_words_total": 40,
-    "new_clue_variants_count": 7,
-    "storage": "dictionary_v024c/owner_clue_overrides_v024d.json",
-    "hint_policy": "preserve_existing",
-    "status": "draft_only",
-    "mobile_qa": "all new definitions <=70 chars; actual two-line rendering on large-font devices still unverified"
+    "owner_reviewed_words_total": 43,
+    "saved_clue_count": 8,
+    "release_status": "draft_only"
   },
-  "editorial_override_count": 40,
+  "editorial_override_count": 43,
   "release_status": "blocked_pending_independent_editorial_review",
   "owner_feedback": {
     "date": "2026-10-24",
