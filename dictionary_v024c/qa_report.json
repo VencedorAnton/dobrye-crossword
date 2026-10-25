@@ -117,24 +117,28 @@
   "workflow": "Owner reviews 3 words per chat round; commit all 3 choices together to compact owner overrides file after all choices are received; no auto-publication.",
   "latest_three_word_batch": {
     "selections": {
-      "ЖИРАФ": [
+      "ПАСПОРТ": [
+        1,
+        2,
+        3
+      ],
+      "ЛИМОН": [
         1,
         2
       ],
-      "ОРЕХ": [
+      "БАРАН": [
         1,
-        2
-      ],
-      "ОСТРОВ": [
-        1,
-        2
+        3
       ]
     },
-    "owner_reviewed_words_total": 37,
+    "owner_reviewed_words_total": 40,
+    "new_clue_variants_count": 7,
     "storage": "dictionary_v024c/owner_clue_overrides_v024d.json",
-    "release_status": "draft_only"
+    "hint_policy": "preserve_existing",
+    "status": "draft_only",
+    "mobile_qa": "all new definitions <=70 chars; actual two-line rendering on large-font devices still unverified"
   },
-  "editorial_override_count": 37,
+  "editorial_override_count": 40,
   "release_status": "blocked_pending_independent_editorial_review",
   "owner_feedback": {
     "date": "2026-10-24",
@@ -157,5 +161,11 @@
     },
     "caution": "Do not confuse Elba and Saint Helena or label Елена as the entire island name.",
     "added_to_live_dictionary": false
+  },
+  "source_verification_notes": {
+    "passport_history": "Russian travel charters documented as precursors to passports",
+    "lemon_rodari": "Prince Lemon was the ruler in Rodari's Cipollino",
+    "ram_proverb": "Russian idiom: смотреть как баран на новые ворота",
+    "golden_fleece": "Golden fleece of a ram, quest of Jason and Argonauts"
   }
 }
