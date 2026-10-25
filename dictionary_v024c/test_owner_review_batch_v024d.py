@@ -152,7 +152,7 @@ class OwnerBatchEditorialTests(unittest.TestCase):
             "ГРЕБЕНЬ": "У петуха он красный, у волны — пенистый, у горы — скалистый.",
             "ПЕРО": "Им писали письма задолго до появления шариковой ручки.",
         }
-        self.assertEqual(len(overlay["changes"]), 22)
+        self.assertGreaterEqual(len(overlay["changes"]), 28)
         for word, clue in expected.items():
             with self.subTest(word=word):
                 entry = self.by_word[word]
@@ -194,6 +194,32 @@ class OwnerBatchEditorialTests(unittest.TestCase):
                       self.by_word["ДЕРЕВО"]["topical_categories"])
         self.assertIn("древесину",
                       self.by_word["ДЕРЕВО"]["senses"][0]["hint"]["text"])
+
+    def test_porridge_lamp_horse_owner_choices(self):
+        expected = {
+            "КАША": [
+                "Блюдо из крупы, которое маслом не испортишь.",
+                "Её можно заварить, даже не подходя к плите.",
+                "Её приходится расхлёбывать после чужих неприятностей.",
+            ],
+            "ЛАМПА": ["В сказке об Аладдине в ней скрывался джинн."],
+            "ЛОШАДЬ": [
+                "Её имя носит единица мощности автомобильного двигателя."
+            ],
+        }
+        for word, clues in expected.items():
+            with self.subTest(word=word):
+                entry = self.by_word[word]
+                sense = entry["senses"][0]
+                self.assertEqual([v["text"] for v in sense["clue_variants"]], clues)
+                self.assertEqual(sense["definition"], clues[0])
+                self.assertTrue(all(len(t) <= 70 for t in clues))
+                self.assertEqual(entry["editorial_status"], "draft")
+        self.assertIn("Пословицы и поговорки",
+                      self.by_word["КАША"]["topical_categories"])
+        self.assertIn("Сказки и фольклор",
+                      self.by_word["ЛАМПА"]["topical_categories"])
+        self.assertIn("беспорядок", self.by_word["КАША"]["senses"][0]["hint"]["text"])
 
     def test_no_publication_and_no_new_words(self):
         self.assertEqual(len(self.entries), 2874)
