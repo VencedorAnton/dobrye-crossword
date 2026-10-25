@@ -1361,6 +1361,13 @@
           "text": "Она «недаром злится» в стихотворении Тютчева.",
           "origin": "ai_draft_owner_selected",
           "editorial_status": "owner_selected_draft"
+        },
+        {
+          "id": "arcimboldo",
+          "label": "Живопись",
+          "text": "Арчимбольдо изобразил её как старика из голых ветвей.",
+          "origin": "ai_draft_owner_selected",
+          "editorial_status": "owner_selected_draft"
         }
       ],
       "hint_policy": "preserve_existing",
@@ -1368,7 +1375,8 @@
       "editorial_choice": {
         "selected_options": [
           1,
-          2
+          2,
+          3
         ],
         "owner_selection": true,
         "round": "51-53"
