@@ -117,26 +117,25 @@
   "workflow": "Owner reviews 3 words per chat round; commit all 3 choices together to compact owner overrides file after all choices are received; no auto-publication.",
   "latest_three_word_batch": {
     "selections": {
-      "ПЕТУХ": [
+      "КАША": [
+        1,
         2,
         3
       ],
-      "КАРМАН": [
-        1,
+      "ЛАМПА": [
         2
       ],
-      "ДЕРЕВО": [
-        1,
-        3
+      "ЛОШАДЬ": [
+        2
       ]
     },
-    "owner_reviewed_words_total": 25,
-    "saved_clue_count": 6,
+    "owner_reviewed_words_total": 28,
+    "saved_clue_count": 5,
     "storage": "dictionary_v024c/owner_clue_overrides_v024d.json",
     "hint_policy": "preserve_existing",
     "release_status": "draft_only",
-    "mobile_readability": "all six under 70 characters; visual two-line QA still required"
+    "display_rule": "up to two lines; each new clue under 70 characters, rendered mobile check pending"
   },
-  "editorial_override_count": 25,
+  "editorial_override_count": 28,
   "release_status": "blocked_pending_independent_editorial_review"
 }
