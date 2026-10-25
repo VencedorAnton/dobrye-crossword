@@ -42,6 +42,25 @@ class OwnerBatchEditorialTests(unittest.TestCase):
         self.assertIn("Пушкина", sense["clue_variants"][1]["text"])
         self.assertEqual(sense["hint"]["text"], "Так называют гладкую поверхность воды.")
 
+    def test_second_three_word_choices(self):
+        expected = {
+            "ЛИСА": "Хитрая плутовка из русских народных сказок.",
+            "РАДУГА": "Разноцветная дуга в небе после дождя.",
+            "ДОЖДЬ": "Атмосферные осадки из падающих капель воды.",
+        }
+        for word, definition in expected.items():
+            with self.subTest(word=word):
+                item = self.by_word[word]
+                self.assertEqual(item["senses"][0]["definition"], definition)
+                self.assertLessEqual(len(definition), 70)
+                self.assertEqual(item["editorial_status"], "draft")
+
+    def test_fox_hint_and_folklore_category(self):
+        fox = self.by_word["ЛИСА"]
+        self.assertIn("Сказки и фольклор", fox["topical_categories"])
+        self.assertEqual(fox["senses"][0]["hint"]["text"],
+                         "Так могут назвать очень хитрого человека.")
+
     def test_no_publication_and_no_new_words(self):
         self.assertEqual(len(self.entries), 2874)
         self.assertEqual(len(self.drafts), 311)
