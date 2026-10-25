@@ -1138,6 +1138,120 @@
         "round": "45-47",
         "owner_selection": true
       }
+    },
+    {
+      "lemma": "КАРТОФЕЛЬ",
+      "categories": [
+        "Еда и кухня",
+        "Общие знания",
+        "Природа"
+      ],
+      "preferred_clue_variant": "history",
+      "clue_variants": [
+        {
+          "id": "history",
+          "label": "История России",
+          "text": "Против его посадок крестьяне поднимали бунты в XIX веке.",
+          "origin": "ai_draft_owner_selected",
+          "editorial_status": "owner_selected_draft"
+        },
+        {
+          "id": "old_name",
+          "label": "Историческое название",
+          "text": "В старой России его называли «чёртовым яблоком».",
+          "origin": "ai_draft_owner_selected",
+          "editorial_status": "owner_selected_draft"
+        },
+        {
+          "id": "botanical",
+          "label": "Ботаника",
+          "text": "Его ягоды ядовиты, а подземные клубни съедобны.",
+          "origin": "ai_draft_owner_selected",
+          "editorial_status": "owner_selected_draft"
+        }
+      ],
+      "hint_policy": "preserve_existing",
+      "status": "owner_selected_draft_not_published",
+      "editorial_choice": {
+        "selected_options": [
+          1,
+          2,
+          3
+        ]
+      }
+    },
+    {
+      "lemma": "ПОРТРЕТ",
+      "categories": [
+        "Искусство",
+        "Литература и классика"
+      ],
+      "preferred_clue_variant": "literary",
+      "clue_variants": [
+        {
+          "id": "literary",
+          "label": "Зарубежная литература",
+          "text": "У Уайльда он старел вместо Дориана Грея.",
+          "origin": "ai_draft_owner_selected",
+          "editorial_status": "owner_selected_draft"
+        },
+        {
+          "id": "art_history",
+          "label": "История искусства",
+          "text": "Рокотов, Левицкий и Боровиковский — мастера этого жанра.",
+          "origin": "ai_draft_owner_selected",
+          "editorial_status": "owner_selected_draft"
+        },
+        {
+          "id": "art_terms",
+          "label": "Искусствоведение",
+          "text": "Бывает парадным, камерным и психологическим.",
+          "origin": "ai_draft_owner_selected",
+          "editorial_status": "owner_selected_draft"
+        }
+      ],
+      "hint_policy": "preserve_existing",
+      "status": "owner_selected_draft_not_published",
+      "editorial_choice": {
+        "selected_options": [
+          1,
+          2,
+          3
+        ]
+      }
+    },
+    {
+      "lemma": "ПАРОХОД",
+      "categories": [
+        "Город и транспорт",
+        "Литература и классика",
+        "Общие знания"
+      ],
+      "preferred_clue_variant": "twain",
+      "clue_variants": [
+        {
+          "id": "twain",
+          "label": "История литературы",
+          "text": "На нём Марк Твен учился водить суда по Миссисипи.",
+          "origin": "ai_draft_owner_selected",
+          "editorial_status": "owner_selected_draft"
+        },
+        {
+          "id": "wheel",
+          "label": "История техники",
+          "text": "Колёсный тип этого судна двигали лопасти по бокам корпуса.",
+          "origin": "ai_draft_owner_selected",
+          "editorial_status": "owner_selected_draft"
+        }
+      ],
+      "hint_policy": "preserve_existing",
+      "status": "owner_selected_draft_not_published",
+      "editorial_choice": {
+        "selected_options": [
+          2,
+          3
+        ]
+      }
     }
   ],
   "editorial_display_guideline": {
