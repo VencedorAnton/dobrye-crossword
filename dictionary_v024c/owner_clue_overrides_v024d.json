@@ -481,16 +481,93 @@
           "text": "Сооружение, позволяющее пересечь реку или ущелье.",
           "origin": "ai_draft_owner_selected",
           "editorial_status": "owner_selected_draft"
+        },
+        {
+          "id": "petersburg_wordplay",
+          "label": "Петербург, игра слов",
+          "text": "В Петербурге его разводят вовсе не из-за ссоры.",
+          "origin": "ai_draft_owner_selected",
+          "editorial_status": "owner_selected_draft"
         }
       ],
       "hint_policy": "preserve_existing",
       "status": "owner_selected_draft_not_published",
       "editorial_choice": {
         "selected_options": [
-          1
+          1,
+          "Б"
         ],
         "round": "24-26",
         "owner_selection": true
+      }
+    },
+    {
+      "lemma": "ВРЕМЯ",
+      "categories": [
+        "Общие знания"
+      ],
+      "preferred_clue_variant": "figurative",
+      "clue_variants": [
+        {
+          "id": "figurative",
+          "label": "Образное",
+          "text": "Его тратят, теряют и даже убивают, но вернуть не могут.",
+          "origin": "ai_draft_owner_selected",
+          "editorial_status": "owner_selected_draft"
+        }
+      ],
+      "hint_policy": "preserve_existing",
+      "status": "owner_selected_draft_not_published",
+      "editorial_choice": {
+        "selected_options": [
+          3
+        ]
+      }
+    },
+    {
+      "lemma": "ГРЕБЕНЬ",
+      "categories": [
+        "Дом и быт"
+      ],
+      "preferred_clue_variant": "many_meanings",
+      "clue_variants": [
+        {
+          "id": "many_meanings",
+          "label": "Несколько значений",
+          "text": "У петуха он красный, у волны — пенистый, у горы — скалистый.",
+          "origin": "ai_draft_owner_selected",
+          "editorial_status": "owner_selected_draft"
+        }
+      ],
+      "hint_policy": "preserve_existing",
+      "status": "owner_selected_draft_not_published",
+      "editorial_choice": {
+        "selected_options": [
+          2
+        ]
+      }
+    },
+    {
+      "lemma": "ПЕРО",
+      "categories": [
+        "Природа"
+      ],
+      "preferred_clue_variant": "historical",
+      "clue_variants": [
+        {
+          "id": "historical",
+          "label": "Историческое",
+          "text": "Им писали письма задолго до появления шариковой ручки.",
+          "origin": "ai_draft_owner_selected",
+          "editorial_status": "owner_selected_draft"
+        }
+      ],
+      "hint_policy": "preserve_existing",
+      "status": "owner_selected_draft_not_published",
+      "editorial_choice": {
+        "selected_options": [
+          2
+        ]
       }
     }
   ],
