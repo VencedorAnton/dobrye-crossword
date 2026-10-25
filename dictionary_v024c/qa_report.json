@@ -117,26 +117,30 @@
   "workflow": "Owner reviews 3 words per chat round; commit all 3 choices together to compact owner overrides file after all choices are received; no auto-publication.",
   "latest_three_word_batch": {
     "selections": {
-      "КАРТОФЕЛЬ": [
+      "УТКА": [
         1,
         2,
         3
       ],
-      "ПОРТРЕТ": [
+      "ЯБЛОКО": [
         1,
         2,
         3
       ],
-      "ПАРОХОД": [
+      "ЗИМА": [
+        1,
         2,
         3
       ]
     },
-    "owner_reviewed_words_total": 43,
-    "saved_clue_count": 8,
-    "release_status": "draft_only"
+    "owner_reviewed_words_total": 46,
+    "new_clue_variants_count": 9,
+    "additional_selection": "Added ЗИМА option 3 (Arcimboldo) at owner's follow-up",
+    "storage": "dictionary_v024c/owner_clue_overrides_v024d.json",
+    "release_status": "draft_only",
+    "mobile_qa": "Clues <=70 chars; device-specific two-line font test remains pending"
   },
-  "editorial_override_count": 43,
+  "editorial_override_count": 46,
   "release_status": "blocked_pending_independent_editorial_review",
   "owner_feedback": {
     "date": "2026-10-24",
