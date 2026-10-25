@@ -247,7 +247,7 @@
         {
           "id": "literary",
           "label": "Литературное",
-          "text": "У Пушкина он лежит «великолепными коврами».",
+          "text": "У Пушкина он лежит „великолепными коврами“.",
           "origin": "ai_draft_owner_selected",
           "editorial_status": "owner_selected_draft"
         }
