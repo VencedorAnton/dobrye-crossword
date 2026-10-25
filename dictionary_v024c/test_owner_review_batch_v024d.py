@@ -166,6 +166,35 @@ class OwnerBatchEditorialTests(unittest.TestCase):
         self.assertEqual(bridge["senses"][0]["definition"], options[0])
         self.assertIn("верхний край горы", self.by_word["ГРЕБЕНЬ"]["senses"][0]["hint"]["text"])
 
+    def test_rooster_pocket_tree_paired_definitions(self):
+        expected = {
+            "ПЕТУХ": [
+                "Носит шпоры, но не всадник; гребень, но не модник.",
+                "Его можно встретить в курятнике и «пустить» во время пения.",
+            ],
+            "КАРМАН": [
+                "Его советуют держать шире, но обычно с иронией.",
+                "Он бывает накладным, потайным и совершенно пустым.",
+            ],
+            "ДЕРЕВО": [
+                "Его возраст определяют по годовым кольцам на стволе.",
+                "Посадить его — одно из трёх дел по старой житейской мудрости.",
+            ],
+        }
+        for word, definitions in expected.items():
+            with self.subTest(word=word):
+                entry = self.by_word[word]
+                sense = entry["senses"][0]
+                self.assertEqual(
+                    [v["text"] for v in sense["clue_variants"]], definitions)
+                self.assertEqual(sense["definition"], definitions[0])
+                self.assertTrue(all(len(v) <= 70 for v in definitions))
+                self.assertEqual(entry["editorial_status"], "draft")
+        self.assertIn("Пословицы и поговорки",
+                      self.by_word["ДЕРЕВО"]["topical_categories"])
+        self.assertIn("древесину",
+                      self.by_word["ДЕРЕВО"]["senses"][0]["hint"]["text"])
+
     def test_no_publication_and_no_new_words(self):
         self.assertEqual(len(self.entries), 2874)
         self.assertEqual(len(self.drafts), 311)
