@@ -56,7 +56,7 @@ def compile_editorial_view():
             sense["hint"] = hint
         else:
             assert sense.get("hint") == old_hint
-    assert len(seen) == len(patch["changes"]) and len(seen) >= 22
+    assert len(seen) == len(patch["changes"]) and len(seen) >= 25
     assert len(all_entries) == 2874 and len(drafts) == 311
     assert all(e["editorial_status"] != "approved" for e in all_entries)
     stats["version"] = "0.24d.1"
