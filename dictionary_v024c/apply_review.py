@@ -14,6 +14,7 @@ from pathlib import Path
 ROOT = Path(__file__).resolve().parents[1]
 BASE = ROOT / "dictionary_v024b/draft_entries.json"
 BATCH = ROOT / "dictionary_v024c/common_words_batch_001.json"
+EDITORIAL_OVERLAY = ROOT / "dictionary_v024c/owner_clue_overrides_v024d.json"
 HERE = Path(__file__).resolve().parent
 TYPES = {"", "synonym", "alternate_meaning"}
 GRAMMAR = {"", "singular_verified", "plural_only_verified", "needs_review"}
@@ -31,6 +32,12 @@ def validate_export(review, seed_bytes, batch_bytes):
     assert review["final_approval"] is False
     assert review["seed_blob_sha"] == blob_sha(seed_bytes), "Base changed since export"
     assert review["batch_blob_sha"] == blob_sha(batch_bytes), "Expansion batch changed since export"
+    # New editor versions contain a checksum of the owner-selected baseline,
+    # which must match before any browser edit can be treated as a proposal.
+    overlay_sha = review.get("editorial_overlay_blob_sha")
+    if overlay_sha is not None:
+        assert overlay_sha == blob_sha(EDITORIAL_OVERLAY.read_bytes()), (
+            "Owner editorial selections changed since export")
     assert isinstance(review["changes"], list)
     base = json.loads(seed_bytes.decode("utf-8"))
     batch = json.loads(batch_bytes.decode("utf-8"))
