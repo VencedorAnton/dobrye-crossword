@@ -75,6 +75,33 @@ class OwnerBatchEditorialTests(unittest.TestCase):
                 self.assertEqual(entry["editorial_status"], "draft")
                 self.assertEqual(len(entry["senses"][0]["clue_variants"]), 1)
 
+    def test_snow_sun_and_cat_paired_clues(self):
+        examples = {
+            "СНЕГ": [
+                "Он укрывает землю белым одеялом и скрипит под ногами.",
+                "У Пушкина он лежит „великолепными коврами“.",
+            ],
+            "СОЛНЦЕ": [
+                "Звезда, вокруг которой вращается Земля.",
+                "Его проглотил крокодил в сказке Корнея Чуковского.",
+            ],
+            "КОШКА": [
+                "У Киплинга она гуляла сама по себе.",
+                "В народе ей приписывают девять жизней.",
+            ],
+        }
+        for word, texts in examples.items():
+            with self.subTest(word=word):
+                record = self.by_word[word]
+                sense = record["senses"][0]
+                self.assertEqual([x["text"] for x in sense["clue_variants"]], texts)
+                self.assertEqual(sense["definition"], texts[0])
+                self.assertTrue(all(len(v) <= 70 for v in texts))
+                self.assertEqual(record["editorial_status"], "draft")
+                self.assertIsNone(sense["hint"])
+                self.assertIn("Литература и классика", record["topical_categories"])
+        self.assertIn("Сказки и фольклор", self.by_word["КОШКА"]["topical_categories"])
+
     def test_no_publication_and_no_new_words(self):
         self.assertEqual(len(self.entries), 2874)
         self.assertEqual(len(self.drafts), 311)
