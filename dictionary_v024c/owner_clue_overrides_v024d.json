@@ -920,6 +920,111 @@
         "round": "39-41",
         "owner_selection": true
       }
+    },
+    {
+      "lemma": "ЖИРАФ",
+      "categories": [
+        "Животные",
+        "Литература и классика",
+        "Общие знания"
+      ],
+      "preferred_clue_variant": "literary",
+      "clue_variants": [
+        {
+          "id": "literary",
+          "label": "Русская поэзия",
+          "text": "У Гумилёва он «изысканный» и бродит у озера Чад.",
+          "origin": "ai_draft_owner_selected",
+          "editorial_status": "owner_selected_draft"
+        },
+        {
+          "id": "zoological",
+          "label": "Зоология",
+          "text": "Его ближайший ныне живущий родственник — окапи.",
+          "origin": "ai_draft_owner_selected",
+          "editorial_status": "owner_selected_draft"
+        }
+      ],
+      "hint_policy": "preserve_existing",
+      "status": "owner_selected_draft_not_published",
+      "editorial_choice": {
+        "selected_options": [
+          1,
+          2
+        ],
+        "owner_selection": true,
+        "round": "42-44"
+      }
+    },
+    {
+      "lemma": "ОРЕХ",
+      "categories": [
+        "Еда и кухня",
+        "Литература и классика",
+        "Искусство"
+      ],
+      "preferred_clue_variant": "fairytale",
+      "clue_variants": [
+        {
+          "id": "fairytale",
+          "label": "Литература",
+          "text": "В сказке Андерсена его скорлупа была колыбелью Дюймовочки.",
+          "origin": "ai_draft_owner_selected",
+          "editorial_status": "owner_selected_draft"
+        },
+        {
+          "id": "ballet",
+          "label": "Музыка и театр",
+          "text": "Герой балета Чайковского был создан, чтобы их раскалывать.",
+          "origin": "ai_draft_owner_selected",
+          "editorial_status": "owner_selected_draft"
+        }
+      ],
+      "hint_policy": "preserve_existing",
+      "status": "owner_selected_draft_not_published",
+      "editorial_choice": {
+        "selected_options": [
+          1,
+          2
+        ],
+        "owner_selection": true,
+        "round": "42-44"
+      }
+    },
+    {
+      "lemma": "ОСТРОВ",
+      "categories": [
+        "Природа",
+        "Литература и классика",
+        "Общие знания"
+      ],
+      "preferred_clue_variant": "literature",
+      "clue_variants": [
+        {
+          "id": "literature",
+          "label": "Литература",
+          "text": "У Жюля Верна — таинственный, у Стивенсона — сокровищ.",
+          "origin": "ai_draft_owner_selected",
+          "editorial_status": "owner_selected_draft"
+        },
+        {
+          "id": "geological",
+          "label": "Геология",
+          "text": "Он бывает материковым, вулканическим и коралловым.",
+          "origin": "ai_draft_owner_selected",
+          "editorial_status": "owner_selected_draft"
+        }
+      ],
+      "hint_policy": "preserve_existing",
+      "status": "owner_selected_draft_not_published",
+      "editorial_choice": {
+        "selected_options": [
+          1,
+          2
+        ],
+        "owner_selection": true,
+        "round": "42-44"
+      }
     }
   ],
   "editorial_display_guideline": {
