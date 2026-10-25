@@ -35,6 +35,10 @@ def compile_editorial_view():
         for v in change["clue_variants"]:
             assert v["text"].strip() and v["editorial_status"] == "owner_selected_draft"
             assert word.lower().replace("ё", "е") not in v["text"].lower().replace("ё", "е")
+        if word in {"ЗАЯЦ", "ЛУНА", "КНИГА", "ЛИСА", "РАДУГА", "ДОЖДЬ"}:
+            assert all(len(v["text"]) <= 70 for v in change["clue_variants"]), (
+                "Editorial character budget exceeded", word)
+        assert e["editorial_status"] == "draft", word
         e["topical_categories"] = change["categories"]
         sense = e["senses"][0]
         old_hint = sense.get("hint")
@@ -52,7 +56,7 @@ def compile_editorial_view():
             sense["hint"] = hint
         else:
             assert sense.get("hint") == old_hint
-    assert seen == {"ЗЕРКАЛО", "ЗАЯЦ", "ЛУНА", "КНИГА"}
+    assert len(seen) == len(patch["changes"]) and len(seen) >= 7
     assert len(all_entries) == 2874 and len(drafts) == 311
     assert all(e["editorial_status"] != "approved" for e in all_entries)
     stats["version"] = "0.24d.1"
