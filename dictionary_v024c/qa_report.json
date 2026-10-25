@@ -117,30 +117,28 @@
   "workflow": "Owner reviews 3 words per chat round; commit all 3 choices together to compact owner overrides file after all choices are received; no auto-publication.",
   "latest_three_word_batch": {
     "selections": {
-      "УТКА": [
+      "ЖУРАВЛЬ": [
         1,
         2,
         3
       ],
-      "ЯБЛОКО": [
+      "ВОЛНА": [
         1,
         2,
         3
       ],
-      "ЗИМА": [
+      "ПОЛОТНО": [
         1,
         2,
         3
       ]
     },
-    "owner_reviewed_words_total": 46,
-    "new_clue_variants_count": 9,
-    "additional_selection": "Added ЗИМА option 3 (Arcimboldo) at owner's follow-up",
-    "storage": "dictionary_v024c/owner_clue_overrides_v024d.json",
-    "release_status": "draft_only",
-    "mobile_qa": "Clues <=70 chars; device-specific two-line font test remains pending"
+    "owner_reviewed_words_total": 49,
+    "saved_clue_count": 9,
+    "owner_revision": "ЖУРАВЛЬ option 2: European heraldry and stone of vigilance",
+    "status": "draft_only"
   },
-  "editorial_override_count": 46,
+  "editorial_override_count": 49,
   "release_status": "blocked_pending_independent_editorial_review",
   "owner_feedback": {
     "date": "2026-10-24",
