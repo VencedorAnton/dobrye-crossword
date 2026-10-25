@@ -117,26 +117,30 @@
   "workflow": "Owner reviews 3 words per chat round; commit all 3 choices together to compact owner overrides file after all choices are received; no auto-publication.",
   "latest_three_word_batch": {
     "selections": {
-      "КАСТРЮЛЯ": [
+      "ВЕДРО": [
+        2
+      ],
+      "ТУЧА": [
+        1,
         3
       ],
-      "ИЗЮМ": [
-        "owner_authored"
-      ],
-      "СОСНА": [
+      "ПИСЬМО": [
         2
       ]
     },
-    "owner_reviewed_words_total": 31,
-    "owner_authored_example": {
-      "word": "ИЗЮМ",
-      "original": "Уменьшительно-ласкательная форма этого слова означает особенность, шарм, фишку.",
-      "mobile_clue": "Его уменьшительно-ласкательная форма — особенность, шарм, «фишка»."
-    },
+    "owner_reviewed_words_total": 34,
+    "clue_count": 4,
     "storage": "dictionary_v024c/owner_clue_overrides_v024d.json",
-    "release_status": "draft_only",
-    "mobile_qa": "Characters meet 70-character budget, two lines require device test"
+    "status": "draft_only"
   },
-  "editorial_override_count": 31,
-  "release_status": "blocked_pending_independent_editorial_review"
+  "editorial_override_count": 34,
+  "release_status": "blocked_pending_independent_editorial_review",
+  "owner_feedback": {
+    "date": "2026-10-24",
+    "audience": "Эрудированные взрослые, включая пожилых",
+    "issue": "Слишком очевидные определения и тривиальные литературные отсылки",
+    "editorial_adjustment": "Предлагать избирательно культурные, исторические, научные и филологические факты, требующие ассоциации; максимум 2 строки",
+    "documentation": "dictionary_v024c/EDITORIAL_BATCH_WORKFLOW_v024d.md",
+    "cat_example": "Древний Египет, почитание кошек, богиня Бастет; пример направления, а не сохранённый вариант"
+  }
 }
