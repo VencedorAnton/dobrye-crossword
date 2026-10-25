@@ -323,6 +323,31 @@ class OwnerBatchEditorialTests(unittest.TestCase):
         self.assertIn("техническими характеристиками",
                       self.by_word["ПАСПОРТ"]["senses"][0]["hint"]["text"])
 
+    def test_selected_latest_three_clues(self):
+        choices = {
+                "КАРТОФЕЛЬ": [
+                        "Против его посадок крестьяне поднимали бунты в XIX веке.",
+                        "В старой России его называли «чёртовым яблоком».",
+                        "Его ягоды ядовиты, а подземные клубни съедобны."
+                ],
+                "ПОРТРЕТ": [
+                        "У Уайльда он старел вместо Дориана Грея.",
+                        "Рокотов, Левицкий и Боровиковский — мастера этого жанра.",
+                        "Бывает парадным, камерным и психологическим."
+                ],
+                "ПАРОХОД": [
+                        "На нём Марк Твен учился водить суда по Миссисипи.",
+                        "Колёсный тип этого судна двигали лопасти по бокам корпуса."
+                ]
+        }
+        for word, definitions in choices.items():
+            entry = self.by_word[word]
+            sense = entry["senses"][0]
+            self.assertEqual([v["text"] for v in sense["clue_variants"]], definitions)
+            self.assertEqual(sense["definition"], definitions[0])
+            self.assertTrue(all(len(t) <= 70 for t in definitions))
+            self.assertEqual(entry["editorial_status"], "draft")
+
     def test_no_publication_and_no_new_words(self):
         self.assertEqual(len(self.entries), 2874)
         self.assertEqual(len(self.drafts), 311)
