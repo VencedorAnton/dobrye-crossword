@@ -239,6 +239,31 @@ class OwnerBatchEditorialTests(unittest.TestCase):
         self.assertIn("Общие знания",
                       self.by_word["ИЗЮМ"]["topical_categories"])
 
+    def test_bucket_cloud_letter_selected_variants(self):
+        expected = {
+            "ВЕДРО": [
+                "У него есть ручка, но писать оно не умеет.",
+            ],
+            "ТУЧА": [
+                "У Лермонтова они — небесные «вечные странники».",
+                "Она бывает грозовой, а над человеком может сгуститься.",
+            ],
+            "ПИСЬМО": [
+                "Оно бывает заказным, любовным и электронным.",
+            ],
+        }
+        for word, clues in expected.items():
+            with self.subTest(word=word):
+                entry = self.by_word[word]
+                sense = entry["senses"][0]
+                self.assertEqual([v["text"] for v in sense["clue_variants"]], clues)
+                self.assertEqual(sense["definition"], clues[0])
+                self.assertTrue(all(len(clue) <= 70 for clue in clues))
+                self.assertEqual(entry["editorial_status"], "draft")
+                self.assertIsNone(sense["hint"])
+        self.assertIn("Литература и классика",
+                      self.by_word["ТУЧА"]["topical_categories"])
+
     def test_no_publication_and_no_new_words(self):
         self.assertEqual(len(self.entries), 2874)
         self.assertEqual(len(self.drafts), 311)
